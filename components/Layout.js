@@ -1,6 +1,7 @@
 import Head from "next/head";
 import Search from "./Seach";
 import CardBadge from "./CardBadge";
+import ProfileIcon from "./PorfileIcon";
 import { AppBar, Toolbar, Typography, Container } from "@mui/material";
 import { theme } from "../components/Theme";
 
@@ -15,6 +16,7 @@ export default function Layout({ children }) {
           <Typography>My page</Typography>
           <Search />
           <CardBadge />
+          <ProfileIcon />
         </Toolbar>
       </AppBar>
       <Container maxWidth="lg">{children}</Container>
