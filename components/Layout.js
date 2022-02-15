@@ -2,8 +2,17 @@ import Head from "next/head";
 import Search from "./Seach";
 import CardBadge from "./CardBadge";
 import ProfileIcon from "./PorfileIcon";
-import { AppBar, Toolbar, Typography, Container } from "@mui/material";
-import { theme } from "../components/Theme";
+import { Typography, Container } from "@mui/material";
+import { Box } from "@mui/system";
+
+const boxStyle = {
+  display: "flex",
+  justifyContent: "space-between",
+  maxWidth: "1200px",
+  margin: "0 auto",
+  padding: "10px 20px",
+  backgroundColor: "#c39e6b",
+};
 
 export default function Layout({ children }) {
   return (
@@ -11,14 +20,14 @@ export default function Layout({ children }) {
       <Head>
         <title>My page</title>
       </Head>
-      <AppBar position="static">
-        <Toolbar>
-          <Typography>My page</Typography>
-          <Search />
+      <Box sx={boxStyle}>
+        <Typography>My page</Typography>
+        <Search />
+        <div>
           <CardBadge />
           <ProfileIcon />
-        </Toolbar>
-      </AppBar>
+        </div>
+      </Box>
       <Container maxWidth="lg">{children}</Container>
     </div>
   );
