@@ -1,10 +1,10 @@
 import Layout from "../components/Layout";
-import Card from "../components/Card";
+import Product from "../components/Product";
 
 export default function Home() {
   return (
     <Layout>
-      <Card />
+      <Product />
     </Layout>
   );
 }
