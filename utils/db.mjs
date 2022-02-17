@@ -24,10 +24,11 @@ async function connect() {
   connection.isConnected = db.connections[0].readyState;
 }
 
-function disconnect() {
+async function disconnect() {
   if (connection.isConnected) {
-    if (process.env.NODE_ENV === "development") {
-      mongoose.disconnect();
+    if (process.env.NODE_ENV === "production") {
+      await mongoose.disconnect();
+      connection.isConnected = false;
       console.log("disconnect");
     } else {
       console.log("not disconnect");

@@ -1,5 +1,4 @@
 import Image from "next/image";
-import flash1 from "../public/images/flash1.png";
 import data from "../utils/data";
 
 export default function Card() {
@@ -8,7 +7,7 @@ export default function Card() {
       <div className="">
         <h2 className="text-4xl font-bold mb-5 pt-5">Top New Product</h2>
       </div>
-      <div className="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 gap-4">
+      <div className="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 sm:gap-4 mx-auto">
         {data.product.map((product) => (
           <div
             key={product.id}
