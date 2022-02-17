@@ -8,7 +8,7 @@ export default function Layout({ children }) {
         <title>E-Shop</title>
       </Head>
       <Nav />
-      <main className="max-w-screen-lg mx-auto my-0  px-6">{children}</main>
+      <main className="max-w-screen-xl mx-auto my-0  px-6">{children}</main>
     </div>
   );
 }

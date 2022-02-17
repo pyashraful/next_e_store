@@ -2,7 +2,7 @@ const data = {
   product: [
     {
       title: "Smart watch black",
-      image: "./public/images/flash-4.jpg",
+      image: "/images/flash-4.png",
       Brand: "Xiaomi",
       category: "Smart watch",
       price: "1,000",
@@ -12,7 +12,7 @@ const data = {
     },
     {
       title: "Smart watch black",
-      image: "./public/images/flash-4.jpg",
+      image: "/images/flash-4.png",
       Brand: "Xiaomi",
       category: "Smart watch",
       price: "1,000",
@@ -22,7 +22,7 @@ const data = {
     },
     {
       title: "Smart watch black",
-      image: "./public/images/flash-4.jpg",
+      image: "/images/flash-4.png",
       Brand: "Xiaomi",
       category: "Smart watch",
       price: "1,000",
@@ -32,7 +32,7 @@ const data = {
     },
     {
       title: "Smart watch black",
-      image: "./public/images/flash-4.jpg",
+      image: "/images/flash-4.png",
       Brand: "Xiaomi",
       category: "Smart watch",
       price: "1,000",
@@ -42,7 +42,7 @@ const data = {
     },
     {
       title: "Smart watch black",
-      image: "./public/images/flash-4.jpg",
+      image: "/images/flash-4.png",
       Brand: "Xiaomi",
       category: "Smart watch",
       price: "1,000",
@@ -52,7 +52,7 @@ const data = {
     },
     {
       title: "Smart watch black",
-      image: "./public/images/flash-4.jpg",
+      image: "/images/flash-4.png",
       Brand: "Xiaomi",
       category: "Smart watch",
       price: "1,000",

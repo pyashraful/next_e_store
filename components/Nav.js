@@ -3,7 +3,7 @@ import Search from "./Search";
 
 export default function Nav() {
   return (
-    <div className="header pr-6 pl-6">
+    <div className="header pr-6 pl-6 bg-white shadow-blue-50">
       <header className="max-w-screen-xl mx-auto my-0">
         <nav>
           <ul className=" h-20 flex flex-row flex-wrap justify-end justify-items-center items-center">
