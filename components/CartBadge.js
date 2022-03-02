@@ -2,8 +2,7 @@ import * as React from "react";
 import Badge from "@mui/material/Badge";
 import { styled } from "@mui/material/styles";
 import IconButton from "@mui/material/IconButton";
-import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
-
+import ShoppingBagOutlinedIcon from "@mui/icons-material/ShoppingBagOutlined";
 const StyledBadge = styled(Badge)(({ theme }) => ({
   "& .MuiBadge-badge": {
     right: -3,
@@ -13,12 +12,14 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
   },
 }));
 
+const StyleedIconButton = styled(IconButton)({ backgroundColor: "red" });
+
 export default function CustomizedBadges() {
   return (
-    <IconButton aria-label="cart">
+    <StyleedIconButton color="primary" aria-label="cart">
       <StyledBadge badgeContent={4} color="secondary">
-        <ShoppingCartIcon />
+        <ShoppingBagOutlinedIcon />
       </StyledBadge>
-    </IconButton>
+    </StyleedIconButton>
   );
 }

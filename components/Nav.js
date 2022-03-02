@@ -1,5 +1,6 @@
 import CartBadge from "./CartBadge";
 import Search from "./Search";
+import UserProfile from "./UserProfile";
 
 export default function Nav() {
   return (
@@ -11,7 +12,9 @@ export default function Nav() {
             <li className="basis-auto mx-auto my-0">
               <Search />
             </li>
-            <li className="">Profile</li>
+            <li className="">
+              <UserProfile />
+            </li>
             <li className="">
               <CartBadge />
             </li>
