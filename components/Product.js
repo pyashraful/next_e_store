@@ -1,7 +1,11 @@
 import Image from "next/image";
 import data from "../utils/data";
+import db from "../utils/db.mjs";
+import Product from "../model/productSchema";
 
 export default function Card() {
+  // console.log(products);
+
   return (
     <div>
       <div className="">
@@ -91,4 +95,15 @@ export default function Card() {
       </div>
     </div>
   );
+}
+
+export async function getServerSideProps() {
+  db.connect();
+  const product = await Product.findOne({});
+  db.disconnect();
+  return {
+    props: {
+      product,
+    },
+  };
 }
