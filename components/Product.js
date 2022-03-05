@@ -1,8 +1,10 @@
 import Image from "next/image";
-import data from "../utils/data";
+// import data from "../utils/data";
 
-export default function Product() {
-  // console.log(products);
+export default function Product({ products }) {
+  console.log("=========================");
+  console.log(products[1]);
+  console.log("=========================");
 
   return (
     <div>
@@ -10,7 +12,7 @@ export default function Product() {
         <h2 className="text-4xl font-bold mb-5 pt-5">Top New Product</h2>
       </div>
       <div className="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 sm:gap-4 mx-auto">
-        {data.products.map((product) => (
+        {products.map((product) => (
           <div
             key={product.id}
             className="max-w-xs ms:col-start-2 bg-white rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700"
@@ -94,14 +96,3 @@ export default function Product() {
     </div>
   );
 }
-
-// export async function getServerSideProps() {
-//   db.connect();
-//   const product = await Product.findOne({});
-//   db.disconnect();
-//   return {
-//     props: {
-//       product,
-//     },
-//   };
-// }
