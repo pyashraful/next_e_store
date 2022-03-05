@@ -1,16 +1,12 @@
 import nc from "next-connect";
 import Product from "../../../model/productSchema";
-import db from "../../../utils/db.mjs";
+import connectDB from "../../../utils/db.mjs";
 
 const handler = nc();
 handler.get(async (req, res) => {
-  await db.connect();
+  await connectDB();
   const products = await Product.find({});
-  console.log(
-    "🚀 ~ file: index.js ~ line 9 ~ handler.get ~ products",
-    products
-  );
-  await db.disconnect();
+  console.log(products);
   res.send(products);
 });
 

@@ -1,9 +1,7 @@
 import Image from "next/image";
 import data from "../utils/data";
-// import db from "../utils/db.mjs";
-// import Product from "../model/productSchema";
 
-export default function Card() {
+export default function Product() {
   // console.log(products);
 
   return (
@@ -12,7 +10,7 @@ export default function Card() {
         <h2 className="text-4xl font-bold mb-5 pt-5">Top New Product</h2>
       </div>
       <div className="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 sm:gap-4 mx-auto">
-        {data.product.map((product) => (
+        {data.products.map((product) => (
           <div
             key={product.id}
             className="max-w-xs ms:col-start-2 bg-white rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700"
