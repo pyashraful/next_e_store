@@ -5,9 +5,10 @@ import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
+import CricleButton from "./CricleButton";
 
 import Divider from "@mui/material/Divider";
-import Button from "@mui/material/Button";
+import IconButton from "@mui/material/IconButton";
 import ListItemText from "@mui/material/ListItemText";
 import ListItemAvatar from "@mui/material/ListItemAvatar";
 import Avatar from "@mui/material/Avatar";
@@ -19,16 +20,13 @@ export default function Cart() {
       <Box sx={{ width: 350 }}>
         <List>
           <ListItem>
-            <Button
-              variant="outlined"
-              sx={{ width: 20, height: 20, borderRadius: "50%" }}
-            >
+            <CricleButton>
               <AddIcon />
-            </Button>
+            </CricleButton>
             <div>1</div>
-            <Button variant="outline">
+            <CricleButton variant="outline">
               <RemoveIcon />
-            </Button>
+            </CricleButton>
             <ListItemAvatar>
               <Image
                 src={`${data.products[0].image}`}
