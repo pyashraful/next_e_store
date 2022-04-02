@@ -1,11 +1,13 @@
 import Image from "next/image";
 import Drawer from "@mui/material/Drawer";
+import Stack from "@mui/material/Stack";
 import Box from "@mui/material/Box";
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import CricleButton from "./CricleButton";
+import CloseIcon from "@mui/icons-material/Close";
 
 import Divider from "@mui/material/Divider";
 import IconButton from "@mui/material/IconButton";
@@ -20,13 +22,15 @@ export default function Cart() {
       <Box sx={{ width: 350 }}>
         <List>
           <ListItem>
-            <CricleButton>
-              <AddIcon />
-            </CricleButton>
-            <div>1</div>
-            <CricleButton variant="outline">
-              <RemoveIcon />
-            </CricleButton>
+            <Stack direction="column" alignItems="center">
+              <CricleButton>
+                <AddIcon />
+              </CricleButton>
+              <Box>1</Box>
+              <CricleButton>
+                <RemoveIcon />
+              </CricleButton>
+            </Stack>
             <ListItemAvatar>
               <Image
                 src={`${data.products[0].image}`}
@@ -35,6 +39,10 @@ export default function Cart() {
                 height={76}
               />
             </ListItemAvatar>
+            <ListItemText>{data.products[0].title}</ListItemText>
+            <CricleButton>
+              <CloseIcon />
+            </CricleButton>
           </ListItem>
         </List>
       </Box>
