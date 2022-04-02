@@ -3,26 +3,32 @@ import { createContext, useReducer } from "react";
 export const Store = createContext();
 
 const initialState = {
-  cartOpen: true,
+  cartOpen: false,
 };
 
 function reducer(state, action) {
-  if (action.type === "OPEN_CART") {
-    return {
-      ...state,
-      cartOpen: true,
-    };
+  switch (action.type) {
+    case "OPEN_CART": {
+      return {
+        ...state,
+        cartOpen: true,
+      };
+    }
   }
-  if (action.type === "CLOSE_CART") {
-    return {
-      ...state,
-      cartOpen: false,
-    };
+  switch (action.type) {
+    case "CLOSE_CART": {
+      return {
+        ...state,
+        cartOpen: false,
+      };
+    }
   }
 }
 
 export function StoreProvider({ children }) {
   const [state, dispatch] = useReducer(reducer, initialState);
-  const value = { state, dispatch };
+  console.log("🚀 ~ file: store.js ~ line 26 ~ StoreProvider ~ state", state);
+
+  const value = [state, dispatch];
   return <Store.Provider value={value}>{children}</Store.Provider>;
 }

@@ -5,7 +5,7 @@ import connectDB from "../utils/db.mjs";
 import ProductModel from "../model/productSchema";
 
 export default function Home({ products }) {
-  console.log("🚀 ~ file: index.js ~ line 8 ~ Home ~ products", products);
+  // console.log("🚀 ~ file: index.js ~ line 8 ~ Home ~ products", products);
   return (
     <Layout>
       <Product products={products} />
@@ -18,10 +18,10 @@ export async function getServerSideProps() {
   const product = await ProductModel.find().lean();
   const products = JSON.parse(JSON.stringify(product));
 
-  console.log(
-    "🚀 ~ file: index.js ~ line 19 ~ getServerSideProps ~ products",
-    products
-  );
+  // console.log(
+  //   "🚀 ~ file: index.js ~ line 19 ~ getServerSideProps ~ products",
+  //   products
+  // );
 
   return {
     props: {

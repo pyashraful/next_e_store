@@ -9,6 +9,7 @@ import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import CricleButton from "./CricleButton";
 import CloseIcon from "@mui/icons-material/Close";
+import ShoppingBagOutlinedIcon from "@mui/icons-material/ShoppingBagOutlined";
 
 import Divider from "@mui/material/Divider";
 import IconButton from "@mui/material/IconButton";
@@ -17,19 +18,30 @@ import ListItemAvatar from "@mui/material/ListItemAvatar";
 import Avatar from "@mui/material/Avatar";
 import data from "../utils/data";
 import { Store } from "../utils/store";
+import { Typography } from "@mui/material";
 
 export default function Cart() {
   const [state, dispatch] = useContext(Store);
-  const cartOpen = state;
+  console.log("🚀 ~ file: Cart.js ~ line 23 ~ Cart ~ dispatch", dispatch);
+  const { cartOpen } = state;
   function toggleDrawer() {
     if (cartOpen === true) {
+      console.log("hi");
       dispatch({ type: "CLOSE_CART" });
     }
+    if (cartOpen === false) {
+      console.log("by");
+      dispatch({ type: "OPEN_CART" });
+    }
   }
-
   return (
     <Drawer anchor="right" open={cartOpen} onClose={toggleDrawer}>
       <Box sx={{ width: 350 }}>
+        <Stack direction="row" spacing={2} sx={{ padding: 5 }}>
+          <ShoppingBagOutlinedIcon />
+          <Typography>Cart Item</Typography>
+        </Stack>
+        <Divider />
         <List>
           <ListItem>
             <Stack direction="column" alignItems="center">
@@ -41,14 +53,14 @@ export default function Cart() {
                 <RemoveIcon />
               </CricleButton>
             </Stack>
-            <ListItemAvatar>
+            <Box sx={{ width: 80, height: 80 }}>
               <Image
                 src={`${data.products[0].image}`}
                 alt="Picture of the author"
-                width={76}
-                height={76}
+                width={80}
+                height={80}
               />
-            </ListItemAvatar>
+            </Box>
             <ListItemText>{data.products[0].title}</ListItemText>
             <CricleButton>
               <CloseIcon />

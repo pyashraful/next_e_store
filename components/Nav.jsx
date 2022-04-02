@@ -6,7 +6,18 @@ import { Store } from "../utils/store";
 
 export default function Nav() {
   const [state, dispatch] = useContext(Store);
-  const cartOpen = state;
+  const { cartOpen } = state;
+
+  function toggleDrawer() {
+    if (cartOpen === true) {
+      console.log("hi");
+      dispatch({ type: "CLOSE_CART" });
+    }
+    if (cartOpen === false) {
+      console.log("by");
+      dispatch({ type: "OPEN_CART" });
+    }
+  }
 
   return (
     <div className="header pr-6 pl-6 bg-white shadow-blue-50">
@@ -20,7 +31,7 @@ export default function Nav() {
             <li className="">
               <UserProfile />
             </li>
-            <li onClick={() => dispatch({ type: "CART_OPEN" })} className="">
+            <li onClick={() => toggleDrawer()} className="">
               <CartBadge />
             </li>
           </ul>
