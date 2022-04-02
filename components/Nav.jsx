@@ -1,8 +1,13 @@
+import { useContext } from "react";
 import CartBadge from "./CartBadge";
 import Search from "./Search";
 import UserProfile from "./UserProfile";
+import { Store } from "../utils/store";
 
 export default function Nav() {
+  const [state, dispatch] = useContext(Store);
+  const cartOpen = state;
+
   return (
     <div className="header pr-6 pl-6 bg-white shadow-blue-50">
       <header className="max-w-screen-xl mx-auto my-0">
@@ -15,7 +20,7 @@ export default function Nav() {
             <li className="">
               <UserProfile />
             </li>
-            <li className="">
+            <li onClick={() => dispatch({ type: "CART_OPEN" })} className="">
               <CartBadge />
             </li>
           </ul>

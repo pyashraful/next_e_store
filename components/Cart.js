@@ -1,3 +1,4 @@
+import { useContext } from "react";
 import Image from "next/image";
 import Drawer from "@mui/material/Drawer";
 import Stack from "@mui/material/Stack";
@@ -15,10 +16,19 @@ import ListItemText from "@mui/material/ListItemText";
 import ListItemAvatar from "@mui/material/ListItemAvatar";
 import Avatar from "@mui/material/Avatar";
 import data from "../utils/data";
+import { Store } from "../utils/store";
 
 export default function Cart() {
+  const [state, dispatch] = useContext(Store);
+  const cartOpen = state;
+  function toggleDrawer() {
+    if (cartOpen === true) {
+      dispatch({ type: "CLOSE_CART" });
+    }
+  }
+
   return (
-    <Drawer anchor="right" open={true}>
+    <Drawer anchor="right" open={cartOpen} onClose={toggleDrawer}>
       <Box sx={{ width: 350 }}>
         <List>
           <ListItem>
