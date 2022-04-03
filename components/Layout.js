@@ -11,7 +11,7 @@ export default function Layout({ children }) {
       </Head>
       <Nav />
       <Cart />
-      <SearchInput />
+      {/* <SearchInput /> */}
       <main className="max-w-screen-xl mx-auto my-0  px-6">{children}</main>
     </div>
   );

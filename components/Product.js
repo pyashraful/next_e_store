@@ -2,9 +2,9 @@ import Image from "next/image";
 // import data from "../utils/data";
 
 export default function Product({ products }) {
-  console.log("=========================");
-  console.log(products[1]);
-  console.log("=========================");
+  // console.log("=========================");
+  // console.log(products[1]);
+  // console.log("=========================");
 
   return (
     <div>
