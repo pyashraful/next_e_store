@@ -6,7 +6,7 @@ const handler = nc();
 handler.get(async (req, res) => {
   await connectDB();
   const products = await Product.find({});
-  console.log(products);
+  // console.log(products);
   res.send(products);
 });
 

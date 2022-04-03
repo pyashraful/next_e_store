@@ -10,9 +10,9 @@ import ListItem from "@mui/material/ListItem";
 import CricleButton from "./CricleButton";
 import CloseIcon from "@mui/icons-material/Close";
 import ShoppingBagOutlinedIcon from "@mui/icons-material/ShoppingBagOutlined";
+import Button from "@mui/material/Button";
 
 import Divider from "@mui/material/Divider";
-import IconButton from "@mui/material/IconButton";
 import ListItemText from "@mui/material/ListItemText";
 import ListItemAvatar from "@mui/material/ListItemAvatar";
 import Avatar from "@mui/material/Avatar";
@@ -37,36 +37,50 @@ export default function Cart() {
   return (
     <Drawer anchor="right" open={cartOpen} onClose={toggleDrawer}>
       <Box sx={{ width: 350 }}>
-        <Stack direction="row" spacing={2} sx={{ padding: 5 }}>
-          <ShoppingBagOutlinedIcon />
-          <Typography>Cart Item</Typography>
-        </Stack>
-        <Divider />
-        <List>
-          <ListItem>
-            <Stack direction="column" alignItems="center">
+        <Box
+          sx={{
+            overflow: "auto",
+            height: "calc(100vh - 80px - 3.25rem)",
+          }}
+        >
+          <Stack direction="row" spacing={2} sx={{ padding: 5 }}>
+            <ShoppingBagOutlinedIcon />
+            <Typography>Cart Item</Typography>
+          </Stack>
+          <Divider />
+          <List>
+            <ListItem>
+              <Stack direction="column" alignItems="center">
+                <CricleButton>
+                  <AddIcon />
+                </CricleButton>
+                <Box>1</Box>
+                <CricleButton>
+                  <RemoveIcon />
+                </CricleButton>
+              </Stack>
+              <Box sx={{ width: 80, height: 80 }}>
+                <Image
+                  src={`${data.products[0].image}`}
+                  alt="Picture of the author"
+                  width={80}
+                  height={80}
+                />
+              </Box>
+              <ListItemText>{data.products[0].title}</ListItemText>
               <CricleButton>
-                <AddIcon />
+                <CloseIcon />
               </CricleButton>
-              <Box>1</Box>
-              <CricleButton>
-                <RemoveIcon />
-              </CricleButton>
-            </Stack>
-            <Box sx={{ width: 80, height: 80 }}>
-              <Image
-                src={`${data.products[0].image}`}
-                alt="Picture of the author"
-                width={80}
-                height={80}
-              />
-            </Box>
-            <ListItemText>{data.products[0].title}</ListItemText>
-            <CricleButton>
-              <CloseIcon />
-            </CricleButton>
-          </ListItem>
-        </List>
+            </ListItem>
+          </List>
+        </Box>
+
+        <Box sx={{ margin: 2 }}>
+          <Button variant="outlined" fullWidth>
+            Checkout
+          </Button>
+          <Button fullWidth>View cart</Button>
+        </Box>
       </Box>
     </Drawer>
   );

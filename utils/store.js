@@ -14,8 +14,7 @@ function reducer(state, action) {
         cartOpen: true,
       };
     }
-  }
-  switch (action.type) {
+
     case "CLOSE_CART": {
       return {
         ...state,
