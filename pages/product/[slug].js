@@ -6,8 +6,6 @@ import Box from "@mui/material/Box";
 import { Container } from "@mui/material";
 
 export default function Details({ product }) {
-  console.log("🚀 ~ file: [slug].js ~ line 5 ~ Details ~ product", product);
-
   return (
     <Container>
       <Grid container>
@@ -20,10 +18,9 @@ export default function Details({ product }) {
                 alt="product image"
                 width={300}
                 height={300}
-                layout="responsive"
+                // layout="responsive"
               />
             </Box>
-            <Box></Box>
           </Box>
         </Grid>
         <Grid item xs={6}>
@@ -35,26 +32,12 @@ export default function Details({ product }) {
 }
 
 export async function getServerSideProps(context) {
-  console.log(context);
   const { params } = context;
-  console.log(
-    "🚀 ~ file: [slug].js ~ line 14 ~ getServerSideProps ~ params",
-    params
-  );
   const { slug } = params;
-  console.log(
-    "🚀 ~ file: [slug].js ~ line 16 ~ getServerSideProps ~ slug",
-    slug
-  );
 
   await connectDB();
   const data = await ProductModel.findOne({ slug }).lean();
   const product = JSON.parse(JSON.stringify(data));
-
-  // console.log(
-  //   "🚀 ~ file: index.js ~ line 19 ~ getServerSideProps ~ products",
-  //   products
-  // );
 
   return {
     props: {
