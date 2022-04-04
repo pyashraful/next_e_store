@@ -1,3 +1,4 @@
+import useSWR from "swr";
 import { useContext } from "react";
 import Image from "next/image";
 import Drawer from "@mui/material/Drawer";
@@ -21,6 +22,12 @@ import { Store } from "../utils/store";
 import { Typography } from "@mui/material";
 
 export default function Cart() {
+  function cartswr() {
+    const { data, errors } = useSWR("/api/products", {});
+  }
+
+  useSWR();
+
   const [state, dispatch] = useContext(Store);
   console.log("🚀 ~ file: Cart.js ~ line 23 ~ Cart ~ dispatch", dispatch);
   const { cartOpen } = state;

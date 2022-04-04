@@ -1,4 +1,6 @@
+import Link from "next/link";
 import Image from "next/image";
+
 // import data from "../utils/data";
 
 export default function Product({ products }) {
@@ -14,19 +16,21 @@ export default function Product({ products }) {
       <div className="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 sm:gap-4 mx-auto">
         {products.map((product) => (
           <div
-            key={product.id}
+            key={product._id}
             className="max-w-xs ms:col-start-2 bg-white rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700"
           >
-            <a href="#">
-              <Image
-                className="p-8 rounded-t-lg"
-                src={`${product.image}`}
-                alt="product image"
-                width={554}
-                height={540}
-                layout="responsive"
-              />
-            </a>
+            <Link href={`/product/${product._id}`} passHref>
+              <a href="#">
+                <Image
+                  className="p-8 rounded-t-lg"
+                  src={`${product.image}`}
+                  alt="product image"
+                  width={554}
+                  height={540}
+                  layout="responsive"
+                />
+              </a>
+            </Link>
             <div className="px-5 pb-5">
               <a href="#">
                 <h3 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
