@@ -1,3 +1,4 @@
+import { Container } from "@mui/material";
 import { useContext } from "react";
 import CartBadge from "./CartBadge";
 import Search from "./Search";
