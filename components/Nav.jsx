@@ -1,4 +1,4 @@
-import { Container } from "@mui/material";
+import { Container, Box, Stack } from "@mui/material";
 import { useContext } from "react";
 import CartBadge from "./CartBadge";
 import Search from "./Search";
@@ -21,23 +21,32 @@ export default function Nav() {
   }
 
   return (
-    <div className="header pr-6 pl-6 bg-white shadow-blue-50">
-      <header className="max-w-screen-xl mx-auto my-0">
-        <nav>
-          <ul className=" h-20 flex flex-row flex-wrap justify-end justify-items-center items-center">
-            <li className="">E-SHOP</li>
-            <li className="basis-auto mx-auto my-0">
-              <Search />
-            </li>
-            <li className="">
-              <UserProfile />
-            </li>
-            <li onClick={() => toggleDrawer()} className="">
-              <CartBadge />
-            </li>
-          </ul>
-        </nav>
-      </header>
-    </div>
+    <Box sx={{ background: "#fff", height: "80px" }}>
+      <Container>
+        <header className="max-w-screen-xl mx-auto my-0">
+          <nav>
+            <Stack
+              direction="row"
+              justifyContent="space-between"
+              alignItems="center"
+              spacing={2}
+            >
+              <Box className="">E-SHOP</Box>
+              <Box className="basis-auto mx-auto my-0">
+                <Search />
+              </Box>
+              <Stack direction="row" spacing={2}>
+                <Box className="">
+                  <UserProfile />
+                </Box>
+                <Box onClick={() => toggleDrawer()} className="">
+                  <CartBadge />
+                </Box>
+              </Stack>
+            </Stack>
+          </nav>
+        </header>
+      </Container>
+    </Box>
   );
 }
