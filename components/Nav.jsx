@@ -21,7 +21,7 @@ export default function Nav() {
   }
 
   return (
-    <Box sx={{ background: "#fff", height: "80px" }}>
+    <Box sx={{ background: "#fff" }}>
       <Container>
         <header className="max-w-screen-xl mx-auto my-0">
           <nav>
@@ -30,6 +30,7 @@ export default function Nav() {
               justifyContent="space-between"
               alignItems="center"
               spacing={2}
+              sx={{ height: "80px" }}
             >
               <Box className="">E-SHOP</Box>
               <Box className="basis-auto mx-auto my-0">
