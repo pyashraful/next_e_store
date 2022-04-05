@@ -9,7 +9,7 @@ import Layout from "../../components/Layout.js";
 export default function Details({ product }) {
   return (
     <Layout>
-      <Container>
+      <Container sx={{ margin: "2rem auto" }}>
         <Grid container>
           <Grid item xs={6} sx={{ width: "100%" }}>
             <Box>
@@ -28,12 +28,30 @@ export default function Details({ product }) {
           <Grid item xs={6}>
             <Box>
               <Stack>
-                <Typography variant="h4">{product.title}</Typography>
-                <Typography variant="body1">Brand: {product.brand}</Typography>
-                <Typography variant="body2">Rated: {product.rating}</Typography>
+                <Typography
+                  variant="h4"
+                  sx={{ fontWeight: 700, marginBottom: "1rem" }}
+                >
+                  {product.title}
+                </Typography>
+                <Typography variant="body1" sx={{ marginBottom: "1rem" }}>
+                  Brand: {product.brand}
+                </Typography>
+                <Typography variant="body2" sx={{ marginBottom: "1rem" }}>
+                  Rated: {product.rating}
+                </Typography>
 
-                <Stack>
-                  <Typography variant="body1">${product.price}</Typography>
+                <Stack sx={{ marginBottom: "1.5rem" }}>
+                  <Typography
+                    sx={{
+                      marginBottom: ".25rem",
+                      fontWeight: 700,
+                      color: "primary",
+                      fontSize: "1.5rem",
+                    }}
+                  >
+                    ${product.price}
+                  </Typography>
                   <Typography variant="body1">
                     {product.countInStock ? "Stock Available" : "Stock out"}
                   </Typography>
