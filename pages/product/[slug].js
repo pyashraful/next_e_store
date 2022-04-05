@@ -1,3 +1,4 @@
+import useSWR from "swr";
 import Image from "next/image";
 import connectDB from "../../utils/db.mjs";
 import ProductModel from "../../model/productSchema";
@@ -7,6 +8,12 @@ import { Button, Container, Stack, Typography } from "@mui/material";
 import Layout from "../../components/Layout.js";
 
 export default function Details({ product }) {
+  const { data, errors } = useSWR(`api/products/${product._id}`);
+  console.log("🚀 ~ file: [slug].js ~ line 12 ~ Details ~ data", data);
+  console.log("🚀 ~ file: [slug].js ~ line 12 ~ Details ~ data", data);
+  console.log(data);
+  const addToCartHandler = async () => {};
+
   return (
     <Layout>
       <Container sx={{ margin: "2rem auto" }}>
@@ -57,7 +64,11 @@ export default function Details({ product }) {
                   </Typography>
                 </Stack>
                 <Box>
-                  <Button variant="contained" sx={{ background: "red" }}>
+                  <Button
+                    variant="contained"
+                    sx={{ background: "red" }}
+                    onClick={addToCartHandler}
+                  >
                     adds
                   </Button>
                 </Box>
