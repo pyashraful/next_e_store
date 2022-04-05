@@ -1,6 +1,5 @@
 import Head from "next/head";
 import Nav from "./Nav";
-import SearchInput from "./SearchInput";
 import Cart from "./Cart";
 
 export default function Layout({ children }) {

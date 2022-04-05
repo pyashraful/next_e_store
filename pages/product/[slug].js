@@ -3,31 +3,52 @@ import connectDB from "../../utils/db.mjs";
 import ProductModel from "../../model/productSchema";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
-import { Container } from "@mui/material";
+import { Button, Container, Stack, Typography } from "@mui/material";
+import Layout from "../../components/Layout.js";
 
 export default function Details({ product }) {
   return (
-    <Container>
-      <Grid container>
-        <Grid item xs={6} sx={{ width: "100%" }}>
-          <Box>
-            <Box sx={{ display: "flex", justifyContent: "center" }}>
-              <Image
-                className="p-8 rounded-t-lg"
-                src={`${product.image}`}
-                alt="product image"
-                width={300}
-                height={300}
-                // layout="responsive"
-              />
+    <Layout>
+      <Container>
+        <Grid container>
+          <Grid item xs={6} sx={{ width: "100%" }}>
+            <Box>
+              <Box sx={{ display: "flex", justifyContent: "center" }}>
+                <Image
+                  className="p-8 rounded-t-lg"
+                  src={`${product.image}`}
+                  alt="product image"
+                  width={300}
+                  height={300}
+                  // layout="responsive"
+                />
+              </Box>
             </Box>
-          </Box>
+          </Grid>
+          <Grid item xs={6}>
+            <Box>
+              <Stack>
+                <Typography variant="h4">{product.title}</Typography>
+                <Typography variant="body1">Brand: {product.brand}</Typography>
+                <Typography variant="body2">Rated: {product.rating}</Typography>
+
+                <Stack>
+                  <Typography variant="body1">${product.price}</Typography>
+                  <Typography variant="body1">
+                    {product.countInStock ? "Stock Available" : "Stock out"}
+                  </Typography>
+                </Stack>
+                <Box>
+                  <Button variant="contained" sx={{ background: "red" }}>
+                    adds
+                  </Button>
+                </Box>
+              </Stack>
+            </Box>
+          </Grid>
         </Grid>
-        <Grid item xs={6}>
-          helloworld
-        </Grid>
-      </Grid>
-    </Container>
+      </Container>
+    </Layout>
   );
 }
 
