@@ -9,7 +9,7 @@ export default function Home({ products }) {
   // console.log("🚀 ~ file: index.js ~ line 8 ~ Home ~ products", products);
   return (
     <Layout>
-      <Product products={products} />
+      {/* <Product products={products} /> */}
       <ProductsItems products={products} />
     </Layout>
   );
