@@ -23,8 +23,12 @@ import { Typography } from "@mui/material";
 
 export default function Cart() {
   const [state, dispatch] = useContext(Store);
-  console.log("🚀 ~ file: Cart.js ~ line 23 ~ Cart ~ dispatch", dispatch);
+  console.log("🚀 ~ file: Cart.js ~ line 26 ~ Cart ~ state", state);
+
   const { cartOpen } = state;
+  const cartItems = state.cart.cartItems;
+  console.log("🚀 ~ file: Cart.js ~ line 30 ~ Cart ~ cartItems", cartItems);
+
   function toggleDrawer() {
     if (cartOpen === true) {
       console.log("hi");
@@ -50,29 +54,31 @@ export default function Cart() {
           </Stack>
           <Divider />
           <List>
-            <ListItem>
-              <Stack direction="column" alignItems="center">
+            {cartItems.map((item) => (
+              <ListItem key={item._id}>
+                <Stack direction="column" alignItems="center">
+                  <CricleButton>
+                    <AddIcon />
+                  </CricleButton>
+                  <Box>1</Box>
+                  <CricleButton>
+                    <RemoveIcon />
+                  </CricleButton>
+                </Stack>
+                <Box sx={{ width: 80, height: 80 }}>
+                  <Image
+                    src={`${item.image}`}
+                    alt="Picture of the author"
+                    width={80}
+                    height={80}
+                  />
+                </Box>
+                <ListItemText>{data.products[0].title}</ListItemText>
                 <CricleButton>
-                  <AddIcon />
+                  <CloseIcon />
                 </CricleButton>
-                <Box>1</Box>
-                <CricleButton>
-                  <RemoveIcon />
-                </CricleButton>
-              </Stack>
-              <Box sx={{ width: 80, height: 80 }}>
-                <Image
-                  src={`${data.products[0].image}`}
-                  alt="Picture of the author"
-                  width={80}
-                  height={80}
-                />
-              </Box>
-              <ListItemText>{data.products[0].title}</ListItemText>
-              <CricleButton>
-                <CloseIcon />
-              </CricleButton>
-            </ListItem>
+              </ListItem>
+            ))}
           </List>
         </Box>
 

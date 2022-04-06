@@ -11,12 +11,9 @@ import { Store } from "../../utils/store.js";
 
 export default function Details({ product }) {
   const [state, dispatch] = useContext(Store);
-  const { cart } = state;
-  console.log("🚀 ~ file: [slug].js ~ line 15 ~ Details ~ cart", cart);
 
   const addToCartHandler = async () => {
     const res = await axios.get(`/api/products/${product._id}`);
-    console.log("🚀 ~ file: [slug].js ~ line 15 ~ addToCartHandler ~ res", res);
     dispatch({ type: "ADD_TO_CART", payload: { ...product, quantity: 1 } });
   };
 

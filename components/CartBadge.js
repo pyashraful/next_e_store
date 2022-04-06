@@ -14,10 +14,15 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
 
 const StyleedIconButton = styled(IconButton)({ backgroundColor: "red" });
 
-export default function CustomizedBadges({ badgecon }) {
+export default function CustomizedBadges({ cartItems }) {
+  const [numItems, setNumItems] = React.useState(0);
+
+  React.useEffect(() => {
+    setNumItems(cartItems.length);
+  }, [cartItems]);
   return (
     <StyleedIconButton color="primary" aria-label="cart">
-      <StyledBadge badgeContent={badgecon} color="secondary">
+      <StyledBadge badgeContent={numItems} color="secondary">
         <ShoppingBagOutlinedIcon />
       </StyledBadge>
     </StyleedIconButton>

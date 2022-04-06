@@ -9,15 +9,18 @@ export default function Nav() {
   const [state, dispatch] = useContext(Store);
   const { cartOpen, cart } = state;
   console.log("🚀 ~ file: Nav.jsx ~ line 11 ~ Nav ~ cart", cart);
-  const badgecon = cart.cartItems.length;
-  console.log("🚀 ~ file: Nav.jsx ~ line 13 ~ Nav ~ badgecon", badgecon);
+  const cartItems = cart.cartItems;
+  console.log(
+    "🚀 ~ file: Nav.jsx ~ line 13 ~ Nav ~ cartItems",
+    cartItems.length
+  );
+
+  console.log("🚀 ~ file: Nav.jsx ~ line 13 ~ Nav ~ cartItems", cartItems);
   function toggleDrawer() {
     if (cartOpen === true) {
-      console.log("hi");
       dispatch({ type: "CLOSE_CART" });
     }
     if (cartOpen === false) {
-      console.log("by");
       dispatch({ type: "OPEN_CART" });
     }
   }
@@ -42,8 +45,8 @@ export default function Nav() {
                 <Box className="">
                   <UserProfile />
                 </Box>
-                <Box onClick={() => toggleDrawer()} className="">
-                  <CartBadge badgecon={badgecon} />
+                <Box onClick={() => toggleDrawer()}>
+                  <CartBadge cartItems={cartItems} />
                 </Box>
               </Stack>
             </Stack>
