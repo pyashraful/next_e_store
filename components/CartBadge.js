@@ -14,10 +14,10 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
 
 const StyleedIconButton = styled(IconButton)({ backgroundColor: "red" });
 
-export default function CustomizedBadges() {
+export default function CustomizedBadges({ badgecon }) {
   return (
     <StyleedIconButton color="primary" aria-label="cart">
-      <StyledBadge badgeContent={4} color="secondary">
+      <StyledBadge badgeContent={badgecon} color="secondary">
         <ShoppingBagOutlinedIcon />
       </StyledBadge>
     </StyleedIconButton>

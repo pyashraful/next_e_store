@@ -7,8 +7,10 @@ import { Store } from "../utils/store";
 
 export default function Nav() {
   const [state, dispatch] = useContext(Store);
-  const { cartOpen } = state;
-
+  const { cartOpen, cart } = state;
+  console.log("🚀 ~ file: Nav.jsx ~ line 11 ~ Nav ~ cart", cart);
+  const badgecon = cart.cartItems.length;
+  console.log("🚀 ~ file: Nav.jsx ~ line 13 ~ Nav ~ badgecon", badgecon);
   function toggleDrawer() {
     if (cartOpen === true) {
       console.log("hi");
@@ -41,7 +43,7 @@ export default function Nav() {
                   <UserProfile />
                 </Box>
                 <Box onClick={() => toggleDrawer()} className="">
-                  <CartBadge />
+                  <CartBadge badgecon={badgecon} />
                 </Box>
               </Stack>
             </Stack>
