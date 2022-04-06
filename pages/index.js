@@ -1,5 +1,6 @@
 import Layout from "../components/Layout";
 import Product from "../components/Product";
+import ProductsItems from "../components/product/ProductsItems";
 
 import connectDB from "../utils/db.mjs";
 import ProductModel from "../model/productSchema";
@@ -9,6 +10,7 @@ export default function Home({ products }) {
   return (
     <Layout>
       <Product products={products} />
+      <ProductsItems products={products} />
     </Layout>
   );
 }
