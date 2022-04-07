@@ -49,9 +49,14 @@ export default function ProductsItems({ products }) {
                     <Box>
                       <Link href={`/product/${product._id}`} passHref>
                         <Typography
-                          sx={{ fontWeight: 600 }}
+                          sx={{
+                            fontWeight: 600,
+                            overflow: "hidden",
+                            textOverflow: "ellipsis",
+                          }}
                           variant="subtitle1"
                           component="h3"
+                          noWrap={true}
                         >
                           {product.title}
                         </Typography>
