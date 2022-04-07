@@ -14,8 +14,6 @@ import Button from "@mui/material/Button";
 
 import Divider from "@mui/material/Divider";
 import ListItemText from "@mui/material/ListItemText";
-import ListItemAvatar from "@mui/material/ListItemAvatar";
-import Avatar from "@mui/material/Avatar";
 import data from "../utils/data";
 import { Store } from "../utils/store";
 import { Typography } from "@mui/material";

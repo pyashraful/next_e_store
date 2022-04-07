@@ -5,7 +5,7 @@ export default function Search() {
     <Box>
       <FormControl>
         <TextField
-          label="Search"
+          placeholder="Searching for..."
           InputProps={{
             startAdornment: <SearchIcon />,
             endAdornment: <Button>Search</Button>,
