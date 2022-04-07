@@ -11,6 +11,6 @@ const CartIconButton = styled(ButtonBase)({
   },
 });
 
-export default function CricleButton({ children }) {
-  return <CartIconButton>{children}</CartIconButton>;
+export default function CricleButton({ children, ...props }) {
+  return <CartIconButton {...props}>{children}</CartIconButton>;
 }

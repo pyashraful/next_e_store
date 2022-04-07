@@ -29,6 +29,11 @@ export default function Cart() {
   const cartItems = state.cart.cartItems;
   // console.log("🚀 ~ file: Cart.js ~ line 30 ~ Cart ~ cartItems", cartItems);
 
+  function removeItem(id) {
+    console.log("removeItem id", id);
+    dispatch({ type: "REMOVE_FROM_CART", payload: id });
+  }
+
   function toggleDrawer() {
     if (cartOpen === true) {
       console.log("hi");
@@ -74,7 +79,7 @@ export default function Cart() {
                   />
                 </Box>
                 <ListItemText>{data.products[0].title}</ListItemText>
-                <CricleButton>
+                <CricleButton onClick={() => removeItem(item._id)}>
                   <CloseIcon />
                 </CricleButton>
               </ListItem>
