@@ -1,4 +1,3 @@
-import useSWR from "swr";
 import { useContext } from "react";
 import Image from "next/image";
 import Drawer from "@mui/material/Drawer";
@@ -45,7 +44,12 @@ export default function Cart() {
     }
   }
   return (
-    <Drawer anchor="right" open={cartOpen} onClose={toggleDrawer}>
+    <Drawer
+      anchor="right"
+      sx={{ zIndex: 1999 }}
+      open={cartOpen}
+      onClose={toggleDrawer}
+    >
       <Box sx={{ width: 350 }}>
         <Box
           sx={{

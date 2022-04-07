@@ -5,14 +5,12 @@ import IconButton from "@mui/material/IconButton";
 import ShoppingBagOutlinedIcon from "@mui/icons-material/ShoppingBagOutlined";
 const StyledBadge = styled(Badge)(({ theme }) => ({
   "& .MuiBadge-badge": {
-    right: -3,
-    top: 13,
+    right: -8,
+    top: 0,
     border: `2px solid ${theme.palette.background.paper}`,
     padding: "0 4px",
   },
 }));
-
-const StyleedIconButton = styled(IconButton)({ backgroundColor: "red" });
 
 export default function CustomizedBadges({ cartItems }) {
   const [numItems, setNumItems] = React.useState(0);
@@ -21,10 +19,14 @@ export default function CustomizedBadges({ cartItems }) {
     setNumItems(cartItems.length);
   }, [cartItems]);
   return (
-    <StyleedIconButton color="primary" aria-label="cart">
-      <StyledBadge badgeContent={numItems} color="secondary">
+    <IconButton
+      aria-label="cart"
+      sx={{ backgroundColor: "action.hover" }}
+      size="large"
+    >
+      <StyledBadge badgeContent={numItems} color="primary">
         <ShoppingBagOutlinedIcon />
       </StyledBadge>
-    </StyleedIconButton>
+    </IconButton>
   );
 }

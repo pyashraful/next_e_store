@@ -11,7 +11,7 @@ export default function Layout({ children }) {
       <Nav />
       <Cart />
       {/* <SearchInput /> */}
-      <main className="max-w-screen-xl mx-auto my-0  px-6">{children}</main>
+      <main style={{ marginTop: "120px" }}>{children}</main>
     </div>
   );
 }
