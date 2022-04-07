@@ -13,9 +13,9 @@ import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
 export default function ProductsItems({ products }) {
   return (
-    <Grid container>
+    <Grid container spacing={4}>
       {products.map((product) => (
-        <Grid item xs={4} xl={3} key={product._id}>
+        <Grid item lg={3} xl={2} key={product._id}>
           <Paper>
             <Box>
               <Link href={`/product/${product._id}`} passHref>
@@ -36,7 +36,7 @@ export default function ProductsItems({ products }) {
                       <Typography
                         sx={{ fontWeight: 600 }}
                         variant="subtitle1"
-                        variantMapping="h3"
+                        component="h3"
                       >
                         {product.title}
                       </Typography>
