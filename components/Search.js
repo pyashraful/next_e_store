@@ -1,21 +1,16 @@
-import SearchIcon from "../public/SearchIcon.svg";
-
+import { Box, Button, FormControl, TextField } from "@mui/material";
+import SearchIcon from "@mui/icons-material/Search";
 export default function Search() {
   return (
-    <div className=" pl-3 border-2 w-[550px] flex justify-between items-center rounded-full focus-within:ring focus-within:ring-violet-300 overflow-hidden">
-      <div>
-        <SearchIcon />
-      </div>
-      <div className="w-full">
-        <input
-          className="w-full p-3 border-none focus:outline-none"
-          type="search"
-          placeholder="Search"
+    <Box>
+      <FormControl>
+        <TextField
+          InputProps={{
+            startAdornment: <SearchIcon />,
+            endAdornment: <Button>Search</Button>,
+          }}
         />
-      </div>
-      <div>
-        <button className="bg-green-600 p-3">Search</button>
-      </div>
-    </div>
+      </FormControl>
+    </Box>
   );
 }

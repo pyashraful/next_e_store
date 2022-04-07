@@ -18,7 +18,7 @@ export default function ProductsItems({ products }) {
   //   products
   // );
   return (
-    <Container sx={{ m: "2rem" }}>
+    <Container sx={{ m: "2rem auto" }}>
       <Grid container spacing={4}>
         {products.map((product) => (
           <Grid item lg={3} xl={2} key={product._id}>
