@@ -20,7 +20,7 @@ import data from "../utils/data";
 import { Store } from "../utils/store";
 import { Typography } from "@mui/material";
 
-export default function Cart() {
+export default function CartDrawer() {
   const [state, dispatch] = useContext(Store);
   // console.log("🚀 ~ file: Cart.js ~ line 26 ~ Cart ~ state", state);
 
