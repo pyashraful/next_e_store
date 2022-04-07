@@ -1,5 +1,5 @@
 import Layout from "../components/Layout";
-import Product from "../components/Product";
+// import Product from "../components/Product";
 import ProductsItems from "../components/product/ProductsItems";
 
 import connectDB from "../utils/db.mjs";
@@ -17,7 +17,7 @@ export default function Home({ products }) {
 
 export async function getServerSideProps() {
   await connectDB();
-  const product = await ProductModel.find().lean();
+  const product = await ProductModel.find({}).lean();
   const products = JSON.parse(JSON.stringify(product));
 
   // console.log(

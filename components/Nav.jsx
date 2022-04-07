@@ -8,14 +8,14 @@ import { Store } from "../utils/store";
 export default function Nav() {
   const [state, dispatch] = useContext(Store);
   const { cartOpen, cart } = state;
-  console.log("🚀 ~ file: Nav.jsx ~ line 11 ~ Nav ~ cart", cart);
+  // console.log("🚀 ~ file: Nav.jsx ~ line 11 ~ Nav ~ cart", cart);
   const cartItems = cart.cartItems;
-  console.log(
-    "🚀 ~ file: Nav.jsx ~ line 13 ~ Nav ~ cartItems",
-    cartItems.length
-  );
+  // console.log(
+  //   "🚀 ~ file: Nav.jsx ~ line 13 ~ Nav ~ cartItems",
+  //   cartItems.length
+  // );
 
-  console.log("🚀 ~ file: Nav.jsx ~ line 13 ~ Nav ~ cartItems", cartItems);
+  // console.log("🚀 ~ file: Nav.jsx ~ line 13 ~ Nav ~ cartItems", cartItems);
   function toggleDrawer() {
     if (cartOpen === true) {
       dispatch({ type: "CLOSE_CART" });

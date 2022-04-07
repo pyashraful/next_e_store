@@ -23,11 +23,11 @@ import { Typography } from "@mui/material";
 
 export default function Cart() {
   const [state, dispatch] = useContext(Store);
-  console.log("🚀 ~ file: Cart.js ~ line 26 ~ Cart ~ state", state);
+  // console.log("🚀 ~ file: Cart.js ~ line 26 ~ Cart ~ state", state);
 
   const { cartOpen } = state;
   const cartItems = state.cart.cartItems;
-  console.log("🚀 ~ file: Cart.js ~ line 30 ~ Cart ~ cartItems", cartItems);
+  // console.log("🚀 ~ file: Cart.js ~ line 30 ~ Cart ~ cartItems", cartItems);
 
   function toggleDrawer() {
     if (cartOpen === true) {
