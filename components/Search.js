@@ -2,8 +2,8 @@ import { Box, Button, FormControl, TextField } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 export default function Search() {
   return (
-    <Box>
-      <FormControl>
+    <Box sx={{}}>
+      <FormControl sx={{ width: "100%" }}>
         <TextField
           placeholder="Searching for..."
           InputProps={{

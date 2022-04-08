@@ -40,10 +40,10 @@ export default function Nav() {
                 justifyContent="space-between"
                 alignItems="center"
                 spacing={2}
-                sx={{ height: "80px" }}
+                sx={{ height: "80px", width: "100%" }}
               >
-                <Box className="">E-SHOP</Box>
-                <Box className="basis-auto mx-auto my-0">
+                <Box sx={{ display: "flex", minWidth: "170px" }}>E-SHOP</Box>
+                <Box sx={{ display: "flex", flex: "1 1 0" }}>
                   <Search />
                 </Box>
                 <Stack direction="row" spacing={2}>

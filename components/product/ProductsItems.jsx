@@ -13,10 +13,6 @@ import {
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
 export default function ProductsItems({ products }) {
-  // console.log(
-  //   "🚀 ~ file: ProductsItems.jsx ~ line 16 ~ ProductsItems ~ products",
-  //   products
-  // );
   return (
     <Container sx={{ m: "2rem auto" }}>
       <Grid

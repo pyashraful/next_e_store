@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import Image from "next/image";
 import Drawer from "@mui/material/Drawer";
 import Stack from "@mui/material/Stack";
@@ -20,11 +20,10 @@ import { Typography } from "@mui/material";
 
 export default function CartDrawer() {
   const [state, dispatch] = useContext(Store);
-  // console.log("🚀 ~ file: Cart.js ~ line 26 ~ Cart ~ state", state);
+  const [quantity, setquantity] = useState(1);
 
   const { cartOpen } = state;
   const cartItems = state.cart.cartItems;
-  // console.log("🚀 ~ file: Cart.js ~ line 30 ~ Cart ~ cartItems", cartItems);
 
   function removeItem(id) {
     console.log("removeItem id", id);
@@ -64,11 +63,11 @@ export default function CartDrawer() {
             {cartItems.map((item) => (
               <ListItem key={item._id}>
                 <Stack direction="column" alignItems="center">
-                  <CricleButton>
+                  <CricleButton onClick={() => setquantity(quantity + 1)}>
                     <AddIcon />
                   </CricleButton>
-                  <Box>1</Box>
-                  <CricleButton>
+                  <Box>{quantity}</Box>
+                  <CricleButton onClick={() => setquantity(quantity - 1)}>
                     <RemoveIcon />
                   </CricleButton>
                 </Stack>
@@ -80,7 +79,23 @@ export default function CartDrawer() {
                     height={80}
                   />
                 </Box>
-                <ListItemText>{data.products[0].title}</ListItemText>
+                <Box>
+                  <Typography
+                    sx={{ fontSize: 14, fontWeight: 600 }}
+                    variant="h5"
+                  >
+                    {item.title}
+                  </Typography>
+                  <small>{`${item.price} * ${quantity}`}</small>
+                  <Typography
+                    sx={{
+                      fontSize: 14,
+                      fontWeight: 600,
+                      color: "primary.main",
+                    }}
+                    variant="subtitle1"
+                  >{`$${item.price * quantity}`}</Typography>
+                </Box>
                 <CricleButton onClick={() => removeItem(item._id)}>
                   <CloseIcon />
                 </CricleButton>
