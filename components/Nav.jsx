@@ -43,7 +43,13 @@ export default function Nav() {
                 sx={{ height: "80px", width: "100%" }}
               >
                 <Box sx={{ display: "flex", minWidth: "170px" }}>E-SHOP</Box>
-                <Box sx={{ display: "flex", flex: "1 1 0" }}>
+                <Box
+                  sx={{
+                    display: "flex",
+                    flex: "1 1 0",
+                    justifyContent: "center",
+                  }}
+                >
                   <Search />
                 </Box>
                 <Stack direction="row" spacing={2}>
