@@ -62,43 +62,52 @@ export default function CartDrawer() {
           <List>
             {cartItems.map((item) => (
               <ListItem key={item._id}>
-                <Stack direction="column" alignItems="center">
-                  <CricleButton onClick={() => setquantity(quantity + 1)}>
-                    <AddIcon />
+                <Box
+                  sx={{
+                    display: "flex",
+                    justifyContent: "space-between",
+                    width: "100%",
+                    alignItems: "center",
+                  }}
+                >
+                  <Stack direction="column" alignItems="center">
+                    <CricleButton onClick={() => setquantity(quantity + 1)}>
+                      <AddIcon />
+                    </CricleButton>
+                    <Box>{quantity}</Box>
+                    <CricleButton onClick={() => setquantity(quantity - 1)}>
+                      <RemoveIcon />
+                    </CricleButton>
+                  </Stack>
+                  <Box sx={{ width: 80, height: 80 }}>
+                    <Image
+                      src={`${item.image}`}
+                      alt="Picture of the author"
+                      width={80}
+                      height={80}
+                    />
+                  </Box>
+                  <Box>
+                    <Typography
+                      sx={{ fontSize: 14, fontWeight: 600 }}
+                      variant="h5"
+                    >
+                      {item.title}
+                    </Typography>
+                    <small>{`${item.price} * ${quantity}`}</small>
+                    <Typography
+                      sx={{
+                        fontSize: 14,
+                        fontWeight: 600,
+                        color: "primary.main",
+                      }}
+                      variant="subtitle1"
+                    >{`$${item.price * quantity}`}</Typography>
+                  </Box>
+                  <CricleButton onClick={() => removeItem(item._id)}>
+                    <CloseIcon />
                   </CricleButton>
-                  <Box>{quantity}</Box>
-                  <CricleButton onClick={() => setquantity(quantity - 1)}>
-                    <RemoveIcon />
-                  </CricleButton>
-                </Stack>
-                <Box sx={{ width: 80, height: 80 }}>
-                  <Image
-                    src={`${item.image}`}
-                    alt="Picture of the author"
-                    width={80}
-                    height={80}
-                  />
                 </Box>
-                <Box>
-                  <Typography
-                    sx={{ fontSize: 14, fontWeight: 600 }}
-                    variant="h5"
-                  >
-                    {item.title}
-                  </Typography>
-                  <small>{`${item.price} * ${quantity}`}</small>
-                  <Typography
-                    sx={{
-                      fontSize: 14,
-                      fontWeight: 600,
-                      color: "primary.main",
-                    }}
-                    variant="subtitle1"
-                  >{`$${item.price * quantity}`}</Typography>
-                </Box>
-                <CricleButton onClick={() => removeItem(item._id)}>
-                  <CloseIcon />
-                </CricleButton>
               </ListItem>
             ))}
           </List>
