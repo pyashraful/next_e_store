@@ -23,7 +23,16 @@ export default function Search() {
             <Button
               variant="contained"
               size="large"
-              sx={{ height: 44, width: 140 }}
+              sx={{
+                height: 44,
+                width: 140,
+                backgroundColor: "#F6F9FC",
+                color: "text.primary",
+                fontWeight: "bold",
+                "&:hover": {
+                  backgroundColor: "#F6F9FC",
+                },
+              }}
             >
               Search
             </Button>
