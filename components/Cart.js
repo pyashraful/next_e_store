@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { useContext, useState } from "react";
 import Image from "next/image";
 import Drawer from "@mui/material/Drawer";
@@ -13,8 +14,6 @@ import ShoppingBagOutlinedIcon from "@mui/icons-material/ShoppingBagOutlined";
 import Button from "@mui/material/Button";
 
 import Divider from "@mui/material/Divider";
-import ListItemText from "@mui/material/ListItemText";
-import data from "../utils/data";
 import { Store } from "../utils/store";
 import { Typography } from "@mui/material";
 
@@ -88,12 +87,14 @@ export default function CartDrawer() {
                     />
                   </Box>
                   <Box>
-                    <Typography
-                      sx={{ fontSize: 14, fontWeight: 600 }}
-                      variant="h5"
-                    >
-                      {item.title}
-                    </Typography>
+                    <Link href={`/product/${item._id}`} passHref>
+                      <Typography
+                        sx={{ fontSize: 14, fontWeight: 600 }}
+                        variant="h5"
+                      >
+                        {item.title}
+                      </Typography>
+                    </Link>
                     <small>{`${item.price} * ${quantity}`}</small>
                     <Typography
                       sx={{

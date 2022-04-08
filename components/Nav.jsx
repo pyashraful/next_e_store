@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Container, Box, Stack } from "@mui/material";
 import { useContext } from "react";
 import CartBadge from "./CartBadge";
@@ -42,7 +43,9 @@ export default function Nav() {
                 spacing={2}
                 sx={{ height: "80px", width: "100%" }}
               >
-                <Box sx={{ display: "flex", minWidth: "170px" }}>E-SHOP</Box>
+                <Box sx={{ display: "flex", minWidth: "170px" }}>
+                  <Link href={"/"}>E-SHOP</Link>
+                </Box>
                 <Box
                   sx={{
                     display: "flex",
