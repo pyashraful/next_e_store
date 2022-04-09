@@ -45,7 +45,7 @@ export default function Nav() {
               >
                 <Box
                   sx={{
-                    display: { lg: "flex", xs: "none" },
+                    display: { md: "flex", xs: "none" },
                     minWidth: "170px",
                   }}
                 >
@@ -60,7 +60,11 @@ export default function Nav() {
                 >
                   <Search />
                 </Box>
-                <Stack direction="row" spacing={2}>
+                <Stack
+                  direction="row"
+                  spacing={2}
+                  sx={{ display: { xs: "none", md: "flex" } }}
+                >
                   <Box className="">
                     <UserProfile />
                   </Box>
