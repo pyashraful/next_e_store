@@ -43,7 +43,12 @@ export default function Nav() {
                 spacing={2}
                 sx={{ height: "80px", width: "100%" }}
               >
-                <Box sx={{ display: "flex", minWidth: "170px" }}>
+                <Box
+                  sx={{
+                    display: { lg: "flex", xs: "none" },
+                    minWidth: "170px",
+                  }}
+                >
                   <Link href={"/"}>E-SHOP</Link>
                 </Box>
                 <Box
