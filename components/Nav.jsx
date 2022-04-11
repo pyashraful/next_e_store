@@ -34,7 +34,7 @@ export default function Nav() {
     <FixDiv>
       <Box sx={{ background: "#fff" }}>
         <Container>
-          <header className="max-w-screen-xl mx-auto my-0">
+          <header>
             <nav>
               <Stack
                 direction="row"
