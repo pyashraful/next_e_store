@@ -10,7 +10,9 @@ const FixDiv = styled("div")({
   left: 0,
   right: 0,
   zIndex: 1500,
-  boxShadow: "rgb(43 52 69 / 10%) 0px 4px 16px",
+  boxShadow: "0px 1px 4px 3px rgb(0 0 0 / 10%)",
+  width: "100vw",
+  backgroundColor: "white",
 });
 
 export default function MobileNav() {
