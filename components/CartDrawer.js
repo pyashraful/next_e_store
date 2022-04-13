@@ -15,6 +15,10 @@ import Divider from "@mui/material/Divider";
 import { Store } from "../utils/store";
 import { Typography } from "@mui/material";
 
+const s = {
+  borRer: "25px",
+};
+
 export default function CartDrawer() {
   const [state, dispatch] = useContext(Store);
   const { cartOpen } = state;
@@ -132,7 +136,10 @@ export default function CartDrawer() {
                         variant="subtitle1"
                       >{`$${item.price * item.quantity}`}</Typography>
                     </Box>
-                    <CricleButton onClick={() => removeItem(item._id)}>
+                    <CricleButton
+                      iconSize="squ"
+                      onClick={() => removeItem(item._id)}
+                    >
                       <CloseIcon />
                     </CricleButton>
                   </Box>
