@@ -29,7 +29,6 @@ export default function ProductsItems({ products }) {
                 <Link href={`/product/${product._id}`} passHref>
                   <a>
                     <Image
-                      className="p-8 rounded-t-lg"
                       src={`${product.image}`}
                       alt="product image"
                       width={554}
