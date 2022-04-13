@@ -50,12 +50,17 @@ export default function CartDrawer() {
         <Box
           sx={{
             overflow: "auto",
-            height: "calc(100vh - 80px - 3.25rem)",
+            height: "calc((100vh - 70px) - 3.25rem)",
           }}
         >
-          <Stack direction="row" spacing={2} sx={{ padding: 5 }}>
+          <Stack
+            direction="row"
+            alignItems="center"
+            spacing={2}
+            sx={{ height: 74, mx: 2.5 }}
+          >
             <ShoppingBagOutlinedIcon />
-            <Typography>Cart Item</Typography>
+            <Box>{`${cartItems.length}`} Item</Box>
           </Stack>
           <Divider />
           <List>
@@ -114,11 +119,13 @@ export default function CartDrawer() {
           </List>
         </Box>
 
-        <Box sx={{ margin: 2 }}>
-          <Button variant="outlined" fullWidth>
+        <Box sx={{ p: 2.5 }}>
+          <Button sx={{ mb: 1 }} variant="contained" fullWidth>
             Checkout
           </Button>
-          <Button fullWidth>View cart</Button>
+          <Button variant="outlined" fullWidth>
+            View cart
+          </Button>
         </Box>
       </Box>
     </Drawer>
