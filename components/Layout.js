@@ -1,6 +1,6 @@
 import Head from "next/head";
 import Nav from "./Nav";
-import Cart from "./Cart";
+import CartDrawer from "./CartDrawer";
 import MobileNav from "./mobileNav/MobileNav";
 
 export default function Layout({ children }) {
@@ -10,7 +10,7 @@ export default function Layout({ children }) {
         <title>E-Shop</title>
       </Head>
       <Nav />
-      <Cart />
+      <CartDrawer />
       {/* <SearchInput /> */}
       <main style={{ marginTop: "120px" }}>{children}</main>
       <MobileNav />
