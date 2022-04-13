@@ -92,8 +92,13 @@ export default function CartDrawer() {
                       alignItems: "center",
                     }}
                   >
-                    <Stack direction="column" alignItems="center">
+                    <Stack
+                      direction="column"
+                      alignItems="center"
+                      spacing={0.75}
+                    >
                       <CricleButton
+                        iconSize="squrare"
                         onClick={() => incriseQuantity(item, item.quantity)}
                       >
                         <AddIcon />
@@ -133,7 +138,7 @@ export default function CartDrawer() {
                       >{`$${item.price * item.quantity}`}</Typography>
                     </Box>
                     <CricleButton
-                      iconSize="squ"
+                      iconSize="smallCricle"
                       size="small"
                       onClick={() => removeItem(item._id)}
                     >

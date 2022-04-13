@@ -56,7 +56,7 @@ export default function Details({ product }) {
                     sx={{
                       marginBottom: ".25rem",
                       fontWeight: 700,
-                      color: "primary",
+                      color: "primary.main",
                       fontSize: "1.5rem",
                     }}
                   >
@@ -69,10 +69,10 @@ export default function Details({ product }) {
                 <Box>
                   <Button
                     variant="contained"
-                    sx={{ background: "red" }}
+                    sx={{ background: "primary.main" }}
                     onClick={addToCartHandler}
                   >
-                    adds
+                    Add To Cart
                   </Button>
                 </Box>
               </Stack>
@@ -85,29 +85,13 @@ export default function Details({ product }) {
 }
 
 export async function getServerSideProps(context) {
-  // console.log(
-  //   "🚀 ~ file: [slug].js ~ line 89 ~ getServerSideProps ~ context",
-  //   context
-  // );
   const { params } = context;
   const { slug } = params;
-  // console.log(
-  //   "🚀 ~ file: [slug].js ~ line 91 ~ getServerSideProps ~ slug",
-  //   slug
-  // );
 
   await connectDB();
   const data = await ProductModel.findById(slug);
-  // console.log(
-  //   "🚀 ~ file: [slug].js ~ line 102 ~ getServerSideProps ~ data",
-  //   data
-  // );
-  // const data = await ProductModel.findOne(slug);
+
   const product = JSON.parse(JSON.stringify(data));
-  // console.log(
-  //   "🚀 ~ file: [slug].js ~ line 95 ~ getServerSideProps ~ product",
-  //   product
-  // );
 
   return {
     props: {
