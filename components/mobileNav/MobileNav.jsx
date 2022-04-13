@@ -1,4 +1,3 @@
-import { Box } from "@mui/material";
 import Link from "next/link";
 import HomeIcon from "@mui/icons-material/Home";
 import LocalMallOutlinedIcon from "@mui/icons-material/LocalMallOutlined";
@@ -44,7 +43,7 @@ export default function MobileNav() {
           Home
         </NavLink>
       </Link>
-      <Link href="/" passHref>
+      <Link href="/cart" passHref>
         <NavLink>
           <LocalMallOutlinedIcon size="large" />
           Cart

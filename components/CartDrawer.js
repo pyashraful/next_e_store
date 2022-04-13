@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { useContext } from "react";
+import React, { useContext } from "react";
 import Image from "next/image";
 import Drawer from "@mui/material/Drawer";
 import Stack from "@mui/material/Stack";
@@ -82,7 +82,7 @@ export default function CartDrawer() {
           <Divider />
           <Box>
             {cartItems.map((item) => (
-              <>
+              <React.Fragment key={item._id}>
                 <Box sx={{ p: 1.2 }} key={item._id}>
                   <Box
                     sx={{
@@ -138,18 +138,22 @@ export default function CartDrawer() {
                   </Box>
                 </Box>
                 <Divider />
-              </>
+              </React.Fragment>
             ))}
           </Box>
         </Box>
 
         <Box sx={{ p: 2.5 }}>
-          <Button sx={{ mb: 1 }} variant="contained" fullWidth>
-            Checkout
-          </Button>
-          <Button variant="outlined" fullWidth>
-            View cart
-          </Button>
+          <Link href="/" passHref>
+            <Button sx={{ mb: 1 }} variant="contained" fullWidth>
+              Checkout
+            </Button>
+          </Link>
+          <Link href="/cart" passHref>
+            <Button variant="outlined" fullWidth>
+              View cart
+            </Button>
+          </Link>
         </Box>
       </Box>
     </Drawer>
