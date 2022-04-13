@@ -17,7 +17,6 @@ import { Typography } from "@mui/material";
 
 export default function CartDrawer() {
   const [state, dispatch] = useContext(Store);
-
   const { cartOpen } = state;
   const cartItems = state.cart.cartItems;
 
@@ -37,6 +36,10 @@ export default function CartDrawer() {
   function decreaseQuantity(item, quantity) {
     let newQuntity = quantity - 1;
 
+    if (newQuntity === 0) {
+      dispatch({ type: "REMOVE_FROM_CART", payload: item._id });
+      return;
+    }
     dispatch({
       type: "ADD_TO_CART",
       payload: { ...item, quantity: newQuntity },
