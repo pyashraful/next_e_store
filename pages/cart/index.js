@@ -1,10 +1,12 @@
 import { useContext } from "react";
+
 import Link from "next/link";
 import Image from "next/image";
 import Layout from "../../components/Layout";
 import { Container, Typography, Box, Grid, Paper } from "@mui/material";
 import { Store } from "../../utils/store";
 import { styled } from "@mui/system";
+import CartButton from "../../components/cart/CartButton";
 
 const CartPaper = styled(Paper)({
   boxShadow: "rgba(43, 52, 69, 0.1) 0px 4px 16px",
@@ -47,15 +49,18 @@ export default function Cart() {
                     </Link>
                     <Box sx={{ display: "flex", alignItems: "center" }}>
                       <small>{`${item.price} * ${item.quantity}`}</small>
-                      <Typography
-                        sx={{
-                          fontSize: 14,
-                          fontWeight: 600,
-                          color: "primary.main",
-                          mx: 1,
-                        }}
-                        variant="subtitle1"
-                      >{`$${item.price * item.quantity}`}</Typography>
+                      <Box>
+                        <Typography
+                          sx={{
+                            fontSize: 14,
+                            fontWeight: 600,
+                            color: "primary.main",
+                            mx: 1,
+                          }}
+                          variant="subtitle1"
+                        >{`$${item.price * item.quantity}`}</Typography>
+                        <CartButton item={item} />
+                      </Box>
                     </Box>
                   </Box>
                 </CartPaper>

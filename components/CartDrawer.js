@@ -4,8 +4,6 @@ import Image from "next/image";
 import Drawer from "@mui/material/Drawer";
 import Stack from "@mui/material/Stack";
 import Box from "@mui/material/Box";
-import AddIcon from "@mui/icons-material/Add";
-import RemoveIcon from "@mui/icons-material/Remove";
 import CricleButton from "./CricleButton";
 import CloseIcon from "@mui/icons-material/Close";
 import ShoppingBagOutlinedIcon from "@mui/icons-material/ShoppingBagOutlined";
@@ -15,6 +13,8 @@ import Divider from "@mui/material/Divider";
 import { Store } from "../utils/store";
 import { Typography } from "@mui/material";
 
+import CartButton from "../components/cart/CartButton";
+
 export default function CartDrawer() {
   const [state, dispatch] = useContext(Store);
   const { cartOpen } = state;
@@ -22,28 +22,6 @@ export default function CartDrawer() {
 
   function removeItem(id) {
     dispatch({ type: "REMOVE_FROM_CART", payload: id });
-  }
-
-  function incriseQuantity(item, quantity) {
-    let newQuntity = quantity + 1;
-
-    dispatch({
-      type: "ADD_TO_CART",
-      payload: { ...item, quantity: newQuntity },
-    });
-  }
-
-  function decreaseQuantity(item, quantity) {
-    let newQuntity = quantity - 1;
-
-    if (newQuntity === 0) {
-      dispatch({ type: "REMOVE_FROM_CART", payload: item._id });
-      return;
-    }
-    dispatch({
-      type: "ADD_TO_CART",
-      payload: { ...item, quantity: newQuntity },
-    });
   }
 
   function toggleDrawer() {
@@ -92,24 +70,7 @@ export default function CartDrawer() {
                       alignItems: "center",
                     }}
                   >
-                    <Stack
-                      direction="column"
-                      alignItems="center"
-                      spacing={0.75}
-                    >
-                      <CricleButton
-                        iconSize="squrare"
-                        onClick={() => incriseQuantity(item, item.quantity)}
-                      >
-                        <AddIcon />
-                      </CricleButton>
-                      <Box>{item.quantity}</Box>
-                      <CricleButton
-                        onClick={() => decreaseQuantity(item, item.quantity)}
-                      >
-                        <RemoveIcon />
-                      </CricleButton>
-                    </Stack>
+                    <CartButton item={item} />
                     <Box sx={{ width: 80, height: 80 }}>
                       <Image
                         src={`${item.image}`}
