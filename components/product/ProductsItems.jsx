@@ -2,7 +2,6 @@ import Link from "next/link";
 import Image from "next/image";
 import {
   Box,
-  IconButton,
   Paper,
   Rating,
   Stack,
@@ -10,8 +9,7 @@ import {
   Grid,
   Container,
 } from "@mui/material";
-import AddIcon from "@mui/icons-material/Add";
-import RemoveIcon from "@mui/icons-material/Remove";
+import CartButton from "../cart/CartButton";
 export default function ProductsItems({ products }) {
   return (
     <Container sx={{ m: "2rem auto" }}>
@@ -66,15 +64,7 @@ export default function ProductsItems({ products }) {
                       <Box>${product.price}</Box>
                     </Box>
                   </Box>
-                  <Stack direction="column" alignItems="center">
-                    <IconButton>
-                      <RemoveIcon />
-                    </IconButton>
-                    <Box>1</Box>
-                    <IconButton>
-                      <AddIcon />
-                    </IconButton>
-                  </Stack>
+                  <CartButton iconsize="outlineSquare" item={product} />
                 </Stack>
               </Box>
             </Paper>

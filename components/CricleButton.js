@@ -43,6 +43,5 @@ const CartIconButton = styled(ButtonBase)(
 );
 
 export default function CricleButton({ children, ...props }) {
-  console.log(props);
   return <CartIconButton {...props}>{children}</CartIconButton>;
 }

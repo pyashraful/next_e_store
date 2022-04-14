@@ -59,7 +59,7 @@ export default function CartDrawer() {
           </Stack>
           <Divider />
           <Box>
-            {cartItems.map((item) => (
+            {cartItems?.map((item) => (
               <React.Fragment key={item._id}>
                 <Box sx={{ p: 1.2 }} key={item._id}>
                   <Box

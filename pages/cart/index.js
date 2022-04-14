@@ -19,6 +19,7 @@ const CartPaper = styled(Paper)({
 export default function Cart() {
   const [state, dispatch] = useContext(Store);
   const { cart } = state;
+  console.log("🚀 ~ file: index.js ~ line 22 ~ Cart ~ cart", cart);
 
   function removeItem(id) {
     dispatch({ type: "REMOVE_FROM_CART", payload: id });
@@ -29,11 +30,11 @@ export default function Cart() {
       <Container>
         <Grid container spacing={3}>
           <Grid item xs={12} md={8} lg={8}>
-            {cart.cartItems.map((item) => (
+            {cart.cartItems?.map((item) => (
               <Box key={item._id} sx={{ position: "relative" }}>
                 <CartPaper>
                   <Image
-                    src={item.image}
+                    src={`${item.image}`}
                     height="140px"
                     width="140px"
                     alt={item.title}
