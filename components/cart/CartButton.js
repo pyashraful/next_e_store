@@ -5,7 +5,8 @@ import RemoveIcon from "@mui/icons-material/Remove";
 import CricleButton from "../CricleButton";
 import { Store } from "../../utils/store";
 
-export default function CartButton({ item, direction }) {
+export default function CartButton({ item, flow, iconsize }) {
+  console.log(iconsize);
   const [state, dispatch] = useContext(Store);
   if (!item) return <h6>Lodding</h6>;
 
@@ -32,15 +33,18 @@ export default function CartButton({ item, direction }) {
   }
 
   return (
-    <Stack direction="column" alignItems="center" spacing={0.75}>
+    <Stack direction={flow ? flow : `column`} alignItems="center">
       <CricleButton
-        iconSize="squrare"
+        iconsize={iconsize}
         onClick={() => incriseQuantity(item, item.quantity)}
       >
         <AddIcon />
       </CricleButton>
-      <Box>{item.quantity}</Box>
-      <CricleButton onClick={() => decreaseQuantity(item, item.quantity)}>
+      <Box sx={{ mx: 1 }}>{item.quantity}</Box>
+      <CricleButton
+        iconsize={item.quantity > 1 ? iconsize : null}
+        onClick={() => decreaseQuantity(item, item.quantity)}
+      >
         <RemoveIcon />
       </CricleButton>
     </Stack>

@@ -70,7 +70,7 @@ export default function CartDrawer() {
                       alignItems: "center",
                     }}
                   >
-                    <CartButton item={item} />
+                    <CartButton item={item} iconsize="outlineCircle" />
                     <Box sx={{ width: 80, height: 80 }}>
                       <Image
                         src={`${item.image}`}
@@ -99,7 +99,7 @@ export default function CartDrawer() {
                       >{`$${item.price * item.quantity}`}</Typography>
                     </Box>
                     <CricleButton
-                      iconSize="smallCricle"
+                      iconsize="smallCricle"
                       size="small"
                       onClick={() => removeItem(item._id)}
                     >

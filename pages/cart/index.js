@@ -1,5 +1,4 @@
 import { useContext } from "react";
-
 import Link from "next/link";
 import Image from "next/image";
 import Layout from "../../components/Layout";
@@ -7,6 +6,8 @@ import { Container, Typography, Box, Grid, Paper } from "@mui/material";
 import { Store } from "../../utils/store";
 import { styled } from "@mui/system";
 import CartButton from "../../components/cart/CartButton";
+import CricleButton from "../../components/CricleButton";
+import CloseIcon from "@mui/icons-material/Close";
 
 const CartPaper = styled(Paper)({
   boxShadow: "rgba(43, 52, 69, 0.1) 0px 4px 16px",
@@ -18,13 +19,18 @@ const CartPaper = styled(Paper)({
 export default function Cart() {
   const [state, dispatch] = useContext(Store);
   const { cart } = state;
+
+  function removeItem(id) {
+    dispatch({ type: "REMOVE_FROM_CART", payload: id });
+  }
+
   return (
     <Layout>
       <Container>
         <Grid container spacing={3}>
           <Grid item xs={12} md={8} lg={8}>
             {cart.cartItems.map((item) => (
-              <Box key={item._id}>
+              <Box key={item._id} sx={{ position: "relative" }}>
                 <CartPaper>
                   <Image
                     src={item.image}
@@ -36,7 +42,9 @@ export default function Cart() {
                     sx={{
                       display: "flex",
                       flexDirection: "column",
-                      justifyContent: "space-around",
+                      justifyContent: "space-between",
+                      width: "100%",
+                      p: 2,
                     }}
                   >
                     <Link href={`/product/${item._id}`} passHref>
@@ -47,9 +55,25 @@ export default function Cart() {
                         {item.title}
                       </Typography>
                     </Link>
-                    <Box sx={{ display: "flex", alignItems: "center" }}>
-                      <small>{`${item.price} * ${item.quantity}`}</small>
-                      <Box>
+                    <Box
+                      sx={{ position: "absolute", top: "1rem", right: "1rem" }}
+                    >
+                      <CricleButton
+                        iconSize="smallCricle"
+                        onClick={() => removeItem(item._id)}
+                      >
+                        <CloseIcon fontSize="small" />
+                      </CricleButton>
+                    </Box>
+                    <Box
+                      sx={{
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "space-between",
+                      }}
+                    >
+                      <Box sx={{ display: "flex", alignItems: "center" }}>
+                        <small>{`${item.price} * ${item.quantity}`}</small>
                         <Typography
                           sx={{
                             fontSize: 14,
@@ -59,7 +83,13 @@ export default function Cart() {
                           }}
                           variant="subtitle1"
                         >{`$${item.price * item.quantity}`}</Typography>
-                        <CartButton item={item} />
+                      </Box>
+                      <Box>
+                        <CartButton
+                          item={item}
+                          flow={`row-reverse`}
+                          iconsize="outlineSquare"
+                        />
                       </Box>
                     </Box>
                   </Box>
