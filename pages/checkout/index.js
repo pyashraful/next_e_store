@@ -11,7 +11,7 @@ import {
   TextField,
 } from "@mui/material";
 import { styled } from "@mui/system";
-import InputFrom from "../../components/checkout/InputFrom";
+import InputFrom from "../../components/InputFrom";
 import { useForm } from "react-hook-form";
 
 const BillItemBox = styled(Box)({
