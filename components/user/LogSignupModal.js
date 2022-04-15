@@ -1,5 +1,5 @@
 import React from "react";
-import { Modal, Box, Stack, Paper } from "@mui/material";
+import { Modal, Box, Paper } from "@mui/material";
 
 export default function LogSignupModal() {
   return (
@@ -16,8 +16,16 @@ export default function LogSignupModal() {
         sx={{
           position: "absolute",
           p: "3rem 3.5rem 0",
+          width: "500px",
         }}
-      ></Paper>
+      >
+        <Box component="h3" textAlign="center" fontSize={20} sx={{ mb: 1 }}>
+          Welcome To Ecommerce
+        </Box>
+        <Box component="p" textAlign="center" fontSize={12} sx={{ mb: 4.5 }}>
+          Log in with email & password
+        </Box>
+      </Paper>
     </Modal>
   );
 }
