@@ -1,6 +1,13 @@
-import Link from "next/link";
 import Layout from "../../components/Layout";
-import { Container, Typography, Box, Grid, Paper } from "@mui/material";
+import {
+  Container,
+  Typography,
+  Box,
+  Grid,
+  Paper,
+  Stack,
+  Button,
+} from "@mui/material";
 import InputFrom from "../../components/checkout/InputFrom";
 import { useForm } from "react-hook-form";
 
@@ -45,26 +52,31 @@ const fromFields = [
 ];
 
 export default function Checkout() {
-  const { handlesubmit, control } = useForm();
+  const { handleSubmit, control } = useForm({});
+
+  const onSubmit = (data) => {
+    console.log("hi");
+    console.log(data);
+  };
 
   return (
     <Layout>
       <Container>
         <Grid container spacing={2}>
           <Grid item xs={12} md={8} lg={8}>
-            <Paper sx={{ p: 2 }}>
-              <Box>
-                <Typography
-                  variant="h5"
-                  fontSize={14}
-                  fontWeight="bold"
-                  sx={{ mb: 2 }}
-                >
-                  Shipping Address
-                </Typography>
-              </Box>
-              <Box>
-                <from>
+            <form onSubmit={handleSubmit(onSubmit)}>
+              <Paper sx={{ p: 4, mb: 4 }}>
+                <Box>
+                  <Typography
+                    variant="h5"
+                    fontSize={14}
+                    fontWeight="bold"
+                    sx={{ mb: 2 }}
+                  >
+                    Shipping Address
+                  </Typography>
+                </Box>
+                <Box>
                   <Grid container spacing={1}>
                     {fromFields.map((field) => (
                       <Grid
@@ -85,9 +97,22 @@ export default function Checkout() {
                       </Grid>
                     ))}
                   </Grid>
-                </from>
-              </Box>
-            </Paper>
+                </Box>
+              </Paper>
+              <Stack direction="row" spacing={2}>
+                <Button fullWidth variant="outlined" color="primary">
+                  back to Cart
+                </Button>
+                <Button
+                  type="submit"
+                  fullWidth
+                  variant="contained"
+                  color="primary"
+                >
+                  Pyament
+                </Button>
+              </Stack>
+            </form>
           </Grid>
           <Grid item xs={12} md={4} lg={4}>
             <Paper>Bill</Paper>
