@@ -1,12 +1,17 @@
 import React from "react";
 import { Modal, Box, Paper, Button, Divider } from "@mui/material";
-import { styled } from "@mui/system";
+import { display, flexbox, styled } from "@mui/system";
 import InputFrom from "../InputFrom";
 import { useForm } from "react-hook-form";
+import { Block } from "@mui/icons-material";
 
 const StyledButton = styled(Button)({
   width: "100%",
   "&:hover": "noStyle",
+});
+
+const InputCotainer = styled(Box)({
+  marginBottom: "12px",
 });
 
 export default function LogSignupModal() {
@@ -29,11 +34,13 @@ export default function LogSignupModal() {
       <Paper
         sx={{
           position: "absolute",
-          p: "3rem 3.5rem 0",
           width: "500px",
         }}
       >
-        <form onSubmit={handleSubmit(onSubmit)}>
+        <form
+          style={{ padding: "3rem 3.5rem 0" }}
+          onSubmit={handleSubmit(onSubmit)}
+        >
           <Box component="h3" textAlign="center" fontSize={20} sx={{ mb: 1 }}>
             Welcome To Ecommerce
           </Box>
@@ -41,8 +48,12 @@ export default function LogSignupModal() {
             Log in with email & password
           </Box>
 
-          <Box>
-            <Box component="small" textAlign="left">
+          <InputCotainer>
+            <Box
+              component="small"
+              textAlign="left"
+              sx={{ mb: "8px", display: "Block" }}
+            >
               Email or Phone Number
             </Box>
             <InputFrom
@@ -51,9 +62,13 @@ export default function LogSignupModal() {
               type="text"
               placeholder="example@gmail.com"
             />
-          </Box>
-          <Box>
-            <Box component="small" textAlign="left">
+          </InputCotainer>
+          <InputCotainer>
+            <Box
+              component="small"
+              textAlign="left"
+              sx={{ mb: "8px", display: "Block" }}
+            >
               Password
             </Box>
             <InputFrom
@@ -62,7 +77,7 @@ export default function LogSignupModal() {
               type="password"
               placeholder="********"
             />
-          </Box>
+          </InputCotainer>
 
           <Box sx={{ marginBottom: "35px" }}>
             <Button fullWidth variant="contained">
@@ -119,6 +134,19 @@ export default function LogSignupModal() {
             <Box component="span">Sign Up</Box>
           </Box>
         </form>
+
+        <Box
+          sx={{
+            bgcolor: "rgb(243, 245, 249);",
+            py: "1.5rem",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          Forgot your password?
+          <span>Reset it</span>
+        </Box>
       </Paper>
     </Modal>
   );
