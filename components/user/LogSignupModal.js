@@ -105,15 +105,19 @@ export default function LogSignupModal() {
           </StyledButton>
           <StyledButton
             sx={{
-              marginBottom: "1rem",
-              backgroundColor: "rgb(59, 89, 152)",
+              backgroundColor: "rgb(66, 133, 244)",
               color: "#fff",
-              ":hover": { bgcolor: "rgb(59, 89, 152)" },
+              ":hover": { bgcolor: "rgb(66, 133, 244)" },
             }}
           >
             <img src="/google.svg" />
             <Box sx={{ ml: "5px" }}>Continue with Google</Box>
           </StyledButton>
+
+          <Box sx={{ my: "1.25rem", textAlign: "center" }}>
+            Don't have account?
+            <Box component="span">Sign Up</Box>
+          </Box>
         </form>
       </Paper>
     </Modal>
