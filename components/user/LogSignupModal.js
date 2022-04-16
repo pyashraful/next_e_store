@@ -1,9 +1,8 @@
 import React from "react";
 import { Modal, Box, Paper, Button, Divider } from "@mui/material";
-import { display, flexbox, styled } from "@mui/system";
+import { styled } from "@mui/system";
 import InputFrom from "../InputFrom";
 import { useForm } from "react-hook-form";
-import { Block } from "@mui/icons-material";
 
 const StyledButton = styled(Button)({
   width: "100%",
@@ -14,7 +13,7 @@ const InputCotainer = styled(Box)({
   marginBottom: "12px",
 });
 
-export default function LogSignupModal() {
+export default function LogSignupModal({ showModal, setShowModal }) {
   const { control, handleSubmit } = useForm({});
   function onSubmit(data) {
     console.log(data);
@@ -29,7 +28,8 @@ export default function LogSignupModal() {
         alignItems: "center",
         zIndex: "1900",
       }}
-      open={true}
+      open={showModal}
+      onClose={() => setShowModal(false)}
     >
       <Paper
         sx={{

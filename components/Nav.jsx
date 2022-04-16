@@ -1,3 +1,4 @@
+import { useState } from "react";
 import Link from "next/link";
 import { Container, Box, Stack } from "@mui/material";
 import { useContext } from "react";
@@ -6,6 +7,7 @@ import Search from "./Search";
 import UserProfile from "./UserProfile";
 import { Store } from "../utils/store";
 import { styled } from "@mui/system";
+import LogSignupModal from "./user/LogSignupModal";
 
 const FixDiv = styled("div")({
   position: "fixed",
@@ -18,6 +20,7 @@ const FixDiv = styled("div")({
 
 export default function Nav() {
   const [state, dispatch] = useContext(Store);
+  const [showModal, setShowModal] = useState(false);
   const { cartOpen, cart } = state;
   const cartItems = cart.cartItems;
 
@@ -66,7 +69,7 @@ export default function Nav() {
                   sx={{ display: { xs: "none", md: "flex" } }}
                 >
                   <Box className="">
-                    <UserProfile />
+                    <UserProfile onClick={() => setShowModal(!showModal)} />
                   </Box>
                   <Box onClick={() => toggleDrawer()}>
                     <CartBadge cartItems={cartItems} />
@@ -77,6 +80,7 @@ export default function Nav() {
           </header>
         </Container>
       </Box>
+      <LogSignupModal showModal={showModal} setShowModal={setShowModal} />
     </FixDiv>
   );
 }

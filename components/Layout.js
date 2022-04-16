@@ -11,7 +11,6 @@ export default function Layout({ children }) {
         <title>E-Shop</title>
       </Head>
       <Nav />
-      <LogSignupModal />
       <CartDrawer />
       {/* <SearchInput /> */}
       <main style={{ marginTop: "120px" }}>{children}</main>
