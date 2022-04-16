@@ -1,8 +1,13 @@
 import React from "react";
 import { Modal, Box, Paper, Button, Divider } from "@mui/material";
+import { styled } from "@mui/system";
 import InputFrom from "../InputFrom";
 import { useForm } from "react-hook-form";
-import { flexbox } from "@mui/system";
+
+const StyledButton = styled(Button)({
+  width: "100%",
+  "&:hover": "noStyle",
+});
 
 export default function LogSignupModal() {
   const { control, handleSubmit } = useForm({});
@@ -17,6 +22,7 @@ export default function LogSignupModal() {
         justifyContent: "center",
         alignContent: "center",
         alignItems: "center",
+        zIndex: "1900",
       }}
       open={true}
     >
@@ -64,7 +70,7 @@ export default function LogSignupModal() {
             </Button>
           </Box>
 
-          <Box>
+          <Box sx={{ mb: "1rem" }}>
             <Box sx={{ width: "200px", mx: "auto" }}>
               <Divider />
             </Box>
@@ -86,6 +92,28 @@ export default function LogSignupModal() {
               </Box>
             </Box>
           </Box>
+          <StyledButton
+            sx={{
+              marginBottom: "1rem",
+              backgroundColor: "rgb(59, 89, 152)",
+              color: "#fff",
+              ":hover": { bgcolor: "rgb(59, 89, 152)" },
+            }}
+          >
+            <img src="/facebook.svg" />
+            <Box sx={{ ml: "5px" }}>Continue with Facebook</Box>
+          </StyledButton>
+          <StyledButton
+            sx={{
+              marginBottom: "1rem",
+              backgroundColor: "rgb(59, 89, 152)",
+              color: "#fff",
+              ":hover": { bgcolor: "rgb(59, 89, 152)" },
+            }}
+          >
+            <img src="/google.svg" />
+            <Box sx={{ ml: "5px" }}>Continue with Google</Box>
+          </StyledButton>
         </form>
       </Paper>
     </Modal>
