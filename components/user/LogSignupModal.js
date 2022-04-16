@@ -34,7 +34,7 @@ export default function LogSignupModal({ showModal, setShowModal }) {
       <Paper
         sx={{
           position: "absolute",
-          width: "500px",
+          width: { md: "100%", lg: "500px" },
         }}
       >
         <form
@@ -138,7 +138,7 @@ export default function LogSignupModal({ showModal, setShowModal }) {
         <Box
           sx={{
             bgcolor: "rgb(243, 245, 249);",
-            py: "1.5rem",
+            py: "1.25rem",
             display: "flex",
             justifyContent: "center",
             alignItems: "center",

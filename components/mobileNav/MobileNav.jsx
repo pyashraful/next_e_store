@@ -34,7 +34,7 @@ const NavLink = styled("a")({
   color: "rgb(0 0 0 )",
 });
 
-export default function MobileNav() {
+export default function MobileNav({ showModal, setShowModal }) {
   return (
     <FixDiv sx={{ display: { xs: "flex", md: "none" } }}>
       <Link href="/" passHref>
@@ -50,7 +50,7 @@ export default function MobileNav() {
         </NavLink>
       </Link>
       <Link href="/" passHref>
-        <NavLink>
+        <NavLink onClick={() => setShowModal(!showModal)}>
           <PermIdentityOutlinedIcon size="large" />
           Profile
         </NavLink>

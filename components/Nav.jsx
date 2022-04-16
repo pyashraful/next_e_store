@@ -18,9 +18,9 @@ const FixDiv = styled("div")({
   boxShadow: "rgb(43 52 69 / 10%) 0px 4px 16px",
 });
 
-export default function Nav() {
+export default function Nav({ showModal, setShowModal }) {
   const [state, dispatch] = useContext(Store);
-  const [showModal, setShowModal] = useState(false);
+
   const { cartOpen, cart } = state;
   const cartItems = cart.cartItems;
 
@@ -80,7 +80,6 @@ export default function Nav() {
           </header>
         </Container>
       </Box>
-      <LogSignupModal showModal={showModal} setShowModal={setShowModal} />
     </FixDiv>
   );
 }
