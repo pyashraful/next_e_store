@@ -1,7 +1,8 @@
 import React from "react";
-import { Modal, Box, Paper } from "@mui/material";
+import { Modal, Box, Paper, Button, Divider } from "@mui/material";
 import InputFrom from "../InputFrom";
 import { useForm } from "react-hook-form";
+import { flexbox } from "@mui/system";
 
 export default function LogSignupModal() {
   const { control, handleSubmit } = useForm({});
@@ -55,6 +56,35 @@ export default function LogSignupModal() {
               type="password"
               placeholder="********"
             />
+          </Box>
+
+          <Box sx={{ marginBottom: "35px" }}>
+            <Button fullWidth variant="contained">
+              Loging
+            </Button>
+          </Box>
+
+          <Box>
+            <Box sx={{ width: "200px", mx: "auto" }}>
+              <Divider />
+            </Box>
+            <Box
+              sx={{
+                display: "flex",
+                justifyContent: "center",
+                marginTop: "-13px",
+              }}
+            >
+              <Box
+                sx={{
+                  color: "rgb(125, 135, 156)",
+                  backgroundColor: "rgb(255, 255, 255)",
+                  px: "1rem",
+                }}
+              >
+                on
+              </Box>
+            </Box>
           </Box>
         </form>
       </Paper>
