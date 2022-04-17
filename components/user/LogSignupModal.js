@@ -130,7 +130,7 @@ export default function LogSignupModal({ showModal, setShowModal }) {
           </StyledButton>
 
           <Box sx={{ my: "1.25rem", textAlign: "center" }}>
-            Don't have account?
+            Don&apos;t have account?
             <Box component="span">Sign Up</Box>
           </Box>
         </form>

@@ -1,4 +1,3 @@
-import { useState } from "react";
 import Link from "next/link";
 import { Container, Box, Stack } from "@mui/material";
 import { useContext } from "react";
@@ -7,7 +6,6 @@ import Search from "./Search";
 import UserProfile from "./UserProfile";
 import { Store } from "../utils/store";
 import { styled } from "@mui/system";
-import LogSignupModal from "./user/LogSignupModal";
 
 const FixDiv = styled("div")({
   position: "fixed",
