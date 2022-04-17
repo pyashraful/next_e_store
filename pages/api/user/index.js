@@ -36,3 +36,29 @@ function addUserValidationHandler(req, res, next) {
     });
   }
 }
+
+async function addUser(req, res, next) {
+  let newUser;
+  const hashedPassword = await bcrypt.hash(req.body.password, 10);
+  newUser = new User({
+    ...req.body,
+    password: hashedPassword,
+  });
+  try {
+    const result = await newUser.save();
+    res.status(201).json(result);
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({
+      errors: {
+        common: {
+          msg: "Unknown error occured!",
+        },
+      },
+    });
+  }
+}
+
+handler.post(async (req, res, next) => {
+  addUserValidation, addUserValidationHandler, addUser;
+});
