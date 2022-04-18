@@ -14,10 +14,13 @@ const InputCotainer = styled(Box)({
 });
 
 export default function LogSignupModal({ showModal, setShowModal }) {
-  const { control, handleSubmit } = useForm({});
+  const { control, handleSubmit, error } = useForm({});
+  console.log("🚀 ~ file: index.js ~ line 18 ~ LogSignupModal ~ error", error);
   function onSubmit(data) {
     console.log(data);
   }
+
+  console.log(error);
 
   return (
     <Box
@@ -109,7 +112,7 @@ export default function LogSignupModal({ showModal, setShowModal }) {
           </InputCotainer>
 
           <Box sx={{ marginBottom: "35px" }}>
-            <Button fullWidth variant="contained">
+            <Button type="submit" fullWidth variant="contained">
               singnup
             </Button>
           </Box>

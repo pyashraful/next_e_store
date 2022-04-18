@@ -1,8 +1,9 @@
 import nc from "next-connect";
 import { check, validationResult } from "express-validator";
-import { User } from "../../../models/User";
+import User from "../../../model/user";
 import createErroor from "http-errors";
-import bcrypt from "bcryptjs";
+import bcrypt from "bcrypt";
+import runMiddleware from "../../../utils/initMiddleware";
 
 const handler = nc();
 
@@ -12,7 +13,7 @@ const addUserValidation = [
     .isEmail()
     .withMessage("Invalid email address")
     .trim()
-    .custom(async () => {
+    .custom(async (value) => {
       try {
         const user = await User.findOne({ email: value });
         if (user) {
@@ -37,7 +38,7 @@ function addUserValidationHandler(req, res, next) {
   }
 }
 
-async function addUser(req, res, next) {
+async function addUser(req, res) {
   let newUser;
   const hashedPassword = await bcrypt.hash(req.body.password, 10);
   newUser = new User({
@@ -59,6 +60,6 @@ async function addUser(req, res, next) {
   }
 }
 
-handler.post(async (req, res, next) => {
-  addUserValidation, addUserValidationHandler, addUser;
+handler.post(async (req, res) => {
+  const validator = await runMiddleware(req, res, addUserValidation);
 });

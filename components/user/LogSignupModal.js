@@ -3,7 +3,8 @@ import { Modal, Box, Paper, Button, Divider } from "@mui/material";
 import { styled } from "@mui/system";
 import InputFrom from "../InputFrom";
 import { useForm } from "react-hook-form";
-
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as Yup from "yup";
 const StyledButton = styled(Button)({
   width: "100%",
   "&:hover": "noStyle",
@@ -14,9 +15,35 @@ const InputCotainer = styled(Box)({
 });
 
 export default function LogSignupModal({ showModal, setShowModal }) {
-  const { control, handleSubmit } = useForm({});
+  const formSchema = Yup.object().shape({
+    password: Yup.string()
+      .required("Password is required")
+      .min(4, "Password length should be at least 4 characters"),
+  });
+  const validationOpt = { resolver: yupResolver(formSchema) };
+
+  const {
+    control,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    defaultValues: {
+      email: "",
+      password: "",
+    },
+
+    validationOpt,
+  });
+  console.log(
+    "🚀 ~ file: LogSignupModal.js ~ line 18 ~ LogSignupModal ~ error",
+    errors
+  );
   function onSubmit(data) {
-    console.log(data);
+    console.log("hi");
+    console.log(
+      "🚀 ~ file: LogSignupModal.js ~ line 19 ~ onSubmit ~ data",
+      data
+    );
   }
 
   return (
@@ -80,7 +107,7 @@ export default function LogSignupModal({ showModal, setShowModal }) {
           </InputCotainer>
 
           <Box sx={{ marginBottom: "35px" }}>
-            <Button fullWidth variant="contained">
+            <Button type="submit" fullWidth variant="contained">
               Loging
             </Button>
           </Box>
