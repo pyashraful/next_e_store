@@ -3,6 +3,8 @@ import { Box, Paper, Button, Divider } from "@mui/material";
 import { styled } from "@mui/system";
 import InputFrom from "../../components/InputFrom";
 import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as Yup from "yup";
 
 const StyledButton = styled(Button)({
   width: "100%",
@@ -13,14 +15,38 @@ const InputCotainer = styled(Box)({
   marginBottom: "12px",
 });
 
+const signupFromValidation = Yup.object({
+  name: Yup.string().required("Name is required"),
+  email: Yup.string().email("Invalid email").required("Email is required"),
+  password: Yup.string().required("Password is required"),
+  confirmPassword: Yup.string().oneOf(
+    [Yup.ref("password"), null],
+    "Passwords must match"
+  ),
+});
+
 export default function Signup({ showModal, setShowModal }) {
-  const { control, handleSubmit, error } = useForm({});
+  const {
+    control,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    defaultValues: {
+      name: "",
+      email: "",
+      password: "",
+      confirmPassword: "",
+    },
+    resolver: yupResolver(signupFromValidation),
+  });
+
+  console.log(errors);
 
   function onSubmit(data) {
     console.log(data);
   }
 
-  console.log(error);
+  console.log(errors);
 
   return (
     <Box
