@@ -5,6 +5,9 @@ import InputFrom from "../InputFrom";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from "yup";
+import axios from "axios";
+import { useRouter } from "next/router";
+
 const StyledButton = styled(Button)({
   width: "100%",
   "&:hover": "noStyle",
@@ -22,6 +25,8 @@ const formSchema = Yup.object().shape({
 const validationOpt = { resolver: yupResolver(formSchema) };
 
 export default function LoginModal({ showModal, setShowModal }) {
+  const router = useRouter();
+
   const {
     control,
     handleSubmit,
@@ -38,12 +43,14 @@ export default function LoginModal({ showModal, setShowModal }) {
     "🚀 ~ file: LogSignupModal.js ~ line 18 ~ LogSignupModal ~ error",
     errors
   );
-  function onSubmit(data) {
-    console.log("hi");
-    console.log(
-      "🚀 ~ file: LogSignupModal.js ~ line 19 ~ onSubmit ~ data",
-      data
-    );
+  async function onSubmit(data) {
+    try {
+      const res = await axios.post("/api/login", data);
+      console.log(res.data);
+      router.push("/");
+    } catch (err) {
+      console.log(err);
+    }
   }
 
   return (
