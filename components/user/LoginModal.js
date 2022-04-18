@@ -14,14 +14,14 @@ const InputCotainer = styled(Box)({
   marginBottom: "12px",
 });
 
-export default function LogSignupModal({ showModal, setShowModal }) {
-  const formSchema = Yup.object().shape({
-    password: Yup.string()
-      .required("Password is required")
-      .min(4, "Password length should be at least 4 characters"),
-  });
-  const validationOpt = { resolver: yupResolver(formSchema) };
+const formSchema = Yup.object().shape({
+  password: Yup.string()
+    .required("Password is required")
+    .min(4, "Password length should be at least 4 characters"),
+});
+const validationOpt = { resolver: yupResolver(formSchema) };
 
+export default function LoginModal({ showModal, setShowModal }) {
   const {
     control,
     handleSubmit,

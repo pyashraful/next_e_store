@@ -13,9 +13,9 @@ const InputCotainer = styled(Box)({
   marginBottom: "12px",
 });
 
-export default function LogSignupModal({ showModal, setShowModal }) {
+export default function Signup({ showModal, setShowModal }) {
   const { control, handleSubmit, error } = useForm({});
-  console.log("🚀 ~ file: index.js ~ line 18 ~ LogSignupModal ~ error", error);
+
   function onSubmit(data) {
     console.log(data);
   }
@@ -104,7 +104,7 @@ export default function LogSignupModal({ showModal, setShowModal }) {
               Retype Password
             </Box>
             <InputFrom
-              name="retypePassword"
+              name="confirmPassword"
               control={control}
               type="password"
               placeholder="********"
