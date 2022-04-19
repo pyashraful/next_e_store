@@ -39,14 +39,11 @@ export default function LoginModal({ showModal, setShowModal }) {
 
     validationOpt,
   });
-  console.log(
-    "🚀 ~ file: LogSignupModal.js ~ line 18 ~ LogSignupModal ~ error",
-    errors
-  );
   async function onSubmit(data) {
     try {
       const res = await axios.post("/api/login", data);
       console.log(res.data);
+      setShowModal(!showModal);
       router.push("/");
     } catch (err) {
       console.log(err);
