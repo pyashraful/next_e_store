@@ -1,6 +1,14 @@
 import { Button } from "@mui/material";
-import React from "react";
+import { styled } from "@mui/system";
+
+const MyButton = styled(Button)({
+  color: "rgb(210, 63, 87)",
+  background: " rgb(252, 233, 236)",
+  fontWeight: 600,
+  fontSize: "0.875rem",
+  padding: "6px 2rem",
+});
 
 export default function HeaderButton() {
-  return <Button href="/">Edit Profile</Button>;
+  return <MyButton href="/">Edit Profile</MyButton>;
 }
