@@ -1,57 +1,113 @@
 import Link from "next/link";
-import {
-  Paper,
-  Typography,
-  Box,
-  List,
-  ListItem,
-  ListItemIcon,
-} from "@mui/material";
-import {
-  ShoppingBagOutlinedIcon,
-  FavoriteBorderOutlinedIcon,
-  SupportAgentSharpIcon,
-} from "@mui/icons-material";
+import { Paper, Typography, Box } from "@mui/material";
+import styled from "@emotion/styled";
 
-import People from "@mui/icons-material/People";
-import PermMedia from "@mui/icons-material/PermMedia";
-import Dns from "@mui/icons-material/Dns";
-import Public from "@mui/icons-material/Public";
+import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
+import ShoppingBagOutlinedIcon from "@mui/icons-material/ShoppingBagOutlined";
 
-const dashNav = [
-  {
-    name: "Orders",
-    icon: <People />,
-    link: "/orders",
-  },
-  {
-    name: "Wishlist",
-    icon: <PermMedia />,
-    link: "/wishlist",
-  },
-  {
-    name: "support",
-    icon: <SupportAgentSharpIcon />,
-    link: "/support",
-  },
-];
+const MyLink = styled("a")({
+  position: "relative",
+  color: "rgb(210, 63, 87)",
+  transition: "color 150ms ease-in-out 0s",
+  display: "flex",
+  // -webkit-box-pack: "justify",
+  justifyContent: "space-between",
+  // -webkit-box-align: "center",
+  alignItems: "center",
+  borderLeft: "4px solid rgb(210, 63, 87)",
+  paddingLeft: "1.5rem",
+  paddingRight: "1.5rem",
+  marginBottom: "1.25rem",
+  borderTopColor: "rgb(210, 63, 87)",
+  borderRightColor: "rgb(210, 63, 87)",
+  borderBottomColor: "rgb(210, 63, 87)",
+});
+
 export default function ProfileSidebar() {
   return (
     <Paper>
-      <Typography>DASHBOARD</Typography>
+      <Typography
+        variant="body1"
+        component="p"
+        sx={{ px: 3.5, pb: 2, pt: 3, fontSize: "12px" }}
+      >
+        DASHBOARD
+      </Typography>
 
-      <List>
-        {dashNav.map((item) => (
-          <ListItem button key={item.name}>
-            {"debug"}
-            <ListItemIcon>{item.icon}</ListItemIcon>
+      <Link href="/">
+        <MyLink>
+          <Box sx={{ display: "flex", alignItems: "center" }}>
+            <ShoppingBagOutlinedIcon fontSize="small" sx={{ mr: "10px" }} />
+            <Box sx={{ fontSize: "14px" }} component="span">
+              Order
+            </Box>
+          </Box>
+          <Box>5</Box>
+        </MyLink>
+      </Link>
+      <Link href="/">
+        <MyLink>
+          <Box sx={{ display: "flex", alignItems: "center" }}>
+            <ShoppingBagOutlinedIcon fontSize="small" sx={{ mr: "10px" }} />
+            <Box sx={{ fontSize: "14px" }} component="span">
+              Order
+            </Box>
+          </Box>
+          <Box>5</Box>
+        </MyLink>
+      </Link>
+      <Link href="/">
+        <MyLink>
+          <Box sx={{ display: "flex", alignItems: "center" }}>
+            <ShoppingBagOutlinedIcon fontSize="small" sx={{ mr: "10px" }} />
+            <Box sx={{ fontSize: "14px" }} component="span">
+              Order
+            </Box>
+          </Box>
+          <Box>5</Box>
+        </MyLink>
+      </Link>
+      <Typography
+        variant="body1"
+        component="p"
+        sx={{ px: 3.5, pb: 2, pt: 3, fontSize: "12px" }}
+      >
+        ACCOUNT SETTINGS
+      </Typography>
 
-            <Link key={item.name} href={item.link} passHref>
-              <h1>Hi</h1>
-            </Link>
-          </ListItem>
-        ))}
-      </List>
+      <Link href="/">
+        <MyLink>
+          <Box sx={{ display: "flex", alignItems: "center" }}>
+            <ShoppingBagOutlinedIcon fontSize="small" sx={{ mr: "10px" }} />
+            <Box sx={{ fontSize: "14px" }} component="span">
+              Order
+            </Box>
+          </Box>
+          <Box>5</Box>
+        </MyLink>
+      </Link>
+      <Link href="/">
+        <MyLink>
+          <Box sx={{ display: "flex", alignItems: "center" }}>
+            <ShoppingBagOutlinedIcon fontSize="small" sx={{ mr: "10px" }} />
+            <Box sx={{ fontSize: "14px" }} component="span">
+              Order
+            </Box>
+          </Box>
+          <Box>5</Box>
+        </MyLink>
+      </Link>
+      <Link href="/">
+        <MyLink>
+          <Box sx={{ display: "flex", alignItems: "center" }}>
+            <ShoppingBagOutlinedIcon fontSize="small" sx={{ mr: "10px" }} />
+            <Box sx={{ fontSize: "14px" }} component="span">
+              Order
+            </Box>
+          </Box>
+          <Box>5</Box>
+        </MyLink>
+      </Link>
     </Paper>
   );
 }
