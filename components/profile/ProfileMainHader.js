@@ -1,9 +1,18 @@
-import PermIdentityOutlinedIcon from "@mui/icons-material/PermIdentityOutlined";
-import { Box } from "@mui/material";
+import PersonIcon from "@mui/icons-material/Person";
+import { Box, Button, Typography } from "@mui/material";
 export default function ProfileMainHader() {
   return (
-    <Box>
-      <h1>ProfileMainHader</h1>
+    <Box sx={{ display: "flex", justifyContent: "space-between" }}>
+      <Box sx={{ display: "flex", alignItems: "center" }}>
+        <PersonIcon fontSize="medium" color="primary" />
+        <Typography
+          variant="h2"
+          sx={{ fontSize: "25px", fontWeight: 700, ml: 1.2 }}
+        >
+          My Profile
+        </Typography>
+      </Box>
+      <Button href="/">Edit Profile</Button>
     </Box>
   );
 }
