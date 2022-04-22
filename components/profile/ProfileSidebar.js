@@ -4,28 +4,39 @@ import styled from "@emotion/styled";
 
 import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
 import ShoppingBagOutlinedIcon from "@mui/icons-material/ShoppingBagOutlined";
+import SupportAgentOutlinedIcon from "@mui/icons-material/SupportAgentOutlined";
+import PermIdentityOutlinedIcon from "@mui/icons-material/PermIdentityOutlined";
+import LocationOnOutlinedIcon from "@mui/icons-material/LocationOnOutlined";
+import PaymentOutlinedIcon from "@mui/icons-material/PaymentOutlined";
 
 const MyLink = styled("a")({
   position: "relative",
-  color: "rgb(210, 63, 87)",
+  // color: "rgb(210, 63, 87)",
+  color: "rgb(43, 52, 69)",
   transition: "color 150ms ease-in-out 0s",
   display: "flex",
   // -webkit-box-pack: "justify",
   justifyContent: "space-between",
   // -webkit-box-align: "center",
+  textDecoration: "none",
   alignItems: "center",
-  borderLeft: "4px solid rgb(210, 63, 87)",
+  borderLeft: "4px solid ",
   paddingLeft: "1.5rem",
   paddingRight: "1.5rem",
   marginBottom: "1.25rem",
-  borderTopColor: "rgb(210, 63, 87)",
-  borderRightColor: "rgb(210, 63, 87)",
-  borderBottomColor: "rgb(210, 63, 87)",
+  borderColor: "transparent",
+  // borderTopColor: "rgb(210, 63, 87)",
+  // borderRightColor: "rgb(210, 63, 87)",
+  // borderBottomColor: "rgb(210, 63, 87)",
+  " &:hover": {
+    color: "rgb(210, 63, 87)",
+    borderColor: "rgb(210, 63, 87)",
+  },
 });
 
 export default function ProfileSidebar() {
   return (
-    <Paper>
+    <Paper sx={{ pb: 2.75 }}>
       <Typography
         variant="body1"
         component="p"
@@ -34,7 +45,7 @@ export default function ProfileSidebar() {
         DASHBOARD
       </Typography>
 
-      <Link href="/">
+      <Link href="/Order" passHref>
         <MyLink>
           <Box sx={{ display: "flex", alignItems: "center" }}>
             <ShoppingBagOutlinedIcon fontSize="small" sx={{ mr: "10px" }} />
@@ -45,23 +56,23 @@ export default function ProfileSidebar() {
           <Box>5</Box>
         </MyLink>
       </Link>
-      <Link href="/">
+      <Link href="/" passHref>
         <MyLink>
           <Box sx={{ display: "flex", alignItems: "center" }}>
-            <ShoppingBagOutlinedIcon fontSize="small" sx={{ mr: "10px" }} />
+            <FavoriteBorderOutlinedIcon fontSize="small" sx={{ mr: "10px" }} />
             <Box sx={{ fontSize: "14px" }} component="span">
-              Order
+              Wishlist
             </Box>
           </Box>
           <Box>5</Box>
         </MyLink>
       </Link>
-      <Link href="/">
+      <Link href="/" passHref>
         <MyLink>
           <Box sx={{ display: "flex", alignItems: "center" }}>
-            <ShoppingBagOutlinedIcon fontSize="small" sx={{ mr: "10px" }} />
+            <SupportAgentOutlinedIcon fontSize="small" sx={{ mr: "10px" }} />
             <Box sx={{ fontSize: "14px" }} component="span">
-              Order
+              Support
             </Box>
           </Box>
           <Box>5</Box>
@@ -78,9 +89,9 @@ export default function ProfileSidebar() {
       <Link href="/">
         <MyLink>
           <Box sx={{ display: "flex", alignItems: "center" }}>
-            <ShoppingBagOutlinedIcon fontSize="small" sx={{ mr: "10px" }} />
+            <PermIdentityOutlinedIcon fontSize="small" sx={{ mr: "10px" }} />
             <Box sx={{ fontSize: "14px" }} component="span">
-              Order
+              Profile
             </Box>
           </Box>
           <Box>5</Box>
@@ -89,9 +100,9 @@ export default function ProfileSidebar() {
       <Link href="/">
         <MyLink>
           <Box sx={{ display: "flex", alignItems: "center" }}>
-            <ShoppingBagOutlinedIcon fontSize="small" sx={{ mr: "10px" }} />
+            <LocationOnOutlinedIcon fontSize="small" sx={{ mr: "10px" }} />
             <Box sx={{ fontSize: "14px" }} component="span">
-              Order
+              Addresses
             </Box>
           </Box>
           <Box>5</Box>
@@ -100,9 +111,9 @@ export default function ProfileSidebar() {
       <Link href="/">
         <MyLink>
           <Box sx={{ display: "flex", alignItems: "center" }}>
-            <ShoppingBagOutlinedIcon fontSize="small" sx={{ mr: "10px" }} />
+            <PaymentOutlinedIcon fontSize="small" sx={{ mr: "10px" }} />
             <Box sx={{ fontSize: "14px" }} component="span">
-              Order
+              Payment Methods
             </Box>
           </Box>
           <Box>5</Box>
