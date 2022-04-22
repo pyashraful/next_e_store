@@ -1,5 +1,6 @@
 import PersonIcon from "@mui/icons-material/Person";
 import { Box, Button, Typography } from "@mui/material";
+import HeaderButton from "./HeaderButton";
 export default function ProfileMainHader() {
   return (
     <Box sx={{ display: "flex", justifyContent: "space-between" }}>
@@ -12,7 +13,7 @@ export default function ProfileMainHader() {
           My Profile
         </Typography>
       </Box>
-      <Button href="/">Edit Profile</Button>
+      <HeaderButton />
     </Box>
   );
 }
