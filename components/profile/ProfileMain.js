@@ -1,5 +1,6 @@
 import { Grid, Paper, Box, Avatar, Typography } from "@mui/material";
 import ProfileMainHader from "./ProfileMainHader";
+import ProfileUserInfo from "./ProfileUserInfo";
 
 export default function ProfileMain() {
   return (
@@ -152,6 +153,7 @@ export default function ProfileMain() {
           </Grid>
         </Grid>
       </Box>
+      <ProfileUserInfo />
     </div>
   );
 }
