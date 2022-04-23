@@ -7,147 +7,151 @@ export default function ProfileMain() {
       <Box sx={{ mb: 2 }}>
         <ProfileMainHader />
       </Box>
-      <Grid container spacing={3}>
-        <Grid item lg={6}>
-          <Paper sx={{ p: "14px 32px", display: "flex", alignItems: "center" }}>
-            <Avatar src="/avater.jpg" sx={{ width: 64, height: 64 }} />
-            <Box sx={{ ml: "16px", flex: "1 1 0" }}>
-              <Box
-                sx={{
-                  display: "flex",
-                  justifyContent: "space-between",
-                  alignItems: "center",
-                }}
-              >
-                <Box>
-                  <Typography
-                    variant="h5"
-                    sx={{ fontSize: 16, fontWeight: 600 }}
-                  >
-                    Ashraful Islam
-                  </Typography>
-                  <Box sx={{ display: "flex" }}>
+      <Box sx={{ mb: 4 }}>
+        <Grid container spacing={3}>
+          <Grid item lg={6}>
+            <Paper
+              sx={{ p: "14px 32px", display: "flex", alignItems: "center" }}
+            >
+              <Avatar src="/avater.jpg" sx={{ width: 64, height: 64 }} />
+              <Box sx={{ ml: "16px", flex: "1 1 0" }}>
+                <Box
+                  sx={{
+                    display: "flex",
+                    justifyContent: "space-between",
+                    alignItems: "center",
+                  }}
+                >
+                  <Box>
                     <Typography
-                      variant="body2"
-                      sx={{ fontSize: 14, color: "#666" }}
+                      variant="h5"
+                      sx={{ fontSize: 16, fontWeight: 600 }}
                     >
-                      Balance:
+                      Ashraful Islam
                     </Typography>
-                    <Typography
-                      variant="body2"
-                      sx={{ fontSize: 14, color: "#666" }}
-                    >
-                      $500
-                    </Typography>
+                    <Box sx={{ display: "flex" }}>
+                      <Typography
+                        variant="body2"
+                        sx={{ fontSize: 14, color: "#666" }}
+                      >
+                        Balance:
+                      </Typography>
+                      <Typography
+                        variant="body2"
+                        sx={{ fontSize: 14, color: "#666" }}
+                      >
+                        $500
+                      </Typography>
+                    </Box>
                   </Box>
+                  <Typography
+                    sx={{ fontSize: 14, color: "#666" }}
+                    variant="body1"
+                  >
+                    SILVER USER
+                  </Typography>
                 </Box>
-                <Typography
-                  sx={{ fontSize: 14, color: "#666" }}
-                  variant="body1"
-                >
-                  SILVER USER
-                </Typography>
               </Box>
-            </Box>
-          </Paper>
-        </Grid>
-        <Grid item lg={6}>
-          <Grid container spacing={4}>
-            <Grid item lg={3}>
-              <Paper
-                sx={{
-                  p: "1rem 1.25rem",
-                  display: "flex",
-                  flexDirection: "column",
-                  alignItems: "center",
-                }}
-              >
-                <Box
-                  sx={{ m: 0, color: "primary.main", lineHeight: 1.5 }}
-                  component={"h3"}
+            </Paper>
+          </Grid>
+          <Grid item lg={6}>
+            <Grid container spacing={4}>
+              <Grid item lg={3}>
+                <Paper
+                  sx={{
+                    p: "1rem 1.25rem",
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "center",
+                  }}
                 >
-                  13
-                </Box>
-                <Box
-                  sx={{ fontSize: 12, textAlign: "center" }}
-                  component={"small"}
+                  <Box
+                    sx={{ m: 0, color: "primary.main", lineHeight: 1.5 }}
+                    component={"h3"}
+                  >
+                    13
+                  </Box>
+                  <Box
+                    sx={{ fontSize: 12, textAlign: "center" }}
+                    component={"small"}
+                  >
+                    All order
+                  </Box>
+                </Paper>
+              </Grid>
+              <Grid item lg={3}>
+                <Paper
+                  sx={{
+                    p: "1rem 2.5rem",
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "center",
+                  }}
                 >
-                  All order
-                </Box>
-              </Paper>
-            </Grid>
-            <Grid item lg={3}>
-              <Paper
-                sx={{
-                  p: "1rem 2.5rem",
-                  display: "flex",
-                  flexDirection: "column",
-                  alignItems: "center",
-                }}
-              >
-                <Box
-                  sx={{ m: 0, color: "primary.main", lineHeight: 1.5 }}
-                  component={"h3"}
+                  <Box
+                    sx={{ m: 0, color: "primary.main", lineHeight: 1.5 }}
+                    component={"h3"}
+                  >
+                    03
+                  </Box>
+                  <Box
+                    sx={{ fontSize: 12, textAlign: "center" }}
+                    component={"small"}
+                  >
+                    Awaiting Payments
+                  </Box>
+                </Paper>
+              </Grid>
+              <Grid item lg={3}>
+                <Paper
+                  sx={{
+                    p: "1rem 2.5rem",
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "center",
+                  }}
                 >
-                  03
-                </Box>
-                <Box
-                  sx={{ fontSize: 12, textAlign: "center" }}
-                  component={"small"}
+                  <Box
+                    sx={{ m: 0, color: "primary.main", lineHeight: 1.5 }}
+                    component={"h3"}
+                  >
+                    13
+                  </Box>
+                  <Box
+                    sx={{ fontSize: 12, textAlign: "center" }}
+                    component={"small"}
+                  >
+                    Awaiting Shipment
+                  </Box>
+                </Paper>
+              </Grid>
+              <Grid item lg={3}>
+                <Paper
+                  sx={{
+                    p: "1rem 2.5rem",
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "center",
+                  }}
                 >
-                  Awaiting Payments
-                </Box>
-              </Paper>
-            </Grid>
-            <Grid item lg={3}>
-              <Paper
-                sx={{
-                  p: "1rem 2.5rem",
-                  display: "flex",
-                  flexDirection: "column",
-                  alignItems: "center",
-                }}
-              >
-                <Box
-                  sx={{ m: 0, color: "primary.main", lineHeight: 1.5 }}
-                  component={"h3"}
-                >
-                  13
-                </Box>
-                <Box
-                  sx={{ fontSize: 12, textAlign: "center" }}
-                  component={"small"}
-                >
-                  Awaiting Shipment
-                </Box>
-              </Paper>
-            </Grid>
-            <Grid item lg={3}>
-              <Paper
-                sx={{
-                  p: "1rem 2.5rem",
-                  display: "flex",
-                  flexDirection: "column",
-                  alignItems: "center",
-                }}
-              >
-                <Box
-                  sx={{ m: 0, color: "primary.main", lineHeight: 1.5 }}
-                  component={"h3"}
-                >
-                  13
-                </Box>
-                <Box
-                  sx={{ fontSize: 12, textAlign: "center" }}
-                  component={"small"}
-                >
-                  Awaiting Delivery
-                </Box>
-              </Paper>
+                  <Box
+                    sx={{ m: 0, color: "primary.main", lineHeight: 1.5 }}
+                    component={"h3"}
+                  >
+                    13
+                  </Box>
+                  <Box
+                    sx={{ fontSize: 12, textAlign: "center" }}
+                    component={"small"}
+                  >
+                    Awaiting Delivery
+                  </Box>
+                </Paper>
+              </Grid>
             </Grid>
           </Grid>
         </Grid>
-      </Grid>
+      </Box>
     </div>
   );
 }
