@@ -27,7 +27,7 @@ export default function ProfileMain() {
                   >
                     Ashraful Islam
                   </Typography>
-                  <Box sx={{}}>
+                  <Box sx={{ display: "flex" }}>
                     <Typography
                       variant="body2"
                       sx={{ fontSize: 14, color: "#666" }}
@@ -42,7 +42,12 @@ export default function ProfileMain() {
                     </Typography>
                   </Box>
                 </Box>
-                <Typography variant="body1">SILVER USER</Typography>
+                <Typography
+                  sx={{ fontSize: 14, color: "#666" }}
+                  variant="body1"
+                >
+                  SILVER USER
+                </Typography>
               </Box>
             </Box>
           </Paper>
