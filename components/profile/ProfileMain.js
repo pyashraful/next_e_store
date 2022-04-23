@@ -1,5 +1,4 @@
 import { Grid, Paper, Box, Avatar, Typography } from "@mui/material";
-import { display } from "@mui/system";
 import ProfileMainHader from "./ProfileMainHader";
 
 export default function ProfileMain() {
@@ -8,7 +7,7 @@ export default function ProfileMain() {
       <Box sx={{ mb: 2 }}>
         <ProfileMainHader />
       </Box>
-      <Grid container>
+      <Grid container spacing={3}>
         <Grid item lg={6}>
           <Paper sx={{ p: "14px 32px", display: "flex", alignItems: "center" }}>
             <Avatar src="/avater.jpg" sx={{ width: 64, height: 64 }} />
@@ -52,7 +51,102 @@ export default function ProfileMain() {
             </Box>
           </Paper>
         </Grid>
-        <Grid item lg={12}></Grid>
+        <Grid item lg={6}>
+          <Grid container spacing={4}>
+            <Grid item lg={3}>
+              <Paper
+                sx={{
+                  p: "1rem 1.25rem",
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                }}
+              >
+                <Box
+                  sx={{ m: 0, color: "primary.main", lineHeight: 1.5 }}
+                  component={"h3"}
+                >
+                  13
+                </Box>
+                <Box
+                  sx={{ fontSize: 12, textAlign: "center" }}
+                  component={"small"}
+                >
+                  All order
+                </Box>
+              </Paper>
+            </Grid>
+            <Grid item lg={3}>
+              <Paper
+                sx={{
+                  p: "1rem 2.5rem",
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                }}
+              >
+                <Box
+                  sx={{ m: 0, color: "primary.main", lineHeight: 1.5 }}
+                  component={"h3"}
+                >
+                  03
+                </Box>
+                <Box
+                  sx={{ fontSize: 12, textAlign: "center" }}
+                  component={"small"}
+                >
+                  Awaiting Payments
+                </Box>
+              </Paper>
+            </Grid>
+            <Grid item lg={3}>
+              <Paper
+                sx={{
+                  p: "1rem 2.5rem",
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                }}
+              >
+                <Box
+                  sx={{ m: 0, color: "primary.main", lineHeight: 1.5 }}
+                  component={"h3"}
+                >
+                  13
+                </Box>
+                <Box
+                  sx={{ fontSize: 12, textAlign: "center" }}
+                  component={"small"}
+                >
+                  Awaiting Shipment
+                </Box>
+              </Paper>
+            </Grid>
+            <Grid item lg={3}>
+              <Paper
+                sx={{
+                  p: "1rem 2.5rem",
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                }}
+              >
+                <Box
+                  sx={{ m: 0, color: "primary.main", lineHeight: 1.5 }}
+                  component={"h3"}
+                >
+                  13
+                </Box>
+                <Box
+                  sx={{ fontSize: 12, textAlign: "center" }}
+                  component={"small"}
+                >
+                  Awaiting Delivery
+                </Box>
+              </Paper>
+            </Grid>
+          </Grid>
+        </Grid>
       </Grid>
     </div>
   );
