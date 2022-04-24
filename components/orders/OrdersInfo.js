@@ -38,9 +38,9 @@ export default function OrdersInfo() {
           >
             Order #
           </OrdersInfoBox>
-          <OrdersInfoBox>Status</OrdersInfoBox>
-          <OrdersInfoBox>Date purchased</OrdersInfoBox>
-          <OrdersInfoBox>Total</OrdersInfoBox>
+          <OrdersInfoBox>pandig</OrdersInfoBox>
+          <OrdersInfoBox>24 Apr, 2022</OrdersInfoBox>
+          <OrdersInfoBox>$350</OrdersInfoBox>
         </Stack>
       </StyledPaper>
     </>
