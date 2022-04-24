@@ -1,12 +1,9 @@
-import React from "react";
-import Layout from "../../components/Layout";
-import ProfileSidebar from "../../components/profile/ProfileSidebar";
+import UserLayout from "../../components/profile/UserLayout";
 
 export default function index() {
   return (
-    <Layout>
-      <ProfileSidebar />
-      <div>Order</div>
-    </Layout>
+    <UserLayout>
+      <div>order</div>
+    </UserLayout>
   );
 }
