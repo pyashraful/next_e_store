@@ -43,6 +43,71 @@ export default function OrdersInfo() {
           <OrdersInfoBox>$350</OrdersInfoBox>
         </Stack>
       </StyledPaper>
+      <StyledPaper>
+        <Stack direction={"row"}>
+          <OrdersInfoBox
+            sx={{ fontSize: "16px", fontWeight: 600 }}
+            component={"h5"}
+          >
+            Order #
+          </OrdersInfoBox>
+          <OrdersInfoBox>pandig</OrdersInfoBox>
+          <OrdersInfoBox>24 Apr, 2022</OrdersInfoBox>
+          <OrdersInfoBox>$350</OrdersInfoBox>
+        </Stack>
+      </StyledPaper>
+      <StyledPaper>
+        <Stack direction={"row"}>
+          <OrdersInfoBox
+            sx={{ fontSize: "16px", fontWeight: 600 }}
+            component={"h5"}
+          >
+            Order #
+          </OrdersInfoBox>
+          <OrdersInfoBox>pandig</OrdersInfoBox>
+          <OrdersInfoBox>24 Apr, 2022</OrdersInfoBox>
+          <OrdersInfoBox>$350</OrdersInfoBox>
+        </Stack>
+      </StyledPaper>
+      <StyledPaper>
+        <Stack direction={"row"}>
+          <OrdersInfoBox
+            sx={{ fontSize: "16px", fontWeight: 600 }}
+            component={"h5"}
+          >
+            Order #
+          </OrdersInfoBox>
+          <OrdersInfoBox>pandig</OrdersInfoBox>
+          <OrdersInfoBox>24 Apr, 2022</OrdersInfoBox>
+          <OrdersInfoBox>$350</OrdersInfoBox>
+        </Stack>
+      </StyledPaper>
+      <StyledPaper>
+        <Stack direction={"row"}>
+          <OrdersInfoBox
+            sx={{ fontSize: "16px", fontWeight: 600 }}
+            component={"h5"}
+          >
+            Order #
+          </OrdersInfoBox>
+          <OrdersInfoBox>pandig</OrdersInfoBox>
+          <OrdersInfoBox>24 Apr, 2022</OrdersInfoBox>
+          <OrdersInfoBox>$350</OrdersInfoBox>
+        </Stack>
+      </StyledPaper>
+      <StyledPaper>
+        <Stack direction={"row"}>
+          <OrdersInfoBox
+            sx={{ fontSize: "16px", fontWeight: 600 }}
+            component={"h5"}
+          >
+            Order #
+          </OrdersInfoBox>
+          <OrdersInfoBox>pandig</OrdersInfoBox>
+          <OrdersInfoBox>24 Apr, 2022</OrdersInfoBox>
+          <OrdersInfoBox>$350</OrdersInfoBox>
+        </Stack>
+      </StyledPaper>
     </>
   );
 }
