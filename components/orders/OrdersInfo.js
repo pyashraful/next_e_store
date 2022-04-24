@@ -11,6 +11,7 @@ const TableHead = styled(Box)({
   fontSize: "16px",
   fontWeight: 600,
   margin: 0,
+  marginRight: "6px",
   color: "rgb(125, 135, 156)",
   textAlign: "left",
   flex: "1 1 0",
@@ -24,7 +25,7 @@ const OrdersInfoBox = styled(Box)({
 export default function OrdersInfo() {
   return (
     <>
-      <Stack direction={"row"}>
+      <Stack sx={{ paddingLeft: "18px" }} direction={"row"}>
         <TableHead component={"h5"}>Order #</TableHead>
         <TableHead component={"h5"}>Status</TableHead>
         <TableHead component={"h5"}>Date purchased</TableHead>
