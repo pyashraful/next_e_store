@@ -19,6 +19,7 @@ const Small = styled(Box)({
 });
 const Span = styled(Box)({
   color: "#2B3445",
+  fontSize: 14,
 });
 
 export default function ProfileUserInfo() {
@@ -26,19 +27,19 @@ export default function ProfileUserInfo() {
     <Paper sx={{ py: 1.5, px: 3, display: "flex" }}>
       <FlexBox>
         <Small component={"small"}>Last Name</Small>
-        <Span>Islam</Span>
+        <Span component={"span"}>Islam</Span>
       </FlexBox>
       <FlexBox>
         <Small component={"small"}>Email</Small>
-        <Span>pyashraful@gmail.com</Span>
+        <Span component={"span"}>pyashraful@gmail.com</Span>
       </FlexBox>
       <FlexBox>
         <Small component={"small"}>Phone</Small>
-        <Span>+8801856454154</Span>
+        <Span component={"span"}>+8801856454154</Span>
       </FlexBox>
       <FlexBox>
         <Small component={"small"}>Birth date</Small>
-        <Span>01 Jan, 1970</Span>
+        <Span component={"span"}>01 Jan, 1970</Span>
       </FlexBox>
     </Paper>
   );

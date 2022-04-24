@@ -12,7 +12,12 @@ export default function ProfileMain() {
         <Grid container spacing={3}>
           <Grid item lg={6}>
             <Paper
-              sx={{ p: "14px 32px", display: "flex", alignItems: "center" }}
+              sx={{
+                p: "14px 32px",
+                display: "flex",
+                alignItems: "center",
+                height: "100%",
+              }}
             >
               <Avatar src="/avater.jpg" sx={{ width: 64, height: 64 }} />
               <Box sx={{ ml: "16px", flex: "1 1 0" }}>

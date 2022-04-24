@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Paper, Typography, Box } from "@mui/material";
 import styled from "@emotion/styled";
+import { useRouter } from "next/router";
 
 import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
 import ShoppingBagOutlinedIcon from "@mui/icons-material/ShoppingBagOutlined";
@@ -11,13 +12,13 @@ import PaymentOutlinedIcon from "@mui/icons-material/PaymentOutlined";
 
 const MyLink = styled("a")({
   position: "relative",
-  // color: "rgb(210, 63, 87)",
+
   color: "rgb(43, 52, 69)",
   transition: "color 150ms ease-in-out 0s",
   display: "flex",
-  // -webkit-box-pack: "justify",
+
   justifyContent: "space-between",
-  // -webkit-box-align: "center",
+
   textDecoration: "none",
   alignItems: "center",
   borderLeft: "4px solid ",
@@ -25,9 +26,6 @@ const MyLink = styled("a")({
   paddingRight: "1.5rem",
   marginBottom: "1.25rem",
   borderColor: "transparent",
-  // borderTopColor: "rgb(210, 63, 87)",
-  // borderRightColor: "rgb(210, 63, 87)",
-  // borderBottomColor: "rgb(210, 63, 87)",
   " &:hover": {
     color: "rgb(210, 63, 87)",
     borderColor: "rgb(210, 63, 87)",
@@ -35,6 +33,7 @@ const MyLink = styled("a")({
 });
 
 export default function ProfileSidebar() {
+  const router = useRouter();
   return (
     <Paper sx={{ pb: 2.75 }}>
       <Typography
