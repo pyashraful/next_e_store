@@ -10,7 +10,7 @@ import PermIdentityOutlinedIcon from "@mui/icons-material/PermIdentityOutlined";
 import LocationOnOutlinedIcon from "@mui/icons-material/LocationOnOutlined";
 import PaymentOutlinedIcon from "@mui/icons-material/PaymentOutlined";
 
-const MyLink = styled("a")({
+const MyLink = styled("a")(({ active }) => ({
   position: "relative",
 
   color: "rgb(43, 52, 69)",
@@ -30,7 +30,8 @@ const MyLink = styled("a")({
     color: "rgb(210, 63, 87)",
     borderColor: "rgb(210, 63, 87)",
   },
-});
+  ...(active && { borderColor: "rgb(210, 63, 87)", color: "rgb(210, 63, 87)" }),
+}));
 
 export default function ProfileSidebar() {
   const router = useRouter();
@@ -85,8 +86,8 @@ export default function ProfileSidebar() {
         ACCOUNT SETTINGS
       </Typography>
 
-      <Link href="/">
-        <MyLink>
+      <Link href="/" passHref>
+        <MyLink active={router.pathname === "/profile" ? true : false}>
           <Box sx={{ display: "flex", alignItems: "center" }}>
             <PermIdentityOutlinedIcon fontSize="small" sx={{ mr: "10px" }} />
             <Box sx={{ fontSize: "14px" }} component="span">
@@ -96,7 +97,7 @@ export default function ProfileSidebar() {
           <Box>5</Box>
         </MyLink>
       </Link>
-      <Link href="/">
+      <Link href="/" passHref>
         <MyLink>
           <Box sx={{ display: "flex", alignItems: "center" }}>
             <LocationOnOutlinedIcon fontSize="small" sx={{ mr: "10px" }} />
@@ -107,7 +108,7 @@ export default function ProfileSidebar() {
           <Box>5</Box>
         </MyLink>
       </Link>
-      <Link href="/">
+      <Link href="/" passHref>
         <MyLink>
           <Box sx={{ display: "flex", alignItems: "center" }}>
             <PaymentOutlinedIcon fontSize="small" sx={{ mr: "10px" }} />
