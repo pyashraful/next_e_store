@@ -11,7 +11,8 @@ const ChipBar = styled(Box)({
 const CustomChip = styled(Chip)({
   fontSize: "14px",
   fontWeight: "600",
-  backgroundColor: "rgb(210, 63, 87)",
+  backgroundColor: "#FCE9EC",
+  color: "#D23F57",
   padding: "8px 16px",
   "& .MuiChip-label'": {
     marginLeft: "12px",
@@ -48,7 +49,7 @@ export default function ProgressBar() {
                 alignItems: "center",
               }}
             >
-              <CustomChip label={"1.Cart"} clickable component={"button"} />
+              <CustomChip label={"2.Details"} clickable component={"button"} />
               <ChipBar></ChipBar>
             </Box>
             <Box
@@ -58,7 +59,7 @@ export default function ProgressBar() {
                 alignItems: "center",
               }}
             >
-              <CustomChip label={"1.Cart"} clickable component={"button"} />
+              <CustomChip label={"3.Payment"} clickable component={"button"} />
               <ChipBar></ChipBar>
             </Box>
             <Box
@@ -68,7 +69,7 @@ export default function ProgressBar() {
                 alignItems: "center",
               }}
             >
-              <CustomChip label={"1.Cart"} clickable component={"button"} />
+              <CustomChip label={"4.Review"} clickable component={"button"} />
             </Box>
           </Box>
         </Grid>
