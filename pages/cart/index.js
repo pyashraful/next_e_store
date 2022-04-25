@@ -8,6 +8,7 @@ import { styled } from "@mui/system";
 import CartButton from "../../components/cart/CartButton";
 import CricleButton from "../../components/CricleButton";
 import CloseIcon from "@mui/icons-material/Close";
+import ProgressBar from "../../components/ProgressBar";
 
 const CartPaper = styled(Paper)({
   boxShadow: "rgba(43, 52, 69, 0.1) 0px 4px 16px",
@@ -28,6 +29,7 @@ export default function Cart() {
   return (
     <Layout>
       <Container>
+        <ProgressBar />
         <Grid container spacing={3}>
           <Grid item xs={12} md={8} lg={8}>
             {cart.cartItems?.map((item) => (
