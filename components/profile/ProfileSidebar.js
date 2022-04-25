@@ -26,7 +26,7 @@ const MyLink = styled("a")(({ active }) => ({
   paddingRight: "1.5rem",
   marginBottom: "1.25rem",
   borderColor: "transparent",
-  " &:hover": {
+  "&:hover": {
     color: "rgb(210, 63, 87)",
     borderColor: "rgb(210, 63, 87)",
   },

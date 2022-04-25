@@ -18,6 +18,10 @@ const CustomChip = styled(Chip)({
     marginLeft: "12px",
     marginRight: "12px",
   },
+  "&:hover": {
+    color: "#fff",
+    backgroundColor: "#D23F57",
+  },
 });
 
 export default function ProgressBar() {
