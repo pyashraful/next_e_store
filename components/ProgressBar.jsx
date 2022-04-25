@@ -31,8 +31,45 @@ export default function ProgressBar() {
               alignItems: "center",
             }}
           >
-            <CustomChip label={"1.Cart"} clickable component={"button"} />
-            <ChipBar></ChipBar>
+            <Box
+              sx={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
+              <CustomChip label={"1.Cart"} clickable component={"button"} />
+              <ChipBar></ChipBar>
+            </Box>
+            <Box
+              sx={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
+              <CustomChip label={"1.Cart"} clickable component={"button"} />
+              <ChipBar></ChipBar>
+            </Box>
+            <Box
+              sx={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
+              <CustomChip label={"1.Cart"} clickable component={"button"} />
+              <ChipBar></ChipBar>
+            </Box>
+            <Box
+              sx={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
+              <CustomChip label={"1.Cart"} clickable component={"button"} />
+            </Box>
           </Box>
         </Grid>
       </Grid>
