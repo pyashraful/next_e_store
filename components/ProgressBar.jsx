@@ -20,7 +20,7 @@ const CustomChip = styled(Chip)({
   },
   "&:hover": {
     color: "#fff",
-    backgroundColor: "#D23F57",
+    backgroundColor: "D23F57",
   },
 });
 
