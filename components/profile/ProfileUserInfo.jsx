@@ -26,6 +26,10 @@ export default function ProfileUserInfo() {
   return (
     <Paper sx={{ py: 1.5, px: 3, display: "flex" }}>
       <FlexBox>
+        <Small component={"small"}>First Name</Small>
+        <Span component={"span"}>Md Ashraful</Span>
+      </FlexBox>
+      <FlexBox>
         <Small component={"small"}>Last Name</Small>
         <Span component={"span"}>Islam</Span>
       </FlexBox>
