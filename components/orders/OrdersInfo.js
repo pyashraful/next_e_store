@@ -1,4 +1,4 @@
-import { Box, Paper, Stack } from "@mui/material";
+import { Box, Paper, Stack, Pagination } from "@mui/material";
 import { styled } from "@mui/system";
 
 const StyledPaper = styled(Paper)({
@@ -109,6 +109,16 @@ export default function OrdersInfo() {
           <OrdersInfoBox>$350</OrdersInfoBox>
         </Stack>
       </StyledPaper>
+      <Box sx={{ mt: "40px", display: "flex", justifyContent: "center" }}>
+        <Pagination
+          count={10}
+          variant="outlined"
+          sx={{
+            color: "rgb(210, 63, 87)",
+            background: "rgba(210, 63, 87, 0.12)",
+          }}
+        />
+      </Box>
     </>
   );
 }
