@@ -45,7 +45,7 @@ export default function ProfileSidebar() {
         DASHBOARD
       </Typography>
 
-      <Link href="/Order" passHref>
+      <Link href="/orders" passHref>
         <MyLink active={router.pathname === "/order" ? true : false}>
           <Box sx={{ display: "flex", alignItems: "center" }}>
             <ShoppingBagOutlinedIcon fontSize="small" sx={{ mr: "10px" }} />
@@ -86,7 +86,7 @@ export default function ProfileSidebar() {
         ACCOUNT SETTINGS
       </Typography>
 
-      <Link href="/" passHref>
+      <Link href="/profile" passHref>
         <MyLink active={router.pathname === "/profile" ? true : false}>
           <Box sx={{ display: "flex", alignItems: "center" }}>
             <PermIdentityOutlinedIcon fontSize="small" sx={{ mr: "10px" }} />
