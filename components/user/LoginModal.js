@@ -39,6 +39,9 @@ export default function LoginModal({ showModal, setShowModal }) {
 
     validationOpt,
   });
+
+  console.error(errors);
+
   async function onSubmit(data) {
     try {
       const res = await axios.post("/api/login", data);
