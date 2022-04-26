@@ -44,7 +44,7 @@ export default function LoginModal({ showModal, setShowModal }) {
       const res = await axios.post("/api/login", data);
       console.log(res.data);
       setShowModal(!showModal);
-      router.push("/");
+      router.push("/profile");
     } catch (err) {
       console.log(err);
     }
