@@ -10,7 +10,7 @@ export default function UserLayout({ children }) {
           <Grid item xs={12} lg={3}>
             <ProfileSidebar />
           </Grid>
-          <Grid item xs={12} lg="9">
+          <Grid item xs={12} lg={9}>
             {children}
           </Grid>
         </Grid>
