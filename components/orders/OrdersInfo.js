@@ -22,6 +22,17 @@ const OrdersInfoBox = styled(Box)({
   flex: "1 1 0",
 });
 
+const StyledPagination = styled(Pagination)({
+  "& .Mui-selected": {
+    color: "rgb(210, 63, 87)",
+    border: "1px solid rgba(210, 63, 87, 0.5)",
+    backgroundColor: "rgba(210, 63, 87, 0.12)",
+    "&:hover": {
+      backgroundColor: "rgba(210, 63, 87, 0.12)",
+    },
+  },
+});
+
 export default function OrdersInfo() {
   return (
     <>
@@ -110,12 +121,13 @@ export default function OrdersInfo() {
         </Stack>
       </StyledPaper>
       <Box sx={{ mt: "40px", display: "flex", justifyContent: "center" }}>
-        <Pagination
+        <StyledPagination
           count={10}
           variant="outlined"
           sx={{
-            color: "rgb(210, 63, 87)",
-            background: "rgba(210, 63, 87, 0.12)",
+            "& .mui-selected": {
+              color: "rgb(210, 63, 87)",
+            },
           }}
         />
       </Box>
