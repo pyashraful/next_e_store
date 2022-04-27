@@ -121,15 +121,7 @@ export default function OrdersInfo() {
         </Stack>
       </StyledPaper>
       <Box sx={{ mt: "40px", display: "flex", justifyContent: "center" }}>
-        <StyledPagination
-          count={10}
-          variant="outlined"
-          sx={{
-            "& .mui-selected": {
-              color: "rgb(210, 63, 87)",
-            },
-          }}
-        />
+        <StyledPagination count={10} variant="outlined" />
       </Box>
     </>
   );
