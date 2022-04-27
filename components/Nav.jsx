@@ -6,6 +6,7 @@ import Search from "./Search";
 import UserProfile from "./UserProfile";
 import { Store } from "../utils/store";
 import { styled } from "@mui/system";
+import { useRouter } from "next/router";
 
 const FixDiv = styled("div")({
   position: "fixed",
@@ -18,6 +19,7 @@ const FixDiv = styled("div")({
 
 export default function Nav({ showModal, setShowModal }) {
   const [state, dispatch] = useContext(Store);
+  const router = useRouter();
 
   const { cartOpen, cart } = state;
   const cartItems = cart.cartItems;
@@ -28,6 +30,14 @@ export default function Nav({ showModal, setShowModal }) {
     }
     if (cartOpen === false) {
       dispatch({ type: "OPEN_CART" });
+    }
+  }
+
+  function showLoingForm() {
+    if (state.userInfo) {
+      router.push("/profile");
+    } else {
+      setShowModal(!showModal);
     }
   }
 
@@ -67,7 +77,7 @@ export default function Nav({ showModal, setShowModal }) {
                   sx={{ display: { xs: "none", md: "flex" } }}
                 >
                   <Box className="">
-                    <UserProfile onClick={() => setShowModal(!showModal)} />
+                    <UserProfile onClick={showLoingForm} />
                   </Box>
                   <Box onClick={() => toggleDrawer()}>
                     <CartBadge cartItems={cartItems} />
