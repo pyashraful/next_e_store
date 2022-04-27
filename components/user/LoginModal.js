@@ -1,12 +1,14 @@
-import React from "react";
 import { Modal, Box, Paper, Button, Divider } from "@mui/material";
 import { styled } from "@mui/system";
 import InputFrom from "../InputFrom";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
+import cookie from "cookie";
 import * as Yup from "yup";
 import axios from "axios";
 import { useRouter } from "next/router";
+import { useContext } from "react";
+import { Store } from "../../utils/store";
 
 const StyledButton = styled(Button)({
   width: "100%",
@@ -25,6 +27,8 @@ const formSchema = Yup.object().shape({
 const validationOpt = { resolver: yupResolver(formSchema) };
 
 export default function LoginModal({ showModal, setShowModal }) {
+  const [state, dispatch] = useContext(Store);
+  console.log("🚀 ~ file: LoginModal.js ~ line 31 ~ LoginModal ~ state", state);
   const router = useRouter();
 
   const {
@@ -46,6 +50,8 @@ export default function LoginModal({ showModal, setShowModal }) {
     try {
       const res = await axios.post("/api/login", data);
       console.log(res.data);
+      dispatch({ type: "USER_LOGIN", payload: res.data });
+      cookie.serialize("userInfo", res.data);
       setShowModal(!showModal);
       router.push("/profile");
     } catch (err) {

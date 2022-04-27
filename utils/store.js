@@ -51,6 +51,10 @@ function reducer(state, action) {
       return { ...state, cart: { ...state.cart, cartItems: newItem } };
     }
 
+    case "USER_LOGIN": {
+      return { ...state, userInfo: action.payload };
+    }
+
     default:
       throw new Error("Invalid action type");
   }
