@@ -4,7 +4,6 @@ import { styled } from "@mui/system";
 import InputFrom from "../InputFrom";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import cookie from "cookie";
 import * as Yup from "yup";
 import axios from "axios";
 import { useRouter } from "next/router";
