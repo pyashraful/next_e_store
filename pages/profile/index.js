@@ -9,7 +9,7 @@ export default function Profile() {
   const [state] = useContext(Store);
 
   useEffect(() => {
-    if (Object.keys(state.userInfo).length === 0) {
+    if (!state.userInfo) {
       router.push("/");
     }
   }, [router, state.userInfo]);

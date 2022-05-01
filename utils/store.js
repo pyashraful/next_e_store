@@ -1,6 +1,5 @@
 import { createContext, useReducer } from "react";
 import Cookies from "js-cookie";
-import cookie from "cookie";
 
 export const Store = createContext();
 
@@ -12,7 +11,9 @@ const initialState = {
       : [],
   },
 
-  userInfo: cookie.parse("userInfo") ? cookie.parse("userInfo") : null,
+  userInfo: Cookies.get("userInfo")
+    ? JSON.parse(Cookies.get("userInfo"))
+    : null,
 };
 
 function reducer(state, action) {

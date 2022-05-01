@@ -35,7 +35,7 @@ export default function Nav({ showModal, setShowModal }) {
   console.log("🚀 ~ file: Nav.js ~ line 50 ~ Nav ~ state", state.userInfo);
 
   function showLoingForm() {
-    if (Object.keys(state.userInfo).length !== 0) {
+    if (state.userInfo) {
       router.push("/profile");
     } else {
       setShowModal(!showModal);
