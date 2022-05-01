@@ -1,4 +1,5 @@
 import { Modal, Box, Paper, Button, Divider } from "@mui/material";
+import Cookies from "js-cookie";
 import { styled } from "@mui/system";
 import InputFrom from "../InputFrom";
 import { useForm } from "react-hook-form";
@@ -44,14 +45,11 @@ export default function LoginModal({ showModal, setShowModal }) {
     validationOpt,
   });
 
-  console.error(errors);
-
   async function onSubmit(data) {
     try {
       const res = await axios.post("/api/login", data);
-      console.log(res.data);
+      Cookies.set("userInfo", JSON.stringify(res.data));
       dispatch({ type: "USER_LOGIN", payload: res.data });
-      cookie.serialize("userInfo", res.data);
       setShowModal(!showModal);
       router.push("/profile");
     } catch (err) {

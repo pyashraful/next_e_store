@@ -1,8 +1,16 @@
+import { useContext } from "react";
 import { Grid, Paper, Box, Avatar, Typography } from "@mui/material";
 import ProfileMainHader from "./ProfileMainHader";
 import ProfileUserInfo from "./ProfileUserInfo";
+import { Store } from "../../utils/store";
 
 export default function ProfileMain() {
+  const [state] = useContext(Store);
+  console.log(
+    "🚀 ~ file: ProfileMain.js ~ line 9 ~ ProfileMain ~ state",
+    state.userInfo
+  );
+
   return (
     <div>
       <Box sx={{ mb: 2 }}>
