@@ -6,6 +6,7 @@ const iconsize = {
     borderRadius: "50%",
     width: 25,
     height: 25,
+    border: "none",
   },
 
   outlineCircle: {
