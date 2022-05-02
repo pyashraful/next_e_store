@@ -16,10 +16,6 @@ export default function CartButton({ item, flow, iconsize }) {
       newitem
     );
     let newQuntity = quantity + 1;
-    console.log(
-      "🚀 ~ file: CartButton.js ~ line 15 ~ incriseQuantity ~ newQuntity",
-      newQuntity
-    );
     dispatch({
       type: "ADD_TO_CART",
       payload: { ...item, quantity: newQuntity },
@@ -55,6 +51,7 @@ export default function CartButton({ item, flow, iconsize }) {
       <CricleButton
         iconsize={item.quantity > 1 ? iconsize : null}
         onClick={() => decreaseQuantity(item, item.quantity)}
+        disabled={item.quantity === 1}
       >
         <RemoveIcon />
       </CricleButton>
