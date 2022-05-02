@@ -6,7 +6,7 @@ import ShoppingBagOutlinedIcon from "@mui/icons-material/ShoppingBagOutlined";
 const StyledBadge = styled(Badge)(({ theme }) => ({
   "& .MuiBadge-badge": {
     right: -8,
-    top: 0,
+    top: -4,
     border: `2px solid ${theme.palette.background.paper}`,
     padding: "0 4px",
   },
