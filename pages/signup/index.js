@@ -49,9 +49,9 @@ export default function Signup({ showModal, setShowModal }) {
 
   console.log(errors);
 
-  function onSubmit(data) {
+  async function onSubmit(data) {
     try {
-      const res = axios.post("/api/signup", data);
+      const res = await axios.post("/api/signup", data);
       console.log("🚀 ~ file: index.js ~ line 55 ~ onSubmit ~ res", res.data);
       dispatch({ type: "USER_LOGIN", payload: res.data });
       cookies.set("userInfo", JSON.stringify(res.data));
