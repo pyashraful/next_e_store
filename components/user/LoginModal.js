@@ -29,7 +29,6 @@ const validationOpt = { resolver: yupResolver(formSchema) };
 
 export default function LoginModal({ showModal, setShowModal }) {
   const [state, dispatch] = useContext(Store);
-  console.log("🚀 ~ file: LoginModal.js ~ line 31 ~ LoginModal ~ state", state);
   const router = useRouter();
 
   const {

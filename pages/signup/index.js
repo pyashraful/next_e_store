@@ -47,8 +47,6 @@ export default function Signup({ showModal, setShowModal }) {
     resolver: yupResolver(signupFromValidation),
   });
 
-  console.log(errors);
-
   async function onSubmit(data) {
     try {
       const res = await axios.post("/api/signup", data);
@@ -60,7 +58,6 @@ export default function Signup({ showModal, setShowModal }) {
       console.log(err);
     }
   }
-  console.log(errors);
 
   return (
     <Box
