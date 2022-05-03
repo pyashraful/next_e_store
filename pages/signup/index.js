@@ -1,4 +1,5 @@
-import React from "react";
+import { useContext } from "react";
+import { Store } from "../../utils/store";
 import { Box, Paper, Button, Divider } from "@mui/material";
 import { styled } from "@mui/system";
 import InputFrom from "../../components/InputFrom";
@@ -7,6 +8,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from "yup";
 import axios from "axios";
 import { useRouter } from "next/router";
+import cookies from "js-cookie";
 
 const StyledButton = styled(Button)({
   width: "100%",
@@ -29,6 +31,8 @@ const signupFromValidation = Yup.object({
 
 export default function Signup({ showModal, setShowModal }) {
   const router = useRouter();
+  const [dispatch] = useContext(Store);
+
   const {
     control,
     handleSubmit,
@@ -49,6 +53,8 @@ export default function Signup({ showModal, setShowModal }) {
     try {
       const res = axios.post("/api/signup", data);
       console.log(res);
+      dispatch({ type: "USER_LOGIN", payload: res.data });
+      cookies.set("userInfo", JSON.stringify(res.data));
       router.push("/");
     } catch (err) {
       console.log(err);
