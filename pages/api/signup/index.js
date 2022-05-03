@@ -19,6 +19,7 @@ export default handler.post(async (req, res) => {
 
   try {
     user = await newUser.save();
+    console.log("🚀 ~ file: index.js ~ line 22 ~ handler.post ~ user", user);
   } catch (error) {
     res.status(401);
     res.json({ error: "User already exists" });
@@ -48,5 +49,5 @@ export default handler.post(async (req, res) => {
     })
   );
 
-  res.json(user);
+  res.send(user);
 });

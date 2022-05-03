@@ -32,7 +32,6 @@ export default function Nav({ showModal, setShowModal }) {
       dispatch({ type: "OPEN_CART" });
     }
   }
-  console.log("🚀 ~ file: Nav.js ~ line 50 ~ Nav ~ state", state.userInfo);
 
   function showLoingForm() {
     if (state.userInfo) {

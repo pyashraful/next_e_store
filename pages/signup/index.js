@@ -31,7 +31,7 @@ const signupFromValidation = Yup.object({
 
 export default function Signup({ showModal, setShowModal }) {
   const router = useRouter();
-  const [dispatch] = useContext(Store);
+  const [state, dispatch] = useContext(Store);
 
   const {
     control,
@@ -52,7 +52,7 @@ export default function Signup({ showModal, setShowModal }) {
   function onSubmit(data) {
     try {
       const res = axios.post("/api/signup", data);
-      console.log(res);
+      console.log("🚀 ~ file: index.js ~ line 55 ~ onSubmit ~ res", res.data);
       dispatch({ type: "USER_LOGIN", payload: res.data });
       cookies.set("userInfo", JSON.stringify(res.data));
       router.push("/");
