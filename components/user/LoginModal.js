@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Modal, Box, Paper, Button, Divider } from "@mui/material";
 import Cookies from "js-cookie";
 import { styled } from "@mui/system";
@@ -168,7 +169,9 @@ export default function LoginModal({ showModal, setShowModal }) {
 
           <Box sx={{ my: "1.25rem", textAlign: "center" }}>
             Don&apos;t have account?
-            <Box component="span">Sign Up</Box>
+            <Box component="span">
+              <Link href="/signup">Sign Up</Link>
+            </Box>
           </Box>
         </form>
 
