@@ -1,3 +1,6 @@
+import { useContext } from "react";
+import { Store } from "../../utils/store";
+import { useRouter } from "next/router";
 import Link from "next/link";
 import HomeIcon from "@mui/icons-material/Home";
 import LocalMallOutlinedIcon from "@mui/icons-material/LocalMallOutlined";
@@ -35,6 +38,17 @@ const NavLink = styled("a")({
 });
 
 export default function MobileNav({ showModal, setShowModal }) {
+  const [state, dispatch] = useContext(Store);
+  const router = useRouter();
+
+  function showLoingForm() {
+    if (state.userInfo) {
+      router.push("/profile");
+    } else {
+      setShowModal(!showModal);
+    }
+  }
+
   return (
     <FixDiv sx={{ display: { xs: "flex", md: "none" } }}>
       <Link href="/" passHref>
@@ -49,12 +63,11 @@ export default function MobileNav({ showModal, setShowModal }) {
           Cart
         </NavLink>
       </Link>
-      <Link href="/" passHref>
-        <NavLink onClick={() => setShowModal(!showModal)}>
-          <PermIdentityOutlinedIcon size="large" />
-          Profile
-        </NavLink>
-      </Link>
+
+      <NavLink onClick={showLoingForm}>
+        <PermIdentityOutlinedIcon size="large" />
+        Profile
+      </NavLink>
     </FixDiv>
   );
 }
