@@ -50,7 +50,7 @@ export default function LoginModal({ showModal, setShowModal }) {
       Cookies.set("userInfo", JSON.stringify(res.data));
       dispatch({ type: "USER_LOGIN", payload: res.data });
       setShowModal(!showModal);
-      router.push("/profile");
+      router.push("/");
     } catch (err) {
       console.log(err);
     }

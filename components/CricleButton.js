@@ -38,7 +38,11 @@ const CartIconButton = styled(ButtonBase)(
     height: 32,
     borderRadius: 50,
     outlineWidth: "5px",
-    border: "1px solid rgba(210, 63, 87, 0.5)",
+    border: "1px solid rgba(0, 0, 0, 0.12)",
+    color: "rgba(0, 0, 0, 0.26)",
+    "&:hover": {
+      BackgrounColor: "rgba(0, 0, 0, 0.04)",
+    },
   },
   (props) => iconsize[props.iconsize]
 );
