@@ -8,25 +8,30 @@ import { Store } from "../../utils/store";
 export default function CartButton({ item, flow, iconsize }) {
   const [state, dispatch] = useContext(Store);
   if (!item) return <h6>Lodding</h6>;
+  const newitem = state.cart.cartItems.find((i) => i._id === item._id);
 
   function incriseQuantity(item, quantity = 0) {
-    const newitem = state.cart.cartItems.find((i) => i._id === item._id);
     console.log(
       "🚀 ~ file: CartButton.js ~ line 15 ~ incriseQuantity ~ newitem",
       newitem
     );
-    let newQuntity = quantity + 1;
-    dispatch({
-      type: "ADD_TO_CART",
-      payload: { ...item, quantity: newQuntity },
-    });
+
+    if (!newitem) {
+      dispatch({
+        type: "ADD_TO_CART",
+        payload: { ...item, quantity: newitem.quantity + 1 },
+      });
+    } else {
+      let newQuntity = quantity + 1;
+      dispatch({
+        type: "ADD_TO_CART",
+        payload: { ...item, quantity: newQuntity },
+      });
+    }
   }
 
   function decreaseQuantity(item, quantity = 1) {
-    console.log(
-      "🚀 ~ file: CartButton.js ~ line 31 ~ decreaseQuantity ~ item",
-      item
-    );
+    console.log("🚀 ~ file: CartButton.js ~ line 25 ~ decreaseQuantity");
     let newQuntity = quantity - 1;
 
     if (newQuntity === 0) {
@@ -38,6 +43,7 @@ export default function CartButton({ item, flow, iconsize }) {
       payload: { ...item, quantity: newQuntity },
     });
   }
+  console.log(newitem?.quantity);
 
   return (
     <Stack direction={flow ? flow : `column`} alignItems="center">
@@ -47,7 +53,7 @@ export default function CartButton({ item, flow, iconsize }) {
       >
         <AddIcon />
       </CricleButton>
-      <Box sx={{ mx: 1 }}>{item.quantity}</Box>
+      <Box sx={{ mx: 1 }}>{item.quantity ? item.quantity : 0}</Box>
       <CricleButton
         iconsize={item.quantity > 1 ? iconsize : null}
         onClick={() => decreaseQuantity(item, item.quantity)}

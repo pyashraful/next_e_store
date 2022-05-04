@@ -26,7 +26,6 @@ export default function CartDrawer() {
 
   function toggleDrawer() {
     if (cartOpen === true) {
-      console.log("hi");
       dispatch({ type: "CLOSE_CART" });
     }
     if (cartOpen === false) {
