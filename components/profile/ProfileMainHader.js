@@ -1,7 +1,22 @@
+import { useContext } from "react";
+import { Store } from "../../utils/store";
+import Cookies from "js-cookie";
 import PersonIcon from "@mui/icons-material/Person";
-import { Box, Button, Typography } from "@mui/material";
+import { Box, Stack, Typography } from "@mui/material";
 import HeaderButton from "./HeaderButton";
 export default function ProfileMainHader() {
+  const [state, dispatch] = useContext(Store);
+
+  function userLogout() {
+    dispatch({ type: "USER_LOGOUT" });
+    console.log(
+      "🚀 ~ file: ProfileMainHader.js ~ line 8 ~ ProfileMainHader ~ state",
+      state
+    );
+    Cookies.remove("userInfo");
+    Cookies.remove("cartItems");
+  }
+
   return (
     <Box sx={{ display: "flex", justifyContent: "space-between" }}>
       <Box sx={{ display: "flex", alignItems: "center" }}>
@@ -13,7 +28,10 @@ export default function ProfileMainHader() {
           My Profile
         </Typography>
       </Box>
-      <HeaderButton />
+      <Stack direction="row" spacing={2}>
+        <HeaderButton onClick={userLogout}>Log out</HeaderButton>
+        <HeaderButton link="/">Edit Profile</HeaderButton>
+      </Stack>
     </Box>
   );
 }

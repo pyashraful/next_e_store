@@ -9,6 +9,10 @@ const MyButton = styled(Button)({
   padding: "6px 2rem",
 });
 
-export default function HeaderButton() {
-  return <MyButton href="/">Edit Profile</MyButton>;
+export default function HeaderButton({ children, link, ...props }) {
+  return (
+    <MyButton href={link} {...props}>
+      {children}
+    </MyButton>
+  );
 }

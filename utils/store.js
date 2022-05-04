@@ -56,6 +56,10 @@ function reducer(state, action) {
       return { ...state, userInfo: action.payload };
     }
 
+    case "USER_LOGOUT": {
+      return { ...state, userInfo: null };
+    }
+
     default:
       throw new Error("Invalid action type");
   }

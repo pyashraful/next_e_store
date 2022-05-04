@@ -18,7 +18,7 @@ export default function ProfileMain() {
       </Box>
       <Box sx={{ mb: 4 }}>
         <Grid container spacing={3}>
-          <Grid item xm={12} sm={12} md={6} lg={6} sx={{ flexBasis: "100%" }}>
+          <Grid item xm={12} sm={12} md={6} lg={6} sx={{ flexBasis: "100% " }}>
             <Paper
               sx={{
                 p: "14px 32px",
