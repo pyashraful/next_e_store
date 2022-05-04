@@ -18,7 +18,7 @@ export default function ProfileMain() {
       </Box>
       <Box sx={{ mb: 4 }}>
         <Grid container spacing={3}>
-          <Grid item lg={6}>
+          <Grid item xm={12} sm={12} md={6} lg={6} sx={{ flexBasis: "100%" }}>
             <Paper
               sx={{
                 p: "14px 32px",
@@ -68,9 +68,9 @@ export default function ProfileMain() {
               </Box>
             </Paper>
           </Grid>
-          <Grid item lg={6}>
+          <Grid item xm={12} sm={12} md={6} lg={6}>
             <Grid container spacing={4}>
-              <Grid item lg={3}>
+              <Grid item xs={6} sm={6} lg={3}>
                 <Paper
                   sx={{
                     p: "1rem 1.25rem",
@@ -93,7 +93,7 @@ export default function ProfileMain() {
                   </Box>
                 </Paper>
               </Grid>
-              <Grid item lg={3}>
+              <Grid item xs={6} sm={6} lg={3}>
                 <Paper
                   sx={{
                     p: "1rem 2.5rem",
@@ -116,7 +116,7 @@ export default function ProfileMain() {
                   </Box>
                 </Paper>
               </Grid>
-              <Grid item lg={3}>
+              <Grid item xs={6} sm={6} lg={3}>
                 <Paper
                   sx={{
                     p: "1rem 2.5rem",
@@ -139,7 +139,7 @@ export default function ProfileMain() {
                   </Box>
                 </Paper>
               </Grid>
-              <Grid item lg={3}>
+              <Grid item xs={6} sm={6} lg={3}>
                 <Paper
                   sx={{
                     p: "1rem 2.5rem",
