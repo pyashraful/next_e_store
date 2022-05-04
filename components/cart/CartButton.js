@@ -11,27 +11,14 @@ export default function CartButton({ item, flow, iconsize }) {
   const newitem = state.cart.cartItems.find((i) => i._id === item._id);
 
   function incriseQuantity(item, quantity = 0) {
-    console.log(
-      "🚀 ~ file: CartButton.js ~ line 15 ~ incriseQuantity ~ newitem",
-      newitem
-    );
-
-    if (!newitem) {
-      dispatch({
-        type: "ADD_TO_CART",
-        payload: { ...item, quantity: newitem.quantity + 1 },
-      });
-    } else {
-      let newQuntity = quantity + 1;
-      dispatch({
-        type: "ADD_TO_CART",
-        payload: { ...item, quantity: newQuntity },
-      });
-    }
+    let newQuntity = quantity + 1;
+    dispatch({
+      type: "ADD_TO_CART",
+      payload: { ...item, quantity: newQuntity },
+    });
   }
 
   function decreaseQuantity(item, quantity = 1) {
-    console.log("🚀 ~ file: CartButton.js ~ line 25 ~ decreaseQuantity");
     let newQuntity = quantity - 1;
 
     if (newQuntity === 0) {
