@@ -62,7 +62,9 @@ export default function ProductsItems({ products }) {
                       />
                     </Box>
                     <Box>
-                      <Box>${product.price}</Box>
+                      <Box sx={{ fontWeight: 600, color: "primary.main" }}>
+                        ${product.price}
+                      </Box>
                     </Box>
                   </Box>
                   <CartButton
