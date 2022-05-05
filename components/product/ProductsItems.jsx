@@ -55,7 +55,8 @@ export default function ProductsItems({ products }) {
                         </Typography>
                       </Link>
                       <Rating
-                        name="read-only"
+                        name="product rating"
+                        precision={0.5}
                         value={product.rating}
                         readOnly
                       />
