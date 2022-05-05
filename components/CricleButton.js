@@ -7,6 +7,9 @@ const iconsize = {
     width: 25,
     height: 25,
     border: "none",
+    "&:hover": {
+      color: "rgb(210, 63, 87)",
+    },
   },
 
   outlineCircle: {

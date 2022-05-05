@@ -62,7 +62,7 @@ export default function Cart() {
                       sx={{ position: "absolute", top: "1rem", right: "1rem" }}
                     >
                       <CricleButton
-                        iconSize="smallCricle"
+                        iconsize="smallCricle"
                         onClick={() => removeItem(item._id)}
                       >
                         <CloseIcon fontSize="small" />
@@ -92,6 +92,7 @@ export default function Cart() {
                           item={item}
                           flow={`row-reverse`}
                           iconsize="outlineSquare"
+                          disabled={item.quantity === 1 ? true : false}
                         />
                       </Box>
                     </Box>
