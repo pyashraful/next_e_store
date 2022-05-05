@@ -71,7 +71,7 @@ export default function CartDrawer() {
                   >
                     <CartButton
                       item={item}
-                      iconsize="outlineCircle"
+                      iconsize={item.quantity > 0 ? "outlineCircle" : null}
                       disabled={item.quantity === 1 ? true : false}
                     />
                     <Box sx={{ width: 80, height: 80 }}>

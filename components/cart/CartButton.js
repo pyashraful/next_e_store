@@ -66,7 +66,7 @@ export default function CartButton({ item, flow, iconsize, disabled }) {
         {newitem ? newitem.quantity : item.quantity || 0}
       </Box>
       <CricleButton
-        iconsize={item.quantity > 1 ? iconsize : null}
+        iconsize={newitem?.quantity > 1 ? iconsize : null}
         onClick={() =>
           decreaseQuantity(newitem ? newitem.quantity : item.quantity)
         }
