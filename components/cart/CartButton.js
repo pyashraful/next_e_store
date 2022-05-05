@@ -55,7 +55,14 @@ export default function CartButton({ item, flow, iconsize, disabled }) {
       >
         <AddIcon />
       </CricleButton>
-      <Box sx={{ mx: 1 }}>
+      <Box
+        sx={{
+          mx: 1,
+          fontWeight: 500,
+          visibility: "hidden",
+          ...(newitem?.quantity >= 1 && { visibility: "visible" }),
+        }}
+      >
         {newitem ? newitem.quantity : item.quantity || 0}
       </Box>
       <CricleButton
@@ -64,6 +71,10 @@ export default function CartButton({ item, flow, iconsize, disabled }) {
           decreaseQuantity(newitem ? newitem.quantity : item.quantity)
         }
         disabled={disabled}
+        sx={{
+          visibility: "hidden",
+          ...(newitem?.quantity >= 1 && { visibility: "visible" }),
+        }}
       >
         <RemoveIcon />
       </CricleButton>

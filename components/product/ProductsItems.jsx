@@ -64,7 +64,11 @@ export default function ProductsItems({ products }) {
                       <Box>${product.price}</Box>
                     </Box>
                   </Box>
-                  <CartButton iconsize="outlineSquare" item={product} />
+                  <CartButton
+                    iconsize="outlineSquare"
+                    item={product}
+                    flow="column-reverse"
+                  />
                 </Stack>
               </Box>
             </Paper>
