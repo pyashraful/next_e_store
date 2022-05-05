@@ -5,7 +5,7 @@ import RemoveIcon from "@mui/icons-material/Remove";
 import CricleButton from "../CricleButton";
 import { Store } from "../../utils/store";
 
-export default function CartButton({ item, flow, iconsize }) {
+export default function CartButton({ item, flow, iconsize, disabled }) {
   const [state, dispatch] = useContext(Store);
   const newitem = state.cart.cartItems.find((i) => i._id === item._id);
   if (!item) return <h6>Lodding</h6>;
@@ -63,6 +63,7 @@ export default function CartButton({ item, flow, iconsize }) {
         onClick={() =>
           decreaseQuantity(newitem ? newitem.quantity : item.quantity)
         }
+        disabled={disabled}
       >
         <RemoveIcon />
       </CricleButton>

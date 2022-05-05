@@ -69,7 +69,11 @@ export default function CartDrawer() {
                       alignItems: "center",
                     }}
                   >
-                    <CartButton item={item} iconsize="outlineCircle" />
+                    <CartButton
+                      item={item}
+                      iconsize="outlineCircle"
+                      disabled={item.quantity === 1 ? true : false}
+                    />
                     <Box sx={{ width: 80, height: 80 }}>
                       <Image
                         src={`${item.image}`}
