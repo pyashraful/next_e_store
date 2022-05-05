@@ -11,19 +11,6 @@ export default function CartButton({ item, flow, iconsize }) {
   console.log(state.cart.cartItems);
   if (!item) return <h6>Lodding</h6>;
   function incriseQuantity(quantity = 0) {
-    console.log(
-      "🚀 ~ file: CartButton.js ~ line 13 ~ incriseQuantity ~ quantity",
-      quantity
-    );
-
-    console.log(
-      "🚀 ~ file: CartButton.js ~ line 13 ~ incriseQuantity ~ item",
-      item
-    );
-    console.log(
-      "🚀 ~ file: CartButton.js ~ line 14 ~ incriseQuantity ~ newitem",
-      newitem
-    );
     let newQuntity = quantity + 1;
     if (newitem) {
       console.log("hi");
@@ -41,19 +28,6 @@ export default function CartButton({ item, flow, iconsize }) {
 
   function decreaseQuantity(quantity) {
     let newQuntity = quantity - 1;
-    console.log(
-      "🚀 ~ file: CartButton.js ~ line 43 ~ decreaseQuantity ~ newQuntity",
-      newQuntity
-    );
-
-    console.log(
-      "🚀 ~ file: CartButton.js ~ line 13 ~ incriseQuantity ~ item",
-      item.quantity
-    );
-    console.log(
-      "🚀 ~ file: CartButton.js ~ line 14 ~ incriseQuantity ~ newitem",
-      newitem.quantity
-    );
 
     if (newQuntity === 0) {
       console.log("hi");
@@ -61,10 +35,8 @@ export default function CartButton({ item, flow, iconsize }) {
         type: "REMOVE_FROM_CART",
         payload: newitem._id,
       });
-      console.log("hi -2");
       return;
     } else {
-      console.log("h");
       dispatch({
         type: "ADD_TO_CART",
         payload: { ...item, quantity: newQuntity },
