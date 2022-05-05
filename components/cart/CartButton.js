@@ -8,7 +8,6 @@ import { Store } from "../../utils/store";
 export default function CartButton({ item, flow, iconsize }) {
   const [state, dispatch] = useContext(Store);
   const newitem = state.cart.cartItems.find((i) => i._id === item._id);
-  console.log(state.cart.cartItems);
   if (!item) return <h6>Lodding</h6>;
   function incriseQuantity(quantity = 0) {
     let newQuntity = quantity + 1;
@@ -36,7 +35,9 @@ export default function CartButton({ item, flow, iconsize }) {
         payload: newitem._id,
       });
       return;
-    } else {
+    }
+
+    if (newitem) {
       dispatch({
         type: "ADD_TO_CART",
         payload: { ...item, quantity: newQuntity },
