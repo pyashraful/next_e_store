@@ -8,7 +8,7 @@ const iconsize = {
     height: 25,
     border: "none",
     "&:hover": {
-      color: "rgb(210, 63, 87)",
+      backgroundColor: "rgba(0, 0, 0, 0.04)",
     },
   },
 
@@ -21,6 +21,10 @@ const iconsize = {
       border: "1px solid rgb(210, 63, 87)",
       backgroundColor: "rgba(210, 63, 87, 0.04)",
     },
+    "&:disabled": {
+      border: "1px solid rgba(0, 0, 0, 0.12)",
+      color: "rgba(0, 0, 0, 0.26)",
+    },
   },
   outlineSquare: {
     width: 32,
@@ -31,6 +35,10 @@ const iconsize = {
     "&:hover": {
       border: "1px solid rgb(210, 63, 87)",
       backgroundColor: "rgba(210, 63, 87, 0.04)",
+    },
+    "&:disabled": {
+      border: "1px solid rgba(0, 0, 0, 0.12)",
+      color: "rgba(0, 0, 0, 0.26)",
     },
   },
 };
