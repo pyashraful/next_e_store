@@ -7,28 +7,13 @@ import {
   Paper,
   Stack,
   Button,
-  Divider,
-  TextField,
 } from "@mui/material";
-import { styled } from "@mui/system";
+
 import InputFrom from "../../components/InputFrom";
 import { useForm } from "react-hook-form";
 import ProgressBar from "../../components/ProgressBar";
-
-const BillItemBox = styled(Box)({
-  display: "flex",
-  justifyContent: "space-between",
-  marginBottom: 8,
-  fontSize: 14,
-});
-
-const BillTitle = styled(Typography)({
-  fontSize: 14,
-});
-const BillAmount = styled(Typography)({
-  fontSize: 18,
-  fontWeight: 600,
-});
+import AmountDetails from "../../components/AmountDetails";
+import VoucherField from "../../components/VoucherField";
 
 const fromFields = [
   {
@@ -135,48 +120,9 @@ export default function Checkout() {
             </form>
           </Grid>
           <Grid item xs={12} md={4} lg={4}>
-            <Paper sx={{ p: 4 }}>
-              <Box>
-                <Box>
-                  <BillItemBox>
-                    <BillTitle variant="subtitle1">Subtotal:</BillTitle>
-                    <BillAmount variant="subtitle1">$1000</BillAmount>
-                  </BillItemBox>
-                </Box>
-                <Box>
-                  <BillItemBox>
-                    <BillTitle variant="subtitle1">Shipping:</BillTitle>
-                    <BillAmount variant="subtitle1">-</BillAmount>
-                  </BillItemBox>
-                </Box>
-                <Box>
-                  <BillItemBox>
-                    <BillTitle variant="subtitle1">Taxt:</BillTitle>
-                    <BillAmount variant="subtitle1">$10</BillAmount>
-                  </BillItemBox>
-                </Box>
-                <Box>
-                  <BillItemBox>
-                    <BillTitle variant="subtitle1">Discount:</BillTitle>
-                    <BillAmount variant="subtitle1">-</BillAmount>
-                  </BillItemBox>
-                </Box>
-              </Box>
-              <Divider />
-              <BillAmount
-                align="right"
-                sx={{ mb: 2, fontSize: 25 }}
-                variant="subtitle1"
-              >
-                $1010
-              </BillAmount>
-              <Stack spacing={2}>
-                <TextField fullWidth size="small" placeholder="Voucher" />
-                <Button fullWidth variant="outlined" color="primary">
-                  Apply Voucher
-                </Button>
-              </Stack>
-            </Paper>
+            <AmountDetails>
+              <VoucherField />
+            </AmountDetails>
           </Grid>
         </Grid>
       </Container>
