@@ -11,16 +11,17 @@ const ChipBar = styled(Box)({
 const CustomChip = styled(Chip)({
   fontSize: "14px",
   fontWeight: "600",
-  backgroundColor: "#FCE9EC",
   color: "#D23F57",
+  backgroundColor: "#FCE9EC",
   padding: "8px 16px",
+  boxShadow: "none",
+  "&:hover": {
+    color: "#fff",
+    backgroundColor: "rgb(210, 63, 87)",
+  },
   "& .MuiChip-label'": {
     marginLeft: "12px",
     marginRight: "12px",
-  },
-  "&:hover": {
-    color: "#fff",
-    backgroundColor: "D23F57",
   },
 });
 

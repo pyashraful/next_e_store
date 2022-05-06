@@ -12,6 +12,10 @@ const theme = createTheme({
       default: "#F6F9FC",
     },
   },
+
+  typography: {
+    fontFamily: ["Open Sans", "sans-serif"],
+  },
 });
 
 function MyApp({ Component, pageProps }) {
