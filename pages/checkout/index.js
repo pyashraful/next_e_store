@@ -13,6 +13,7 @@ import {
 import { styled } from "@mui/system";
 import InputFrom from "../../components/InputFrom";
 import { useForm } from "react-hook-form";
+import ProgressBar from "../../components/ProgressBar";
 
 const BillItemBox = styled(Box)({
   display: "flex",
@@ -80,6 +81,7 @@ export default function Checkout() {
   return (
     <Layout>
       <Container>
+        <ProgressBar ok={true} em={true} />
         <Grid container spacing={2}>
           <Grid item xs={12} md={8} lg={8}>
             <form onSubmit={handleSubmit(onSubmit)}>
