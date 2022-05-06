@@ -46,11 +46,11 @@ export default function ProfileSidebar() {
       </Typography>
 
       <Link href="/orders" passHref>
-        <MyLink active={router.pathname === "/order" ? true : false}>
+        <MyLink active={router.pathname === "/orders" ? true : false}>
           <Box sx={{ display: "flex", alignItems: "center" }}>
             <ShoppingBagOutlinedIcon fontSize="small" sx={{ mr: "10px" }} />
             <Box sx={{ fontSize: "14px" }} component="span">
-              Order
+              Orders
             </Box>
           </Box>
           <Box>5</Box>
