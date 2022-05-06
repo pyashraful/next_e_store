@@ -138,6 +138,7 @@ export default function ProgressBar({ ok, em }) {
             <CustomChip
               label={"3.Payment"}
               clickable
+              onClick={() => handleClick("payment")}
               ownerState={{ active: false }}
             />
             <ChipBar></ChipBar>

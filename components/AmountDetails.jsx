@@ -1,6 +1,5 @@
 import { Paper, Box, Typography, Divider } from "@mui/material";
 import { styled } from "@mui/system";
-import VoucherField from "./VoucherField";
 
 const BillItemBox = styled(Box)({
   display: "flex",
