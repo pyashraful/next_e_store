@@ -1,6 +1,7 @@
-import { Grid, Box, Chip } from "@mui/material";
+import { Grid, Box, Chip, Link, Button } from "@mui/material";
 import { styled } from "@mui/system";
 import React from "react";
+import { useRouter } from "next/router";
 
 const ChipBar = styled(Box)({
   width: "50px",
@@ -25,58 +26,46 @@ const CustomChip = styled(Chip)({
   },
 });
 
+const CenterBox = styled(Box)({
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+});
+
 export default function ProgressBar() {
+  const router = useRouter();
+
   return (
     <Box sx={{ mb: 3 }}>
       <Grid container spacing={3}>
         <Grid item xs={12} md={8} lg={8}>
-          <Box
-            sx={{
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-            }}
-          >
-            <Box
-              sx={{
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-              }}
-            >
-              <CustomChip label={"1.Cart"} clickable component={"button"} />
-              <ChipBar></ChipBar>
-            </Box>
-            <Box
-              sx={{
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-              }}
-            >
-              <CustomChip label={"2.Details"} clickable component={"button"} />
-              <ChipBar></ChipBar>
-            </Box>
-            <Box
-              sx={{
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-              }}
-            >
-              <CustomChip label={"3.Payment"} clickable component={"button"} />
-              <ChipBar></ChipBar>
-            </Box>
-            <Box
-              sx={{
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-              }}
-            >
-              <CustomChip label={"4.Review"} clickable component={"button"} />
-            </Box>
-          </Box>
+          <CenterBox>
+            <CustomChip
+              label={"1.Cart"}
+              clickable
+              component={Button}
+              onClick={() => router.push("/cart")}
+            />
+            <ChipBar></ChipBar>
+
+            <CustomChip
+              label={"2.Details"}
+              clickable
+              component={Button}
+              onClick={() => router.push("/checkout")}
+            />
+            <ChipBar></ChipBar>
+
+            <CustomChip
+              label={"3.Payment"}
+              clickable
+              component={"button"}
+              onClick={() => router.push("/Payment")}
+            />
+            <ChipBar></ChipBar>
+
+            <CustomChip label={"4.Review"} clickable component={"button"} />
+          </CenterBox>
         </Grid>
       </Grid>
     </Box>
