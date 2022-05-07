@@ -1,5 +1,5 @@
-import React from "react";
+import PaymentDetails from "../../components/payment/PaymentDetails";
 
 export default function Payment() {
-  return <div>Payment</div>;
+  return <PaymentDetails />;
 }
