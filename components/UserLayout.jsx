@@ -1,17 +1,18 @@
 import { Container, Grid } from "@mui/material";
-import ProfileSidebar from "./ProfileSidebar";
-import Layout from "../Layout";
+import Layout from "./Layout";
 
-export default function UserLayout({ children }) {
+export default function UserLayout({ sideber, main }) {
   return (
     <Layout>
       <Container>
         <Grid container spacing={3}>
           <Grid item xs={12} lg={3}>
-            <ProfileSidebar />
+            {sideber}
+            {/* <ProfileSidebar /> */}
           </Grid>
           <Grid item xs={12} lg={9}>
-            {children}
+            {main}
+            {/* {children} */}
           </Grid>
         </Grid>
       </Container>
