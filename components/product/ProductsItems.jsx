@@ -21,7 +21,7 @@ export default function ProductsItems({ products }) {
         spacing={4}
       >
         {products.map((product) => (
-          <Grid sx={{ flex: "1 1 0" }} item lg={3} xl={2} key={product._id}>
+          <Grid sx={{ flex: "1 1 0" }} item lg={3} xl={3} key={product._id}>
             <Paper>
               <Box>
                 <Link href={`/product/${product._id}`} passHref>
