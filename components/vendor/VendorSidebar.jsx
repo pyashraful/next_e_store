@@ -27,16 +27,7 @@ const VendorSidebarData = [
   },
 ];
 
-const SidebarButton = styled(ListItemButton)({
-  color: "rgb(43, 52, 69)",
-  textDecoration: "none",
-  alignItems: "center",
-
-  padding: " 0 1.5rem",
-  marginBottom: "1.25rem",
-});
-
-const FireNav = styled(List)({
+const SidebarList = styled(List)({
   "& .MuiListItemButton-root": {
     borderLeft: "4px solid ",
     borderColor: "transparent",
@@ -78,9 +69,8 @@ export default function VendorSidebar() {
 
   return (
     <Paper sx={{ pt: 3 }}>
-      <FireNav>
+      <SidebarList>
         {VendorSidebarData.map((item) => (
-          // <SidebarLink href={item.link} key={item.label} passHref>
           <ListItemButton
             key={item.label}
             component={NextLinkComposed}
@@ -91,13 +81,15 @@ export default function VendorSidebar() {
             <ListItemText
               primary={item.label}
               primaryTypographyProps={{ fontSize: 14 }}
-            >
-              {item.label}
-            </ListItemText>
+            />
+
+            <ListItemText
+              primary={5}
+              primaryTypographyProps={{ fontSize: 14, textAlign: "right" }}
+            />
           </ListItemButton>
-          // </SidebarLink>
         ))}
-      </FireNav>
+      </SidebarList>
     </Paper>
   );
 }
