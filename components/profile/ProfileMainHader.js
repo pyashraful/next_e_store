@@ -2,8 +2,10 @@ import { useContext } from "react";
 import { Store } from "../../utils/store";
 import Cookies from "js-cookie";
 import PersonIcon from "@mui/icons-material/Person";
-import { Box, Stack, Typography } from "@mui/material";
+import { Box, Icon, Stack, Typography } from "@mui/material";
 import HeaderButton from "./HeaderButton";
+import WrappedIcon from "../WrappedIcon";
+
 export default function ProfileMainHader() {
   const [state, dispatch] = useContext(Store);
 
@@ -21,6 +23,10 @@ export default function ProfileMainHader() {
     <Box sx={{ display: "flex", justifyContent: "space-between" }}>
       <Box sx={{ display: "flex", alignItems: "center" }}>
         <PersonIcon fontSize="medium" color="primary" />
+        <WrappedIcon size="small" color="red">
+          favorite
+        </WrappedIcon>
+        <Icon color="red">favorite</Icon>
         <Typography
           variant="h2"
           sx={{ fontSize: "25px", fontWeight: 700, ml: 1.2 }}
