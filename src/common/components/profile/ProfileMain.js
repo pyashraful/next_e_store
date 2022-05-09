@@ -1,8 +1,8 @@
 import { useContext } from "react";
 import { Grid, Paper, Box, Avatar, Typography } from "@mui/material";
-import ProfileMainHader from "./ProfileMainHader";
 import ProfileUserInfo from "./ProfileUserInfo";
 import { Store } from "@utils/store";
+import UserHeader from "./UserHeader";
 
 export default function ProfileMain() {
   const [state] = useContext(Store);
@@ -14,7 +14,7 @@ export default function ProfileMain() {
   return (
     <div>
       <Box sx={{ mb: 2 }}>
-        <ProfileMainHader />
+        <UserHeader />
       </Box>
       <Box sx={{ mb: 4 }}>
         <Grid container spacing={3}>

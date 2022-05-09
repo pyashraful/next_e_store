@@ -1,5 +1,6 @@
 import { Box, Paper, Stack, Pagination } from "@mui/material";
 import { styled } from "@mui/system";
+import OrderHeader from "./OrderHeader";
 
 const StyledPaper = styled(Paper)({
   padding: "6px 18px",
@@ -36,6 +37,7 @@ const StyledPagination = styled(Pagination)({
 export default function OrdersInfo() {
   return (
     <>
+      <OrderHeader />
       <Stack sx={{ paddingLeft: "18px" }} direction={"row"}>
         <TableHead component={"h5"}>Order #</TableHead>
         <TableHead component={"h5"}>Status</TableHead>
