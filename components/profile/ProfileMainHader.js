@@ -26,7 +26,9 @@ export default function ProfileMainHader() {
         <WrappedIcon size="small" color="red">
           favorite
         </WrappedIcon>
-        <Icon color="red">favorite</Icon>
+        <Icon color="primary" fontSize="large">
+          favorite
+        </Icon>
         <Typography
           variant="h2"
           sx={{ fontSize: "25px", fontWeight: 700, ml: 1.2 }}
