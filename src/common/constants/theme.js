@@ -5,9 +5,14 @@ const theme = createTheme({
     primary: {
       main: "#D23F57",
     },
-
     background: {
       default: "#F6F9FC",
+    },
+
+    text: {
+      main: "#2B3445",
+      light: "#4B566B",
+      disabled: "#7D879C",
     },
   },
 
