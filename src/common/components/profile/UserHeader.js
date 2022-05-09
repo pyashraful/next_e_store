@@ -1,5 +1,5 @@
 import React from "react";
-import ProfileMainHader from "./ProfileMainHader";
+import ProfileMainHader from "./ProfileMainHeader";
 import PersonIcon from "@mui/icons-material/Person";
 import LogoutButton from "@components/user/LogoutButton";
 import OutlinedButton from "@components/OutlinedButton";

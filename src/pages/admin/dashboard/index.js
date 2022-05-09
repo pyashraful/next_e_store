@@ -1,7 +1,8 @@
 import React from "react";
 import UserLayout from "@components/UserLayout";
-import VendorSidebar from "@components/vendor/VendorSidebar";
+import AdminSidebar from "@components/admin/AdminSidebar";
+import DashBoard from "@components/admin/Dashboard";
 
-export default function DashBoard() {
-  return <UserLayout sideber={<VendorSidebar />} />;
+export default function index() {
+  return <UserLayout sideber={<AdminSidebar />} main={<DashBoard />} />;
 }
