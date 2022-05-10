@@ -4,16 +4,16 @@ import UserSidebarList from "../CustomList";
 import Paper from "@mui/material/Paper";
 
 const vendorSidebarData = [
-  { link: "/vendor/dashboard", label: "Dashboard", icon: <DashboardIcon /> },
-  { link: "/vendor/products", label: "Products", icon: <DashboardIcon /> },
+  { link: "/admin/dashboard", label: "Dashboard", icon: <DashboardIcon /> },
+  { link: "/admin/products", label: "Products", icon: <DashboardIcon /> },
   {
-    link: "/vendor/add-product",
+    link: "/admin/add-product",
     label: "Add New Product",
     icon: <DashboardIcon />,
   },
-  { link: "/vendor/orders", label: "Orders", icon: <DashboardIcon /> },
+  { link: "/admin/orders", label: "Orders", icon: <DashboardIcon /> },
   {
-    link: "/vendor/account-setting",
+    link: "/admin/account-setting",
     label: "Account Setting",
     icon: <DashboardIcon />,
   },
