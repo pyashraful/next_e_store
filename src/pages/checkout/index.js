@@ -7,6 +7,7 @@ import {
   Paper,
   Stack,
   Button,
+  MenuItem,
 } from "@mui/material";
 
 import InputFrom from "@components/InputFrom";
@@ -96,9 +97,22 @@ export default function Checkout() {
                           label={field.label}
                           name={field.name}
                           control={control}
-                          select={field.selecte}
+                          select={field.selecte === true}
                           selectValue={field.countryName}
-                        />
+                        >
+                          {fromFields.map((field) =>
+                            field.selecte
+                              ? field.countryName.map((country) => (
+                                  <MenuItem
+                                    key={country.code}
+                                    value={country.name}
+                                  >
+                                    {country.name}
+                                  </MenuItem>
+                                ))
+                              : ""
+                          )}
+                        </InputFrom>
                       </Grid>
                     ))}
                   </Grid>

@@ -10,7 +10,15 @@ const StyledInputFrom = styled(TextField)({
   "& label": { fontSize: "14px" },
 });
 
-export default function InputFrom({ control, name, label, type, placeholder }) {
+export default function InputFrom({
+  select,
+  control,
+  name,
+  label,
+  type,
+  placeholder,
+  children,
+}) {
   return (
     <Controller
       name={name}
@@ -20,6 +28,7 @@ export default function InputFrom({ control, name, label, type, placeholder }) {
         <StyledInputFrom
           type={type}
           placeholder={placeholder}
+          select={select}
           value={value}
           onChange={onChange}
           sx={{ fontSize: 14 }}
@@ -27,7 +36,9 @@ export default function InputFrom({ control, name, label, type, placeholder }) {
           variant="outlined"
           size="small"
           fullWidth
-        />
+        >
+          {children}
+        </StyledInputFrom>
       )}
     />
   );
