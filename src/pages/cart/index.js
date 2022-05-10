@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import Layout from "../@components/Layout";
+import Layout from "@components/Layout";
 import { Container, Typography, Box, Grid, Paper } from "@mui/material";
 import { Store } from "@utils/store";
 import { styled } from "@mui/system";
@@ -9,7 +9,6 @@ import CartButton from "@components/cart/CartButton";
 import CricleButton from "@components/CricleButton";
 import CloseIcon from "@mui/icons-material/Close";
 import ProgressBar from "@components/ProgressBar";
-import Staper from "@components/Staper";
 
 const CartPaper = styled(Paper)({
   boxShadow: "rgba(43, 52, 69, 0.1) 0px 4px 16px",

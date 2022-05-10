@@ -3,21 +3,18 @@ import { Grid, Box, Chip, Button } from "@mui/material";
 import { styled } from "@mui/system";
 import { useRouter } from "next/router";
 
-const ChipBar = styled(Box)(({ ownerState }) => ({
+const ChipBar = styled(Box)(({ selected, theme }) => ({
   width: "50px",
   height: "4px",
   backgroundColor: "#FCE9EC",
-  // ...(ownerState.active && {
-  //   color: "#fff",
-  //   backgroundColor: "rgb(210, 63, 87)",
-  // }),
-  // ...(ownerState.completed && {
-  //   color: "#fff",
-  //   backgroundColor: "rgb(210, 63, 87)",
-  // }),
+
+  ...(selected && {
+    backgroundColor: theme.palette.primary.main,
+    color: "#fff",
+  }),
 }));
 
-const CustomChip = styled(Chip)(({ ownerState }) => ({
+const CustomChip = styled(Chip)(({ selected, theme }) => ({
   fontSize: "14px",
   fontWeight: "600",
   color: "#D23F57",
@@ -32,13 +29,9 @@ const CustomChip = styled(Chip)(({ ownerState }) => ({
     marginLeft: "12px",
     marginRight: "12px",
   },
-  ...(ownerState.active && {
+  ...(selected && {
+    backgroundColor: theme.palette.primary.main,
     color: "#fff",
-    backgroundColor: "rgb(210, 63, 87)",
-  }),
-  ...(ownerState.completed && {
-    color: "#fff",
-    backgroundColor: "rgb(210, 63, 87)",
   }),
 }));
 
@@ -47,66 +40,37 @@ const CenterBox = styled(Box)({
   justifyContent: "center",
   alignItems: "center",
 });
-
-const activeArray = {
-  cart: { route: "/cart", label: "Cart", active: true, completed: false },
-  checkout: {
+const activeArray = [
+  { route: "/cart", label: "Cart", active: true, completed: false },
+  {
     route: "/checkout",
     label: "Checkout",
     active: false,
     completed: false,
   },
-  payment: {
+  {
     route: "/payment",
     label: "Payment",
     active: false,
     completed: false,
   },
-};
+];
 
-export default function ProgressBar({ ok, em }) {
+export default function ProgressBar() {
   const router = useRouter();
-  // const [active, setActive] = useState(false);
-  // const [completed, setCompleted] = useState(false);
+  const [selected, setSelected] = useState();
 
   console.log(router.pathname);
-
-  // console.log(
-  //   "🚀 ~ file: ProgressBar.jsx ~ line 61 ~ handleClick ~ completed",
-  //   completed
-  // );
   function handleClick(path) {
-    console.log(activeArray[path]);
-    router.push(activeArray[path].route);
-    Object.keys(activeArray).map((key, index) => {
-      key === path
-        ? (activeArray[key].active = true) &&
-          (activeArray[Object.keys(activeArray)[index]].completed = true)
-        : (activeArray[key].active = false);
-    });
-    console.log(activeArray[path]);
-
-    // setCompleted(!completed);
-    // console.log(
-    //   "🚀 ~ file: ProgressBar.jsx ~ line 61 ~ handleClick ~ completed",
-    //   completed
-    // );
+    router.push(path);
   }
-  // console.log(
-  //   "🚀 ~ file: ProgressBar.jsx ~ line 61 ~ handleClick ~ completed",
-  //   completed
-  // );
 
-  // function handleClickActive(path) {
-  //   if (router.pathname === path) {
-  //     console.log(active);
-  //     setActive(!active);
-  //   }
-  // }
-
-  // useEffect(() => {
-  //   setCompleted(!completed);
-  // }, [completed]);
+  console.log(activeArray);
+  useEffect(() => {
+    activeArray.map((item, index) => {
+      router.pathname === item.route && setSelected(index + 1);
+    });
+  }, [router.pathname, selected]);
 
   return (
     <Box sx={{ mb: 3 }}>
@@ -114,40 +78,31 @@ export default function ProgressBar({ ok, em }) {
         <Grid item xs={12} md={8} lg={8}>
           <CenterBox>
             <CustomChip
+              selected={selected >= 1}
               label={"1.Cart"}
               clickable
-              onClick={() => handleClick("cart")}
-              ownerState={{
-                active: activeArray.cart.active,
-                completed: activeArray.cart.completed,
-              }}
+              onClick={() => handleClick("cart", 1)}
             />
-            <ChipBar></ChipBar>
+            <ChipBar selected={selected >= 2}></ChipBar>
 
             <CustomChip
               label={"2.Details"}
+              selected={selected >= 2}
               clickable
-              onClick={() => handleClick("checkout")}
-              ownerState={{
-                active: activeArray.checkout.active,
-                completed: activeArray.checkout.completed,
-              }}
+              onClick={() => handleClick("checkout", 2)}
             />
-            <ChipBar></ChipBar>
+            <ChipBar selected={selected >= 3}></ChipBar>
 
             <CustomChip
+              component={Button}
+              selected={selected >= 3}
               label={"3.Payment"}
               clickable
-              onClick={() => handleClick("payment")}
-              ownerState={{ active: false }}
+              onClick={() => handleClick("payment", 3)}
             />
             <ChipBar></ChipBar>
 
-            <CustomChip
-              label={"4.Review"}
-              clickable
-              ownerState={{ active: false }}
-            />
+            <CustomChip label={"4.Review"} clickable />
           </CenterBox>
         </Grid>
       </Grid>
