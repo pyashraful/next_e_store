@@ -1,6 +1,6 @@
 import nc from "next-connect";
 import Product from "../../../model/productSchema";
-import connectDB from "../../"@utils/db.mjs"";
+import connectDB from "@utils/db.mjs";
 
 const handler = nc();
 handler.get(async (req, res) => {

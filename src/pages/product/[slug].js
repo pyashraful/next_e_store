@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import axios from "axios";
+import useSWR from "swr";
 import Image from "next/image";
 import connectDB from "@utils/db.mjs";
 import ProductModel from "../../model/productSchema";
@@ -8,12 +9,15 @@ import Box from "@mui/material/Box";
 import { Button, Container, Stack, Typography } from "@mui/material";
 import Layout from "@components/Layout.js";
 import { Store } from "@utils/store";
+import fatcher from "@utils/fatcher";
 
 export default function Details({ product }) {
   const [state, dispatch] = useContext(Store);
+  const { data, error } = useSWR(`/products/${product._id}`, fatcher);
+  console.log(data);
+  console.log(error);
 
   const addToCartHandler = async () => {
-    const res = await axios.get(`/api/products/${product._id}`);
     dispatch({ type: "ADD_TO_CART", payload: { ...product, quantity: 1 } });
   };
 
