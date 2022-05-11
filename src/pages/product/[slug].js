@@ -1,13 +1,13 @@
 import { useContext } from "react";
 import axios from "axios";
 import Image from "next/image";
-import connectDB from "../"@utils/db.mjs"";
+import connectDB from "@utils/db.mjs";
 import ProductModel from "../../model/productSchema";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import { Button, Container, Stack, Typography } from "@mui/material";
-import Layout from "../@components/Layout.js";
-import { Store } from "../@utils.js";
+import Layout from "@components/Layout.js";
+import { Store } from "@utils/store";
 
 export default function Details({ product }) {
   const [state, dispatch] = useContext(Store);

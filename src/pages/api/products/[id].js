@@ -1,5 +1,5 @@
 import nc from "next-connect";
-import connectDB from "../../"@utils/db.mjs"";
+import connectDB from "@utils/db.mjs";
 import ProductModel from "../../../model/productSchema";
 
 const handler = nc();
