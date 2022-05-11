@@ -57,13 +57,12 @@ export default function LoginModal({ showModal, setShowModal }) {
 
   async function onSubmit(data) {
     try {
-      const { res2, e } = await fatcher("/login", data);
-      console.log("🚀 ~ file: LoginModal.js ~ line 61 ~ onSubmit ~ e", e);
-      const res = await axios.post("/api/login", data);
+      const res2 = await fatcher("/login", data);
+      // const res = await axios.post("/api/login", data);
       console.log("🚀 ~ file: LoginModal.js ~ line 55 ~ onSubmit ~ res2", res2);
 
-      Cookies.set("userInfo", JSON.stringify(res.data));
-      dispatch({ type: "USER_LOGIN", payload: res.data });
+      Cookies.set("userInfo", JSON.stringify(res2));
+      dispatch({ type: "USER_LOGIN", payload: res2 });
       setShowModal(!showModal);
       router.push("/");
     } catch (err) {

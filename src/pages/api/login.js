@@ -34,6 +34,6 @@ export default handler.post(async (req, res) => {
     res.json(user);
   } else {
     res.status(401);
-    res.json({ error: "User already exists" });
+    res.json({ error: "Email or Password is wrong" });
   }
 });
