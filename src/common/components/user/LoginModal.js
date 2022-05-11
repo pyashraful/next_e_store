@@ -11,6 +11,7 @@ import { useRouter } from "next/router";
 import { useContext } from "react";
 import { Store } from "@utils/store";
 import useSWR from "swr";
+import fatcher from "@utils/fatcher";
 
 const StyledButton = styled(Button)({
   width: "100%",
@@ -29,11 +30,17 @@ const formSchema = Yup.object().shape({
 const validationOpt = { resolver: yupResolver(formSchema) };
 
 export default function LoginModal({ showModal, setShowModal }) {
-  let fatch;
   const { dispatch } = useContext(Store);
-  const { data } = useSWR(`/login`, fatch);
+  // const { data } = useSWR(`/login`, fatcher, {
+  //   revalidateOnFocus: false,
+  //   revalidateOnMount: false,
+  //   revalidateOnReconnect: false,
+  //   refreshWhenOffline: false,
+  //   refreshWhenHidden: false,
+  //   refreshInterval: 0,
+  // });
+  // console.log("🚀 ~ file: LoginModal.js ~ line 35 ~ LoginModal ~ data", data);
   const router = useRouter();
-  console.log(data);
 
   const {
     control,
@@ -50,8 +57,10 @@ export default function LoginModal({ showModal, setShowModal }) {
 
   async function onSubmit(data) {
     try {
+      const { res2, e } = await fatcher("/login", data);
+      console.log("🚀 ~ file: LoginModal.js ~ line 61 ~ onSubmit ~ e", e);
       const res = await axios.post("/api/login", data);
-      fatch(data);
+      console.log("🚀 ~ file: LoginModal.js ~ line 55 ~ onSubmit ~ res2", res2);
 
       Cookies.set("userInfo", JSON.stringify(res.data));
       dispatch({ type: "USER_LOGIN", payload: res.data });
