@@ -1,4 +1,4 @@
-import { createTheme } from "@mui/material/styles";
+import { createTheme, experimental_sx as sx } from "@mui/material/styles";
 // Create a theme instance.
 const theme = createTheme({
   palette: {
@@ -16,6 +16,15 @@ const theme = createTheme({
     },
   },
 
+  components: {
+    MuiPaper: {
+      styleOverrides: {
+        root: sx({
+          borderRadius: 2,
+        }),
+      },
+    },
+  },
   typography: {
     fontFamily: ["Open Sans", "sans-serif"].join(","),
   },
