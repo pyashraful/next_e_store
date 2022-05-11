@@ -5,7 +5,7 @@ import { Store } from "@utils/store";
 import UserHeader from "./UserHeader";
 
 export default function ProfileMain() {
-  const [state] = useContext(Store);
+  const { state } = useContext(Store);
   console.log(
     "🚀 ~ file: ProfileMain.js ~ line 9 ~ ProfileMain ~ state",
     state.userInfo

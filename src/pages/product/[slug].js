@@ -12,7 +12,7 @@ import { Store } from "@utils/store";
 import fatcher from "@utils/fatcher";
 
 export default function Details({ product }) {
-  const [state, dispatch] = useContext(Store);
+  const { dispatch } = useContext(Store);
   const { data, error } = useSWR(`/products/${product._id}`, fatcher);
   console.log(data);
   console.log(error);

@@ -31,7 +31,7 @@ const signupFromValidation = Yup.object({
 
 export default function Signup({ showModal, setShowModal }) {
   const router = useRouter();
-  const [state, dispatch] = useContext(Store);
+  const { dispatch } = useContext(Store);
 
   const {
     control,

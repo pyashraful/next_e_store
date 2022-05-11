@@ -7,7 +7,7 @@ import { useRouter } from "next/router";
 
 export default function Profile() {
   const router = useRouter();
-  const [state] = useContext(Store);
+  const { state } = useContext(Store);
 
   useEffect(() => {
     if (!state.userInfo) {

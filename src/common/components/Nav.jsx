@@ -18,7 +18,7 @@ const FixDiv = styled("div")({
 });
 
 export default function Nav({ showModal, setShowModal }) {
-  const [state, dispatch] = useContext(Store);
+  const { state, dispatch } = useContext(Store);
   const router = useRouter();
 
   const { cartOpen, cart } = state;

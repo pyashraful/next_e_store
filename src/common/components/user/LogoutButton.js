@@ -6,7 +6,7 @@ import Cookies from "js-cookie";
 import React from "react";
 
 export default function LogoutButton() {
-  const [dispatch] = useContext(Store);
+  const { dispatch } = useContext(Store);
 
   function userLogout() {
     dispatch({ type: "USER_LOGOUT" });

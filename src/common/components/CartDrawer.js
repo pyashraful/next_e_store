@@ -16,7 +16,7 @@ import { Typography } from "@mui/material";
 import CartButton from "@components/cart/CartButton";
 
 export default function CartDrawer() {
-  const [state, dispatch] = useContext(Store);
+  const { state, dispatch } = useContext(Store);
   const { cartOpen } = state;
   const cartItems = state.cart.cartItems;
 

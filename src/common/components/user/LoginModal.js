@@ -28,7 +28,7 @@ const formSchema = Yup.object().shape({
 const validationOpt = { resolver: yupResolver(formSchema) };
 
 export default function LoginModal({ showModal, setShowModal }) {
-  const [state, dispatch] = useContext(Store);
+  const { dispatch } = useContext(Store);
   const router = useRouter();
 
   const {

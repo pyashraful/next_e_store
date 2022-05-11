@@ -18,7 +18,7 @@ const CartPaper = styled(Paper)({
 });
 
 export default function Cart() {
-  const [state, dispatch] = useContext(Store);
+  const { state, dispatch } = useContext(Store);
   const { cart } = state;
   console.log("🚀 ~ file: index.js ~ line 22 ~ Cart ~ cart", cart);
 

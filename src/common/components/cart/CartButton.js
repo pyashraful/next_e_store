@@ -5,7 +5,7 @@ import RemoveIcon from "@mui/icons-material/Remove";
 import CricleButton from "../CricleButton";
 import { Store } from "@utils/store";
 export default function CartButton({ item, flow, iconsize, disabled }) {
-  const [state, dispatch] = useContext(Store);
+  const { state, dispatch } = useContext(Store);
   const newitem = state.cart.cartItems.find((i) => i._id === item._id);
   if (!item) return <h6>Lodding</h6>;
   function incriseQuantity(quantity = 0) {
