@@ -10,6 +10,7 @@ import axios from "axios";
 import { useRouter } from "next/router";
 import { useContext } from "react";
 import { Store } from "@utils/store";
+import useSWR from "swr";
 
 const StyledButton = styled(Button)({
   width: "100%",
@@ -28,8 +29,11 @@ const formSchema = Yup.object().shape({
 const validationOpt = { resolver: yupResolver(formSchema) };
 
 export default function LoginModal({ showModal, setShowModal }) {
+  let fatch;
   const { dispatch } = useContext(Store);
+  const { data } = useSWR(`/login`, fatch);
   const router = useRouter();
+  console.log(data);
 
   const {
     control,
@@ -47,6 +51,8 @@ export default function LoginModal({ showModal, setShowModal }) {
   async function onSubmit(data) {
     try {
       const res = await axios.post("/api/login", data);
+      fatch(data);
+
       Cookies.set("userInfo", JSON.stringify(res.data));
       dispatch({ type: "USER_LOGIN", payload: res.data });
       setShowModal(!showModal);

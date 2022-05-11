@@ -1,8 +1,10 @@
 import jwt from "jsonwebtoken";
-import User from "../models/user";
+import User from "@model/user";
 
 export async function isAuth(req, res, next) {
   const token = req.cokies.TRAX_ACCESS_TOKEN;
+
+  console.log(req);
 
   if (token) {
     let user;
