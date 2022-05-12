@@ -36,7 +36,7 @@ export default function CartDrawer() {
   return (
     <Drawer
       anchor="right"
-      sx={{ zIndex: 1999 }}
+      sx={{ zIndex: 1999, "&	.MuiDrawer-paper": { borderRadius: 0 } }}
       open={cartOpen}
       onClose={toggleDrawer}
     >
