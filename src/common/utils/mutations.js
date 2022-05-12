@@ -1,5 +1,5 @@
-import fatcher from "./fatcher";
+import fetcher from "./fetcher";
 
 export const authRequest = (mode, body) => {
-  return fatcher(`/${mode}`, body);
+  return fetcher(`/${mode}`, body);
 };

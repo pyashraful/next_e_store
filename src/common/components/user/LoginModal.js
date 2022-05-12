@@ -1,17 +1,17 @@
 import Link from "next/link";
 import { Modal, Box, Paper, Button, Divider } from "@mui/material";
-import Cookies from "js-cookie";
+
 import { styled } from "@mui/system";
 import InputFrom from "../InputFrom";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from "yup";
-import axios from "axios";
+
 import { useRouter } from "next/router";
-import { useContext, useState } from "react";
-import { Store } from "@utils/store";
-import useSWR, { SWRConfig } from "swr";
+import { useState } from "react";
+
 import { authRequest } from "@utils/mutations";
+import { useUser } from "@utils/hooks";
 const StyledButton = styled(Button)({
   width: "100%",
   "&:hover": "noStyle",
@@ -30,6 +30,7 @@ const validationOpt = { resolver: yupResolver(formSchema) };
 
 export default function LoginModal({ showModal, setShowModal }) {
   const [isLoading, setIsLoading] = useState(false);
+  const { mutate } = useUser();
 
   const router = useRouter();
 
@@ -52,12 +53,17 @@ export default function LoginModal({ showModal, setShowModal }) {
       // const res = await axios.post("/api/login", data);
       // console.log("🚀 ~ file: LoginModal.js ~ line 55 ~ onSubmit ~ res2", res2);
       setIsLoading(true);
-      await authRequest("login", data);
-      setIsLoading(false);
+      const user = await authRequest("login", data);
+      mutate("user");
+
+      console.log("🚀 ~ file: LoginModal.js ~ line 56 ~ onSubmit ~ user", user);
+      if (user) {
+        setIsLoading(false);
+        setShowModal(!showModal);
+        router.push(`/profile/${user._id}`);
+      }
       // Cookies.set("userInfo", JSON.stringify(res2));
       // dispatch({ type: "USER_LOGIN", payload: res2 });
-      setShowModal(!showModal);
-      router.push("/profile");
     } catch (err) {
       console.log(err);
     }

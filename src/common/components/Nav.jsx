@@ -1,13 +1,13 @@
 import Link from "next/link";
 import { Container, Box, Stack } from "@mui/material";
-import { useContext } from "react";
+import { useContext, useState, useEffect } from "react";
 import CartBadge from "./CartBadge";
 import Search from "./Search";
 import UserProfile from "./UserProfile";
 import { Store } from "@utils/store";
 import { styled } from "@mui/system";
 import { useRouter } from "next/router";
-import { useUser } from "@utils/hook";
+import { useUser } from "@utils/hooks";
 
 const FixDiv = styled("div")({
   position: "fixed",
@@ -19,9 +19,11 @@ const FixDiv = styled("div")({
 });
 
 export default function Nav({ showModal, setShowModal }) {
+  const [loading, setLoading] = useState(false);
   const { state, dispatch } = useContext(Store);
-  const { user, error } = useUser();
-  console.log("🚀 ~ file: Nav.jsx ~ line 24 ~ Nav ~ error", error);
+  const { user, iserror, isLoading } = useUser();
+  console.log("🚀 ~ file: Nav.jsx ~ line 24 ~ Nav ~ isLoading", isLoading);
+  console.log("🚀 ~ file: Nav.jsx ~ line 24 ~ Nav ~ iserror", iserror);
   console.log("🚀 ~ file: Nav.jsx ~ line 24 ~ Nav ~ user", user);
   const router = useRouter();
 
@@ -37,9 +39,18 @@ export default function Nav({ showModal, setShowModal }) {
     }
   }
 
+  // useEffect(() => {
+  //   setLoading(isLoading);
+  //   if (user) {
+  //     setLoading(false);
+  //   }
+  // }, [isLoading, user]);
+
   function showLoingForm() {
     if (user) {
-      router.push("/profile");
+      console.log("🚀 ~ file: Nav.jsx ~ line 42 ~ showLoingForm ~ user", user);
+      router.push(`/profile/${user._id}`);
+      console.log("🚀 ~ file: Nav.jsx ~ line 44 ~ showLoingForm ~ user", user);
     } else {
       setShowModal(!showModal);
     }

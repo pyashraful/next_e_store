@@ -1,5 +1,4 @@
 import { useContext } from "react";
-import axios from "axios";
 import useSWR from "swr";
 import Image from "next/image";
 import connectDB from "@utils/db.mjs";
@@ -9,11 +8,11 @@ import Box from "@mui/material/Box";
 import { Button, Container, Stack, Typography } from "@mui/material";
 import Layout from "@components/Layout.js";
 import { Store } from "@utils/store";
-import fatcher from "@utils/fatcher";
+import fetcher from "@utils/fetcher";
 
 export default function Details({ product }) {
   const { dispatch } = useContext(Store);
-  const { data, error } = useSWR(`/products/${product._id}`, fatcher);
+  const { data, error } = useSWR(`/products/${product._id}`, fetcher);
   console.log(data);
   console.log(error);
 
