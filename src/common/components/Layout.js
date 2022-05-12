@@ -4,6 +4,7 @@ import Nav from "./Nav";
 import CartDrawer from "./CartDrawer";
 import MobileNav from "./mobileNav/MobileNav";
 import LoginModal from "./user/LoginModal";
+import Footer from "./footer/Footer";
 
 export default function Layout({ children }) {
   const [showModal, setShowModal] = useState(false);
@@ -15,9 +16,9 @@ export default function Layout({ children }) {
       <Nav showModal={showModal} setShowModal={setShowModal} />
       <LoginModal showModal={showModal} setShowModal={setShowModal} />
       <CartDrawer />
-      {/* <SearchInput /> */}
       <main style={{ marginTop: "120px" }}>{children}</main>
       <MobileNav showModal={showModal} setShowModal={setShowModal} />
+      <Footer />
     </div>
   );
 }

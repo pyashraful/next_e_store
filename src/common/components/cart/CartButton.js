@@ -11,7 +11,6 @@ export default function CartButton({ item, flow, iconsize, disabled }) {
   function incriseQuantity(quantity = 0) {
     let newQuntity = quantity + 1;
     if (newitem) {
-      console.log("hi");
       dispatch({
         type: "ADD_TO_CART",
         payload: { ...newitem, quantity: newQuntity },
@@ -56,7 +55,7 @@ export default function CartButton({ item, flow, iconsize, disabled }) {
       <Box
         sx={{
           mx: 1,
-          fontWeight: 500,
+          fontWeight: 600,
           visibility: "hidden",
           ...(newitem?.quantity >= 1 && { visibility: "visible" }),
         }}
