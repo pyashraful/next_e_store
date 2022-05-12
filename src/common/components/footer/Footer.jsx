@@ -46,7 +46,7 @@ export default function Footer() {
     <Box sx={{ backgroundColor: "#0c0e30", color: "#fff", py: 10 }}>
       <Container>
         <Grid container spacing={3}>
-          <Grid item xs={12} lg={4}>
+          <Grid item xs={12} sm={6} lg={4}>
             <Box
               sx={{ mb: 2.5, display: "block" }}
               component={NextLinkComposed}
@@ -60,7 +60,7 @@ export default function Footer() {
               et lectus vel ut sollicitudin elit at amet.
             </Box>
           </Grid>
-          <Grid item xs={12} lg={2}>
+          <Grid item xs={12} sm={6} lg={2}>
             <Box component={"h5"} sx={{ mt: 0, mb: 2.5, fontSize: 25 }}>
               About us
             </Box>
@@ -76,7 +76,7 @@ export default function Footer() {
               ))}
             </Box>
           </Grid>
-          <Grid item xs={12} lg={3}>
+          <Grid item xs={12} sm={6} lg={3}>
             <Box component={"h5"} sx={{ mt: 0, mb: 2.5, fontSize: 25 }}>
               Customer Care
             </Box>
@@ -92,7 +92,7 @@ export default function Footer() {
               ))}
             </Box>
           </Grid>
-          <Grid item xs={12} lg={3}>
+          <Grid item xs={12} sm={6} lg={3}>
             <Box component={"h5"} sx={{ mt: 0, mb: 2.5, fontSize: 25 }}>
               Contact Us
             </Box>

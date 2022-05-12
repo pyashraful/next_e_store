@@ -16,7 +16,9 @@ export default function Layout({ children }) {
       <Nav showModal={showModal} setShowModal={setShowModal} />
       <LoginModal showModal={showModal} setShowModal={setShowModal} />
       <CartDrawer />
-      <main style={{ marginTop: "120px" }}>{children}</main>
+      <main style={{ marginTop: "120px", marginBottom: "70px" }}>
+        {children}
+      </main>
       <MobileNav showModal={showModal} setShowModal={setShowModal} />
       <Footer />
     </div>
