@@ -7,6 +7,7 @@ import UserProfile from "./UserProfile";
 import { Store } from "@utils/store";
 import { styled } from "@mui/system";
 import { useRouter } from "next/router";
+import { useUser } from "@utils/hook";
 
 const FixDiv = styled("div")({
   position: "fixed",
@@ -19,6 +20,9 @@ const FixDiv = styled("div")({
 
 export default function Nav({ showModal, setShowModal }) {
   const { state, dispatch } = useContext(Store);
+  const { user, error } = useUser();
+  console.log("🚀 ~ file: Nav.jsx ~ line 24 ~ Nav ~ error", error);
+  console.log("🚀 ~ file: Nav.jsx ~ line 24 ~ Nav ~ user", user);
   const router = useRouter();
 
   const { cartOpen, cart } = state;
@@ -34,7 +38,7 @@ export default function Nav({ showModal, setShowModal }) {
   }
 
   function showLoingForm() {
-    if (state.userInfo) {
+    if (user) {
       router.push("/profile");
     } else {
       setShowModal(!showModal);

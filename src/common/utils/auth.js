@@ -2,18 +2,18 @@ import jwt from "jsonwebtoken";
 import User from "@model/user";
 
 export async function isAuth(req, res, next) {
-  const token = req.cokies.TRAX_ACCESS_TOKEN;
-
-  console.log(req);
+  // console.log(req.headers);
+  const token = req.cookies.TRAX_ACCESS_TOKEN;
 
   if (token) {
     let user;
     try {
-      const { id } = jwt.varify(token, "hello");
+      const { id } = jwt.verify(token, "hello");
       user = await User.findById(id);
       if (!user) {
         throw new Error("Not real user");
       } else {
+        req.user = user;
         next();
       }
     } catch (error) {

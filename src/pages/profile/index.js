@@ -4,16 +4,26 @@ import ProfileSidebar from "@components/profile/ProfileSidebar";
 import ProfileMain from "@components/profile/ProfileMain";
 import { Store } from "@utils/store";
 import { useRouter } from "next/router";
+import { useUser } from "@utils/hook";
 
 export default function Profile() {
+  const { user, isLoading } = useUser();
   const router = useRouter();
   const { state } = useContext(Store);
-
-  useEffect(() => {
-    if (!state.userInfo) {
+  if (!user) {
+    if (isLoading) {
+      return <h1>Loading</h1>;
+    } else {
       router.push("/");
     }
-  }, [router, state.userInfo]);
+  } else {
+  }
+
+  // useEffect(() => {
+  //   if (!state.userInfo) {
+  //     router.push("/");
+  //   }
+  // }, [router, state.userInfo]);
 
   return <UserLayout sideber={<ProfileSidebar />} main={<ProfileMain />} />;
 }

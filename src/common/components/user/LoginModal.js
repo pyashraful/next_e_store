@@ -8,11 +8,10 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from "yup";
 import axios from "axios";
 import { useRouter } from "next/router";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { Store } from "@utils/store";
-import useSWR from "swr";
-import fatcher from "@utils/fatcher";
-
+import useSWR, { SWRConfig } from "swr";
+import { authRequest } from "@utils/mutations";
 const StyledButton = styled(Button)({
   width: "100%",
   "&:hover": "noStyle",
@@ -30,16 +29,8 @@ const formSchema = Yup.object().shape({
 const validationOpt = { resolver: yupResolver(formSchema) };
 
 export default function LoginModal({ showModal, setShowModal }) {
-  const { dispatch } = useContext(Store);
-  // const { data } = useSWR(`/login`, fatcher, {
-  //   revalidateOnFocus: false,
-  //   revalidateOnMount: false,
-  //   revalidateOnReconnect: false,
-  //   refreshWhenOffline: false,
-  //   refreshWhenHidden: false,
-  //   refreshInterval: 0,
-  // });
-  // console.log("🚀 ~ file: LoginModal.js ~ line 35 ~ LoginModal ~ data", data);
+  const [isLoading, setIsLoading] = useState(false);
+
   const router = useRouter();
 
   const {
@@ -57,14 +48,16 @@ export default function LoginModal({ showModal, setShowModal }) {
 
   async function onSubmit(data) {
     try {
-      const res2 = await fatcher("/login", data);
+      // const res2 = await fatcher("/login", data);
       // const res = await axios.post("/api/login", data);
-      console.log("🚀 ~ file: LoginModal.js ~ line 55 ~ onSubmit ~ res2", res2);
-
-      Cookies.set("userInfo", JSON.stringify(res2));
-      dispatch({ type: "USER_LOGIN", payload: res2 });
+      // console.log("🚀 ~ file: LoginModal.js ~ line 55 ~ onSubmit ~ res2", res2);
+      setIsLoading(true);
+      await authRequest("login", data);
+      setIsLoading(false);
+      // Cookies.set("userInfo", JSON.stringify(res2));
+      // dispatch({ type: "USER_LOGIN", payload: res2 });
       setShowModal(!showModal);
-      router.push("/");
+      router.push("/profile");
     } catch (err) {
       console.log(err);
     }
