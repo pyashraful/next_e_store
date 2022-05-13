@@ -49,7 +49,7 @@ export default function Nav({ showModal, setShowModal }) {
   function showLoingForm() {
     if (user) {
       console.log("🚀 ~ file: Nav.jsx ~ line 42 ~ showLoingForm ~ user", user);
-      router.push(`/profile/${user._id}`);
+      router.push(`/profile`);
       console.log("🚀 ~ file: Nav.jsx ~ line 44 ~ showLoingForm ~ user", user);
     } else {
       setShowModal(!showModal);

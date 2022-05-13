@@ -55,7 +55,7 @@ export default function LoginModal({ showModal, setShowModal }) {
       if (user) {
         // setIsLoading(false);
         setShowModal(!showModal);
-        router.push(`/profile/${user._id}`);
+        router.push(`/profile`);
       }
     } catch (err) {
       console.log(err);
