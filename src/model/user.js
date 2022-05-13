@@ -13,6 +13,11 @@ const userSchema = new mongoose.Schema(
       enum: ["user", "admin"],
       default: "user",
     },
+    usertype: {
+      type: String,
+      enum: ["silver ", "gold", "platinum"],
+      default: "silver",
+    },
   },
   { timestamps: true }
 );
