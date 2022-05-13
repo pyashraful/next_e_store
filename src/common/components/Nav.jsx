@@ -75,7 +75,9 @@ export default function Nav({ showModal, setShowModal }) {
                     minWidth: "170px",
                   }}
                 >
-                  <Link href={"/"}>E-SHOP</Link>
+                  <Link href={"/"}>
+                    <img src="/Estore.svg" />
+                  </Link>
                 </Box>
                 <Box
                   sx={{
