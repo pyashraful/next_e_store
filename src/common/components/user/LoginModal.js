@@ -8,10 +8,10 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from "yup";
 
 import { useRouter } from "next/router";
-import { useState } from "react";
-
+// import { useState } from "react";
 import { authRequest } from "@utils/mutations";
 import { useUser } from "@utils/hooks";
+
 const StyledButton = styled(Button)({
   width: "100%",
   "&:hover": "noStyle",
@@ -21,7 +21,8 @@ const InputCotainer = styled(Box)({
   marginBottom: "12px",
 });
 
-const formSchema = Yup.object().shape({
+const formSchema = Yup.object({
+  email: Yup.string().email("Invalid email").required("Email is required"),
   password: Yup.string()
     .required("Password is required")
     .min(4, "Password length should be at least 4 characters"),
@@ -29,33 +30,30 @@ const formSchema = Yup.object().shape({
 const validationOpt = { resolver: yupResolver(formSchema) };
 
 export default function LoginModal({ showModal, setShowModal }) {
-  const [isLoading, setIsLoading] = useState(false);
+  // const [isLoading, setIsLoading] = useState(false);
   const { mutate } = useUser();
 
   const router = useRouter();
 
-  const {
-    control,
-    handleSubmit,
-    formState: { errors },
-  } = useForm({
+  const { control, handleSubmit } = useForm({
     defaultValues: {
       email: "",
       password: "",
     },
-
     validationOpt,
   });
 
   async function onSubmit(data) {
     try {
-      setIsLoading(true);
+      // setIsLoading(true);
       const user = await authRequest("login", data);
-      mutate("user");
-
+      if (user.error) {
+        throw new Error(user.error);
+      }
+      mutate(user);
       console.log("🚀 ~ file: LoginModal.js ~ line 56 ~ onSubmit ~ user", user);
       if (user) {
-        setIsLoading(false);
+        // setIsLoading(false);
         setShowModal(!showModal);
         router.push(`/profile/${user._id}`);
       }

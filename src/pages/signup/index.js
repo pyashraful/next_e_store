@@ -33,11 +33,7 @@ export default function Signup({ showModal, setShowModal }) {
   const router = useRouter();
   const { dispatch } = useContext(Store);
 
-  const {
-    control,
-    handleSubmit,
-    formState: { errors },
-  } = useForm({
+  const { control, handleSubmit } = useForm({
     defaultValues: {
       name: "",
       email: "",

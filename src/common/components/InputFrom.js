@@ -24,7 +24,7 @@ export default function InputFrom({
       name={name}
       control={control}
       defaultValue=""
-      render={({ field: { onChange, value } }) => (
+      render={({ field: { onChange, value }, formState }) => (
         <StyledInputFrom
           type={type}
           placeholder={placeholder}
@@ -36,6 +36,10 @@ export default function InputFrom({
           variant="outlined"
           size="small"
           fullWidth
+          error={!!formState.errors[name]}
+          helperText={
+            formState.errors[name] && formState.errors?.[name]?.message
+          }
         >
           {children}
         </StyledInputFrom>
