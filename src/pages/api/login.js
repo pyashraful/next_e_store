@@ -2,11 +2,8 @@ import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import cookie from "cookie";
 import User from "../../model/user";
-import nc from "next-connect";
 
-const handler = nc();
-
-export default handler.post(async (req, res) => {
+export default async (req, res) => {
   const { email, password } = req.body;
   let user = await User.findOne({ email });
 
@@ -36,4 +33,4 @@ export default handler.post(async (req, res) => {
     res.status(401);
     res.json({ error: "Email or Password is wrong" });
   }
-});
+};

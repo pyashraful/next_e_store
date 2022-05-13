@@ -1,12 +1,9 @@
-import nc from "next-connect";
 import jwt from "jsonwebtoken";
 import Cookie from "cookie";
 import User from "../../../model/user";
 import bcrypt from "bcrypt";
 
-const handler = nc();
-
-export default handler.post(async (req, res) => {
+export default async (req, res) => {
   const salt = bcrypt.genSaltSync();
   const { name, email, password } = req.body;
   let user;
@@ -49,4 +46,4 @@ export default handler.post(async (req, res) => {
   );
 
   res.send(user);
-});
+};
