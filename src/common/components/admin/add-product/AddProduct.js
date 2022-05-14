@@ -1,41 +1,84 @@
 import { Paper, Grid, TextField, MenuItem, Button } from "@mui/material";
 import React from "react";
 import FileInput from "./FileInput";
+import { useForm } from "react-hook-form";
+import axios from "axios";
 
 export default function AddProduct() {
+  const [image, setImage] = React.useState();
+  const { register, handleSubmit } = useForm();
+
+  const onSubmit = (data) => {
+    data = { ...data, image };
+    console.log("🚀 ~ file: AddProduct.js ~ line 10 ~ onSubmit ~ data", data);
+    axios
+      .post("/api/add-product", data)
+      .then((res) => {
+        console.log(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
   return (
     <Paper sx={{ p: "30px" }}>
-      <form action="">
+      <form action="" onSubmit={handleSubmit(onSubmit)}>
         <Grid container spacing={3}>
           <Grid item xs={12} lg={6}>
-            <TextField label="E" name="name" />
+            <TextField label="Name" name="name" {...register("name")} />
           </Grid>
           <Grid item xs={12} lg={6}>
-            <TextField select label="Category" name="" value="Electronics">
+            <TextField
+              select
+              label="Category"
+              name=""
+              value="Electronics"
+              {...register("Category")}
+            >
               <MenuItem value="Electronics">Electronics</MenuItem>
               <MenuItem value="Electronics">Electronics</MenuItem>
             </TextField>
           </Grid>
           <Grid item xs={12} lg={12}>
-            <FileInput />
+            <FileInput setImage={setImage} />
           </Grid>
           <Grid item xs={12} lg={12}>
-            <TextField label="Price" name="name" multiline rows={4} />
+            <TextField
+              label="Description"
+              multiline
+              rows={4}
+              {...register("description")}
+            />
           </Grid>
           <Grid item xs={12} lg={6}>
-            <TextField label="Stock" type="text"></TextField>
+            <TextField
+              label="Stock"
+              type="number"
+              {...register("quantity", {
+                valueAsNumber: true,
+              })}
+            ></TextField>
           </Grid>
           <Grid item xs={12} lg={6}>
-            <TextField label="Tag" type="text"></TextField>
+            <TextField label="Tag" type="text" {...register("tag")}></TextField>
           </Grid>
           <Grid item xs={12} lg={6}>
-            <TextField label="Regular Price" type="number"></TextField>
+            <TextField
+              label="Regular Price"
+              type="number"
+              {...register("regularPrice", { valueAsNumber: true })}
+            ></TextField>
           </Grid>
           <Grid item xs={12} lg={6}>
-            <TextField label="Seles Price" type="number"></TextField>
+            <TextField
+              label="Seles Price"
+              type="number"
+              {...register("selcePrice", { valueAsNumber: true })}
+            ></TextField>
           </Grid>
         </Grid>
-        <Button sx={{ mt: 4 }} variant="contained">
+        <Button sx={{ mt: 4 }} variant="contained" type="submit">
           Save Product
         </Button>
       </form>

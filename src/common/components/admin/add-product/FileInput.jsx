@@ -3,8 +3,8 @@ import OutlinedButton from "@components/OutlinedButton";
 import { Box, Divider } from "@mui/material";
 import { useDropzone } from "react-dropzone";
 
-export default function FileInput() {
-  const [image, setImage] = useState();
+export default function FileInput({ setImage }) {
+  // const [image, setImage] = useState();
   const [loading, setLoading] = useState(false);
 
   const onDrop = useCallback((acceptedFiles) => {
@@ -21,7 +21,7 @@ export default function FileInput() {
     };
     reader.readAsDataURL(file);
   }, []);
-  console.log(image);
+  // console.log(image);
   console.log(loading);
   const { getRootProps, getInputProps, isDragActive } = useDropzone({
     onDrop,
