@@ -17,6 +17,19 @@ const theme = createTheme({
   },
 
   components: {
+    MuiTextField: {
+      defaultProps: {
+        variant: "outlined",
+        size: "small",
+        fullWidth: true,
+      },
+      styleOverrides: {
+        root: {
+          "& label": { fontSize: "14px" },
+        },
+      },
+    },
+
     MuiPaper: {
       styleOverrides: {
         root: sx({

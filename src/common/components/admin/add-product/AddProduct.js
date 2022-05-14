@@ -16,7 +16,7 @@ const StyledInput = styled(TextField)({
   // "& MuiFormLabel-root": {
   //   fontSize: "14px",
   // },
-  "& label": { fontSize: "14px" },
+  // "& label": { fontSize: "14px" },
 });
 
 export default function AddProduct() {
@@ -25,7 +25,7 @@ export default function AddProduct() {
       <form action="">
         <Grid container spacing={3}>
           <Grid item xs={12} lg={6}>
-            <StyledInput label="E" fullWidth size="small" name="name" />
+            <StyledInput label="E" name="name" />
           </Grid>
           <Grid item xs={12} lg={6}>
             <StyledInput
