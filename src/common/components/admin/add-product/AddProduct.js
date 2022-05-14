@@ -50,6 +50,7 @@ export default function AddProduct() {
                 minHeight: "200px",
               }}
               role="button"
+              type="file"
             >
               <input
                 type="file"

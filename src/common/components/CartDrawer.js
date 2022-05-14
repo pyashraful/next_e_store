@@ -117,7 +117,7 @@ export default function CartDrawer() {
         </Box>
 
         <Box sx={{ p: 2.5 }}>
-          <Link href="/" passHref>
+          <Link href="/checkout" passHref>
             <Button sx={{ mb: 1 }} variant="contained" fullWidth>
               Checkout
             </Button>

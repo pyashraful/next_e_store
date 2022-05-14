@@ -1,4 +1,5 @@
-import Link from "next/link";
+// import Link from "next/link";
+import Link from "./Link";
 import { Container, Box, Stack } from "@mui/material";
 import { useContext, useState, useEffect } from "react";
 import CartBadge from "./CartBadge";
