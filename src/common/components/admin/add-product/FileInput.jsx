@@ -1,8 +1,13 @@
-import { useRef } from "react";
+import { useRef, useCallback } from "react";
 import OutlinedButton from "@components/OutlinedButton";
 import { Box, Divider } from "@mui/material";
+import { useDropzone } from "react-dropzone";
 
 export default function FileInput() {
+  const onDrop = useCallback((acceptedFiles) => {
+    // Do something with the files
+  }, []);
+  const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop });
   const inputRef = useRef(null);
 
   const handleClick = () => {
@@ -24,7 +29,7 @@ export default function FileInput() {
       }}
       role="button"
       type="file"
-      onClick={handleClick}
+      {...getRootProps()}
     >
       <input
         type="file"
@@ -33,7 +38,7 @@ export default function FileInput() {
         style={{ display: "none" }}
         autoComplete="off"
         tabIndex="-1"
-        ref={inputRef}
+        {...getInputProps()}
       />
       <Box
         sx={{
