@@ -32,16 +32,16 @@ export default function Paymentcard() {
           <Box sx={{ mb: 3 }}>
             <Grid container spacing={3}>
               <Grid item xs={12} sm={6}>
-                <TextField fullWidth size="small" label="Cart Number" />
+                <TextField label="Cart Number" />
               </Grid>
               <Grid item xs={12} sm={6}>
-                <TextField fullWidth size="small" label="Exp Date" />
+                <TextField label="Exp Date" />
               </Grid>
               <Grid item xs={12} sm={6}>
-                <TextField fullWidth size="small" label="Name on Card" />
+                <TextField label="Name on Card" />
               </Grid>
               <Grid item xs={12} sm={6}>
-                <TextField fullWidth size="small" label="Name on Card" />
+                <TextField label="Name on Card" />
               </Grid>
             </Grid>
           </Box>

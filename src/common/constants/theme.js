@@ -19,7 +19,6 @@ const theme = createTheme({
   components: {
     MuiTextField: {
       defaultProps: {
-        variant: "outlined",
         size: "small",
         fullWidth: true,
       },
