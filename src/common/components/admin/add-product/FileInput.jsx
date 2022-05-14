@@ -1,20 +1,32 @@
-import { useRef, useCallback } from "react";
+import { useState, useRef, useCallback } from "react";
 import OutlinedButton from "@components/OutlinedButton";
 import { Box, Divider } from "@mui/material";
 import { useDropzone } from "react-dropzone";
 
 export default function FileInput() {
-  const onDrop = useCallback((acceptedFiles) => {
-    // Do something with the files
-  }, []);
-  const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop });
-  const inputRef = useRef(null);
+  const [image, setImage] = useState();
+  const [loading, setLoading] = useState(false);
 
-  const handleClick = () => {
-    // console.log("hi");
-    inputRef.current.click();
-    console.log(inputRef.current);
-  };
+  const onDrop = useCallback((acceptedFiles) => {
+    const file = acceptedFiles[0];
+    const reader = new FileReader();
+    reader.onloadstart = () => {
+      setLoading(true);
+    };
+    reader.onloadend = () => {
+      setLoading(false);
+    };
+    reader.onload = () => {
+      setImage(reader.result);
+    };
+    reader.readAsDataURL(file);
+  }, []);
+  console.log(image);
+  console.log(loading);
+  const { getRootProps, getInputProps, isDragActive } = useDropzone({
+    onDrop,
+    multiple: false,
+  });
 
   return (
     <Box
@@ -77,6 +89,15 @@ export default function FileInput() {
       <Box sx={{ fontSize: 12, color: "text.disabled" }} component={"small"}>
         Upload 280*280 image
       </Box>
+      {/* 
+      {image && (
+        <Box>
+          <Box sx={{ position: "absolute", color: "red", top: 10, left: 10 }}>
+            cancel
+          </Box>
+          <img src={image} alt="product" width="200" height="200" />
+        </Box>
+      )} */}
     </Box>
   );
 }
