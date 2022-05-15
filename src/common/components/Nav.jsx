@@ -1,4 +1,3 @@
-// import Link from "next/link";
 import Link from "./Link";
 import { Container, Box, Stack } from "@mui/material";
 import { useContext, useState, useEffect } from "react";
@@ -20,12 +19,8 @@ const FixDiv = styled("div")({
 });
 
 export default function Nav({ showModal, setShowModal }) {
-  const [loading, setLoading] = useState(false);
   const { state, dispatch } = useContext(Store);
-  const { user, iserror, isLoading } = useUser();
-  // console.log("🚀 ~ file: Nav.jsx ~ line 24 ~ Nav ~ isLoading", isLoading);
-  // console.log("🚀 ~ file: Nav.jsx ~ line 24 ~ Nav ~ iserror", iserror);
-  // console.log("🚀 ~ file: Nav.jsx ~ line 24 ~ Nav ~ user", user);
+  const { user } = useUser();
   const router = useRouter();
 
   const { cartOpen, cart } = state;
@@ -39,19 +34,10 @@ export default function Nav({ showModal, setShowModal }) {
       dispatch({ type: "OPEN_CART" });
     }
   }
-
-  // useEffect(() => {
-  //   setLoading(isLoading);
-  //   if (user) {
-  //     setLoading(false);
-  //   }
-  // }, [isLoading, user]);
-
   function showLoingForm() {
     if (user) {
-      // console.log("🚀 ~ file: Nav.jsx ~ line 42 ~ showLoingForm ~ user", user);
-      // router.push(`/profile`);
-      // console.log("🚀 ~ file: Nav.jsx ~ line 44 ~ showLoingForm ~ user", user);
+      console.log("🚀 ~ file: Nav.jsx ~ line 42 ~ showLoingForm ~ user", user);
+      router.push(`/profile`);
     } else {
       setShowModal(!showModal);
     }

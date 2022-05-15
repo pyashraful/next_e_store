@@ -9,6 +9,7 @@ import Box from "@mui/material/Box";
 
 export default function Profile() {
   const { user, isLoading } = useUser();
+  console.log("🚀 ~ file: index.js ~ line 12 ~ Profile ~ user", user);
   const router = useRouter();
   const { state } = useContext(Store);
 
@@ -40,7 +41,3 @@ export default function Profile() {
     </>
   );
 }
-
-// export async function getServerSideProps(ctx) {
-
-// }
