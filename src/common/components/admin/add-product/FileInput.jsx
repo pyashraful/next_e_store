@@ -56,14 +56,21 @@ export default function FileInput({ image, setImage }) {
       type="file"
     >
       {image ? (
-        <Box sx={{ height: 150, width: 150, position: "relative" }}>
+        <Box
+          sx={{
+            height: 150,
+            width: 150,
+            position: "relative",
+            border: "1px dashed",
+            borderRadius: "10px",
+          }}
+        >
           <Avatar
             alt="Remy Sharp"
             src={readable}
             sx={{
               width: "100%",
               height: "100%",
-              borderRadius: "10px",
             }}
           />
           {/* <div
@@ -92,6 +99,8 @@ export default function FileInput({ image, setImage }) {
               top: -15,
               right: -15,
               zIndex: 1999,
+              border: "1px dashed",
+              borderColor: "primary.main",
               "&:hover": { backgroundColor: "rgba(255, 167, 192, 0.8)" },
             }}
             onClick={() => setImage(null)}

@@ -1,12 +1,12 @@
 import { Paper, Grid, TextField, MenuItem, Button } from "@mui/material";
-import React from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import FileInput from "./FileInput";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 
 export default function AddProduct() {
   const [image, setImage] = React.useState();
-  const { register, handleSubmit } = useForm({
+  const { register, handleSubmit, reset } = useForm({
     defaultValues: {
       title: "",
     },
@@ -23,14 +23,15 @@ export default function AddProduct() {
     for (var pair of formData.entries()) {
       console.log(pair[0] + ", " + pair[1]);
     }
-    axios
-      .post("/api/admin/add-product", formData)
-      .then((res) => {
-        console.log(res.data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    // axios
+    //   .post("/api/admin/add-product", formData)
+    //   .then((res) => {
+    //     console.log(res.data);
+    //   })
+    //   .catch((err) => {
+    //     console.log(err);
+    //   });
+    reset();
   };
 
   return (
@@ -46,7 +47,7 @@ export default function AddProduct() {
               label="Category"
               name=""
               value="Electronics"
-              {...register("Category")}
+              {...register("category")}
             >
               <MenuItem value="Electronics">Electronics</MenuItem>
               <MenuItem value="Electronics">Electronics</MenuItem>

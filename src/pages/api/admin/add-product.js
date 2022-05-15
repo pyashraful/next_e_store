@@ -31,8 +31,8 @@ export default async (req, res) => {
       await fs.writeFile(pathToWriteImage, image);
       connectDB();
       const product = new Product({
-        title: data.fields.name,
-        category: data.fields.Category,
+        title: data.fields.title,
+        category: data.fields.category,
         image: `/images/${data.files.file.originalFilename}`,
         price: data.fields.regularPrice,
         brand: "none",
