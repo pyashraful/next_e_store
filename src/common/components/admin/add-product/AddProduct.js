@@ -7,12 +7,31 @@ import axios from "axios";
 export default function AddProduct() {
   const [image, setImage] = React.useState();
   const { register, handleSubmit } = useForm();
+  // console.log("🚀 ~ file: AddProduct.js ~ line 9 ~ AddProduct ~ image", image);
 
-  const onSubmit = (data) => {
-    data = { ...data, image };
-    console.log("🚀 ~ file: AddProduct.js ~ line 10 ~ onSubmit ~ data", data);
+  const onSubmit = async (data) => {
+    console.log("🚀 ~ file: AddProduct.js ~ line 13 ~ onSubmit ~ data", data);
+    var formData = new FormData();
+
+    for (const key in data) {
+      formData.append(key, data[key]);
+    }
+    formData.append("file", image);
+    for (var pair of formData.entries()) {
+      console.log(pair[0] + ", " + pair[1]);
+    }
+    // console.log("🚀 ~ file: AddProduct.js ~ line 14 ~ onSubmit ~ body", body);
+    // body.append("name", data.name);
+    // console.log("🚀 ~ file: AddProduct.js ~ line 15 ~ onSubmit ~ body", body);
+    // data = { ...data, body };
+    // console.log("🚀 ~ file: AddProduct.js ~ line 17 ~ onSubmit ~ data", data);
+
+    // console.log("🚀 ~ file: AddProduct.js ~ line 15 ~ onSubmit ~ body", body);
+    // body.append("file", image);
+    // console.log("🚀 ~ file: AddProduct.js ~ line 15 ~ onSubmit ~ body", body);
+    // console.log("🚀 ~ file: AddProduct.js ~ line 10 ~ onSubmit ~ data", body);
     axios
-      .post("/api/add-product", data)
+      .post("/api/admin/add-product", formData)
       .then((res) => {
         console.log(res.data);
       })

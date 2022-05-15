@@ -7,23 +7,27 @@ export default function FileInput({ setImage }) {
   // const [image, setImage] = useState();
   const [loading, setLoading] = useState(false);
 
-  const onDrop = useCallback((acceptedFiles) => {
-    const file = acceptedFiles[0];
-    const reader = new FileReader();
-    reader.onloadstart = () => {
-      setLoading(true);
-    };
-    reader.onloadend = () => {
-      setLoading(false);
-    };
-    reader.onload = () => {
-      setImage(reader.result);
-    };
-    reader.readAsDataURL(file);
-  }, []);
+  const onDrop = useCallback(
+    (acceptedFiles) => {
+      const file = acceptedFiles[0];
+      const reader = new FileReader();
+      reader.onloadstart = () => {
+        setLoading(true);
+      };
+      reader.onloadend = () => {
+        setLoading(false);
+      };
+      reader.onload = () => {
+        // setImage(reader.result);
+      };
+      reader.readAsDataURL(file);
+      setImage(file);
+    },
+    [setImage]
+  );
   // console.log(image);
   console.log(loading);
-  const { getRootProps, getInputProps, isDragActive } = useDropzone({
+  const { getRootProps, getInputProps } = useDropzone({
     onDrop,
     multiple: false,
   });
