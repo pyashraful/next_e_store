@@ -6,7 +6,11 @@ import axios from "axios";
 
 export default function AddProduct() {
   const [image, setImage] = React.useState();
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit } = useForm({
+    defaultValues: {
+      title: "",
+    },
+  });
 
   const onSubmit = async (data) => {
     console.log("🚀 ~ file: AddProduct.js ~ line 13 ~ onSubmit ~ data", data);
@@ -34,7 +38,7 @@ export default function AddProduct() {
       <form action="" onSubmit={handleSubmit(onSubmit)}>
         <Grid container spacing={3}>
           <Grid item xs={12} lg={6}>
-            <TextField label="Name" name="name" {...register("name")} />
+            <TextField label="Title" name="title" {...register("title")} />
           </Grid>
           <Grid item xs={12} lg={6}>
             <TextField

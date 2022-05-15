@@ -1,8 +1,11 @@
 import React from "react";
-import UserLayout from "@components/UserLayout";
-import AdminSidebar from "@components/admin/AdminSidebar";
+import AdminLayout from "@components/admin/AdminLayout";
 import DashBoard from "@components/admin/Dashboard";
 
-export default function index() {
-  return <UserLayout sideber={<AdminSidebar />} main={<DashBoard />} />;
+export default function products() {
+  return (
+    <AdminLayout>
+      <DashBoard />
+    </AdminLayout>
+  );
 }
