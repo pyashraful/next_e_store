@@ -53,7 +53,7 @@ export default function AddProduct() {
             </TextField>
           </Grid>
           <Grid item xs={12} lg={12}>
-            <FileInput setImage={setImage} />
+            <FileInput image={image} setImage={setImage} />
           </Grid>
           <Grid item xs={12} lg={12}>
             <TextField
