@@ -32,6 +32,7 @@ export default function AddProduct() {
     //     console.log(err);
     //   });
     reset();
+    setImage(null);
   };
 
   return (

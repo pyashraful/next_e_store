@@ -23,9 +23,9 @@ export default function Nav({ showModal, setShowModal }) {
   const [loading, setLoading] = useState(false);
   const { state, dispatch } = useContext(Store);
   const { user, iserror, isLoading } = useUser();
-  console.log("🚀 ~ file: Nav.jsx ~ line 24 ~ Nav ~ isLoading", isLoading);
-  console.log("🚀 ~ file: Nav.jsx ~ line 24 ~ Nav ~ iserror", iserror);
-  console.log("🚀 ~ file: Nav.jsx ~ line 24 ~ Nav ~ user", user);
+  // console.log("🚀 ~ file: Nav.jsx ~ line 24 ~ Nav ~ isLoading", isLoading);
+  // console.log("🚀 ~ file: Nav.jsx ~ line 24 ~ Nav ~ iserror", iserror);
+  // console.log("🚀 ~ file: Nav.jsx ~ line 24 ~ Nav ~ user", user);
   const router = useRouter();
 
   const { cartOpen, cart } = state;
@@ -49,9 +49,9 @@ export default function Nav({ showModal, setShowModal }) {
 
   function showLoingForm() {
     if (user) {
-      console.log("🚀 ~ file: Nav.jsx ~ line 42 ~ showLoingForm ~ user", user);
-      router.push(`/profile`);
-      console.log("🚀 ~ file: Nav.jsx ~ line 44 ~ showLoingForm ~ user", user);
+      // console.log("🚀 ~ file: Nav.jsx ~ line 42 ~ showLoingForm ~ user", user);
+      // router.push(`/profile`);
+      // console.log("🚀 ~ file: Nav.jsx ~ line 44 ~ showLoingForm ~ user", user);
     } else {
       setShowModal(!showModal);
     }
