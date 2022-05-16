@@ -1,8 +1,7 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useCallback, useRef } from "react";
 import { Box, Button, FormControl, OutlinedInput, Paper } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 import { styled } from "@mui/system";
-import { useOuterClick } from "@utils/useOuterClick";
 import axios from "axios";
 
 const MyTextfild = styled(OutlinedInput)({
@@ -24,42 +23,54 @@ const SerarchResult = styled(Paper)((theme) => ({
 }));
 
 export default function Search() {
-  const [showSearchBox, setShowSearchBox] = useState(false);
-  const [query, setQuery] = useState([]);
-  const [searchResult, setSearchResult] = useState([]);
-  const handleSearch = (e) => {
-    setShowSearchBox(true);
-    setQuery(e.target.value);
-  };
+  const searchRef = useRef(null);
+  const [query, setQuery] = useState("");
+  const [active, setActive] = useState(false);
+  const [results, setResults] = useState([]);
 
-  const innerRef = useOuterClick((e) => {
-    setShowSearchBox(false);
-  });
+  const searchEndpoint = (query) => `/api/search?q=${query}`;
 
-  console.log(searchResult);
+  const onChange = useCallback(async (event) => {
+    const query = event.target.value;
 
-  useEffect(() => {
-    async function fetchData() {
+    setQuery(query);
+    if (query.length) {
       try {
         const res = await axios.get(`/api/search?q=${query}`);
-        setSearchResult(res.data);
+        setResults(res.data);
       } catch (error) {
-        console.log(error);
+        console.log("🚀 ~ file: search.js ~ line 34 ~ error", error);
       }
+    } else {
+      setResults([]);
     }
-    fetchData();
-  }, [query]);
+  }, []);
+
+  const onFocus = useCallback(() => {
+    setActive(true);
+    window.addEventListener("click", onClick);
+  }, []);
+
+  const onClick = useCallback((event) => {
+    if (searchRef.current && !searchRef.current.contains(event.target)) {
+      setActive(false);
+      window.removeEventListener("click", onClick);
+    }
+  }, []);
+
+  console.log(results);
+  console.log(results.length);
 
   return (
     <Box
-      // ref={boxRef}
+      ref={searchRef}
       sx={{ maxWidth: 670, mx: "auto", flex: "1 1 0", position: "relative" }}
     >
-      <FormControl sx={{ width: "100%" }} ref={innerRef}>
+      <FormControl sx={{ width: "100%" }}>
         <MyTextfild
-          onChange={(e) => {
-            handleSearch(e);
-          }}
+          onChange={onChange}
+          onFocus={onFocus}
+          value={query}
           sx={{ overflow: "hidden" }}
           placeholder="Searching for..."
           startAdornment={<SearchIcon />}
@@ -83,7 +94,7 @@ export default function Search() {
           }
         />
       </FormControl>
-      {showSearchBox && <SerarchResult></SerarchResult>}
+      {active && results.length > 0 && <SerarchResult></SerarchResult>}
     </Box>
   );
 }

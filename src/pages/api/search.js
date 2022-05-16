@@ -7,20 +7,18 @@ export default async (req, res) => {
     $or: [
       {
         title: {
-          $regex: `^((?!${query}).)*$`,
+          $regex: `${query}`,
           $options: "i",
         },
       },
       {
         brand: {
-          $regex: `^((?!${query}).)*$`,
+          $regex: `${query}`,
           $options: "i",
         },
       },
     ],
   }).limit(4);
-
-  console.log("🚀 ~ file: search.js ~ line 3 ~ query", query);
   console.log(query);
   res.json(products);
 };
