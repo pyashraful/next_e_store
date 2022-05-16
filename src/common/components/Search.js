@@ -1,7 +1,9 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { Box, Button, FormControl, OutlinedInput, Paper } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 import { styled } from "@mui/system";
+import { useOuterClick } from "@utils/useOuterClick";
+
 const MyTextfild = styled(OutlinedInput)({
   borderRadius: "40px",
   overflow: "hidden",
@@ -21,17 +23,34 @@ const SerarchResult = styled(Paper)((theme) => ({
 }));
 
 export default function Search() {
-  const [searchResult, setSearchResult] = useState("");
-
+  const [showSearchBox, setShowSearchBox] = useState(false);
+  const [searchResult, setSearchResult] = useState([]);
   const handleSearch = (e) => {
-    setSearchResult(e.target.value);
+    setShowSearchBox(true);
   };
+
+  const innerRef = useOuterClick((e) => {
+    setShowSearchBox(false);
+  });
+
+  // useEffect(() => {
+  //   document.addEventListener("click", (e) => {
+  //     if (boxRef.current.contains(e.target)) {
+  //       return;
+  //     }
+  //     setSearchResult("");
+  //   });
+  //   return () => {
+  //     document.removeEventListener("click", () => {});
+  //   };
+  // });
 
   return (
     <Box
+      // ref={boxRef}
       sx={{ maxWidth: 670, mx: "auto", flex: "1 1 0", position: "relative" }}
     >
-      <FormControl sx={{ width: "100%" }}>
+      <FormControl sx={{ width: "100%" }} ref={innerRef}>
         <MyTextfild
           onChange={(e) => {
             handleSearch(e);
@@ -59,7 +78,7 @@ export default function Search() {
           }
         />
       </FormControl>
-      {searchResult.length > 0 && <SerarchResult></SerarchResult>}
+      {showSearchBox && <SerarchResult></SerarchResult>}
     </Box>
   );
 }
