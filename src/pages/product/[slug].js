@@ -12,9 +12,9 @@ import fetcher from "@utils/fetcher";
 
 export default function Details({ product }) {
   const { dispatch } = useContext(Store);
-  const { data, error } = useSWR(`/products/${product._id}`, fetcher);
-  console.log(data);
-  console.log(error);
+  // const { data, error } = useSWR(`/products/${product._id}`, fetcher);
+  // console.log(data);
+  // console.log(error);
 
   const addToCartHandler = async () => {
     dispatch({ type: "ADD_TO_CART", payload: { ...product, quantity: 1 } });

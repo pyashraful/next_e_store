@@ -3,6 +3,7 @@ import { Box, Button, FormControl, OutlinedInput, Paper } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 import { styled } from "@mui/system";
 import { useOuterClick } from "@utils/useOuterClick";
+import axios from "axios";
 
 const MyTextfild = styled(OutlinedInput)({
   borderRadius: "40px",
@@ -24,26 +25,30 @@ const SerarchResult = styled(Paper)((theme) => ({
 
 export default function Search() {
   const [showSearchBox, setShowSearchBox] = useState(false);
+  const [query, setQuery] = useState([]);
   const [searchResult, setSearchResult] = useState([]);
   const handleSearch = (e) => {
     setShowSearchBox(true);
+    setQuery(e.target.value);
   };
 
   const innerRef = useOuterClick((e) => {
     setShowSearchBox(false);
   });
 
-  // useEffect(() => {
-  //   document.addEventListener("click", (e) => {
-  //     if (boxRef.current.contains(e.target)) {
-  //       return;
-  //     }
-  //     setSearchResult("");
-  //   });
-  //   return () => {
-  //     document.removeEventListener("click", () => {});
-  //   };
-  // });
+  console.log(searchResult);
+
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const res = await axios.get(`/api/search?q=${query}`);
+        setSearchResult(res.data);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+    fetchData();
+  }, [query]);
 
   return (
     <Box
