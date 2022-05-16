@@ -3,9 +3,6 @@
   "extends": ["eslint:recommended", "next", "next/core-web-vitals"],
   "rules": {
     "import/no-named-as-default": false,
-    "no-unused-vars": [
-      "warn",
-      { "vars": "all", "args": "after-used", "ignoreRestSiblings": false }
-    ]
+    "no-unused-vars": ["warn"]
   }
 }

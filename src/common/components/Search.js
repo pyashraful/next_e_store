@@ -11,9 +11,20 @@ const MyTextfild = styled(OutlinedInput)({
   },
 });
 
+const SerarchResult = styled(Box)((theme) => ({
+  position: "absolute",
+  top: "100%",
+  left: 22,
+  height: 250,
+  background: "#ddd",
+  maxWidth: "94%",
+}));
+
 export default function Search() {
   return (
-    <Box sx={{ maxWidth: 670, mx: "auto", flex: "1 1 0" }}>
+    <Box
+      sx={{ maxWidth: 670, mx: "auto", flex: "1 1 0", position: "relative" }}
+    >
       <FormControl sx={{ width: "100%" }}>
         <MyTextfild
           sx={{ overflow: "hidden" }}
@@ -39,6 +50,7 @@ export default function Search() {
           }
         />
       </FormControl>
+      <SerarchResult></SerarchResult>
     </Box>
   );
 }

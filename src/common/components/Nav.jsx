@@ -1,6 +1,6 @@
 import Link from "./Link";
 import { Container, Box, Stack } from "@mui/material";
-import { useContext, useState, useEffect } from "react";
+import { useContext } from "react";
 import CartBadge from "./CartBadge";
 import Search from "./Search";
 import UserProfile from "./UserProfile";
