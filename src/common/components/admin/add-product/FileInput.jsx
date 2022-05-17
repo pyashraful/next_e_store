@@ -71,6 +71,7 @@ export default function FileInput({ image, setImage }) {
             sx={{
               width: "100%",
               height: "100%",
+              borderRadius: "10px",
             }}
           />
           {/* <div
@@ -98,7 +99,6 @@ export default function FileInput({ image, setImage }) {
               color: "primary.main",
               top: -15,
               right: -15,
-              zIndex: 1999,
               border: "1px dashed",
               borderColor: "primary.main",
               "&:hover": { backgroundColor: "rgba(255, 167, 192, 0.8)" },

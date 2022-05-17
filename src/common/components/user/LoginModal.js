@@ -1,17 +1,13 @@
 import Link from "next/link";
 import { Modal, Box, Paper, Button, Divider } from "@mui/material";
-
 import { styled } from "@mui/system";
 import InputFrom from "../InputFrom";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from "yup";
-
 import { useRouter } from "next/router";
-// import { useState } from "react";
 import { authRequest } from "@utils/mutations";
 import { useUser } from "@utils/hooks";
-
 const StyledButton = styled(Button)({
   width: "100%",
   "&:hover": "noStyle",
@@ -30,9 +26,7 @@ const formSchema = Yup.object({
 const validationOpt = { resolver: yupResolver(formSchema) };
 
 export default function LoginModal({ showModal, setShowModal }) {
-  // const [isLoading, setIsLoading] = useState(false);
   const { mutate } = useUser();
-
   const router = useRouter();
 
   const { control, handleSubmit } = useForm({
@@ -45,7 +39,6 @@ export default function LoginModal({ showModal, setShowModal }) {
 
   async function onSubmit(data) {
     try {
-      // setIsLoading(true);
       const user = await authRequest("login", data);
       if (user.error) {
         throw new Error(user.error);
@@ -53,7 +46,6 @@ export default function LoginModal({ showModal, setShowModal }) {
       mutate(user);
       console.log("🚀 ~ file: LoginModal.js ~ line 56 ~ onSubmit ~ user", user);
       if (user) {
-        // setIsLoading(false);
         setShowModal(!showModal);
         router.push(`/profile`);
       }

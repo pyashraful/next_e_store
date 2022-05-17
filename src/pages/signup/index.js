@@ -9,6 +9,7 @@ import * as Yup from "yup";
 import axios from "axios";
 import { useRouter } from "next/router";
 import cookies from "js-cookie";
+import { NextLinkComposed } from "@components/Link";
 
 const StyledButton = styled(Button)({
   width: "100%",
@@ -69,7 +70,7 @@ export default function Signup({ showModal, setShowModal }) {
     >
       <Paper
         sx={{
-          width: { md: "100%", lg: "500px" },
+          width: { lg: "500px" },
         }}
       >
         <form
@@ -196,7 +197,9 @@ export default function Signup({ showModal, setShowModal }) {
 
           <Box sx={{ my: "1.25rem", textAlign: "center" }}>
             Don&apos;t have account?
-            <Box component="span">Sign Up</Box>
+            <Box component={NextLinkComposed} to={"/loging"}>
+              Login
+            </Box>
           </Box>
         </form>
 
