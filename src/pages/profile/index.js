@@ -6,6 +6,7 @@ import { useUser } from "@utils/hooks";
 import { useRouter } from "next/router";
 import CircularProgress from "@mui/material/CircularProgress";
 import Box from "@mui/material/Box";
+import LoadingCircle from "@components/LoadingCircle";
 
 export default function Profile() {
   const { user, isLoading } = useUser();
@@ -22,17 +23,7 @@ export default function Profile() {
   return (
     <>
       {isLoading ? (
-        <Box
-          sx={{
-            display: "flex",
-            minHeight: "100vh",
-            alignItems: "center",
-            alignContent: "center",
-            justifyContent: "center",
-          }}
-        >
-          <CircularProgress />
-        </Box>
+        <LoadingCircle />
       ) : (
         <UserLayout>
           <ProfileMain />
