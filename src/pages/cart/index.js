@@ -103,36 +103,38 @@ export default function Cart() {
                 </CartPaper>
               </Box>
             ))}
+
+            <Grid container spacing={3}>
+              <Grid item xs={12} md={6} lg={6}>
+                <Button
+                  LinkComponent={NextLinkComposed}
+                  to="/"
+                  fullWidth
+                  variant="outlined"
+                  color="primary"
+                >
+                  home
+                </Button>
+              </Grid>
+              <Grid item xs={12} md={6} lg={6}>
+                <Button
+                  LinkComponent={NextLinkComposed}
+                  to="/checkout"
+                  type="submit"
+                  fullWidth
+                  variant="contained"
+                  color="primary"
+                >
+                  Checkout
+                </Button>
+              </Grid>
+            </Grid>
           </Grid>
+
           <Grid item xs={12} md={4} lg={4}>
             <AmountDetails>
               <VoucherField />
             </AmountDetails>
-          </Grid>
-        </Grid>
-        <Grid container spacing={3}>
-          <Grid item xs={8} md={4} lg={4}>
-            <Button
-              LinkComponent={NextLinkComposed}
-              to="/"
-              fullWidth
-              variant="outlined"
-              color="primary"
-            >
-              home
-            </Button>
-          </Grid>
-          <Grid item xs={8} md={4} lg={4}>
-            <Button
-              LinkComponent={NextLinkComposed}
-              to="/checkout"
-              type="submit"
-              fullWidth
-              variant="contained"
-              color="primary"
-            >
-              Checkout
-            </Button>
           </Grid>
         </Grid>
       </Container>

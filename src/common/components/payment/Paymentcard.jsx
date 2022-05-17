@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import {
   FormControlLabel,
   Paper,
-  Stack,
   Radio,
   Divider,
   TextField,
@@ -10,6 +9,7 @@ import {
   Grid,
   Button,
 } from "@mui/material";
+import { NextLinkComposed } from "@components/Link";
 
 export default function Paymentcard() {
   const [value, setValue] = useState("CARD");
@@ -56,14 +56,31 @@ export default function Paymentcard() {
           label="Cash On Delivery"
         />
       </Paper>
-      <Stack direction="row" spacing={2}>
-        <Button fullWidth variant="outlined" color="primary">
-          back to Cart
-        </Button>
-        <Button type="submit" fullWidth variant="contained" color="primary">
-          Pyament
-        </Button>
-      </Stack>
+      <Grid container spacing={3}>
+        <Grid item xs={12} md={6} lg={6}>
+          <Button
+            LinkComponent={NextLinkComposed}
+            to="/checkout"
+            fullWidth
+            variant="outlined"
+            color="primary"
+          >
+            Back to checkout details
+          </Button>
+        </Grid>
+        <Grid item xs={12} md={6} lg={6}>
+          <Button
+            LinkComponent={NextLinkComposed}
+            to="#"
+            type="submit"
+            fullWidth
+            variant="contained"
+            color="primary"
+          >
+            Review Order
+          </Button>
+        </Grid>
+      </Grid>
     </>
   );
 }

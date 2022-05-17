@@ -5,7 +5,6 @@ import {
   Box,
   Grid,
   Paper,
-  Stack,
   Button,
   MenuItem,
 } from "@mui/material";
@@ -15,6 +14,7 @@ import { useForm } from "react-hook-form";
 import ProgressBar from "@components/ProgressBar";
 import AmountDetails from "@components/AmountDetails";
 import VoucherField from "@components/VoucherField";
+import { NextLinkComposed } from "@components/Link";
 
 const fromFields = [
   {
@@ -118,19 +118,32 @@ export default function Checkout() {
                   </Grid>
                 </Box>
               </Paper>
-              <Stack direction="row" spacing={2}>
-                <Button fullWidth variant="outlined" color="primary">
-                  back to Cart
-                </Button>
-                <Button
-                  type="submit"
-                  fullWidth
-                  variant="contained"
-                  color="primary"
-                >
-                  Pyament
-                </Button>
-              </Stack>
+
+              <Grid container spacing={3}>
+                <Grid item xs={12} md={6} lg={6}>
+                  <Button
+                    LinkComponent={NextLinkComposed}
+                    to="/cart"
+                    fullWidth
+                    variant="outlined"
+                    color="primary"
+                  >
+                    cart
+                  </Button>
+                </Grid>
+                <Grid item xs={12} md={6} lg={6}>
+                  <Button
+                    LinkComponent={NextLinkComposed}
+                    to="/payment"
+                    type="submit"
+                    fullWidth
+                    variant="contained"
+                    color="primary"
+                  >
+                    Payment
+                  </Button>
+                </Grid>
+              </Grid>
             </form>
           </Grid>
           <Grid item xs={12} md={4} lg={4}>
