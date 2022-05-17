@@ -2,13 +2,16 @@ import { useContext } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import Layout from "@components/Layout";
-import { Container, Typography, Box, Grid, Paper } from "@mui/material";
+import { Container, Typography, Box, Grid, Paper, Button } from "@mui/material";
 import { Store } from "@utils/store";
 import { styled } from "@mui/system";
 import CartButton from "@components/cart/CartButton";
 import CricleButton from "@components/CricleButton";
 import CloseIcon from "@mui/icons-material/Close";
 import ProgressBar from "@components/ProgressBar";
+import AmountDetails from "@components/AmountDetails";
+import VoucherField from "@components/VoucherField";
+import { NextLinkComposed } from "@components/Link";
 
 const CartPaper = styled(Paper)({
   boxShadow: "rgba(43, 52, 69, 0.1) 0px 4px 16px",
@@ -100,6 +103,36 @@ export default function Cart() {
                 </CartPaper>
               </Box>
             ))}
+          </Grid>
+          <Grid item xs={12} md={4} lg={4}>
+            <AmountDetails>
+              <VoucherField />
+            </AmountDetails>
+          </Grid>
+        </Grid>
+        <Grid container spacing={3}>
+          <Grid item xs={8} md={4} lg={4}>
+            <Button
+              LinkComponent={NextLinkComposed}
+              to="/"
+              fullWidth
+              variant="outlined"
+              color="primary"
+            >
+              home
+            </Button>
+          </Grid>
+          <Grid item xs={8} md={4} lg={4}>
+            <Button
+              LinkComponent={NextLinkComposed}
+              to="/checkout"
+              type="submit"
+              fullWidth
+              variant="contained"
+              color="primary"
+            >
+              Checkout
+            </Button>
           </Grid>
         </Grid>
       </Container>
