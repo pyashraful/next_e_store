@@ -1,8 +1,17 @@
 import { useState, useCallback, useRef } from "react";
-import { Box, Button, FormControl, OutlinedInput, Paper } from "@mui/material";
+import {
+  Box,
+  Button,
+  FormControl,
+  OutlinedInput,
+  Paper,
+  MenuList,
+  MenuItem,
+} from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 import { styled } from "@mui/system";
 import axios from "axios";
+import { NextLinkComposed } from "./Link";
 
 const MyTextfild = styled(OutlinedInput)({
   borderRadius: "40px",
@@ -18,7 +27,6 @@ const SerarchResult = styled(Paper)((theme) => ({
   position: "absolute",
   top: "100%",
   left: 0,
-  height: 250,
   minWidth: "100%",
 }));
 
@@ -58,9 +66,6 @@ export default function Search() {
     }
   }, []);
 
-  console.log(results);
-  console.log(results.length);
-
   return (
     <Box
       ref={searchRef}
@@ -94,7 +99,21 @@ export default function Search() {
           }
         />
       </FormControl>
-      {active && results.length > 0 && <SerarchResult></SerarchResult>}
+      {active && results.length > 0 && (
+        <SerarchResult>
+          <MenuList>
+            {results.map((result) => (
+              <MenuItem
+                key={result._id}
+                component={NextLinkComposed}
+                to={`/product/${result._id}`}
+              >
+                {result.title}
+              </MenuItem>
+            ))}
+          </MenuList>
+        </SerarchResult>
+      )}
     </Box>
   );
 }

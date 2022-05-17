@@ -19,6 +19,5 @@ export default async (req, res) => {
       },
     ],
   }).limit(4);
-  console.log(query);
   res.json(products);
 };
