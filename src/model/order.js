@@ -18,4 +18,33 @@ const order = new mongoose.Schema({
     country: { type: String, required: true },
     address: { type: String, required: true },
   },
+
+  paymentMethod: {
+    type: String,
+    required: true,
+  },
+
+  itemsPrice: {
+    type: Number,
+    required: true,
+    default: 0,
+  },
+  taxPrice: {
+    type: Number,
+    required: true,
+    default: 0,
+  },
+  shippingPrice: {
+    type: Number,
+    required: true,
+    default: 0,
+  },
+  totalPrice: {
+    type: Number,
+    required: true,
+    default: 0,
+  },
 });
+
+const Order = mongoose.models.User || mongoose.model("Order", order);
+export default Order;

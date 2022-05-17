@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import "@styles/globals.css";
-import CircularProgress from "@mui/material/CircularProgress";
 import { StoreProvider } from "@utils/store";
 import * as React from "react";
 import PropTypes from "prop-types";
