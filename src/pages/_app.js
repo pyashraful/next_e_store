@@ -19,6 +19,7 @@ const clientSideEmotionCache = createEmotionCache();
 export default function MyApp(props) {
   const { Component, emotionCache = clientSideEmotionCache, pageProps } = props;
   const [loading, setLoading] = useState(false);
+  // const [initial, setInitial] = useState(true);
   const router = useRouter();
 
   useEffect(() => {
@@ -41,6 +42,12 @@ export default function MyApp(props) {
       router.events.off("routeChangeError", handleStop);
     };
   }, [router]);
+
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //     setInitial(false);
+  //   }, 1000);
+  // });
 
   return (
     <CacheProvider value={emotionCache}>
