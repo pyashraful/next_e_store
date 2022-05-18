@@ -39,6 +39,7 @@ export default function CartDrawer() {
       sx={{ zIndex: 1999, "&	.MuiDrawer-paper": { borderRadius: 0 } }}
       open={cartOpen}
       onClose={toggleDrawer}
+      disableScrollLock={true}
     >
       <Box sx={{ width: 350 }}>
         <Box
@@ -118,12 +119,17 @@ export default function CartDrawer() {
 
         <Box sx={{ p: 2.5 }}>
           <Link href="/checkout" passHref>
-            <Button sx={{ mb: 1 }} variant="contained" fullWidth>
+            <Button
+              sx={{ mb: 1 }}
+              onClick={toggleDrawer}
+              variant="contained"
+              fullWidth
+            >
               Checkout
             </Button>
           </Link>
           <Link href="/cart" passHref>
-            <Button variant="outlined" fullWidth>
+            <Button variant="outlined" onClick={toggleDrawer} fullWidth>
               View cart
             </Button>
           </Link>

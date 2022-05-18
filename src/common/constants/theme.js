@@ -36,6 +36,10 @@ const theme = createTheme({
       defaultProps: {
         size: "small",
         fullWidth: true,
+        disableScrollLock: true,
+        inputProps: {
+          MenuProps: { disableScrollLock: true },
+        },
       },
       styleOverrides: {
         root: {
