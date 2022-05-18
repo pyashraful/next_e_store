@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Head from "next/head";
-import Nav from "./Nav";
-import CartDrawer from "./CartDrawer";
+import Nav from "./nav/Nav";
+import CartDrawer from "@components/cart/CartDrawer";
 import MobileNav from "./mobileNav/MobileNav";
 import LoginModal from "./user/LoginModal";
 import Footer from "./footer/Footer";

@@ -1,5 +1,5 @@
 import { Container, Grid } from "@mui/material";
-import Layout from "./Layout";
+import Layout from "../Layout";
 import ProfileSidebar from "@components/profile/ProfileSidebar";
 
 export default function UserLayout({ children }) {

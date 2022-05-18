@@ -7,7 +7,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from "yup";
 import { useRouter } from "next/router";
 import { authRequest } from "@utils/mutations";
-import { useUser } from "@utils/hooks";
+import { useUser } from "src/common/hook/useUser";
 const StyledButton = styled(Button)({
   width: "100%",
   "&:hover": "noStyle",

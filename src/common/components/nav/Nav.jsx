@@ -1,13 +1,13 @@
-import Link from "./Link";
+import Link from "../Link";
 import { Container, Box, Stack } from "@mui/material";
 import { useContext } from "react";
-import CartBadge from "./CartBadge";
+import CartBadge from "../cart/CartBadge";
 import Search from "./Search";
-import UserProfile from "./UserProfile";
+import UserProfile from "../UserProfile";
 import { Store } from "@utils/store";
 import { styled } from "@mui/system";
 import { useRouter } from "next/router";
-import { useUser } from "@utils/hooks";
+import { useUser } from "src/common/hook/useUser";
 
 const FixDiv = styled("div")({
   position: "fixed",

@@ -1,5 +1,4 @@
 import { createTheme, experimental_sx as sx } from "@mui/material/styles";
-// Create a theme instance.
 const theme = createTheme({
   palette: {
     primary: {

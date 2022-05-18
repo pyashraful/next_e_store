@@ -1,8 +1,8 @@
 import { useState, useEffect, useContext } from "react";
-import UserLayout from "@components/UserLayout";
+import UserLayout from "@components/profile/UserLayout";
 import ProfileMain from "@components/profile/ProfileMain";
 import { Store } from "@utils/store";
-import { useUser } from "@utils/hooks";
+import { useUser } from "src/common/hook/useUser";
 import { useRouter } from "next/router";
 import CircularProgress from "@mui/material/CircularProgress";
 import Box from "@mui/material/Box";
@@ -18,7 +18,7 @@ export default function Profile() {
     if (!user) {
       router.push("/");
     }
-  }, [router, state.userInfo]);
+  }, [router, state.userInfo, user]);
 
   return (
     <>

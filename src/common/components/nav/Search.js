@@ -11,7 +11,7 @@ import {
 import SearchIcon from "@mui/icons-material/Search";
 import { styled } from "@mui/system";
 import axios from "axios";
-import { NextLinkComposed } from "./Link";
+import { NextLinkComposed } from "../Link";
 
 const MyTextfild = styled(OutlinedInput)({
   borderRadius: "40px",

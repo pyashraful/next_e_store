@@ -3,7 +3,7 @@ import OutlinedButton from "@components/OutlinedButton";
 import { Store } from "@utils/store";
 import Cookies from "js-cookie";
 import React from "react";
-import { useUser } from "@utils/hooks";
+import { useUser } from "src/common/hook/useUser";
 import { authRequest } from "@utils/mutations";
 import { useRouter } from "next/router";
 
