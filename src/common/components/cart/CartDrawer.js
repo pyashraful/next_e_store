@@ -4,7 +4,7 @@ import Image from "next/image";
 import Drawer from "@mui/material/Drawer";
 import Stack from "@mui/material/Stack";
 import Box from "@mui/material/Box";
-import CricleButton from "../CricleButton";
+import CricleButton from "@components/CricleButton";
 import CloseIcon from "@mui/icons-material/Close";
 import ShoppingBagOutlinedIcon from "@mui/icons-material/ShoppingBagOutlined";
 import Button from "@mui/material/Button";

@@ -1,4 +1,5 @@
 import { createTheme, experimental_sx as sx } from "@mui/material/styles";
+// Create a theme instance.
 const theme = createTheme({
   palette: {
     primary: {
@@ -35,15 +36,22 @@ const theme = createTheme({
       defaultProps: {
         size: "small",
         fullWidth: true,
-        disableScrollLock: true,
-        inputProps: {
-          MenuProps: { disableScrollLock: true },
-        },
       },
       styleOverrides: {
         root: {
           "& label": { fontSize: "14px" },
         },
+      },
+    },
+
+    Select: {
+      defaultProps: {
+        MenuProps: { disableScrollLock: true },
+      },
+    },
+    MuiModal: {
+      defaultProps: {
+        disableScrollLock: true,
       },
     },
 
