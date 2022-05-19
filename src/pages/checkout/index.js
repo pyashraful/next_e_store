@@ -1,4 +1,3 @@
-import Layout from "@components/Layout";
 import {
   Container,
   Typography,
@@ -84,92 +83,90 @@ export default function Checkout() {
   };
 
   return (
-    <Layout>
-      <Container>
-        <ProgressBar ok={true} em={true} />
-        <Grid container spacing={2}>
-          <Grid item xs={12} md={8} lg={8}>
-            <form onSubmit={handleSubmit(onSubmit)}>
-              <Paper sx={{ p: 4, mb: 4 }}>
-                <Box>
-                  <Typography
-                    variant="h5"
-                    fontSize={14}
-                    fontWeight="bold"
-                    sx={{ mb: 2 }}
-                  >
-                    Shipping Address
-                  </Typography>
-                </Box>
-                <Box>
-                  <Grid container spacing={1}>
-                    {fromFields.map((field) => (
-                      <Grid
-                        sx={{ fontSize: 14 }}
-                        item
-                        xs={12}
-                        md={6}
-                        lg={6}
-                        key={field.name}
+    <Container>
+      <ProgressBar ok={true} em={true} />
+      <Grid container spacing={2}>
+        <Grid item xs={12} md={8} lg={8}>
+          <form onSubmit={handleSubmit(onSubmit)}>
+            <Paper sx={{ p: 4, mb: 4 }}>
+              <Box>
+                <Typography
+                  variant="h5"
+                  fontSize={14}
+                  fontWeight="bold"
+                  sx={{ mb: 2 }}
+                >
+                  Shipping Address
+                </Typography>
+              </Box>
+              <Box>
+                <Grid container spacing={1}>
+                  {fromFields.map((field) => (
+                    <Grid
+                      sx={{ fontSize: 14 }}
+                      item
+                      xs={12}
+                      md={6}
+                      lg={6}
+                      key={field.name}
+                    >
+                      <InputFrom
+                        label={field.label}
+                        name={field.name}
+                        control={control}
+                        select={field.selecte === true}
+                        selectValue={field.countryName}
                       >
-                        <InputFrom
-                          label={field.label}
-                          name={field.name}
-                          control={control}
-                          select={field.selecte === true}
-                          selectValue={field.countryName}
-                        >
-                          {fromFields.map((field) =>
-                            field.selecte
-                              ? field.countryName.map((country) => (
-                                  <MenuItem
-                                    key={country.code}
-                                    value={country.name}
-                                  >
-                                    {country.name}
-                                  </MenuItem>
-                                ))
-                              : ""
-                          )}
-                        </InputFrom>
-                      </Grid>
-                    ))}
-                  </Grid>
-                </Box>
-              </Paper>
+                        {fromFields.map((field) =>
+                          field.selecte
+                            ? field.countryName.map((country) => (
+                                <MenuItem
+                                  key={country.code}
+                                  value={country.name}
+                                >
+                                  {country.name}
+                                </MenuItem>
+                              ))
+                            : ""
+                        )}
+                      </InputFrom>
+                    </Grid>
+                  ))}
+                </Grid>
+              </Box>
+            </Paper>
 
-              <Grid container spacing={3}>
-                <Grid item xs={12} md={6} lg={6}>
-                  <Button
-                    LinkComponent={NextLinkComposed}
-                    to="/cart"
-                    fullWidth
-                    variant="outlined"
-                    color="primary"
-                  >
-                    cart
-                  </Button>
-                </Grid>
-                <Grid item xs={12} md={6} lg={6}>
-                  <Button
-                    type="submit"
-                    fullWidth
-                    variant="contained"
-                    color="primary"
-                  >
-                    Payment
-                  </Button>
-                </Grid>
+            <Grid container spacing={3}>
+              <Grid item xs={12} md={6} lg={6}>
+                <Button
+                  LinkComponent={NextLinkComposed}
+                  to="/cart"
+                  fullWidth
+                  variant="outlined"
+                  color="primary"
+                >
+                  cart
+                </Button>
               </Grid>
-            </form>
-          </Grid>
-          <Grid item xs={12} md={4} lg={4}>
-            <AmountDetails>
-              <VoucherField />
-            </AmountDetails>
-          </Grid>
+              <Grid item xs={12} md={6} lg={6}>
+                <Button
+                  type="submit"
+                  fullWidth
+                  variant="contained"
+                  color="primary"
+                >
+                  Payment
+                </Button>
+              </Grid>
+            </Grid>
+          </form>
         </Grid>
-      </Container>
-    </Layout>
+        <Grid item xs={12} md={4} lg={4}>
+          <AmountDetails>
+            <VoucherField />
+          </AmountDetails>
+        </Grid>
+      </Grid>
+    </Container>
   );
 }

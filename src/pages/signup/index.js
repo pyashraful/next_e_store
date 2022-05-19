@@ -30,7 +30,7 @@ const signupFromValidation = Yup.object({
   ),
 });
 
-export default function Signup({ showModal, setShowModal }) {
+function Signup({ showModal, setShowModal }) {
   const router = useRouter();
   const { dispatch } = useContext(Store);
 
@@ -219,3 +219,6 @@ export default function Signup({ showModal, setShowModal }) {
     </Box>
   );
 }
+Signup.authPage = true;
+
+export default Signup;

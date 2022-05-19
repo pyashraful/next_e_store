@@ -1,15 +1,8 @@
-import Layout from "@components/Layout";
 import ProductsItems from "@components/product/ProductsItems";
-
 import connectDB from "@utils/db.mjs";
 import ProductModel from "../model/productSchema";
-
 export default function Home({ products }) {
-  return (
-    <Layout>
-      <ProductsItems products={products} />
-    </Layout>
-  );
+  return <ProductsItems products={products} />;
 }
 
 export async function getServerSideProps() {

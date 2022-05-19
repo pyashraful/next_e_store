@@ -6,7 +6,6 @@ import ProductModel from "../../model/productSchema";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import { Button, Container, Stack, Typography } from "@mui/material";
-import Layout from "@components/Layout.js";
 import { Store } from "@utils/store";
 import fetcher from "@utils/fetcher";
 
@@ -21,69 +20,67 @@ export default function Details({ product }) {
   };
 
   return (
-    <Layout>
-      <Container sx={{ margin: "2rem auto" }}>
-        <Grid container>
-          <Grid item xs={6} sx={{ width: "100%" }}>
-            <Box>
-              <Box sx={{ display: "flex", justifyContent: "center" }}>
-                <Image
-                  className="p-8 rounded-t-lg"
-                  src={`${product.image}`}
-                  alt="product image"
-                  width={300}
-                  height={300}
-                  // layout="responsive"
-                />
-              </Box>
+    <Container sx={{ margin: "2rem auto" }}>
+      <Grid container>
+        <Grid item xs={6} sx={{ width: "100%" }}>
+          <Box>
+            <Box sx={{ display: "flex", justifyContent: "center" }}>
+              <Image
+                className="p-8 rounded-t-lg"
+                src={`${product.image}`}
+                alt="product image"
+                width={300}
+                height={300}
+                // layout="responsive"
+              />
             </Box>
-          </Grid>
-          <Grid item xs={6}>
-            <Box>
-              <Stack>
-                <Typography
-                  variant="h4"
-                  sx={{ fontWeight: 700, marginBottom: "1rem" }}
-                >
-                  {product.title}
-                </Typography>
-                <Typography variant="body1" sx={{ marginBottom: "1rem" }}>
-                  Brand: {product.brand}
-                </Typography>
-                <Typography variant="body2" sx={{ marginBottom: "1rem" }}>
-                  Rated: {product.rating}
-                </Typography>
-
-                <Stack sx={{ marginBottom: "1.5rem" }}>
-                  <Typography
-                    sx={{
-                      marginBottom: ".25rem",
-                      fontWeight: 700,
-                      color: "primary.main",
-                      fontSize: "1.5rem",
-                    }}
-                  >
-                    ${product.price}
-                  </Typography>
-                  <Typography variant="body1">
-                    {product.countInStock ? "Stock Available" : "Stock out"}
-                  </Typography>
-                </Stack>
-                <Box>
-                  <Button
-                    variant="contained"
-                    sx={{ background: "primary.main" }}
-                    onClick={addToCartHandler}
-                  >
-                    Add To Cart
-                  </Button>
-                </Box>
-              </Stack>
-            </Box>
-          </Grid>
+          </Box>
         </Grid>
-      </Container>
-    </Layout>
+        <Grid item xs={6}>
+          <Box>
+            <Stack>
+              <Typography
+                variant="h4"
+                sx={{ fontWeight: 700, marginBottom: "1rem" }}
+              >
+                {product.title}
+              </Typography>
+              <Typography variant="body1" sx={{ marginBottom: "1rem" }}>
+                Brand: {product.brand}
+              </Typography>
+              <Typography variant="body2" sx={{ marginBottom: "1rem" }}>
+                Rated: {product.rating}
+              </Typography>
+
+              <Stack sx={{ marginBottom: "1.5rem" }}>
+                <Typography
+                  sx={{
+                    marginBottom: ".25rem",
+                    fontWeight: 700,
+                    color: "primary.main",
+                    fontSize: "1.5rem",
+                  }}
+                >
+                  ${product.price}
+                </Typography>
+                <Typography variant="body1">
+                  {product.countInStock ? "Stock Available" : "Stock out"}
+                </Typography>
+              </Stack>
+              <Box>
+                <Button
+                  variant="contained"
+                  sx={{ background: "primary.main" }}
+                  onClick={addToCartHandler}
+                >
+                  Add To Cart
+                </Button>
+              </Box>
+            </Stack>
+          </Box>
+        </Grid>
+      </Grid>
+    </Container>
   );
 }
 
