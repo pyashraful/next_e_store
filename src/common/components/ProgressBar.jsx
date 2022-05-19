@@ -37,6 +37,7 @@ const CustomChip = styled(Chip)(({ selected, theme }) => ({
 
 const CenterBox = styled(Box)({
   display: "flex",
+  flexWrap: "wrap",
   justifyContent: "center",
   alignItems: "center",
 });
