@@ -13,6 +13,10 @@ import { NextLinkComposed } from "@components/Link";
 
 export default function Paymentcard() {
   const [value, setValue] = useState("CARD");
+  console.log(
+    "🚀 ~ file: Paymentcard.jsx ~ line 16 ~ Paymentcard ~ value",
+    value
+  );
 
   const handleChange = (event) => {
     setValue(event.target.value);
@@ -21,33 +25,38 @@ export default function Paymentcard() {
     <>
       <Paper sx={{ px: 3, py: 3, mb: 3 }}>
         <FormControlLabel
+          sx={{ mb: 2, mr: 2 }}
           control={<Radio />}
           checked={value === "CARD"}
           value="CARD"
           onChange={handleChange}
-          label="Pay with credit card"
+          label={"Pay with credit card"}
         />
         <Divider sx={{ mb: 3 }} />
-        <form>
-          <Box sx={{ mb: 3 }}>
-            <Grid container spacing={3}>
-              <Grid item xs={12} sm={6}>
-                <TextField label="Cart Number" />
+        {value === "CARD" && (
+          <form>
+            <Box sx={{ mb: 3 }}>
+              <Grid container spacing={3}>
+                <Grid item xs={12} sm={6}>
+                  <TextField label="Cart Number" />
+                </Grid>
+                <Grid item xs={12} sm={6}>
+                  <TextField label="Exp Date" />
+                </Grid>
+                <Grid item xs={12} sm={6}>
+                  <TextField label="Name on Card" />
+                </Grid>
+                <Grid item xs={12} sm={6}>
+                  <TextField label="Name on Card" />
+                </Grid>
               </Grid>
-              <Grid item xs={12} sm={6}>
-                <TextField label="Exp Date" />
-              </Grid>
-              <Grid item xs={12} sm={6}>
-                <TextField label="Name on Card" />
-              </Grid>
-              <Grid item xs={12} sm={6}>
-                <TextField label="Name on Card" />
-              </Grid>
-            </Grid>
-          </Box>
-          <Button variant="outlined">submit</Button>
-        </form>
-        <Divider sx={{ mt: 3 }} />
+            </Box>
+            <Button sx={{ mb: 3 }} variant="outlined">
+              submit
+            </Button>
+            <Divider sx={{ mb: 3 }} />
+          </form>
+        )}
         <FormControlLabel
           checked={value === "COD"}
           control={<Radio />}
