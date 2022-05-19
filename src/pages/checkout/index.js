@@ -15,6 +15,10 @@ import ProgressBar from "@components/ProgressBar";
 import AmountDetails from "@components/AmountDetails";
 import VoucherField from "@components/VoucherField";
 import { NextLinkComposed } from "@components/Link";
+import Cookies from "js-cookie";
+import { useContext, useEffect } from "react";
+import { Store } from "@utils/store";
+import { useRouter } from "next/router";
 
 const fromFields = [
   {
@@ -57,11 +61,26 @@ const fromFields = [
 ];
 
 export default function Checkout() {
-  const { handleSubmit, control } = useForm({});
+  const { state, dispatch } = useContext(Store);
+  const router = useRouter();
+  console.log("🚀 ~ file: index.js ~ line 64 ~ Checkout ~ state", state);
+  const { handleSubmit, control, setValue } = useForm({});
+
+  useEffect(() => {
+    fromFields.map((field) => {
+      setValue(field.name, state.cart.shippingAddress[field.name]);
+    });
+  }, [setValue, state.cart.shippingAddress]);
 
   const onSubmit = (data) => {
-    console.log("hi");
-    console.log(data);
+    console.log("🚀 ~ file: index.js ~ line 68 ~ onSubmit ~ data", data);
+    dispatch({
+      type: "SAVE_SHIPPING_ADDRESS",
+      payload: { ...data },
+    });
+    Cookies.set("shippingAddress", JSON.stringify({ ...data }));
+    console.log(state.cart.shipingAddress);
+    router.push("/payment");
   };
 
   return (
@@ -133,8 +152,6 @@ export default function Checkout() {
                 </Grid>
                 <Grid item xs={12} md={6} lg={6}>
                   <Button
-                    LinkComponent={NextLinkComposed}
-                    to="/payment"
                     type="submit"
                     fullWidth
                     variant="contained"
