@@ -36,7 +36,7 @@ export default function ProductCart({ product }) {
                     component="h3"
                     noWrap={true}
                   >
-                    {product.title}
+                    {product.name}
                   </Typography>
                 </Link>
                 <Rating

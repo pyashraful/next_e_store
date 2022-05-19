@@ -40,7 +40,7 @@ export default function AddProduct() {
       <form action="" onSubmit={handleSubmit(onSubmit)}>
         <Grid container spacing={3}>
           <Grid item xs={12} lg={6}>
-            <TextField label="Title" name="title" {...register("title")} />
+            <TextField label="name" name="title" {...register("name")} />
           </Grid>
           <Grid item xs={12} lg={6}>
             <TextField

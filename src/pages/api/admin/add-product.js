@@ -1,6 +1,6 @@
 import { IncomingForm } from "formidable";
 import { promises as fs } from "fs";
-import Product from "@model/productSchema";
+import Product from "@model/product";
 import connectDB from "@utils/db.mjs";
 
 export const config = {
@@ -31,7 +31,7 @@ export default async (req, res) => {
       await fs.writeFile(pathToWriteImage, image);
       connectDB();
       const product = new Product({
-        title: data.fields.title,
+        name: data.fields.name,
         category: data.fields.category,
         image: `/images/${data.files.file.originalFilename}`,
         price: data.fields.regularPrice,

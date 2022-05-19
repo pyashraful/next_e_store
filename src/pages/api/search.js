@@ -1,4 +1,4 @@
-import Product from "@model/productSchema";
+import Product from "@model/product";
 
 export default async (req, res) => {
   const query = req.query.q;

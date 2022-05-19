@@ -2,7 +2,7 @@ import { useContext } from "react";
 import useSWR from "swr";
 import Image from "next/image";
 import connectDB from "@utils/db.mjs";
-import ProductModel from "../../model/productSchema";
+import Product from "../../model/product";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import { Button, Container, Stack, Typography } from "@mui/material";
@@ -89,7 +89,7 @@ export async function getServerSideProps(context) {
   const { slug } = params;
 
   await connectDB();
-  const data = await ProductModel.findById(slug);
+  const data = await Product.findById(slug);
 
   const product = JSON.parse(JSON.stringify(data));
 

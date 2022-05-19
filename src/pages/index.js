@@ -1,6 +1,6 @@
 import Products from "@components/product/Products";
 import connectDB from "@utils/db.mjs";
-import ProductModel from "../model/productSchema";
+import ProductModel from "../model/product";
 export default function Home({ products }) {
   return <Products products={products} />;
 }
