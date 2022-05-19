@@ -8,6 +8,13 @@ import { Store } from "@utils/store";
 import { styled } from "@mui/system";
 import { useRouter } from "next/router";
 import { useUser } from "src/common/hook/useUser";
+import dynamic from "next/dynamic";
+
+function loadcartDrawer() {
+  return import("@components/cart/CartDrawer");
+}
+
+const CartDrawer = dynamic(() => loadcartDrawer());
 
 const FixDiv = styled("div")({
   position: "fixed",
@@ -22,7 +29,6 @@ export default function Nav({ showModal, setShowModal }) {
   const { state, dispatch } = useContext(Store);
   const { user } = useUser();
   const router = useRouter();
-
   const { cartOpen, cart } = state;
   const cartItems = cart.cartItems;
 
@@ -83,9 +89,12 @@ export default function Nav({ showModal, setShowModal }) {
                   <Box className="">
                     <UserProfile onClick={showLoingForm} />
                   </Box>
-                  <Box onClick={() => toggleDrawer()}>
-                    <CartBadge cartItems={cartItems} />
-                  </Box>
+
+                  <CartBadge
+                    onClick={() => toggleDrawer()}
+                    cartItems={cartItems}
+                  />
+                  <CartDrawer />
                 </Stack>
               </Stack>
             </nav>

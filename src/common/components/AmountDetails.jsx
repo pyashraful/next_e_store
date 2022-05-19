@@ -1,3 +1,5 @@
+import { useContext } from "react";
+import { Store } from "@utils/store";
 import { Paper, Box, Typography, Divider } from "@mui/material";
 import { styled } from "@mui/system";
 
@@ -17,13 +19,25 @@ const BillAmount = styled(Typography)({
 });
 
 export default function AmountDetails({ children }) {
+  const { state, dispatch } = useContext(Store);
+  const { cartItems } = state.cart;
+
+  const subtotal = cartItems.reduce(
+    (acc, item) => acc + item.price * item.quantity,
+    0
+  );
+  const taxt = subtotal * 0.1;
+  const shipping = 0;
+  const discount = 0;
+  const total = subtotal + taxt + shipping - discount;
+
   return (
     <Paper sx={{ p: 4 }}>
       <Box>
         <Box>
           <BillItemBox>
             <BillTitle variant="subtitle1">Subtotal:</BillTitle>
-            <BillAmount variant="subtitle1">$1000</BillAmount>
+            <BillAmount variant="subtitle1">${`${subtotal}`}</BillAmount>
           </BillItemBox>
         </Box>
         <Box>
@@ -35,7 +49,7 @@ export default function AmountDetails({ children }) {
         <Box>
           <BillItemBox>
             <BillTitle variant="subtitle1">Taxt:</BillTitle>
-            <BillAmount variant="subtitle1">$10</BillAmount>
+            <BillAmount variant="subtitle1">${`${taxt}`}</BillAmount>
           </BillItemBox>
         </Box>
         <Box>
@@ -51,7 +65,7 @@ export default function AmountDetails({ children }) {
         sx={{ mb: 2, fontSize: 25 }}
         variant="subtitle1"
       >
-        $1010
+        ${`${total}`}
       </BillAmount>
       {children}
     </Paper>

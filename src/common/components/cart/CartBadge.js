@@ -12,7 +12,7 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
   },
 }));
 
-export default function CustomizedBadges({ cartItems }) {
+export default function CustomizedBadges({ cartItems, ...props }) {
   const [numItems, setNumItems] = React.useState(0);
 
   React.useEffect(() => {
@@ -23,6 +23,7 @@ export default function CustomizedBadges({ cartItems }) {
       aria-label="cart"
       sx={{ backgroundColor: "action.hover" }}
       size="large"
+      {...props}
     >
       <StyledBadge badgeContent={numItems} color="primary">
         <ShoppingBagOutlinedIcon />
