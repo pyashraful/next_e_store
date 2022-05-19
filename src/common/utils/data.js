@@ -1,7 +1,7 @@
 const data = {
   products: [
     {
-      title: "Smart watch black",
+      name: "Smart watch black",
       image: "/images/flash-1.png",
       brand: "Xiaomi",
       category: "Smart watch",
@@ -12,7 +12,7 @@ const data = {
       countInStock: 10,
     },
     {
-      title: "Smart watch black",
+      name: "Smart watch black",
       image: "/images/flash-2.png",
       brand: "Xiaomi",
       category: "Smart watch",
@@ -23,7 +23,7 @@ const data = {
       countInStock: 10,
     },
     {
-      title: "Smart watch black",
+      name: "Smart watch black",
       image: "/images/flash-3.png",
       brand: "Xiaomi",
       category: "Smart watch",
@@ -34,7 +34,7 @@ const data = {
       countInStock: 10,
     },
     {
-      title: "Smart watch black",
+      name: "Smart watch black",
       image: "/images/flash-4.png",
       brand: "Xiaomi",
       category: "Smart watch",
@@ -45,7 +45,7 @@ const data = {
       countInStock: 10,
     },
     {
-      title: "Smart watch black",
+      name: "Smart watch black",
       image: "/images/flash-1.png",
       brand: "Xiaomi",
       category: "Smart watch",
@@ -56,7 +56,7 @@ const data = {
       countInStock: 10,
     },
     {
-      title: "Smart watch black",
+      name: "Smart watch black",
       image: "/images/flash-2.png",
       brand: "Xiaomi",
       category: "Smart watch",
@@ -67,7 +67,7 @@ const data = {
       countInStock: 10,
     },
     {
-      title: "Smart watch black",
+      name: "Smart watch black",
       image: "/images/flash-3.png",
       brand: "Xiaomi",
       category: "Smart watch",
@@ -78,7 +78,7 @@ const data = {
       countInStock: 10,
     },
     {
-      title: "Smart watch black",
+      name: "Smart watch black",
       image: "/images/flash-4.png",
       brand: "Xiaomi",
       category: "Smart watch",

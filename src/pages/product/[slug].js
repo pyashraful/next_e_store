@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import useSWR from "swr";
 import Image from "next/image";
-import connectDB from "@utils/db.mjs";
+import connectDB from "@utils/db.js";
 import Product from "../../model/product";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";

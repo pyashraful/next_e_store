@@ -1,7 +1,7 @@
 import { IncomingForm } from "formidable";
 import { promises as fs } from "fs";
 import Product from "@model/product";
-import connectDB from "@utils/db.mjs";
+import connectDB from "@utils/db.js";
 
 export const config = {
   api: {

@@ -1,5 +1,5 @@
 import User from "@model/user";
-import connectDB from "@utils/db.mjs";
+import connectDB from "@utils/db.js";
 // import bcrypt from "bcrypt";
 import bcrypt from "bcrypt";
 
