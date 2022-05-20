@@ -36,8 +36,6 @@ export default function Search() {
   const [active, setActive] = useState(false);
   const [results, setResults] = useState([]);
 
-  const searchEndpoint = (query) => `/api/search?q=${query}`;
-
   const onChange = useCallback(async (event) => {
     const query = event.target.value;
 
@@ -45,6 +43,7 @@ export default function Search() {
     if (query.length) {
       try {
         const res = await axios.get(`/api/search?q=${query}`);
+        console.log("🚀 ~ file: Search.js ~ line 48 ~ onChange ~ res", res);
         setResults(res.data);
       } catch (error) {
         console.log("🚀 ~ file: search.js ~ line 34 ~ error", error);
