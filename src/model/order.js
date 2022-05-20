@@ -44,6 +44,15 @@ const order = new mongoose.Schema({
     required: true,
     default: 0,
   },
+  createdAt: {
+    type: Date,
+    required: true,
+  },
+  status: {
+    type: String,
+    default: "pending",
+    enum: ["pending", "processing", "delivered", "canceled"],
+  },
 });
 
 const Order = mongoose.models.User || mongoose.model("Order", order);
