@@ -1,7 +1,7 @@
 import { IncomingForm } from "formidable";
 import { promises as fs } from "fs";
 import Product from "@model/product";
-import connectDB from "@utils/db.js";
+import dbConnect from "@utils/dbConnect.js";
 
 export const config = {
   api: {
@@ -29,7 +29,7 @@ export default async (req, res) => {
       const pathToWriteImage = `public/images/${data.files.file.originalFilename}`; // include name and .extention, you can get the name from data.files.image object
       const image = await fs.readFile(imagePath);
       await fs.writeFile(pathToWriteImage, image);
-      connectDB();
+      dbConnect();
       const product = new Product({
         name: data.fields.name,
         category: data.fields.category,

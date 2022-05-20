@@ -1,12 +1,12 @@
 import Products from "@components/product/Products";
-import connectDB from "@utils/db.js";
+import dbConnect from "@utils/dbConnect.js";
 import ProductModel from "../model/product";
 export default function Home({ products }) {
   return <Products products={products} />;
 }
 
 export async function getServerSideProps() {
-  await connectDB();
+  await dbConnect();
   const product = await ProductModel.find({}).lean();
   // console.log(
   //   "🚀 ~ file: index.js ~ line 11 ~ getServerSideProps ~ product",

@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import useSWR from "swr";
 import Image from "next/image";
-import connectDB from "@utils/db.js";
+import dbConnect from "@utils/dbConnect.js";
 import Product from "../../model/product";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
@@ -88,7 +88,7 @@ export async function getServerSideProps(context) {
   const { params } = context;
   const { slug } = params;
 
-  await connectDB();
+  await dbConnect();
   const data = await Product.findById(slug);
 
   const product = JSON.parse(JSON.stringify(data));
