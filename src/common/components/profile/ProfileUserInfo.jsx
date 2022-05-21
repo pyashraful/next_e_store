@@ -5,8 +5,8 @@ import { styled } from "@mui/system";
 
 const FlexBox = styled(Box)({
   display: "flex",
-  flexDirection: "column",
   flex: "1 1 0",
+  flexDirection: "column",
   padding: 8,
 });
 
@@ -15,7 +15,7 @@ const Small = styled(Box)({
   fontSize: 12,
   color: "#7D879C",
   lineHeight: 1.5,
-  textAlign: "let",
+  textAlign: "left  ",
 });
 const Span = styled(Box)({
   color: "#2B3445",
@@ -24,7 +24,15 @@ const Span = styled(Box)({
 
 export default function ProfileUserInfo() {
   return (
-    <Paper sx={{ py: 1.5, px: 3, display: "flex" }}>
+    <Paper
+      sx={{
+        py: "0.75rem",
+        px: "1.5rem",
+        display: "flex",
+        flexWrap: "wrap",
+        alignItems: "center",
+      }}
+    >
       <FlexBox>
         <Small component={"small"}>First Name</Small>
         <Span component={"span"}>Md Ashraful</Span>

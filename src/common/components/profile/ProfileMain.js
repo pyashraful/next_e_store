@@ -3,6 +3,15 @@ import { Grid, Paper, Box, Avatar, Typography } from "@mui/material";
 import ProfileUserInfo from "./ProfileUserInfo";
 import { Store } from "@utils/store";
 import UserHeader from "./UserHeader";
+import styled from "@emotion/styled";
+
+const InfoCart = styled(Paper)({
+  padding: "1rem 1.25rem",
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "center",
+  height: "100%",
+});
 
 export default function ProfileMain() {
   const { state } = useContext(Store);
@@ -32,6 +41,7 @@ export default function ProfileMain() {
                 <Box
                   sx={{
                     display: "flex",
+                    flexWrap: "wrap",
                     justifyContent: "space-between",
                     alignItems: "center",
                   }}
@@ -71,14 +81,7 @@ export default function ProfileMain() {
           <Grid item xm={12} sm={12} md={6} lg={6}>
             <Grid container spacing={4}>
               <Grid item xs={6} sm={6} lg={3}>
-                <Paper
-                  sx={{
-                    p: "1rem 1.25rem",
-                    display: "flex",
-                    flexDirection: "column",
-                    alignItems: "center",
-                  }}
-                >
+                <InfoCart>
                   <Box
                     sx={{ m: 0, color: "primary.main", lineHeight: 1.5 }}
                     component={"h3"}
@@ -91,17 +94,10 @@ export default function ProfileMain() {
                   >
                     All order
                   </Box>
-                </Paper>
+                </InfoCart>
               </Grid>
               <Grid item xs={6} sm={6} lg={3}>
-                <Paper
-                  sx={{
-                    p: "1rem 2.5rem",
-                    display: "flex",
-                    flexDirection: "column",
-                    alignItems: "center",
-                  }}
-                >
+                <InfoCart>
                   <Box
                     sx={{ m: 0, color: "primary.main", lineHeight: 1.5 }}
                     component={"h3"}
@@ -114,17 +110,10 @@ export default function ProfileMain() {
                   >
                     Awaiting Payments
                   </Box>
-                </Paper>
+                </InfoCart>
               </Grid>
               <Grid item xs={6} sm={6} lg={3}>
-                <Paper
-                  sx={{
-                    p: "1rem 2.5rem",
-                    display: "flex",
-                    flexDirection: "column",
-                    alignItems: "center",
-                  }}
-                >
+                <InfoCart>
                   <Box
                     sx={{ m: 0, color: "primary.main", lineHeight: 1.5 }}
                     component={"h3"}
@@ -137,17 +126,10 @@ export default function ProfileMain() {
                   >
                     Awaiting Shipment
                   </Box>
-                </Paper>
+                </InfoCart>
               </Grid>
               <Grid item xs={6} sm={6} lg={3}>
-                <Paper
-                  sx={{
-                    p: "1rem 2.5rem",
-                    display: "flex",
-                    flexDirection: "column",
-                    alignItems: "center",
-                  }}
-                >
+                <InfoCart>
                   <Box
                     sx={{ m: 0, color: "primary.main", lineHeight: 1.5 }}
                     component={"h3"}
@@ -160,7 +142,7 @@ export default function ProfileMain() {
                   >
                     Awaiting Delivery
                   </Box>
-                </Paper>
+                </InfoCart>
               </Grid>
             </Grid>
           </Grid>

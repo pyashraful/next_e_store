@@ -6,6 +6,7 @@ import HomeIcon from "@mui/icons-material/Home";
 import LocalMallOutlinedIcon from "@mui/icons-material/LocalMallOutlined";
 import PermIdentityOutlinedIcon from "@mui/icons-material/PermIdentityOutlined";
 import { styled } from "@mui/system";
+import { useUser } from "src/common/hook/useUser";
 
 const FixDiv = styled("div")({
   position: "fixed",
@@ -38,11 +39,12 @@ const NavLink = styled("a")({
 });
 
 export default function MobileNav({ showModal, setShowModal }) {
+  const { user } = useUser();
   const { state } = useContext(Store);
   const router = useRouter();
 
   function showLoingForm() {
-    if (state.userInfo) {
+    if (user) {
       router.push("/profile");
     } else {
       setShowModal(!showModal);

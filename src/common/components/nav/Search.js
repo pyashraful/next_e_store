@@ -107,7 +107,7 @@ export default function Search() {
                 component={NextLinkComposed}
                 to={`/product/${result._id}`}
               >
-                {result.title}
+                {result.name}
               </MenuItem>
             ))}
           </MenuList>
