@@ -11,6 +11,7 @@ import { BillInfo } from "@components/AmountDetails";
 import { useContext } from "react";
 import { Store } from "@utils/store";
 import LocationOnSharpIcon from "@mui/icons-material/LocationOnSharp";
+import PaymentIcon from "@mui/icons-material/Payment";
 
 export default function Review() {
   const { state } = useContext(Store);
@@ -27,12 +28,24 @@ export default function Review() {
       <Grid container spacing={3}>
         <Grid item xs={12} md={8} lg={8}>
           <Paper sx={{ px: 3.5, py: 3, display: "flex" }}>
-            <Box>
+            <Box sx={{ flex: "1 1 0" }}>
               <Box sx={{ display: "flex", alignItems: "center", mb: 1.5 }}>
-                <LocationOnSharpIcon fontSize="medium" color="primary" />
+                <LocationOnSharpIcon
+                  fontSize="medium"
+                  color="primary"
+                  sx={{ mr: 1.5 }}
+                />
                 <Box sx={{ fontSize: "20px" }}> Delivery Address</Box>
               </Box>
-              <Box sx={{ px: 2.5, py: 1.5 }}>
+              <Paper
+                sx={{
+                  px: 3,
+                  py: 2,
+                  display: "inline-block",
+                  backgroundColor: "rgb(246, 249, 252)",
+                  boxShadow: "none",
+                }}
+              >
                 <Typography variant="body1" sx={{ mb: 1 }}>
                   {shippingAddress.name}
                 </Typography>
@@ -43,16 +56,38 @@ export default function Review() {
                   {shippingAddress.address}
                 </Typography>
                 <Typography variant="body1" sx={{ mb: 1 }}>
-                  {shippingAddress.zip}
+                  Zip: {shippingAddress.zip}
                 </Typography>
-              </Box>
+              </Paper>
             </Box>
-            <Divider orientation="vertical" variant="middle" flexItem />
-            <Box>
+            <Divider
+              orientation="vertical"
+              variant="middle"
+              flexItem
+              sx={{ mr: 3 }}
+            />
+            <Box sx={{ flex: "1 1 0" }}>
               <Box sx={{ display: "flex", alignItems: "center", mb: 1.5 }}>
-                <LocationOnSharpIcon fontSize="medium" color="primary" />
+                <PaymentIcon
+                  fontSize="medium"
+                  color="primary"
+                  sx={{ mr: 1.5 }}
+                />
                 <Box sx={{ fontSize: "20px" }}> Delivery Address</Box>
               </Box>
+              <Paper
+                sx={{
+                  px: 3,
+                  py: 2,
+                  display: "inline-block",
+                  backgroundColor: "rgb(246, 249, 252)",
+                  boxShadow: "none",
+                }}
+              >
+                <Typography variant="h6" sx={{ mb: 1 }}>
+                  Cash On Delivery
+                </Typography>
+              </Paper>
             </Box>
           </Paper>
         </Grid>

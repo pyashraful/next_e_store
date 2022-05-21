@@ -2,7 +2,13 @@
   "env": { "browser": true, "node": true, "es6": true },
   "extends": ["eslint:recommended", "next", "next/core-web-vitals"],
   "rules": {
-    "import/no-named-as-default": "warn"
+    "import/no-anonymous-default-export": [
+      "off",
+      {
+        "allowArrowFunction": false,
+        "allowAnonymousFunction": false
+      }
+    ]
     // "import/no-named-as-default": false
   }
 }
