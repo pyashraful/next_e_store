@@ -18,7 +18,7 @@ const BillAmount = styled(Typography)({
   fontWeight: 600,
 });
 
-export function BillInfo({ children }) {
+export function BillInfo() {
   const { state } = useContext(Store);
   const { cartItems } = state.cart;
 

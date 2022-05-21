@@ -19,6 +19,7 @@ async function dbConnect() {
 
   if (!cached.promise) {
     const opts = {
+      useNewUrlParser: true,
       bufferCommands: false,
     };
 

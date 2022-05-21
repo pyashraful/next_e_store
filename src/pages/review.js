@@ -26,7 +26,7 @@ export default function Review() {
     <Container>
       <Grid container spacing={3}>
         <Grid item xs={12} md={8} lg={8}>
-          <Paper sx={{ px: 3.5, py: 3 }}>
+          <Paper sx={{ px: 3.5, py: 3, display: "flex" }}>
             <Box>
               <Box sx={{ display: "flex", alignItems: "center", mb: 1.5 }}>
                 <LocationOnSharpIcon fontSize="medium" color="primary" />
@@ -47,7 +47,13 @@ export default function Review() {
                 </Typography>
               </Box>
             </Box>
-            <Divider />
+            <Divider orientation="vertical" variant="middle" flexItem />
+            <Box>
+              <Box sx={{ display: "flex", alignItems: "center", mb: 1.5 }}>
+                <LocationOnSharpIcon fontSize="medium" color="primary" />
+                <Box sx={{ fontSize: "20px" }}> Delivery Address</Box>
+              </Box>
+            </Box>
           </Paper>
         </Grid>
         <Grid item xs={12} md={4} lg={4}>
