@@ -18,8 +18,8 @@ const BillAmount = styled(Typography)({
   fontWeight: 600,
 });
 
-export default function AmountDetails({ children }) {
-  const { state, dispatch } = useContext(Store);
+export function BillInfo({ children }) {
+  const { state } = useContext(Store);
   const { cartItems } = state.cart;
 
   const subtotal = cartItems.reduce(
@@ -30,9 +30,8 @@ export default function AmountDetails({ children }) {
   const shipping = 0;
   const discount = 0;
   const total = subtotal + taxt + shipping - discount;
-
   return (
-    <Paper sx={{ p: 4 }}>
+    <>
       <Box>
         <Box>
           <BillItemBox>
@@ -67,6 +66,14 @@ export default function AmountDetails({ children }) {
       >
         ${`${total}`}
       </BillAmount>
+    </>
+  );
+}
+
+export default function AmountDetails({ children }) {
+  return (
+    <Paper sx={{ p: 4 }}>
+      <BillInfo />
       {children}
     </Paper>
   );
