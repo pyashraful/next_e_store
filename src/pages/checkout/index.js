@@ -60,15 +60,23 @@ const fromFields = [
 ];
 
 export default function Checkout() {
+  console.log("hi");
   const { state, dispatch } = useContext(Store);
   const router = useRouter();
-  console.log("🚀 ~ file: index.js ~ line 64 ~ Checkout ~ state", state);
+  console.log(
+    "🚀 ~ file: index.js ~ line 64 ~ Checkout ~ state",
+    state.cart.shippingAddress
+  );
   const { handleSubmit, control, setValue } = useForm({});
 
   useEffect(() => {
-    fromFields.map((field) => {
-      setValue(field.name, state.cart.shippingAddress[field.name]);
-    });
+    if (state.cart.shippingAddress) {
+      setValue("name", state.cart.shippingAddress.name);
+      setValue("email", state.cart.shippingAddress.email);
+      setValue("phone", state.cart.shippingAddress.phone);
+      setValue("zip", state.cart.shippingAddress.zip);
+      setValue("address", state.cart.shippingAddress.address);
+    }
   }, [setValue, state.cart.shippingAddress]);
 
   const onSubmit = (data) => {
@@ -127,7 +135,7 @@ export default function Checkout() {
                                   {country.name}
                                 </MenuItem>
                               ))
-                            : ""
+                            : null
                         )}
                       </InputFrom>
                     </Grid>

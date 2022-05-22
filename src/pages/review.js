@@ -8,14 +8,18 @@ import {
   Typography,
 } from "@mui/material";
 import LoadingButton from "@mui/lab/LoadingButton";
-
 import { BillInfo } from "@components/AmountDetails";
 import { useContext } from "react";
 import { Store } from "@utils/store";
 import LocationOnSharpIcon from "@mui/icons-material/LocationOnSharp";
 import PaymentIcon from "@mui/icons-material/Payment";
+import { useUser } from "src/common/hook/useUser";
+import useCal from "src/common/hook/useCal";
+import axios from "axios";
 
 export default function Review() {
+  const { user } = useUser();
+  const { taxt, shipping, discount, total } = useCal();
   const { state } = useContext(Store);
   const { cartItems } = state.cart;
   const { shippingAddress } = state.cart;
@@ -24,6 +28,41 @@ export default function Review() {
     shippingAddress
   );
   console.log("🚀 ~ file: Review.js ~ line 9 ~ Review ~ cartItem", cartItems);
+
+  async function handleOrder() {
+    const order = {
+      user: user._id,
+      orderItems: cartItems.map((item) => ({
+        priductId: item._id,
+        name: item.name,
+        price: item.price,
+        quantity: item.quantity,
+      })),
+      shippingAddress: {
+        name: shippingAddress.name,
+        email: shippingAddress.email,
+        phone: shippingAddress.phone,
+        zipcode: shippingAddress.zipcode,
+        country: shippingAddress.country,
+        address: shippingAddress.address,
+      },
+      paymentMethod: "COD",
+      totalPrice: total,
+      taxt: taxt,
+      shippingCost: shipping,
+      discount: discount,
+      status: "pending",
+      crateedAt: new Date(),
+    };
+    console.log("🚀 ~ file: Review.js ~ line 36 ~ Review ~ order", order);
+
+    try {
+      const { data } = await axios.post("/api/order", order);
+      console.log("🚀 ~ file: Review.js ~ line 61 ~ handleOrder ~ data", data);
+    } catch (err) {
+      console.log(err);
+    }
+  }
 
   return (
     <Container>
@@ -92,6 +131,14 @@ export default function Review() {
               </Paper>
             </Box>
           </Paper>
+          <LoadingButton
+            /*loading */
+            fullWidth
+            variant="contained"
+            onClick={handleOrder}
+          >
+            Place Order
+          </LoadingButton>
         </Grid>
         <Grid item xs={12} md={4} lg={4}>
           <Paper sx={{ px: 2.5, py: 1.5 }}>
@@ -115,7 +162,6 @@ export default function Review() {
             <BillInfo />
           </Paper>
         </Grid>
-        <LoadingButton> Place Order</LoadingButton>
       </Grid>
     </Container>
   );

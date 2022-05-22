@@ -80,7 +80,7 @@ export default function Paymentcard() {
         <Grid item xs={12} md={6} lg={6}>
           <Button
             LinkComponent={NextLinkComposed}
-            to="#"
+            to="/review"
             type="submit"
             fullWidth
             variant="contained"
