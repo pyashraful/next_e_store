@@ -7,6 +7,8 @@ import {
   Paper,
   Typography,
 } from "@mui/material";
+import LoadingButton from "@mui/lab/LoadingButton";
+
 import { BillInfo } from "@components/AmountDetails";
 import { useContext } from "react";
 import { Store } from "@utils/store";
@@ -113,6 +115,7 @@ export default function Review() {
             <BillInfo />
           </Paper>
         </Grid>
+        <LoadingButton> Place Order</LoadingButton>
       </Grid>
     </Container>
   );
