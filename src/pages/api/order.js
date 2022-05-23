@@ -1,6 +1,7 @@
 import Order from "@model/order";
+import { validateRoute } from "@utils/auth";
 
-export default async (req, res) => {
+export default validateRoute(async (req, res) => {
   let data = req.body;
   try {
     await Order.deleteMany({});
@@ -13,4 +14,4 @@ export default async (req, res) => {
     console.log("🚀 ~ file: order.js ~ line 19 ~ err", err);
     res.send("error");
   }
-};
+});

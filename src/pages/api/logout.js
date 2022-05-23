@@ -1,11 +1,7 @@
-import { isAuth } from "@utils/auth";
+import { validateRoute } from "@utils/auth";
 import cookie from "cookie";
-import nc from "next-connect";
 
-const handler = nc();
-handler.use(isAuth);
-
-export default handler.post(async (req, res) => {
+export default validateRoute(async (req, res) => {
   try {
     console.log("🚀 ~ file: index.js ~ line 10 ~ handler.get ~ req", req.user);
     res.setHeader(

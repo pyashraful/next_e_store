@@ -1,10 +1,6 @@
-import { isAuth } from "@utils/auth";
-import nc from "next-connect";
+import { validateRoute } from "@utils/auth";
 
-const handler = nc();
-handler.use(isAuth);
-
-export default handler.get(async (req, res) => {
+export default validateRoute(async (req, res) => {
   try {
     res.json(req.user);
   } catch (err) {
