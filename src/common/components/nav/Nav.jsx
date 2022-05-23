@@ -25,9 +25,10 @@ const FixDiv = styled("div")({
   boxShadow: "rgb(43 52 69 / 10%) 0px 4px 16px",
 });
 
-export default function Nav({ showModal, setShowModal }) {
+export default function Nav() {
   const { state, dispatch } = useContext(Store);
   const { user } = useUser();
+  console.log("🚀 ~ file: Nav.jsx ~ line 31 ~ Nav ~ user", user);
   const router = useRouter();
   const { cartOpen, cart } = state;
   const cartItems = cart.cartItems;
@@ -41,11 +42,10 @@ export default function Nav({ showModal, setShowModal }) {
     }
   }
   function showLoingForm() {
-    if (user) {
-      console.log("🚀 ~ file: Nav.jsx ~ line 42 ~ showLoingForm ~ user", user);
-      router.push(`/profile`);
+    if (!user) {
+      dispatch({ type: "SIGNIN_DIALOG" });
     } else {
-      setShowModal(!showModal);
+      router.push("/profile");
     }
   }
 

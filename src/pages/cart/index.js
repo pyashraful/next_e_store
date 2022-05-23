@@ -11,6 +11,7 @@ import ProgressBar from "@components/ProgressBar";
 import AmountDetails from "@components/AmountDetails";
 import VoucherField from "@components/VoucherField";
 import { NextLinkComposed } from "@components/Link";
+import { useUser } from "src/common/hook/useUser";
 
 const CartPaper = styled(Paper)({
   boxShadow: "rgba(43, 52, 69, 0.1) 0px 4px 16px",
@@ -20,12 +21,19 @@ const CartPaper = styled(Paper)({
 });
 
 export default function Cart() {
+  const { user } = useUser();
+  console.log("🚀 ~ file: index.js ~ line 25 ~ Cart ~ user", user);
   const { state, dispatch } = useContext(Store);
   const { cart } = state;
-  console.log("🚀 ~ file: index.js ~ line 22 ~ Cart ~ cart", cart);
 
   function removeItem(id) {
     dispatch({ type: "REMOVE_FROM_CART", payload: id });
+  }
+
+  function handleClick() {
+    if (!user) {
+      dispatch({ type: "SIGNIN_DIALOG" });
+    }
   }
 
   return (
@@ -116,9 +124,7 @@ export default function Cart() {
             </Grid>
             <Grid item xs={12} md={6} lg={6}>
               <Button
-                LinkComponent={NextLinkComposed}
-                to="/checkout"
-                type="submit"
+                onClick={handleClick}
                 fullWidth
                 variant="contained"
                 color="primary"

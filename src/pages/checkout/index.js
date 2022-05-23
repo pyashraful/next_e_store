@@ -7,7 +7,6 @@ import {
   Button,
   MenuItem,
 } from "@mui/material";
-
 import InputFrom from "@components/InputFrom";
 import { useForm } from "react-hook-form";
 import ProgressBar from "@components/ProgressBar";
@@ -18,6 +17,7 @@ import Cookies from "js-cookie";
 import { useContext, useEffect } from "react";
 import { Store } from "@utils/store";
 import { useRouter } from "next/router";
+import { useUser } from "src/common/hook/useUser";
 
 const fromFields = [
   {
@@ -60,24 +60,21 @@ const fromFields = [
 ];
 
 export default function Checkout() {
-  console.log("hi");
+  console.log("🚀 ~ file: index.js ~ line 64 ~ Checkout ~ user", user);
   const { state, dispatch } = useContext(Store);
+  const { shippingAddress } = state.cart;
   const router = useRouter();
-  console.log(
-    "🚀 ~ file: index.js ~ line 64 ~ Checkout ~ state",
-    state.cart.shippingAddress
-  );
   const { handleSubmit, control, setValue } = useForm({});
 
   useEffect(() => {
-    if (state.cart.shippingAddress) {
-      setValue("name", state.cart.shippingAddress.name);
-      setValue("email", state.cart.shippingAddress.email);
-      setValue("phone", state.cart.shippingAddress.phone);
-      setValue("zip", state.cart.shippingAddress.zip);
-      setValue("address", state.cart.shippingAddress.address);
+    if (shippingAddress) {
+      setValue("name", shippingAddress.name);
+      setValue("email", shippingAddress.email);
+      setValue("phone", shippingAddress.phone);
+      setValue("zip", shippingAddress.zip);
+      setValue("address", shippingAddress.address);
     }
-  }, [setValue, state.cart.shippingAddress]);
+  }, [setValue, shippingAddress]);
 
   const onSubmit = (data) => {
     console.log("🚀 ~ file: index.js ~ line 68 ~ onSubmit ~ data", data);
