@@ -51,7 +51,7 @@ const theme = createTheme({
     },
     MuiModal: {
       defaultProps: {
-        disableScrollLock: true,
+        // disableScrollLock: true,
       },
     },
 
