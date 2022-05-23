@@ -12,11 +12,13 @@ const userSchema = new mongoose.Schema(
       type: String,
       enum: ["user", "admin"],
       default: "user",
+      required: true,
     },
     usertype: {
       type: String,
       enum: ["silver ", "gold", "platinum"],
       default: "silver",
+      required: true,
     },
   },
   { timestamps: true }

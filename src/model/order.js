@@ -21,7 +21,7 @@ const order = new mongoose.Schema(
       email: { type: String, required: true },
       phone: { type: String, required: true },
       zipcode: { type: String, required: true },
-      country: { type: String, required: true },
+      country: { type: String },
       address: { type: String, required: true },
     },
 
@@ -35,7 +35,7 @@ const order = new mongoose.Schema(
       required: true,
       default: 0,
     },
-    taxPrice: {
+    tax: {
       type: Number,
       required: true,
       default: 0,
@@ -65,5 +65,5 @@ const order = new mongoose.Schema(
   }
 );
 
-const Order = mongoose.models.User || mongoose.model("Order", order);
+const Order = mongoose.models.Order || mongoose.model("Order", order);
 export default Order;

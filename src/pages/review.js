@@ -23,17 +23,12 @@ export default function Review() {
   const { state } = useContext(Store);
   const { cartItems } = state.cart;
   const { shippingAddress } = state.cart;
-  console.log(
-    "🚀 ~ file: Review.js ~ line 19 ~ Review ~ shippingAddress",
-    shippingAddress
-  );
-  console.log("🚀 ~ file: Review.js ~ line 9 ~ Review ~ cartItem", cartItems);
 
   async function handleOrder() {
     const order = {
       user: user._id,
       orderItems: cartItems.map((item) => ({
-        priductId: item._id,
+        productId: item._id,
         name: item.name,
         price: item.price,
         image: item.image,
@@ -49,14 +44,12 @@ export default function Review() {
       },
       paymentMethod: "COD",
       totalPrice: total,
-      taxt: taxt,
+      tax: taxt,
       shippingCost: shipping,
       discount: discount,
       status: "pending",
-      crateedAt: new Date(),
+      createdAt: new Date(),
     };
-    console.log("🚀 ~ file: Review.js ~ line 36 ~ Review ~ order", order);
-
     try {
       const { data } = await axios.post("/api/order", order);
       console.log("🚀 ~ file: Review.js ~ line 61 ~ handleOrder ~ data", data);
