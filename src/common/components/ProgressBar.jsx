@@ -61,12 +61,10 @@ export default function ProgressBar() {
   const router = useRouter();
   const [selected, setSelected] = useState();
 
-  // console.log(router.pathname);
   function handleClick(path) {
     router.push(path);
   }
 
-  // console.log(activeArray);
   useEffect(() => {
     activeArray.map((item, index) => {
       router.pathname === item.route && setSelected(index + 1);

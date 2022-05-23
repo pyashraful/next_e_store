@@ -49,7 +49,7 @@ const theme = createTheme({
         MenuProps: { disableScrollLock: true },
       },
     },
-    MuiModal: {
+    MuiDialog: {
       defaultProps: {
         // disableScrollLock: true,
       },

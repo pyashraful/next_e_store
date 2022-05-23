@@ -7,6 +7,7 @@ import {
   Dialog,
   DialogContent,
 } from "@mui/material";
+import LoadingButton from "@mui/lab/LoadingButton";
 import { styled } from "@mui/system";
 import InputFrom from "../InputFrom";
 import { useForm } from "react-hook-form";
@@ -15,6 +16,7 @@ import * as Yup from "yup";
 import { useRouter } from "next/router";
 import { authRequest } from "@utils/mutations";
 import { useUser } from "src/common/hook/useUser";
+import { useState } from "react";
 const StyledButton = styled(Button)({
   width: "100%",
   "&:hover": "noStyle",
@@ -33,7 +35,9 @@ const formSchema = Yup.object({
 const validationOpt = { resolver: yupResolver(formSchema) };
 
 export default function LoginModal({ showModal, setShowModal }) {
+  const [loading, setLoading] = useState(false);
   const { mutate } = useUser();
+
   const router = useRouter();
 
   const { control, handleSubmit } = useForm({
@@ -46,7 +50,9 @@ export default function LoginModal({ showModal, setShowModal }) {
 
   async function onSubmit(data) {
     try {
+      setLoading(true);
       const user = await authRequest("login", data);
+      setLoading(false);
       if (user.error) {
         throw new Error(user.error);
       }
@@ -121,9 +127,14 @@ export default function LoginModal({ showModal, setShowModal }) {
               />
             </InputCotainer>
             <Box sx={{ marginBottom: "35px" }}>
-              <Button type="submit" fullWidth variant="contained">
+              <LoadingButton
+                loading={loading}
+                type="submit"
+                fullWidth
+                variant="contained"
+              >
                 Loging
-              </Button>
+              </LoadingButton>
             </Box>
             <Box sx={{ mb: "1rem" }}>
               <Box sx={{ width: "200px", mx: "auto" }}>

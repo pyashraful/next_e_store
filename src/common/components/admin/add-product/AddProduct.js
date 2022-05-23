@@ -13,7 +13,6 @@ export default function AddProduct() {
   });
 
   const onSubmit = async (data) => {
-    console.log("🚀 ~ file: AddProduct.js ~ line 13 ~ onSubmit ~ data", data);
     var formData = new FormData();
 
     for (const key in data) {
