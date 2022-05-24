@@ -13,10 +13,10 @@ import InputFrom from "../InputFrom";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from "yup";
-import { useRouter } from "next/router";
 import { authRequest } from "@utils/mutations";
 import { useUser } from "src/common/hook/useUser";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { Store } from "@utils/store";
 const StyledButton = styled(Button)({
   width: "100%",
   "&:hover": "noStyle",
@@ -34,11 +34,12 @@ const formSchema = Yup.object({
 });
 const validationOpt = { resolver: yupResolver(formSchema) };
 
-export default function LoginModal({ showModal, setShowModal }) {
+export default function LoginModal() {
+  const { state, dispatch } = useContext(Store);
+  console.log("🚀 ~ file: LoginModal.js ~ line 40 ~ LoginModal ~ state", state);
+  const { modalOpen } = state;
   const [loading, setLoading] = useState(false);
   const { mutate } = useUser();
-
-  const router = useRouter();
 
   const { control, handleSubmit } = useForm({
     defaultValues: {
@@ -59,8 +60,7 @@ export default function LoginModal({ showModal, setShowModal }) {
       mutate(user);
       console.log("🚀 ~ file: LoginModal.js ~ line 56 ~ onSubmit ~ user", user);
       if (user) {
-        setShowModal(!showModal);
-        router.push(`/profile`);
+        dispatch({ type: "TOGGLE_SIGNIN_DIALOG" });
       }
     } catch (err) {
       console.log(err);
@@ -73,8 +73,8 @@ export default function LoginModal({ showModal, setShowModal }) {
         zIndex: "1900",
       }}
       scroll={"body"}
-      open={showModal}
-      onClose={() => setShowModal(false)}
+      open={modalOpen}
+      onClose={() => dispatch({ type: "TOGGLE_SIGNIN_DIALOG" })}
     >
       <DialogContent sx={{ p: "0" }}>
         <Paper

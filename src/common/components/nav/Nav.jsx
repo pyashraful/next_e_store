@@ -25,7 +25,7 @@ const FixDiv = styled("div")({
   boxShadow: "rgb(43 52 69 / 10%) 0px 4px 16px",
 });
 
-export default function Nav({ showModal, setShowModal }) {
+export default function Nav() {
   const { state, dispatch } = useContext(Store);
   const { user } = useUser();
   const router = useRouter();
@@ -44,7 +44,7 @@ export default function Nav({ showModal, setShowModal }) {
     if (user) {
       router.push(`/profile`);
     } else {
-      setShowModal(!showModal);
+      dispatch({ type: "TOGGLE_SIGNIN_DIALOG" });
     }
   }
 

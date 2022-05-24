@@ -11,7 +11,8 @@ import ProgressBar from "@components/ProgressBar";
 import AmountDetails from "@components/AmountDetails";
 import VoucherField from "@components/VoucherField";
 import { NextLinkComposed } from "@components/Link";
-import useSWR from "swr";
+import { useRouter } from "next/router";
+import { useUser } from "src/common/hook/useUser";
 
 const CartPaper = styled(Paper)({
   boxShadow: "rgba(43, 52, 69, 0.1) 0px 4px 16px",
@@ -21,22 +22,26 @@ const CartPaper = styled(Paper)({
 });
 
 export default function Cart() {
-  const { user } = useSWR();
+  const { user } = useUser();
+  console.log("🚀 ~ file: index.js ~ line 26 ~ Cart ~ user", user);
   const { state, dispatch } = useContext(Store);
   const { cart } = state;
+  const router = useRouter();
   console.log("🚀 ~ file: index.js ~ line 22 ~ Cart ~ cart", cart);
 
   function removeItem(id) {
     dispatch({ type: "REMOVE_FROM_CART", payload: id });
   }
 
-  function handleClick(){
-    if(!user){
-      dispatch({type: })
+  function handleClick() {
+    console.log("🚀 ~ file: index.js ~ line 32 ~ Cart ~ handleClick", user);
+    if (!user) {
+      console.log("🚀 ~ file: index.js ~ line 33 ~ handleClick ~ user hi");
+      dispatch({ type: "TOGGLE_SIGNIN_DIALOG" });
+    } else {
+      router.push("/checkout");
     }
   }
-
-
 
   return (
     <Container>
