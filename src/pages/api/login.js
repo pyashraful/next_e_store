@@ -31,6 +31,6 @@ export default async (req, res) => {
     res.json(user);
   } else {
     res.status(401);
-    res.json({ error: "Email or Password is wrong" });
+    res.json({ error: "Email or Password is wrong" }).end();
   }
 };

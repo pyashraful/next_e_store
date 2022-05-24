@@ -11,8 +11,6 @@ export function validateRoute(handler) {
         user = await User.findById(id);
         if (!user) {
           throw new Error("Not real user");
-        } else {
-          req.user = user;
         }
       } catch (error) {
         console.log(error);
@@ -21,6 +19,8 @@ export function validateRoute(handler) {
       }
       return handler(req, res, user);
     }
+    res.status(401);
+    res.json({ error: "Not Authorizied" });
   };
 }
 
