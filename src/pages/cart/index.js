@@ -11,6 +11,7 @@ import ProgressBar from "@components/ProgressBar";
 import AmountDetails from "@components/AmountDetails";
 import VoucherField from "@components/VoucherField";
 import { NextLinkComposed } from "@components/Link";
+import useSWR from "swr";
 
 const CartPaper = styled(Paper)({
   boxShadow: "rgba(43, 52, 69, 0.1) 0px 4px 16px",
@@ -20,6 +21,7 @@ const CartPaper = styled(Paper)({
 });
 
 export default function Cart() {
+  const { user } = useSWR();
   const { state, dispatch } = useContext(Store);
   const { cart } = state;
   console.log("🚀 ~ file: index.js ~ line 22 ~ Cart ~ cart", cart);
@@ -27,6 +29,14 @@ export default function Cart() {
   function removeItem(id) {
     dispatch({ type: "REMOVE_FROM_CART", payload: id });
   }
+
+  function handleClick(){
+    if(!user){
+      dispatch({type: })
+    }
+  }
+
+
 
   return (
     <Container>
@@ -116,9 +126,7 @@ export default function Cart() {
             </Grid>
             <Grid item xs={12} md={6} lg={6}>
               <Button
-                LinkComponent={NextLinkComposed}
-                to="/checkout"
-                type="submit"
+                onClick={handleClick}
                 fullWidth
                 variant="contained"
                 color="primary"
