@@ -16,8 +16,7 @@ import * as Yup from "yup";
 import { useRouter } from "next/router";
 import { authRequest } from "@utils/mutations";
 import { useUser } from "src/common/hook/useUser";
-import { useContext, useState } from "react";
-import { Store } from "@utils/store";
+import { useState } from "react";
 const StyledButton = styled(Button)({
   width: "100%",
   "&:hover": "noStyle",
@@ -35,14 +34,8 @@ const formSchema = Yup.object({
 });
 const validationOpt = { resolver: yupResolver(formSchema) };
 
-export default function LoginModal() {
+export default function LoginModal({ showModal, setShowModal }) {
   const [loading, setLoading] = useState(false);
-  const { state, dispatch } = useContext(Store);
-  const { modalOpen } = state;
-  console.log(
-    "🚀 ~ file: LoginModal.js ~ line 41 ~ LoginModal ~ modalOpen",
-    modalOpen
-  );
   const { mutate } = useUser();
 
   const router = useRouter();
@@ -66,7 +59,7 @@ export default function LoginModal() {
       mutate(user);
       console.log("🚀 ~ file: LoginModal.js ~ line 56 ~ onSubmit ~ user", user);
       if (user) {
-        dispatch({ type: "SIGNIN_DIALOG" });
+        setShowModal(!showModal);
         router.push(`/profile`);
       }
     } catch (err) {
@@ -80,8 +73,8 @@ export default function LoginModal() {
         zIndex: "1900",
       }}
       scroll={"body"}
-      open={modalOpen}
-      onClose={() => dispatch({ type: "SIGNIN_DIALOG" })}
+      open={showModal}
+      onClose={() => setShowModal(false)}
     >
       <DialogContent sx={{ p: "0" }}>
         <Paper

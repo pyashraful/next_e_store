@@ -4,7 +4,6 @@ import Cookies from "js-cookie";
 export const Store = createContext();
 
 const initialState = {
-  modalOpen: false,
   cartOpen: false,
   cart: {
     cartItems: Cookies.get("cartItems")
@@ -33,13 +32,6 @@ function reducer(state, action) {
       return {
         ...state,
         cartOpen: false,
-      };
-    }
-
-    case "SIGNIN_DIALOG": {
-      return {
-        ...state,
-        modalOpen: !state.modalOpen,
       };
     }
     case "ADD_TO_CART": {

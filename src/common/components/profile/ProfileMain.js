@@ -14,6 +14,12 @@ const InfoCart = styled(Paper)({
 });
 
 export default function ProfileMain() {
+  const { state } = useContext(Store);
+  console.log(
+    "🚀 ~ file: ProfileMain.js ~ line 9 ~ ProfileMain ~ state",
+    state.userInfo
+  );
+
   return (
     <div>
       <Box sx={{ mb: 2 }}>
