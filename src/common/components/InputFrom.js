@@ -25,7 +25,6 @@ export default function InputFrom({
           onChange={onChange}
           sx={{ fontSize: 14 }}
           label={label}
-          required={true}
           error={!!formState.errors[name]}
           helperText={
             formState.errors[name] && formState.errors?.[name]?.message

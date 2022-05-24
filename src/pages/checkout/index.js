@@ -18,6 +18,17 @@ import Cookies from "js-cookie";
 import { useContext, useEffect } from "react";
 import { Store } from "@utils/store";
 import { useRouter } from "next/router";
+// import * as Yup from "yup";
+// import { yupResolver } from "@hookform/resolvers/yup";
+
+// const formSchema = Yup.object({
+//   name: Yup.string().required("Name is required"),
+//   email: Yup.string().email("Invalid email").required("Email is required"),
+//   phone: Yup.number().required("Phone is required"),
+//   address: Yup.string().required("Address is required"),
+//   zip: Yup.string().required("Zip is required"),
+//   country: Yup.string().required("Country is required"),
+// });
 
 const fromFields = [
   {
@@ -80,7 +91,6 @@ export default function Checkout() {
   }, [setValue, state.cart.shippingAddress]);
 
   const onSubmit = (data) => {
-    console.log("🚀 ~ file: index.js ~ line 68 ~ onSubmit ~ data", data);
     dispatch({
       type: "SAVE_SHIPPING_ADDRESS",
       payload: { ...data },

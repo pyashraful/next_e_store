@@ -32,11 +32,10 @@ const formSchema = Yup.object({
     .required("Password is required")
     .min(4, "Password length should be at least 4 characters"),
 });
-const validationOpt = { resolver: yupResolver(formSchema) };
 
 export default function LoginModal() {
   const { state, dispatch } = useContext(Store);
-  console.log("🚀 ~ file: LoginModal.js ~ line 40 ~ LoginModal ~ state", state);
+  const [error, setError] = useState(null);
   const { modalOpen } = state;
   const [loading, setLoading] = useState(false);
   const { mutate } = useUser();
@@ -46,7 +45,7 @@ export default function LoginModal() {
       email: "",
       password: "",
     },
-    validationOpt,
+    resolver: yupResolver(formSchema),
   });
 
   async function onSubmit(data) {
@@ -54,16 +53,11 @@ export default function LoginModal() {
       setLoading(true);
       const user = await authRequest("login", data);
       setLoading(false);
-      if (user.error) {
-        throw new Error(user.error);
-      }
       mutate(user);
-      console.log("🚀 ~ file: LoginModal.js ~ line 56 ~ onSubmit ~ user", user);
-      if (user) {
-        dispatch({ type: "TOGGLE_SIGNIN_DIALOG" });
-      }
+      dispatch({ type: "TOGGLE_SIGNIN_DIALOG" });
     } catch (err) {
-      console.log(err);
+      setLoading(false);
+      setError(err.info.error);
     }
   }
 
@@ -92,9 +86,20 @@ export default function LoginModal() {
               component="p"
               textAlign="center"
               fontSize={12}
-              sx={{ mb: 4.5 }}
+              sx={{ mb: 2.5 }}
             >
               Log in with email & password
+            </Box>
+
+            <Box
+              sx={{
+                mb: 2,
+                textAlign: "center",
+                color: "primary.main",
+                visibility: error ? "visiable" : "hidden",
+              }}
+            >
+              {error}
             </Box>
             <InputCotainer>
               <Box
