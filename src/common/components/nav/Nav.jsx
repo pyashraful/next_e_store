@@ -9,6 +9,7 @@ import { styled } from "@mui/system";
 import { useUser } from "src/common/hook/useUser";
 import dynamic from "next/dynamic";
 import AccountMenu from "@components/AccountMenu";
+import Image from "next/image";
 
 function loadcartDrawer() {
   return import("@components/cart/CartDrawer");
@@ -69,7 +70,12 @@ export default function Nav() {
                   }}
                 >
                   <Link href={"/"}>
-                    <img src="/Estore.svg" />
+                    <Image
+                      src="/Estore.svg"
+                      height={34}
+                      width={100}
+                      alt="logo"
+                    />
                   </Link>
                 </Box>
                 <Box

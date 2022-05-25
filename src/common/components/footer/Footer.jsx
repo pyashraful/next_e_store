@@ -2,6 +2,7 @@ import { Box, Container, Grid } from "@mui/material";
 import { NextLinkComposed } from "../Link";
 import { styled } from "@mui/system";
 import React from "react";
+import Image from "next/image";
 
 const StyledLink = styled(Box)({
   color: "#AEB4BE",
@@ -52,7 +53,7 @@ export default function Footer() {
               component={NextLinkComposed}
               to={"/#"}
             >
-              <img src="/footerLogo.svg" alt="logo" />
+              <Image src="/footerLogo.svg" width={120} height={34} alt="logo" />
             </Box>
             <Box component={"p"} sx={{ fontSize: 14 }}>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Auctor
