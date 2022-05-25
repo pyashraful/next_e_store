@@ -1,6 +1,6 @@
 import Link from "../Link";
 import { Container, Box, Stack } from "@mui/material";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import CartBadge from "../cart/CartBadge";
 import Search from "./Search";
 import UserProfile from "../UserProfile";
@@ -9,6 +9,7 @@ import { styled } from "@mui/system";
 import { useRouter } from "next/router";
 import { useUser } from "src/common/hook/useUser";
 import dynamic from "next/dynamic";
+import AccountMenu from "@components/AccountMenu";
 
 function loadcartDrawer() {
   return import("@components/cart/CartDrawer");
@@ -21,12 +22,14 @@ const FixDiv = styled("div")({
   top: 0,
   left: 0,
   right: 0,
-  zIndex: 1500,
+  zIndex: 999,
   boxShadow: "rgb(43 52 69 / 10%) 0px 4px 16px",
 });
 
 export default function Nav() {
+  const [anchorEl, setAnchorEl] = useState(null);
   const { state, dispatch } = useContext(Store);
+  const open = Boolean(anchorEl);
   const { user } = useUser();
   const router = useRouter();
   const { cartOpen, cart } = state;
@@ -40,9 +43,10 @@ export default function Nav() {
       dispatch({ type: "OPEN_CART" });
     }
   }
-  function showLoingForm() {
+  function showLoingForm(event) {
     if (user) {
-      router.push(`/profile`);
+      setAnchorEl(event.currentTarget);
+      // router.push(`/profile`);
     } else {
       dispatch({ type: "TOGGLE_SIGNIN_DIALOG" });
     }
@@ -88,7 +92,11 @@ export default function Nav() {
                   <Box className="">
                     <UserProfile onClick={showLoingForm} />
                   </Box>
-
+                  <AccountMenu
+                    open={open}
+                    anchorEl={anchorEl}
+                    setAnchorEl={setAnchorEl}
+                  />
                   <CartBadge
                     onClick={() => toggleDrawer()}
                     cartItems={cartItems}
