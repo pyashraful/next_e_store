@@ -12,7 +12,7 @@ import { useUser } from "../hook/useUser";
 import { useRouter } from "next/router";
 import Cookies from "js-cookie";
 
-export default function AccountMenu({ anchorEl, setAnchorEl, open }) {
+export default function AccountMenu({ anchorEl, setAnchorEl, open, userRole }) {
   const router = useRouter();
   const { mutate } = useUser();
   const handleClose = () => {
@@ -69,7 +69,11 @@ export default function AccountMenu({ anchorEl, setAnchorEl, open }) {
           </ListItemIcon>
           profile
         </MenuItem>
-        <MenuItem component={NextLinkComposed} to={"/orders"}>
+        <MenuItem
+          component={NextLinkComposed}
+          to={"/orders"}
+          sx={{ display: userRole === "admin" ? "none" : "block" }}
+        >
           <ListItemIcon>
             <ManageAccountsIcon fontSize="small" />
           </ListItemIcon>

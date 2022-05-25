@@ -99,6 +99,7 @@ export default function Nav() {
                     open={open}
                     anchorEl={anchorEl}
                     setAnchorEl={setAnchorEl}
+                    userRole={user?.role}
                   />
                   <CartBadge
                     onClick={() => toggleDrawer()}
