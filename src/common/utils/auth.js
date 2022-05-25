@@ -4,6 +4,7 @@ import User from "@model/user";
 export const validateRoute = (handler) => {
   return async (req, res) => {
     const token = req.cookies.TRAX_ACCESS_TOKEN;
+    console.log("ok");
 
     if (token) {
       let user;
@@ -28,6 +29,18 @@ export const validateRoute = (handler) => {
     res.json({ error: "Not Authorizied" });
   };
 };
+
+export function validateAdminRoute(handler) {
+  return validateRoute((req, res, user) => {
+    if (user.role !== "admin") {
+      res.status(403);
+      res.json({ error: "Not Authorizied" });
+      return;
+    }
+
+    return handler(req, res, user);
+  });
+}
 
 export async function isAdmin(req, res, next) {
   if (req.user.role === "admin") {
