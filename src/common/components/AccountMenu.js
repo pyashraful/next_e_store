@@ -1,44 +1,33 @@
 import * as React from "react";
-import Box from "@mui/material/Box";
-import Avatar from "@mui/material/Avatar";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import ListItemIcon from "@mui/material/ListItemIcon";
-import Divider from "@mui/material/Divider";
-import IconButton from "@mui/material/IconButton";
-import Typography from "@mui/material/Typography";
-import Tooltip from "@mui/material/Tooltip";
-import PersonAdd from "@mui/icons-material/PersonAdd";
-import Settings from "@mui/icons-material/Settings";
+import PersonIcon from "@mui/icons-material/Person";
+import DashboardIcon from "@mui/icons-material/Dashboard";
+import ManageAccountsIcon from "@mui/icons-material/ManageAccounts";
 import Logout from "@mui/icons-material/Logout";
+import { NextLinkComposed } from "./Link";
+import { authRequest } from "@utils/mutations";
+import { useUser } from "../hook/useUser";
+import { useRouter } from "next/router";
+import Cookies from "js-cookie";
 
 export default function AccountMenu({ anchorEl, setAnchorEl, open }) {
-  // const [anchorEl, setAnchorEl] = React.useState(null);
-  // const open = Boolean(anchorEl);
-  // const handleClick = (event) => {
-  //   setAnchorEl(event.currentTarget);
-  // };
+  const router = useRouter();
+  const { mutate } = useUser();
   const handleClose = () => {
     setAnchorEl(null);
   };
+
+  const handleLogout = async () => {
+    await authRequest.logout();
+    mutate(null);
+    router.push("/");
+    Cookies.remove("cartItems");
+  };
+
   return (
     <React.Fragment>
-      {/* <Box sx={{ display: "flex", alignItems: "center", textAlign: "center" }}>
-        <Typography sx={{ minWidth: 100 }}>Contact</Typography>
-        <Typography sx={{ minWidth: 100 }}>Profile</Typography>
-        <Tooltip title="Account settings">
-          <IconButton
-            onClick={handleClick}
-            size="small"
-            sx={{ ml: 2 }}
-            aria-controls={open ? "account-menu" : undefined}
-            aria-haspopup="true"
-            aria-expanded={open ? "true" : undefined}
-          >
-            <Avatar sx={{ width: 32, height: 32 }}>M</Avatar>
-          </IconButton>
-        </Tooltip>
-      </Box> */}
       <Menu
         anchorEl={anchorEl}
         id="account-menu"
@@ -74,26 +63,25 @@ export default function AccountMenu({ anchorEl, setAnchorEl, open }) {
         transformOrigin={{ horizontal: "right", vertical: "top" }}
         anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
       >
-        <MenuItem>
-          <Avatar /> Profile
-        </MenuItem>
-        <MenuItem>
-          <Avatar /> My account
-        </MenuItem>
-        <Divider />
-        <MenuItem>
+        <MenuItem component={NextLinkComposed} to={"/profile"}>
           <ListItemIcon>
-            <PersonAdd fontSize="small" />
+            <PersonIcon fontSize="small" />
           </ListItemIcon>
-          Add another account
+          profile
         </MenuItem>
-        <MenuItem>
+        <MenuItem component={NextLinkComposed} to={"/orders"}>
           <ListItemIcon>
-            <Settings fontSize="small" />
+            <ManageAccountsIcon fontSize="small" />
           </ListItemIcon>
-          Settings
+          Account
         </MenuItem>
-        <MenuItem>
+        <MenuItem component={NextLinkComposed} to={"/admin/dashboard"}>
+          <ListItemIcon>
+            <DashboardIcon fontSize="small" />
+          </ListItemIcon>
+          Admin Dashboard
+        </MenuItem>
+        <MenuItem onClick={handleLogout}>
           <ListItemIcon>
             <Logout fontSize="small" />
           </ListItemIcon>

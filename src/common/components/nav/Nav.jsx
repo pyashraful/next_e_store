@@ -6,7 +6,6 @@ import Search from "./Search";
 import UserProfile from "../UserProfile";
 import { Store } from "@utils/store";
 import { styled } from "@mui/system";
-import { useRouter } from "next/router";
 import { useUser } from "src/common/hook/useUser";
 import dynamic from "next/dynamic";
 import AccountMenu from "@components/AccountMenu";
@@ -31,7 +30,6 @@ export default function Nav() {
   const { state, dispatch } = useContext(Store);
   const open = Boolean(anchorEl);
   const { user } = useUser();
-  const router = useRouter();
   const { cartOpen, cart } = state;
   const cartItems = cart.cartItems;
 
@@ -46,7 +44,6 @@ export default function Nav() {
   function showLoingForm(event) {
     if (user) {
       setAnchorEl(event.currentTarget);
-      // router.push(`/profile`);
     } else {
       dispatch({ type: "TOGGLE_SIGNIN_DIALOG" });
     }
