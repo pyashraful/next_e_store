@@ -15,7 +15,7 @@ export default async (req, res) => {
         role: user.role,
         time: Date.now(),
       },
-      "hello",
+      process.env.JWT_SECRET,
       { expiresIn: "8h" }
     );
     res.setHeader(
