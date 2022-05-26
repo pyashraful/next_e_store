@@ -71,13 +71,9 @@ const fromFields = [
 ];
 
 export default function Checkout() {
-  console.log("hi");
   const { state, dispatch } = useContext(Store);
   const router = useRouter();
-  console.log(
-    "🚀 ~ file: index.js ~ line 64 ~ Checkout ~ state",
-    state.cart.shippingAddress
-  );
+
   const { handleSubmit, control, setValue } = useForm({});
 
   useEffect(() => {
@@ -96,7 +92,6 @@ export default function Checkout() {
       payload: { ...data },
     });
     Cookies.set("shippingAddress", JSON.stringify({ ...data }));
-    console.log(state.cart.shipingAddress);
     router.push("/payment");
   };
 

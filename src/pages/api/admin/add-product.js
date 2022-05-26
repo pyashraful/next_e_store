@@ -15,10 +15,6 @@ export default validateAdminRoute(async (req, res) => {
     const data = await new Promise((resolve, reject) => {
       const form = new IncomingForm();
       form.parse(req, (err, fields, files) => {
-        console.log(
-          "🚀 ~ file: add-product.js ~ line 30 ~ form.parse ~ fields",
-          fields
-        );
         if (err) return reject(err);
         resolve({ fields, files });
       });
@@ -42,10 +38,10 @@ export default validateAdminRoute(async (req, res) => {
         countInStock: data.fields.quantity,
         descriptions: "Smart watch black",
       });
-      const porduts1 = await product.save();
-      console.log("🚀 ~ file: add-product.js ~ line 60 ~ porduts1", porduts1);
+      await product.save();
       res.status(200).json({ message: "image uploaded!" });
     } catch (error) {
+      console.log("🚀 ~ file: add-product.js ~ line 44  ~ error", error);
       res.status(500).json({ message: error.message });
       return;
     }

@@ -23,7 +23,6 @@ export default async function fetcher(url, data = undefined) {
     },
     body: JSON.stringify(data),
   });
-  console.log(res);
   if (!res.ok) {
     const error = new Error();
     error.info = await res.json();

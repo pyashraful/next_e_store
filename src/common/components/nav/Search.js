@@ -43,7 +43,6 @@ export default function Search() {
     if (query.length) {
       try {
         const res = await axios.get(`/api/search?q=${query}`);
-        console.log("🚀 ~ file: Search.js ~ line 48 ~ onChange ~ res", res);
         setResults(res.data);
       } catch (error) {
         console.log("🚀 ~ file: search.js ~ line 34 ~ error", error);

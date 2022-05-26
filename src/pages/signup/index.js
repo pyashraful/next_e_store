@@ -47,12 +47,11 @@ function Signup({ showModal, setShowModal }) {
   async function onSubmit(data) {
     try {
       const res = await axios.post("/api/signup", data);
-      console.log("🚀 ~ file: index.js ~ line 55 ~ onSubmit ~ res", res.data);
       dispatch({ type: "USER_LOGIN", payload: res.data });
       cookies.set("userInfo", JSON.stringify(res.data));
       router.push("/");
     } catch (err) {
-      console.log(err);
+      console.log("🚀 ~ file: index.js ~ line 54 ~ onSubmit ~ err", err);
     }
   }
 

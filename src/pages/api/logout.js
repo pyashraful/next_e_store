@@ -3,7 +3,6 @@ import cookie from "cookie";
 
 export default validateRoute(async (req, res) => {
   try {
-    console.log("🚀 ~ file: index.js ~ line 10 ~ handler.get ~ req", req.user);
     res.setHeader(
       "Set-Cookie",
       cookie.serialize("TRAX_ACCESS_TOKEN", "", {
@@ -13,6 +12,6 @@ export default validateRoute(async (req, res) => {
     );
     res.send({ message: "Logout success" });
   } catch (err) {
-    console.log(err);
+    console.log("🚀 ~ file: logout.js ~ line 15 ~ validateRoute ~ err", err);
   }
 });

@@ -11,10 +11,6 @@ export default function LogoutButton() {
   const { dispatch } = useContext(Store);
   const { mutate } = useUser();
   const router = useRouter();
-  console.log(
-    "🚀 ~ file: LogoutButton.js ~ line 14 ~ LogoutButton ~ router",
-    router
-  );
 
   async function userLogout() {
     dispatch({ type: "USER_LOGOUT" });

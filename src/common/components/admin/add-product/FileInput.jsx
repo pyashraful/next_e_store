@@ -35,7 +35,6 @@ export default function FileInput({ image, setImage }) {
     [setImage]
   );
   // console.log(image);
-  console.log(loading);
   const { getRootProps, getInputProps } = useDropzone({
     onDrop,
     multiple: false,

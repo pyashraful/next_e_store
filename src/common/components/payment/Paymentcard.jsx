@@ -13,10 +13,6 @@ import { NextLinkComposed } from "@components/Link";
 
 export default function Paymentcard() {
   const [value, setValue] = useState("CARD");
-  console.log(
-    "🚀 ~ file: Paymentcard.jsx ~ line 16 ~ Paymentcard ~ value",
-    value
-  );
 
   const handleChange = (event) => {
     setValue(event.target.value);

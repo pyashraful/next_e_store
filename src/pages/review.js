@@ -51,10 +51,9 @@ export default function Review() {
       createdAt: new Date(),
     };
     try {
-      const { data } = await axios.post("/api/order", order);
-      console.log("🚀 ~ file: Review.js ~ line 61 ~ handleOrder ~ data", data);
+      await axios.post("/api/order", order);
     } catch (err) {
-      console.log(err);
+      console.log("🚀 ~ file: review.js ~ line 56 ~ handleOrder ~ err", err);
     }
   }
 

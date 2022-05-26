@@ -24,11 +24,9 @@ export default function MyApp(props) {
 
   useEffect(() => {
     const handleStart = (url) => {
-      console.log(`Loading: ${url}`);
       setLoading(true);
     };
     const handleStop = () => {
-      console.log("Loading finished");
       setLoading(false);
     };
 

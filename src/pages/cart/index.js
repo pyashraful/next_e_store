@@ -23,20 +23,16 @@ const CartPaper = styled(Paper)({
 
 export default function Cart() {
   const { user } = useUser();
-  console.log("🚀 ~ file: index.js ~ line 26 ~ Cart ~ user", user);
   const { state, dispatch } = useContext(Store);
   const { cart } = state;
   const router = useRouter();
-  console.log("🚀 ~ file: index.js ~ line 22 ~ Cart ~ cart", cart);
 
   function removeItem(id) {
     dispatch({ type: "REMOVE_FROM_CART", payload: id });
   }
 
   function handleClick() {
-    console.log("🚀 ~ file: index.js ~ line 32 ~ Cart ~ handleClick", user);
     if (!user) {
-      console.log("🚀 ~ file: index.js ~ line 33 ~ handleClick ~ user hi");
       dispatch({ type: "TOGGLE_SIGNIN_DIALOG" });
     } else {
       router.push("/checkout");

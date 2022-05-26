@@ -1,11 +1,11 @@
 import { Paper, Grid, TextField, MenuItem, Button } from "@mui/material";
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState } from "react";
 import FileInput from "./FileInput";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 
 export default function AddProduct() {
-  const [image, setImage] = React.useState();
+  const [image, setImage] = useState();
   const { register, handleSubmit, reset } = useForm({
     defaultValues: {
       title: "",
@@ -19,9 +19,6 @@ export default function AddProduct() {
       formData.append(key, data[key]);
     }
     formData.append("file", image);
-    for (var pair of formData.entries()) {
-      console.log(pair[0] + ", " + pair[1]);
-    }
     // axios
     //   .post("/api/admin/add-product", formData)
     //   .then((res) => {

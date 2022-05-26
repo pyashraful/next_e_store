@@ -29,7 +29,6 @@ export default function CartDrawer() {
       dispatch({ type: "CLOSE_CART" });
     }
     if (cartOpen === false) {
-      console.log("by");
       dispatch({ type: "OPEN_CART" });
     }
   }
