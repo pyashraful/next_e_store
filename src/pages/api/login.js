@@ -12,6 +12,7 @@ export default async (req, res) => {
       {
         id: user._id,
         email: user.email,
+        role: user.role,
         time: Date.now(),
       },
       "hello",

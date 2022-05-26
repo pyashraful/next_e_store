@@ -29,6 +29,23 @@ export const validateRoute = (handler) => {
   };
 };
 
+export function validateAdminRoute(handler) {
+  return validateRoute((req, res, user) => {
+    if (user.role !== "admin") {
+      res.status(403);
+      res.json({ error: "Not Authorizied" });
+      return;
+    }
+
+    return handler(req, res, user);
+  });
+}
+
+export const validateToken = (token) => {
+  const user = jwt.verify(token, "hello");
+  return user;
+};
+
 export async function isAdmin(req, res, next) {
   if (req.user.role === "admin") {
     next();
