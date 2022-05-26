@@ -8,7 +8,10 @@
         "allowArrowFunction": false,
         "allowAnonymousFunction": false
       }
+    ],
+    "no-unused-vars": [
+      "warn",
+      { "vars": "all", "args": "after-used", "ignoreRestSiblings": false }
     ]
-    // "import/no-named-as-default": false
   }
 }
