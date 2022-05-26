@@ -4,7 +4,7 @@ import User from "../../../model/user";
 import bcrypt from "bcrypt";
 
 export default async (req, res) => {
-  const salt = bcrypt.genSaltSync();
+  const salt = bcrypt.genSaltSync(10);
   const { name, email, password } = req.body;
   let user;
   const newUser = new User({

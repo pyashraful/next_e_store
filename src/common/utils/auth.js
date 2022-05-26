@@ -9,7 +9,7 @@ export const validateRoute = (handler) => {
       let user;
 
       try {
-        const { id } = jwt.verify(token, "hello");
+        const { id } = jwt.verify(token, process.env.JWT_SECRET);
         user = await User.findById(id);
 
         if (!user) {
@@ -42,7 +42,7 @@ export function validateAdminRoute(handler) {
 }
 
 export const validateToken = (token) => {
-  const user = jwt.verify(token, "hello");
+  const user = jwt.verify(token, process.env.JWT_SECRET);
   return user;
 };
 

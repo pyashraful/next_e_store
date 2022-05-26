@@ -3,7 +3,7 @@ import dbConnect from "@utils/dbConnect.js";
 import bcrypt from "bcrypt";
 
 export default async (req, res) => {
-  const salt = bcrypt.genSaltSync();
+  const salt = bcrypt.genSaltSync(10);
 
   await dbConnect();
   await User.deleteMany();
