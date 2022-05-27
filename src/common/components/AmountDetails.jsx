@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { Store } from "@utils/store";
 import { Paper, Box, Typography, Divider } from "@mui/material";
 import { styled } from "@mui/system";

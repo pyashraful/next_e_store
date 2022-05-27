@@ -61,7 +61,7 @@ export default function Review() {
     <Container>
       <Grid container spacing={3}>
         <Grid item xs={12} md={8} lg={8}>
-          <Paper sx={{ px: 3.5, py: 3, display: "flex" }}>
+          <Paper sx={{ px: 3.5, py: 3, mb: 3, display: "flex" }}>
             <Box sx={{ flex: "1 1 0" }}>
               <Box sx={{ display: "flex", alignItems: "center", mb: 1.5 }}>
                 <LocationOnSharpIcon

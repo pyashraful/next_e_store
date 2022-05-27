@@ -42,8 +42,8 @@ export default function LoginModal() {
 
   const { control, handleSubmit } = useForm({
     defaultValues: {
-      email: "",
-      password: "",
+      email: "test@test.com",
+      password: "password",
     },
     resolver: yupResolver(formSchema),
   });
@@ -196,6 +196,10 @@ export default function LoginModal() {
               bgcolor: "rgb(243, 245, 249);",
               py: "1.25rem",
               display: "flex",
+              flexDirection: {
+                sm: "row",
+                xs: "column",
+              },
               justifyContent: "center",
               alignItems: "center",
             }}

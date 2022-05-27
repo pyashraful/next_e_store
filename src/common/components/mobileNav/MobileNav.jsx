@@ -40,14 +40,15 @@ const NavLink = styled("a")({
 
 export default function MobileNav({ showModal, setShowModal }) {
   const { user } = useUser();
-  const { state } = useContext(Store);
+  const { state, dispatch } = useContext(Store);
+  console.log("🚀 ~ file: MobileNav.jsx ~ line 44 ~ MobileNav ~ state", state);
   const router = useRouter();
 
   function showLoingForm() {
     if (user) {
       router.push("/profile");
     } else {
-      setShowModal(!showModal);
+      dispatch({ type: "TOGGLE_SIGNIN_DIALOG" });
     }
   }
 
