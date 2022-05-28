@@ -19,7 +19,7 @@ export default function Profile({ user }) {
   // const { state } = useContext(Store);
 
   // useEffect(() => {
-  //   if (loggedOut) {
+  //   if (user) {
   //     Router.replace("/");
   //   }
   // }, [loggedOut]);

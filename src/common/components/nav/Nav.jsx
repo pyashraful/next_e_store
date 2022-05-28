@@ -31,7 +31,7 @@ export default function Nav() {
   const { state, dispatch } = useContext(Store);
   const open = Boolean(anchorEl);
   // const { user } = useUser();
-  const { userInfo, cartOpen, cart } = state;
+  const { user, cartOpen, cart } = state;
   const cartItems = cart.cartItems;
 
   function toggleDrawer() {
@@ -99,7 +99,7 @@ export default function Nav() {
                     open={open}
                     anchorEl={anchorEl}
                     setAnchorEl={setAnchorEl}
-                    userRole={userInfo?.role}
+                    userRole={user?.role}
                   />
                   <CartBadge
                     onClick={() => toggleDrawer()}
