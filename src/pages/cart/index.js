@@ -22,7 +22,7 @@ const CartPaper = styled(Paper)({
 });
 
 export default function Cart() {
-  const { user } = useUser();
+  // const { user } = useUser();
   const { state, dispatch } = useContext(Store);
   const { cart } = state;
   const router = useRouter();
@@ -32,7 +32,7 @@ export default function Cart() {
   }
 
   function handleClick() {
-    if (!user) {
+    if (!state.user) {
       dispatch({ type: "TOGGLE_SIGNIN_DIALOG" });
     } else {
       router.push("/checkout");

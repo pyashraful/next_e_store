@@ -18,7 +18,7 @@ import useCal from "src/common/hook/useCal";
 import axios from "axios";
 
 export default function Review() {
-  const { user } = useUser();
+  // const { user } = useUser();
   const { taxt, shipping, discount, total } = useCal();
   const { state } = useContext(Store);
   const { cartItems } = state.cart;
@@ -26,7 +26,7 @@ export default function Review() {
 
   async function handleOrder() {
     const order = {
-      user: user._id,
+      user: state.user._id,
       orderItems: cartItems.map((item) => ({
         productId: item._id,
         name: item.name,

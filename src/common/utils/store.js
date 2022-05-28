@@ -15,9 +15,7 @@ const initialState = {
       : {},
   },
 
-  userInfo: Cookies.get("userInfo")
-    ? JSON.parse(Cookies.get("userInfo"))
-    : null,
+  user: Cookies.get("userInfo") ? JSON.parse(Cookies.get("userInfo")) : null,
 };
 
 function reducer(state, action) {
@@ -68,10 +66,13 @@ function reducer(state, action) {
       };
 
     case "USER_LOGIN": {
-      return { ...state, userInfo: action.payload };
+      const user = action.payload;
+      Cookies.set("user", JSON.stringify(user));
+      return { ...state, user: action.payload };
     }
 
     case "USER_LOGOUT": {
+      Cookies.remove("userInfo");
       return { ...state, userInfo: null };
     }
 

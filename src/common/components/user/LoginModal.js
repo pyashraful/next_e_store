@@ -17,6 +17,7 @@ import { authRequest } from "@utils/mutations";
 import { useUser } from "src/common/hook/useUser";
 import { useContext, useState } from "react";
 import { Store } from "@utils/store";
+import Cookies from "js-cookie";
 const StyledButton = styled(Button)({
   width: "100%",
   "&:hover": "noStyle",
@@ -38,7 +39,7 @@ export default function LoginModal() {
   const [error, setError] = useState(null);
   const { modalOpen } = state;
   const [loading, setLoading] = useState(false);
-  const { mutate } = useUser();
+  // const { mutate } = useUser();
 
   const { control, handleSubmit } = useForm({
     defaultValues: {
@@ -52,8 +53,10 @@ export default function LoginModal() {
     try {
       setLoading(true);
       const user = await authRequest("login", data);
+      console.log("🚀 ~ file: LoginModal.js ~ line 56 ~ onSubmit ~ user", user);
+      dispatch({ type: "USER_LOGIN", payload: user });
       setLoading(false);
-      mutate(user);
+      // mutate(user);
       dispatch({ type: "TOGGLE_SIGNIN_DIALOG" });
     } catch (err) {
       setLoading(false);

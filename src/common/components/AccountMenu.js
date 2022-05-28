@@ -1,4 +1,4 @@
-import * as React from "react";
+import { useContext } from "react";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import ListItemIcon from "@mui/material/ListItemIcon";
@@ -8,26 +8,29 @@ import ManageAccountsIcon from "@mui/icons-material/ManageAccounts";
 import Logout from "@mui/icons-material/Logout";
 import { NextLinkComposed } from "./Link";
 import { authRequest } from "@utils/mutations";
-import { useUser } from "../hook/useUser";
+// import { useUser } from "../hook/useUser";
 import { useRouter } from "next/router";
 import Cookies from "js-cookie";
+import { Store } from "@utils/store";
 
 export default function AccountMenu({ anchorEl, setAnchorEl, open, userRole }) {
+  const { dispatch } = useContext(Store);
   const router = useRouter();
-  const { mutate } = useUser();
+  // const { mutate } = useUser();
   const handleClose = () => {
     setAnchorEl(null);
   };
 
   const handleLogout = async () => {
     await authRequest.logout();
-    mutate(null);
+    // mutate(null);
+    dispatch({ type: "USER_LOGOUT" });
     router.push("/");
     Cookies.remove("cartItems");
   };
 
   return (
-    <React.Fragment>
+    <>
       <Menu
         anchorEl={anchorEl}
         id="account-menu"
@@ -92,6 +95,6 @@ export default function AccountMenu({ anchorEl, setAnchorEl, open, userRole }) {
           Logout
         </MenuItem>
       </Menu>
-    </React.Fragment>
+    </>
   );
 }

@@ -6,7 +6,7 @@ import HomeIcon from "@mui/icons-material/Home";
 import LocalMallOutlinedIcon from "@mui/icons-material/LocalMallOutlined";
 import PermIdentityOutlinedIcon from "@mui/icons-material/PermIdentityOutlined";
 import { styled } from "@mui/system";
-import { useUser } from "src/common/hook/useUser";
+// import { useUser } from "src/common/hook/useUser";
 
 const FixDiv = styled("div")({
   position: "fixed",
@@ -39,13 +39,13 @@ const NavLink = styled("a")({
 });
 
 export default function MobileNav({ showModal, setShowModal }) {
-  const { user } = useUser();
+  // const { user } = useUser();
   const { state, dispatch } = useContext(Store);
   console.log("🚀 ~ file: MobileNav.jsx ~ line 44 ~ MobileNav ~ state", state);
   const router = useRouter();
 
   function showLoingForm() {
-    if (user) {
+    if (state.user) {
       router.push("/profile");
     } else {
       dispatch({ type: "TOGGLE_SIGNIN_DIALOG" });

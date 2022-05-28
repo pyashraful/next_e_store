@@ -3,19 +3,19 @@ import OutlinedButton from "@components/OutlinedButton";
 import { Store } from "@utils/store";
 import Cookies from "js-cookie";
 import React from "react";
-import { useUser } from "src/common/hook/useUser";
+// import { useUser } from "src/common/hook/useUser";
 import { authRequest } from "@utils/mutations";
 import { useRouter } from "next/router";
 
 export default function LogoutButton() {
   const { dispatch } = useContext(Store);
-  const { mutate } = useUser();
+  // const { mutate } = useUser();
   const router = useRouter();
 
   async function userLogout() {
     dispatch({ type: "USER_LOGOUT" });
     await authRequest.logout();
-    mutate(null);
+    // mutate(null);
     router.push("/");
     Cookies.remove("cartItems");
   }
