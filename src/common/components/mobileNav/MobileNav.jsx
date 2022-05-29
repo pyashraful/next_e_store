@@ -41,7 +41,7 @@ const NavLink = styled("a")({
 export default function MobileNav({ showModal, setShowModal }) {
   // const { user } = useUser();
   const { state, dispatch } = useContext(Store);
-  console.log("🚀 ~ file: MobileNav.jsx ~ line 44 ~ MobileNav ~ state", state);
+  // console.log("🚀 ~ file: MobileNav.jsx ~ line 44 ~ MobileNav ~ state", state);
   const router = useRouter();
 
   function showLoingForm() {
