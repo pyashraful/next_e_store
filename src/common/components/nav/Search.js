@@ -18,6 +18,11 @@ const MyTextfild = styled(OutlinedInput)({
   borderRadius: "40px",
   overflow: "hidden",
   paddingRight: 0,
+  "&:hover": {
+    "& .MuiOutlinedInput-notchedOutline": {
+      borderColor: "#D23F57",
+    },
+  },
   "& .MuiOutlinedInput-input": {
     paddingTop: "10px",
     paddingBottom: "10px",
@@ -95,6 +100,7 @@ export default function Search() {
                   backgroundColor: "#F6F9FC",
                 },
               }}
+              // disableElevation={true}
             >
               Search
             </Button>
