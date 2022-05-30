@@ -12,6 +12,7 @@ import SearchIcon from "@mui/icons-material/Search";
 import { styled } from "@mui/system";
 import axios from "axios";
 import { NextLinkComposed } from "../Link";
+import { useRouter } from "next/router";
 
 const MyTextfild = styled(OutlinedInput)({
   borderRadius: "40px",
@@ -35,6 +36,8 @@ export default function Search() {
   const [query, setQuery] = useState("");
   const [active, setActive] = useState(false);
   const [results, setResults] = useState([]);
+
+  const router = useRouter();
 
   const onChange = useCallback(async (event) => {
     const query = event.target.value;
@@ -79,6 +82,7 @@ export default function Search() {
           startAdornment={<SearchIcon />}
           endAdornment={
             <Button
+              onClick={() => router.push(`/search/${query}`)}
               variant="contained"
               size="large"
               sx={{
