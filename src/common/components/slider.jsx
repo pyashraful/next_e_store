@@ -21,6 +21,7 @@ export default function IndexPageSlider() {
           pagination={{ clickable: true }}
           autoplay={{ delay: 5000 }}
           modules={[Pagination, Autoplay]}
+          draggable={true}
         >
           <SwiperSlide>
             <Grid

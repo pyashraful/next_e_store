@@ -1,6 +1,6 @@
 import Link from "../Link";
 import { Container, Box, Stack } from "@mui/material";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import CartBadge from "../cart/CartBadge";
 import Search from "./Search";
 import UserProfile from "../UserProfile";
@@ -17,19 +17,12 @@ function loadcartDrawer() {
 
 const CartDrawer = dynamic(() => loadcartDrawer());
 
-const FixDiv = styled("div")({
-  position: "fixed",
-  top: 0,
-  left: 0,
-  right: 0,
-  zIndex: 999,
-  boxShadow: "rgb(43 52 69 / 10%) 0px 4px 16px",
-});
-
 export default function Nav() {
   const [anchorEl, setAnchorEl] = useState(null);
   const { state, dispatch } = useContext(Store);
+  const [show, setShow] = useState(false);
   const open = Boolean(anchorEl);
+
   // const { user } = useUser();
   const { user, cartOpen, cart } = state;
   const cartItems = cart.cartItems;
@@ -50,9 +43,35 @@ export default function Nav() {
     }
   }
 
+  useEffect(() => {
+    console.log("hi");
+    window.addEventListener("scroll", handleScroll);
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const handleScroll = () => {
+    setShow(window.pageYOffset > 80);
+  };
+
   return (
-    <FixDiv>
-      <Box sx={{ background: "#fff" }}>
+    <Box
+      sx={
+        show
+          ? {
+              position: "fixed",
+              top: 0,
+              left: 0,
+              right: 0,
+              zIndex: 999,
+              animation:
+                "400ms cubic-bezier(0.4, 0, 0.2, 1) 0s 1 normal none running animation-1lit4vl",
+              transition: "all 350ms ease-in-out 0s",
+            }
+          : { position: "relative" }
+      }
+    >
+      <Box sx={{ background: "#fff", transition: "height 250ms ease-in-out" }}>
         <Container>
           <header>
             <nav>
@@ -112,6 +131,6 @@ export default function Nav() {
           </header>
         </Container>
       </Box>
-    </FixDiv>
+    </Box>
   );
 }
