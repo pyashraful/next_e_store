@@ -64,6 +64,7 @@ export default function Nav() {
               left: 0,
               right: 0,
               zIndex: 999,
+              boxShadow: "rgb(43 52 69 / 10%) 0px 4px 16px",
               animation:
                 "400ms cubic-bezier(0.4, 0, 0.2, 1) 0s 1 normal none running animation-1lit4vl",
               transition: "all 350ms ease-in-out 0s",
@@ -71,7 +72,14 @@ export default function Nav() {
           : { position: "relative" }
       }
     >
-      <Box sx={{ background: "#fff", transition: "height 250ms ease-in-out" }}>
+      <Box
+        sx={{
+          background: "#fff",
+          transition: "height 250ms ease-in-out",
+          animation:
+            "400ms cubic-bezier(0.4, 0, 0.2, 1) 0s 1 normal none running animation-1lit4vl",
+        }}
+      >
         <Container>
           <header>
             <nav>

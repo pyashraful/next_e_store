@@ -17,9 +17,7 @@ export default function Layout({ children }) {
       </Head>
       <Nav showModal={showModal} setShowModal={setShowModal} />
       <LoginModal showModal={showModal} setShowModal={setShowModal} />
-      <main style={{ marginTop: "120px", marginBottom: "70px" }}>
-        {children}
-      </main>
+      <main>{children}</main>
       <MobileNav showModal={showModal} setShowModal={setShowModal} />
       <Footer />
     </div>
