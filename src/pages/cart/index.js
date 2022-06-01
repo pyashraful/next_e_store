@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Container, Typography, Box, Grid, Paper, Button } from "@mui/material";
+import { Typography, Box, Grid, Paper, Button } from "@mui/material";
 import { Store } from "@utils/store";
 import { styled } from "@mui/system";
 import CartButton from "@components/cart/CartButton";
@@ -40,7 +40,7 @@ export default function Cart() {
   }
 
   return (
-    <Container>
+    <>
       <ProgressBar ok={true} em={true} />
       <Grid container spacing={3}>
         <Grid item xs={12} md={8} lg={8}>
@@ -144,6 +144,6 @@ export default function Cart() {
           </AmountDetails>
         </Grid>
       </Grid>
-    </Container>
+    </>
   );
 }

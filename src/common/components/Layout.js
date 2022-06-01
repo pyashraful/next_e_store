@@ -5,6 +5,7 @@ import MobileNav from "./mobileNav/MobileNav";
 import LoginModal from "./user/LoginModal";
 import Footer from "./footer/Footer";
 import dynamic from "next/dynamic";
+import { Container } from "@mui/material";
 
 // const LoginModal = dynamic(() => import("./user/LoginModal"));
 
@@ -17,7 +18,16 @@ export default function Layout({ children }) {
       </Head>
       <Nav showModal={showModal} setShowModal={setShowModal} />
       <LoginModal showModal={showModal} setShowModal={setShowModal} />
-      <main>{children}</main>
+      {children.type.withOutContainer ? (
+        <main>{children}</main>
+      ) : (
+        <main>
+          <Container maxWidth="lg" sx={{ m: "2rem auto" }}>
+            {children}
+          </Container>
+        </main>
+      )}
+
       <MobileNav showModal={showModal} setShowModal={setShowModal} />
       <Footer />
     </div>

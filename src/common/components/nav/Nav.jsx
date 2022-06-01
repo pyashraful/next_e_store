@@ -5,7 +5,6 @@ import CartBadge from "../cart/CartBadge";
 import Search from "./Search";
 import UserProfile from "../UserProfile";
 import { Store } from "@utils/store";
-import { styled } from "@mui/system";
 import { useUser } from "src/common/hook/useUser";
 import dynamic from "next/dynamic";
 import AccountMenu from "@components/AccountMenu";
@@ -54,24 +53,7 @@ export default function Nav() {
   }, []);
 
   return (
-    <div
-      className={show ? `${classes.fixed_top}` : `${classes.hold}`}
-      // sx={
-      //   show
-      //     ? {
-      //         position: "fixed",
-      //         top: 0,
-      //         left: 0,
-      //         right: 0,
-      //         zIndex: 999,
-      //         boxShadow: "rgb(43 52 69 / 10%) 0px 4px 16px",
-      //         animation:
-      //           "400ms cubic-bezier(0.4, 0, 0.2, 1) 1s 1 normal none running animation-1lit4vl",
-      //         transition: "all 350ms ease-in-out 0s",
-      //       }
-      //     : { position: "relative" }
-      // }
-    >
+    <div className={show ? `${classes.fixed_top}` : `${classes.hold}`}>
       <Box
         sx={{
           background: "#fff",

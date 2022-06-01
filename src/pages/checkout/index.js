@@ -1,12 +1,4 @@
-import {
-  Container,
-  Typography,
-  Box,
-  Grid,
-  Paper,
-  Button,
-  MenuItem,
-} from "@mui/material";
+import { Typography, Box, Grid, Paper, Button, MenuItem } from "@mui/material";
 
 import InputFrom from "@components/InputFrom";
 import { useForm } from "react-hook-form";
@@ -96,7 +88,7 @@ export default function Checkout() {
   };
 
   return (
-    <Container>
+    <>
       <ProgressBar ok={true} em={true} />
       <Grid container spacing={2}>
         <Grid item xs={12} md={8} lg={8}>
@@ -180,6 +172,6 @@ export default function Checkout() {
           </AmountDetails>
         </Grid>
       </Grid>
-    </Container>
+    </>
   );
 }

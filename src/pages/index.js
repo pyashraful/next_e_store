@@ -5,6 +5,8 @@ export default function Home({ products }) {
   return <Products products={products} />;
 }
 
+Home.withOutContainer = true;
+
 export async function getServerSideProps() {
   await dbConnect();
   const product = await ProductModel.find({}).lean();

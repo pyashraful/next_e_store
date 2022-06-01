@@ -15,7 +15,7 @@ const initialState = {
       : {},
   },
 
-  user: Cookies.get("userInfo") ? JSON.parse(Cookies.get("userInfo")) : null,
+  user: Cookies.get("user") ? JSON.parse(Cookies.get("user")) : null,
 };
 
 function reducer(state, action) {
@@ -72,8 +72,8 @@ function reducer(state, action) {
     }
 
     case "USER_LOGOUT": {
-      Cookies.remove("userInfo");
-      return { ...state, userInfo: null };
+      Cookies.remove("user");
+      return { ...state, user: null };
     }
 
     case "TOGGLE_SIGNIN_DIALOG": {

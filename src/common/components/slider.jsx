@@ -15,7 +15,7 @@ import "swiper/css/pagination";
 export default function IndexPageSlider() {
   return (
     <Box sx={{ backgroundColor: "#fff" }}>
-      <Container maxWidth="lg">
+      <Container maxWidth="lg" sx={{ py: "2.75rem" }}>
         <Swiper
           spaceBetween={50}
           pagination={{ clickable: true }}
