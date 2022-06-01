@@ -19,7 +19,7 @@ export default function IndexPageSlider() {
         <Swiper
           spaceBetween={50}
           pagination={{ clickable: true }}
-          autoplay={{ delay: 5000 }}
+          autoplay={{ delay: 4000 }}
           modules={[Pagination, Autoplay]}
           draggable={true}
         >

@@ -10,6 +10,7 @@ import { useUser } from "src/common/hook/useUser";
 import dynamic from "next/dynamic";
 import AccountMenu from "@components/AccountMenu";
 import Image from "next/image";
+import classes from "@styles/Nav.module.css";
 
 function loadcartDrawer() {
   return import("@components/cart/CartDrawer");
@@ -42,42 +43,39 @@ export default function Nav() {
       dispatch({ type: "TOGGLE_SIGNIN_DIALOG" });
     }
   }
+  const handleScroll = () => {
+    setShow(window.scrollY > 80);
+  };
 
   useEffect(() => {
-    console.log("hi");
     window.addEventListener("scroll", handleScroll);
 
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const handleScroll = () => {
-    setShow(window.pageYOffset > 80);
-  };
-
   return (
-    <Box
-      sx={
-        show
-          ? {
-              position: "fixed",
-              top: 0,
-              left: 0,
-              right: 0,
-              zIndex: 999,
-              boxShadow: "rgb(43 52 69 / 10%) 0px 4px 16px",
-              animation:
-                "400ms cubic-bezier(0.4, 0, 0.2, 1) 0s 1 normal none running animation-1lit4vl",
-              transition: "all 350ms ease-in-out 0s",
-            }
-          : { position: "relative" }
-      }
+    <div
+      className={show ? `${classes.fixed_top}` : `${classes.hold}`}
+      // sx={
+      //   show
+      //     ? {
+      //         position: "fixed",
+      //         top: 0,
+      //         left: 0,
+      //         right: 0,
+      //         zIndex: 999,
+      //         boxShadow: "rgb(43 52 69 / 10%) 0px 4px 16px",
+      //         animation:
+      //           "400ms cubic-bezier(0.4, 0, 0.2, 1) 1s 1 normal none running animation-1lit4vl",
+      //         transition: "all 350ms ease-in-out 0s",
+      //       }
+      //     : { position: "relative" }
+      // }
     >
       <Box
         sx={{
           background: "#fff",
           transition: "height 250ms ease-in-out",
-          animation:
-            "400ms cubic-bezier(0.4, 0, 0.2, 1) 0s 1 normal none running animation-1lit4vl",
         }}
       >
         <Container>
@@ -139,6 +137,6 @@ export default function Nav() {
           </header>
         </Container>
       </Box>
-    </Box>
+    </div>
   );
 }
