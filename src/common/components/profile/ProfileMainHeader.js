@@ -1,4 +1,5 @@
 import { Box, Stack, Typography } from "@mui/material";
+import MenuIcon from "@mui/icons-material/Menu";
 
 export default function ProfileMainHader({ icon, title, logout, edit }) {
   return (
@@ -12,12 +13,17 @@ export default function ProfileMainHader({ icon, title, logout, edit }) {
           {title}
         </Typography>
       </Box>
-      <Stack direction="row" spacing={2}>
-        {logout}
-        {edit}
-        {/* <LogoutButton /> */}
-        {/* <OutlinedButton href="/">Edit Profile</OutlinedButton> */}
-      </Stack>
+      <Box sx={{ display: { xs: "none", lg: "block" } }}>
+        <Stack direction="row" spacing={2}>
+          {logout}
+          {edit}
+          {/* <LogoutButton /> */}
+          {/* <OutlinedButton href="/">Edit Profile</OutlinedButton> */}
+        </Stack>
+      </Box>
+      <Box sx={{ display: { lg: "none", xs: "block" } }}>
+        <MenuIcon />
+      </Box>
     </Box>
   );
 }
