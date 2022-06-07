@@ -1,7 +1,16 @@
-import { Box, Stack, Typography } from "@mui/material";
+import React from "react";
+import { Box, Stack, Typography, Drawer } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
+import CloseIcon from "@mui/icons-material/Close";
+import ProfileSidebar from "./ProfileSidebar";
 
 export default function ProfileMainHader({ icon, title, logout, edit }) {
+  const [open, setOpen] = React.useState(false);
+
+  function toggle() {
+    setOpen((pre) => !pre);
+  }
+
   return (
     <Box sx={{ display: "flex", justifyContent: "space-between", mb: 2 }}>
       <Box sx={{ display: "flex", alignItems: "center" }}>
@@ -22,7 +31,12 @@ export default function ProfileMainHader({ icon, title, logout, edit }) {
         </Stack>
       </Box>
       <Box sx={{ display: { lg: "none", xs: "block" } }}>
-        <MenuIcon />
+        {open ? <CloseIcon onClick={toggle} /> : <MenuIcon onClick={toggle} />}
+        <Drawer open={open} onClose={toggle}>
+          <Box sx={{ width: 250 }}>
+            <ProfileSidebar />
+          </Box>
+        </Drawer>
       </Box>
     </Box>
   );
