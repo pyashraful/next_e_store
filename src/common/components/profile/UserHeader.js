@@ -7,6 +7,7 @@ import OutlinedButton from "@components/OutlinedButton";
 export default function UserHeader() {
   return (
     <ProfileMainHader
+      role="user"
       icon={<PersonIcon fontSize="medium" color="primary" />}
       title="Profile"
       logout={<LogoutButton />}

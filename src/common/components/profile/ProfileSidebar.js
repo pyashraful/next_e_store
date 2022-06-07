@@ -24,9 +24,9 @@ const accountData = [
   { link: "/payment", label: "Payment", icon: <PaymentOutlinedIcon /> },
 ];
 
-export default function ProfileSidebar() {
+export function UserSidebarList() {
   return (
-    <Paper sx={{ pb: 2.75 }}>
+    <>
       <Typography
         variant="body1"
         component="p"
@@ -43,6 +43,14 @@ export default function ProfileSidebar() {
         ACCOUNT SETTINGS
       </Typography>
       <CustomList data={accountData} />
+    </>
+  );
+}
+
+export default function ProfileSidebar() {
+  return (
+    <Paper sx={{ pb: 2.75 }}>
+      <UserSidebarList />
     </Paper>
   );
 }

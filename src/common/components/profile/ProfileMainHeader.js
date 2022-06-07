@@ -2,9 +2,14 @@ import React from "react";
 import { Box, Stack, Typography, Drawer } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
-import ProfileSidebar from "./ProfileSidebar";
+import ProfileSidebar, { UserSidebarList } from "./ProfileSidebar";
+import { AdminSidebarList } from "@components/admin/AdminSidebar";
 
-export default function ProfileMainHader({ icon, title, logout, edit }) {
+export default function ProfileMainHader({ icon, title, logout, edit, role }) {
+  console.log(
+    "🚀 ~ file: ProfileMainHeader.js ~ line 8 ~ ProfileMainHader ~ role",
+    role
+  );
   const [open, setOpen] = React.useState(false);
 
   function toggle() {
@@ -26,15 +31,13 @@ export default function ProfileMainHader({ icon, title, logout, edit }) {
         <Stack direction="row" spacing={2}>
           {logout}
           {edit}
-          {/* <LogoutButton /> */}
-          {/* <OutlinedButton href="/">Edit Profile</OutlinedButton> */}
         </Stack>
       </Box>
       <Box sx={{ display: { lg: "none", xs: "block" } }}>
         {open ? <CloseIcon onClick={toggle} /> : <MenuIcon onClick={toggle} />}
         <Drawer open={open} onClose={toggle}>
           <Box sx={{ width: 250 }}>
-            <ProfileSidebar />
+            {role === "user" ? <UserSidebarList /> : <AdminSidebarList />}
           </Box>
         </Drawer>
       </Box>

@@ -1,9 +1,9 @@
 import React from "react";
 import DashboardIcon from "@mui/icons-material/Dashboard";
-import UserSidebarList from "../CustomList";
+import CustomList from "../CustomList";
 import Paper from "@mui/material/Paper";
 
-const vendorSidebarData = [
+export const adminSidebarData = [
   { link: "/admin/dashboard", label: "Dashboard", icon: <DashboardIcon /> },
   { link: "/admin/products", label: "Products", icon: <DashboardIcon /> },
   {
@@ -19,10 +19,14 @@ const vendorSidebarData = [
   },
 ];
 
+export function AdminSidebarList() {
+  return <CustomList data={adminSidebarData} />;
+}
+
 export default function VendorSidebar() {
   return (
     <Paper sx={{ pt: 3 }}>
-      <UserSidebarList data={vendorSidebarData} />
+      <AdminSidebarList />
     </Paper>
   );
 }
