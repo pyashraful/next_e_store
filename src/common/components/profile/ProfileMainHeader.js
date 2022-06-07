@@ -35,8 +35,12 @@ export default function ProfileMainHader({ icon, title, logout, edit, role }) {
       </Box>
       <Box sx={{ display: { lg: "none", xs: "block" } }}>
         {open ? <CloseIcon onClick={toggle} /> : <MenuIcon onClick={toggle} />}
-        <Drawer open={open} onClose={toggle}>
-          <Box sx={{ width: 250 }}>
+        <Drawer
+          open={open}
+          onClose={toggle}
+          sx={{ ".MuiDrawer-paper": { borderRadius: 0 } }}
+        >
+          <Box sx={{ width: 250, pt: 2 }}>
             {role === "user" ? <UserSidebarList /> : <AdminSidebarList />}
           </Box>
         </Drawer>
