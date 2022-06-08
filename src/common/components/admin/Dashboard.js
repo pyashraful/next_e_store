@@ -46,21 +46,21 @@ export default function DashBoard() {
     <>
       <AdminHeader />
       <Grid container spacing={3}>
-        <Grid item xs={12} lg={4}>
+        <Grid item xs={12} sm={6} lg={4}>
           <Paper sx={{ pt: 3, pb: 3 }}>
             <Body1>Earnings (before taxes)</Body1>
             <Title3>$30450.00</Title3>
             <Body2>Earnings (before taxes)</Body2>
           </Paper>
         </Grid>
-        <Grid item xs={12} lg={4}>
+        <Grid item xs={12} sm={6} lg={4}>
           <Paper sx={{ pt: 3, pb: 3 }}>
             <Body1>Earnings (before taxes)</Body1>
             <Title3>$30450.00</Title3>
             <Body2>Earnings (before taxes)</Body2>
           </Paper>
         </Grid>
-        <Grid item xs={12} lg={4}>
+        <Grid item xs={12} sm={6} lg={4}>
           <Paper sx={{ pt: 3, pb: 3 }}>
             <Body1>Earnings (before taxes)</Body1>
             <Title3>$30450.00</Title3>
