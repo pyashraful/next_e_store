@@ -1,11 +1,26 @@
 import Product from "@model/product";
+import ProductCart from "@components/product/ProductCart";
+import { Grid } from "@mui/material";
 
 export default function SearchResult({ products }) {
   console.log(
     "🚀 ~ file: [[...slug]].js ~ line 4 ~ SearchResult ~ products",
     products
   );
-  return <h1>hi from SearchResult</h1>;
+  return (
+    <Grid container spacing={3}>
+      <Grid item xs={12} lg={3}></Grid>
+      <Grid item xs={12} lg={9}>
+        <Grid container spacing={3}>
+          {products.map((product) => (
+            <Grid item xs={12} lg={4} key={product._id}>
+              <ProductCart product={product} />
+            </Grid>
+          ))}
+        </Grid>
+      </Grid>
+    </Grid>
+  );
 }
 
 export async function getServerSideProps(context) {
