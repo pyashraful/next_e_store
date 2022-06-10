@@ -3,10 +3,6 @@ import ProductCart from "@components/product/ProductCart";
 import { Grid } from "@mui/material";
 
 export default function SearchResult({ products }) {
-  console.log(
-    "🚀 ~ file: [[...slug]].js ~ line 4 ~ SearchResult ~ products",
-    products
-  );
   return (
     <Grid container spacing={3}>
       <Grid item xs={12} lg={3}></Grid>

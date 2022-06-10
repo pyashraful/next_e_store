@@ -88,7 +88,7 @@ export default function CartDrawer() {
                           sx={{ fontSize: 14, fontWeight: 600 }}
                           variant="h5"
                         >
-                          {item.title}
+                          {item.name}
                         </Typography>
                       </Link>
                       <small>{`${item.price} * ${item.quantity}`}</small>

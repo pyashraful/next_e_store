@@ -19,6 +19,7 @@ const CartPaper = styled(Paper)({
   transition: "box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms",
   marginBottom: "1.5rem",
   display: "flex",
+  overflow: "hidden",
 });
 
 export default function Cart() {
@@ -67,7 +68,7 @@ export default function Cart() {
                       sx={{ fontSize: 14, fontWeight: 600 }}
                       variant="h5"
                     >
-                      {item.title}
+                      {item.name}
                     </Typography>
                   </Link>
                   <Box
