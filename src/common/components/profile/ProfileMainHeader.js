@@ -6,10 +6,7 @@ import ProfileSidebar, { UserSidebarList } from "./ProfileSidebar";
 import { AdminSidebarList } from "@components/admin/AdminSidebar";
 
 export default function ProfileMainHader({ icon, title, logout, edit, role }) {
-  console.log(
-    "🚀 ~ file: ProfileMainHeader.js ~ line 8 ~ ProfileMainHader ~ role",
-    role
-  );
+
   const [open, setOpen] = React.useState(false);
 
   function toggle() {
