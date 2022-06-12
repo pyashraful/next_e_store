@@ -26,7 +26,7 @@ export default validateAdminRoute(async (req, res) => {
       const pathToWriteImage = `public/images/${data.files.file.originalFilename}`; // include name and .extention, you can get the name from data.files.image object
       const image = await fs.readFile(imagePath);
       await fs.writeFile(pathToWriteImage, image);
-      dbConnect();
+      await dbConnect();
       const product = new Product({
         name: data.fields.name,
         category: data.fields.category,

@@ -6,7 +6,7 @@ import dbConnect from "@utils/dbConnect.js";
 
 export default async (req, res) => {
   const { email, password } = req.body;
-  dbConnect();
+  await dbConnect();
   let user = await User.findOne({ email });
   console.log("🚀 ~ file: login.js ~ line 11 ~ user", user);
 

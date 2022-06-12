@@ -8,7 +8,7 @@ export default async (req, res) => {
   const salt = bcrypt.genSaltSync(10);
   const { name, email, password } = req.body;
   let user;
-  dbConnect();
+  await dbConnect();
   const newUser = new User({
     name: name,
     email: email,
