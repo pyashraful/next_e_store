@@ -2,9 +2,11 @@ import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import cookie from "cookie";
 import User from "../../model/user";
+import dbConnect from "@utils/dbConnect.js";
 
 export default async (req, res) => {
   const { email, password } = req.body;
+  dbConnect();
   let user = await User.findOne({ email });
 
   if (user && bcrypt.compareSync(password, user.password)) {

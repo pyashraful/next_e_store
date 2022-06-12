@@ -2,11 +2,13 @@ import jwt from "jsonwebtoken";
 import Cookie from "cookie";
 import User from "../../../model/user";
 import bcrypt from "bcrypt";
+import dbConnect from "@utils/dbConnect.js";
 
 export default async (req, res) => {
   const salt = bcrypt.genSaltSync(10);
   const { name, email, password } = req.body;
   let user;
+  dbConnect();
   const newUser = new User({
     name: name,
     email: email,
