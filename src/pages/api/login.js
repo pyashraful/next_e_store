@@ -8,6 +8,7 @@ export default async (req, res) => {
   const { email, password } = req.body;
   dbConnect();
   let user = await User.findOne({ email });
+  console.log("🚀 ~ file: login.js ~ line 11 ~ user", user);
 
   if (user && bcrypt.compareSync(password, user.password)) {
     const token = jwt.sign(
@@ -31,6 +32,7 @@ export default async (req, res) => {
       })
     );
 
+    console.log("🚀 ~ file: login.js ~ line 11 ~ user", user);
     res.json(user);
   } else {
     res.status(401).json({ error: "Email or Password is wrong" });

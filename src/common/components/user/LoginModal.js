@@ -50,6 +50,7 @@ export default function LoginModal() {
   });
 
   async function onSubmit(data) {
+    console.log("🚀 ~ file: LoginModal.js ~ line 53 ~ onSubmit ~ data", data);
     try {
       setLoading(true);
       const user = await authRequest("login", data);
@@ -59,6 +60,7 @@ export default function LoginModal() {
       // mutate(user);
       dispatch({ type: "TOGGLE_SIGNIN_DIALOG" });
     } catch (err) {
+      console.log("🚀 ~ file: LoginModal.js ~ line 62 ~ onSubmit ~ err", err);
       setLoading(false);
       setError(err.info.error);
     }
