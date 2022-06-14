@@ -59,7 +59,10 @@ export default function LoginModal() {
       setLoading(true);
       const user = await authRequest("login", data);
       dispatch({ type: "USER_LOGIN", payload: user });
-      enqueueSnackbar("Login success");
+      enqueueSnackbar("Login success", {
+        variant: "success",
+        autoHideDuration: 2000,
+      });
       setLoading(false);
       // mutate(user);
       dispatch({ type: "TOGGLE_SIGNIN_DIALOG" });

@@ -10,6 +10,7 @@ import axios from "axios";
 import { useRouter } from "next/router";
 import cookies from "js-cookie";
 import { NextLinkComposed } from "@components/Link";
+import { useSnackbar } from "notistack";
 
 const StyledButton = styled(Button)({
   width: "100%",
@@ -34,6 +35,7 @@ function Signup({ showModal, setShowModal }) {
   const router = useRouter();
   const { dispatch } = useContext(Store);
 
+  const { enqueueSnackbar } = useSnackbar();
   const { control, handleSubmit } = useForm({
     defaultValues: {
       name: "",
@@ -49,8 +51,16 @@ function Signup({ showModal, setShowModal }) {
       const res = await axios.post("/api/signup", data);
       dispatch({ type: "USER_LOGIN", payload: res.data });
       cookies.set("user", JSON.stringify(res.data));
+      enqueueSnackbar("Signup success", {
+        variant: "success",
+        autoHideDuration: 3000,
+      });
       router.push("/");
     } catch (err) {
+      enqueueSnackbar("Signup error", {
+        variant: "error",
+        autoHideDuration: 3000,
+      });
       console.log("🚀 ~ file: index.js ~ line 54 ~ onSubmit ~ err", err);
     }
   }
