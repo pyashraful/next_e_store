@@ -18,6 +18,8 @@ import { useUser } from "src/common/hook/useUser";
 import { useContext, useState } from "react";
 import { Store } from "@utils/store";
 import Cookies from "js-cookie";
+import { useSnackbar } from "notistack";
+
 const StyledButton = styled(Button)({
   width: "100%",
   "&:hover": "noStyle",
@@ -37,6 +39,8 @@ const formSchema = Yup.object({
 export default function LoginModal() {
   const { state, dispatch } = useContext(Store);
   const [error, setError] = useState(null);
+  const { enqueueSnackbar, closeSnackbar } = useSnackbar();
+
   const { modalOpen } = state;
   const [loading, setLoading] = useState(false);
   // const { mutate } = useUser();
@@ -54,8 +58,8 @@ export default function LoginModal() {
     try {
       setLoading(true);
       const user = await authRequest("login", data);
-      console.log("🚀 ~ file: LoginModal.js ~ line 56 ~ onSubmit ~ user", user);
       dispatch({ type: "USER_LOGIN", payload: user });
+      enqueueSnackbar("Login success");
       setLoading(false);
       // mutate(user);
       dispatch({ type: "TOGGLE_SIGNIN_DIALOG" });

@@ -12,6 +12,7 @@ import createEmotionCache from "../common/constants/createEmotionCache";
 import { useRouter } from "next/router";
 import LoadingCircle from "@components/LoadingCircle";
 import Layout from "@components/Layout";
+import { SnackbarProvider } from "notistack";
 
 // Client-side cache, shared for the whole session of the user in the browser.
 const clientSideEmotionCache = createEmotionCache();
@@ -55,17 +56,21 @@ export default function MyApp(props) {
       <ThemeProvider theme={theme}>
         {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
         <CssBaseline />
-        <StoreProvider>
-          {loading ? (
-            <LoadingCircle />
-          ) : Component.authPage ? (
-            <Component {...pageProps} />
-          ) : (
-            <Layout>
+        <SnackbarProvider
+          anchorOrigin={{ vertical: "top", horizontal: "right" }}
+        >
+          <StoreProvider>
+            {loading ? (
+              <LoadingCircle />
+            ) : Component.authPage ? (
               <Component {...pageProps} />
-            </Layout>
-          )}
-        </StoreProvider>
+            ) : (
+              <Layout>
+                <Component {...pageProps} />
+              </Layout>
+            )}
+          </StoreProvider>
+        </SnackbarProvider>
       </ThemeProvider>
     </CacheProvider>
   );
