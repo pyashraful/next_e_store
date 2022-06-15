@@ -42,7 +42,7 @@ export default function MobileBottomNav() {
           onChange={(event, newValue) => {
             setValue(newValue);
           }}
-          sx={{ width: "100%", hight: "100%", justifyContent: "space-around" }}
+          sx={{ width: "100%", justifyContent: "space-around" }}
         >
           <BottomNavigationAction
             sx={{ maxWidth: "100%", "&:hover": { color: "rgb(210, 63, 87)" } }}

@@ -39,6 +39,7 @@ export default function AccountMenu({
     <>
       <Menu
         anchorEl={anchorEl}
+        // anchorReference="anchorPosition"
         id="account-menu"
         open={open}
         onClose={handleClose}
@@ -49,6 +50,7 @@ export default function AccountMenu({
             overflow: "visible",
             filter: "drop-shadow(0px 2px 8px rgba(0,0,0,0.32))",
             mt: 1.5,
+            ...(position && { mt: 0 }),
             "& .MuiAvatar-root": {
               width: 32,
               height: 32,
@@ -60,8 +62,8 @@ export default function AccountMenu({
               display: "block",
               position: "absolute",
               ...(position === "bottom"
-                ? { bottom: 0, right: 0 }
-                : { right: 14, top: 0 }),
+                ? { bottom: 0, right: 2 }
+                : { top: 0, right: 14 }),
               // top: 0,
               // right: 14,
               width: 10,
@@ -72,9 +74,16 @@ export default function AccountMenu({
             },
           },
         }}
+        {...(position === "bottom"
+          ? {
+              transformOrigin: { horizontal: "right", vertical: "bottom" },
+              anchorOrigin: { horizontal: "right", vertical: "top" },
+            }
+          : {
+              transformOrigin: { horizontal: "right", vertical: "top" },
+              anchorOrigin: { horizontal: "right", vertical: "bottom" },
+            })}
         // transformOrigin={{ horizontal: "right", vertical: "top" }}
-        transformOrigin={{ horizontal: "right", vertical: "bottom" }}
-        anchorOrigin={{ horizontal: "right", vertical: "top" }}
         // anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
       >
         <MenuItem component={NextLinkComposed} to={"/profile"}>
