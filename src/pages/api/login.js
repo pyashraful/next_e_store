@@ -8,7 +8,6 @@ export default async (req, res) => {
   const { email, password } = req.body;
   await dbConnect();
   let user = await User.findOne({ email });
-  console.log("🚀 ~ file: login.js ~ line 11 ~ user", user);
 
   if (user && bcrypt.compareSync(password, user.password)) {
     const token = jwt.sign(

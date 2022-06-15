@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { Store } from "@utils/store";
 import { useRouter } from "next/router";
 import Link from "next/link";
@@ -7,6 +7,7 @@ import LocalMallOutlinedIcon from "@mui/icons-material/LocalMallOutlined";
 import PermIdentityOutlinedIcon from "@mui/icons-material/PermIdentityOutlined";
 import { styled } from "@mui/system";
 // import { useUser } from "src/common/hook/useUser";
+import AccountMenu from "@components/AccountMenu";
 
 const FixDiv = styled("div")({
   position: "fixed",
@@ -16,7 +17,7 @@ const FixDiv = styled("div")({
   bottom: 0,
   left: 0,
   right: 0,
-  zIndex: 1500,
+  zIndex: 999,
   boxShadow: "0px 1px 4px 3px rgb(0 0 0 / 10%)",
   width: "100vw",
   backgroundColor: "white",
@@ -39,14 +40,18 @@ const NavLink = styled("a")({
 });
 
 export default function MobileNav({ showModal, setShowModal }) {
+  const [anchorEl, setAnchorEl] = useState(null);
+  const open = Boolean(anchorEl);
+
   // const { user } = useUser();
   const { state, dispatch } = useContext(Store);
   // console.log("🚀 ~ file: MobileNav.jsx ~ line 44 ~ MobileNav ~ state", state);
   const router = useRouter();
 
-  function showLoingForm() {
+  function showLoingForm(event) {
     if (state.user) {
-      router.push("/profile");
+      setAnchorEl(event.currentTarget);
+      // router.push("/profile");
     } else {
       dispatch({ type: "TOGGLE_SIGNIN_DIALOG" });
     }
@@ -71,6 +76,12 @@ export default function MobileNav({ showModal, setShowModal }) {
         <PermIdentityOutlinedIcon size="large" />
         Profile
       </NavLink>
+      <AccountMenu
+        open={open}
+        anchorEl={anchorEl}
+        setAnchorEl={setAnchorEl}
+        userRole={state.user?.role}
+      />
     </FixDiv>
   );
 }

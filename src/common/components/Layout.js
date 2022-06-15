@@ -1,7 +1,8 @@
 import { useState } from "react";
 import Head from "next/head";
 import Nav from "./nav/Nav";
-import MobileNav from "./mobileNav/MobileNav";
+// import MobileNav from "./mobileNav/MobileNav";
+import MobileBottomNav from "./mobileNav/MobileBottomNav";
 import LoginModal from "./user/LoginModal";
 import Footer from "./footer/Footer";
 import dynamic from "next/dynamic";
@@ -28,7 +29,8 @@ export default function Layout({ children }) {
         </main>
       )}
 
-      <MobileNav showModal={showModal} setShowModal={setShowModal} />
+      {/* <MobileNav showModal={showModal} setShowModal={setShowModal} /> */}
+      <MobileBottomNav />
       <Footer />
     </div>
   );
