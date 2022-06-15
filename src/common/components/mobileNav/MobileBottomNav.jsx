@@ -1,11 +1,28 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import { Paper, BottomNavigation, BottomNavigationAction } from "@mui/material";
 import HomeIcon from "@mui/icons-material/Home";
 import LocalMallOutlinedIcon from "@mui/icons-material/LocalMallOutlined";
 import PermIdentityOutlinedIcon from "@mui/icons-material/PermIdentityOutlined";
 import { Box } from "@mui/system";
+import { Store } from "@utils/store";
+import AccountMenu from "@components/AccountMenu";
 
 export default function MobileBottomNav() {
+  const { state, dispatch } = useContext(Store);
+  const [anchorEl, setAnchorEl] = useState(null);
+  const open = Boolean(anchorEl);
+
+  const [value, setValue] = useState(0);
+
+  function showLoingForm(event) {
+    if (state.user) {
+      setAnchorEl(event.currentTarget);
+      // router.push("/profile");
+    } else {
+      dispatch({ type: "TOGGLE_SIGNIN_DIALOG" });
+    }
+  }
+
   return (
     <Box>
       <Paper
@@ -20,22 +37,40 @@ export default function MobileBottomNav() {
       >
         <BottomNavigation
           showLabels
-          // value={value}
-          // onChange={(event, newValue) => {
-          //   setValue(newValue);
-          // }}
+          value={value}
+          onChange={(event, newValue) => {
+            setValue(newValue);
+          }}
+          sx={{ width: "100%", hight: "100%", justifyContent: "space-around" }}
         >
-          <BottomNavigationAction label="Recents" icon={<HomeIcon />} />
           <BottomNavigationAction
+            sx={{ maxWidth: "100%", "&:hover": { color: "rgb(210, 63, 87)" } }}
+            label="Recents"
+            icon={<HomeIcon />}
+          />
+          <BottomNavigationAction
+            sx={{ maxWidth: "100%", "&:hover": { color: "rgb(210, 63, 87)" } }}
             label="Favorites"
             icon={<LocalMallOutlinedIcon />}
           />
           <BottomNavigationAction
+            onClick={showLoingForm}
+            sx={{
+              maxWidth: "100%",
+              height: "100%",
+              "&:hover": { color: "rgb(210, 63, 87)" },
+            }}
             label="Archive"
             icon={<PermIdentityOutlinedIcon />}
           />
         </BottomNavigation>
       </Paper>
+      <AccountMenu
+        open={open}
+        anchorEl={anchorEl}
+        setAnchorEl={setAnchorEl}
+        userRole={state.user?.role}
+      />
     </Box>
   );
 }

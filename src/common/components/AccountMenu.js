@@ -65,6 +65,7 @@ export default function AccountMenu({ anchorEl, setAnchorEl, open, userRole }) {
         }}
         // transformOrigin={{ horizontal: "right", vertical: "top" }}
         transformOrigin={{ horizontal: "right", vertical: "bottom" }}
+        // anchorOrigin={{ horizontal: "right", vertical: "top" }}
         anchorOrigin={{ horizontal: "right", vertical: "top" }}
       >
         <MenuItem component={NextLinkComposed} to={"/profile"}>
