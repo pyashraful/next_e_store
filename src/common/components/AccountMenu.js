@@ -13,7 +13,13 @@ import { useRouter } from "next/router";
 import Cookies from "js-cookie";
 import { Store } from "@utils/store";
 
-export default function AccountMenu({ anchorEl, setAnchorEl, open, userRole }) {
+export default function AccountMenu({
+  anchorEl,
+  setAnchorEl,
+  open,
+  userRole,
+  position,
+}) {
   const { dispatch } = useContext(Store);
   const router = useRouter();
   // const { mutate } = useUser();
@@ -53,8 +59,11 @@ export default function AccountMenu({ anchorEl, setAnchorEl, open, userRole }) {
               content: '""',
               display: "block",
               position: "absolute",
-              top: 0,
-              right: 14,
+              ...(position === "bottom"
+                ? { bottom: 0, right: 0 }
+                : { right: 14, top: 0 }),
+              // top: 0,
+              // right: 14,
               width: 10,
               height: 10,
               bgcolor: "background.paper",
@@ -65,8 +74,8 @@ export default function AccountMenu({ anchorEl, setAnchorEl, open, userRole }) {
         }}
         // transformOrigin={{ horizontal: "right", vertical: "top" }}
         transformOrigin={{ horizontal: "right", vertical: "bottom" }}
-        // anchorOrigin={{ horizontal: "right", vertical: "top" }}
         anchorOrigin={{ horizontal: "right", vertical: "top" }}
+        // anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
       >
         <MenuItem component={NextLinkComposed} to={"/profile"}>
           <ListItemIcon>
