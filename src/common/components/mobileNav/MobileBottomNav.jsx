@@ -6,7 +6,7 @@ import PermIdentityOutlinedIcon from "@mui/icons-material/PermIdentityOutlined";
 import { Box } from "@mui/system";
 import { Store } from "@utils/store";
 import AccountMenu from "@components/AccountMenu";
-import { NextLinkComposed } from "@components/Link";
+import Link, { NextLinkComposed } from "@components/Link";
 
 export default function MobileBottomNav() {
   const { state, dispatch } = useContext(Store);
@@ -46,18 +46,23 @@ export default function MobileBottomNav() {
         >
           <BottomNavigationAction
             sx={{ maxWidth: "100%", "&:hover": { color: "rgb(210, 63, 87)" } }}
-            label="Recents"
+            label="Home"
             icon={<HomeIcon />}
             component={NextLinkComposed}
             to="/"
           />
+
           <BottomNavigationAction
-            sx={{ maxWidth: "100%", "&:hover": { color: "rgb(210, 63, 87)" } }}
-            label="Favorites"
+            sx={{
+              maxWidth: "100%",
+              "&:hover": { color: "rgb(210, 63, 87)" },
+            }}
+            label="Cart"
             icon={<LocalMallOutlinedIcon />}
             component={NextLinkComposed}
             to="/cart"
           />
+
           <BottomNavigationAction
             onClick={showLoingForm}
             sx={{
@@ -65,7 +70,7 @@ export default function MobileBottomNav() {
               height: "100%",
               "&:hover": { color: "rgb(210, 63, 87)" },
             }}
-            label="Archive"
+            label="Profile"
             icon={<PermIdentityOutlinedIcon />}
           />
         </BottomNavigation>

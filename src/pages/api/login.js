@@ -31,7 +31,6 @@ export default async (req, res) => {
       })
     );
 
-    console.log("🚀 ~ file: login.js ~ line 11 ~ user", user);
     res.json(user);
   } else {
     res.status(401).json({ error: "Email or Password is wrong" });
